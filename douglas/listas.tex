@@ -1,0 +1,476 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{estilosexercicios}
+\usepackage{hyperref}
+
+%\usepackage[bottom=2cm,top=3cm,left=3cm,right=2cm]{geometry}
+%\usepackage[utf8]{inputenc}
+%Environments para esta lista
+% ---------------------------------------------------
+\definecolor{Floresta}{rgb}{0.13,0.54,0.13}
+\newcommand{\exercicio}[1]{\subsection{Exercício #1} \textcolor{blue}{\bf(#1)}}
+\newcommand{\dividiritens}[1]{\begin{tasks}[counter-format={(tsk[a])},label-width=3.6ex, label-format = {\bfseries}, column-sep = {0pt}](1) #1 \end{tasks}}
+\newcommand{\pers}[1]{\textcolor{Floresta}{$\negrito{(#1)} $}}
+
+\newcommand{\solucao}[1]{
+\textbf{\textcolor{white}{oi}\\ \\ \textcolor{red}{Solução:}} #1}
+\newcommand{\figura}[1]{\input Arquivos_de_figs_Exercicios/#1} %Adicionar figuras do latex
+
+% ---------------------------------------------------
+\title{Tópicos de Anéis e Módulos}
+\author{MAT0501/MAT6680}
+\date{2º semestre de 2019}
+
+\begin{document}
+\definecolor{Floresta}{rgb}{0.13,0.54,0.13}
+\maketitle
+\tableofcontents
+\newpage
+\begin{comment}
+
+\begin{center}
+\large\textbf{\textcolor{Floresta}{Lista 1}}\\
+\end{center}
+
+\end{comment}
+
+\section{\textcolor{Floresta}{Lista 1}}
+
+\exercicio{1} Seja $A$ um conjunto com duas operações que satisfazem todas as condições da definição de anel com
+unidade, com a possível exceção da condição: $a + b = b + a$ para todo $a, b \in A.$ Prove que $A$ é um anel.
+\solucao{
+Seja $(A,+,0,-,\cdot,1)$ uma estrutura tal que:
+\begin{itemize}
+\item[A1)] $x+(y+z)=(x+y)+z$,
+\item[A2)] $x+0=0+x=x$,
+\item[A3)] $x+(-x)=(-x)+x=0$,
+\item[M1)] $x\cdot(y\cdot z)=(x\cdot y)\cdot z$,
+\item[D1)] $x\cdot(y+z)=(x\cdot y)+(x\cdot z)$,
+\item[D2)] $(x+y)\cdot z=(x\cdot z)+(y\cdot z)$,
+\item[M2)] $x\cdot 1=1\cdot x=x$.
+\end{itemize}
+
+Vamos calcular o valor de $(x+y)(1+1):$
+Por um lado, temos:
+\[
+\begin{array}{rcl}
+(x+y)\cdot(1+1)&=& x\cdot(1+1)+y\cdot(1+1)\\&=&x\cdot 1+x\cdot 1+y\cdot 1+y\cdot 1\\&=&x+x+y+y,
+\end{array}
+\]
+mas também:
+\[
+\begin{array}{rcl}
+(x+y)\cdot(1+1)&=& (x+y)\cdot 1+(x+y)\cdot 1\\&=&x+y+x+y,
+\end{array}
+\]
+Dessa forma:
+\[
+(x+y)(1+1) = (x+y)(1+1) \Rightarrow \cancel{x} + x + y + \bcancel{y} = \cancel{x} + y + x + \bcancel{y} \Rightarrow x + y = y + x
+\]
+\[
+x+x+y+y=x+y+x+y,
+\]
+aí:
+\[
+x+y=y+x.
+\]
+
+}
+\exercicio{2}
+Seja $A$ um anel e $R$ um subanel de $A.$ Pode acontecer que:
+\dividiritens{
+\task[\pers{a}] $A$ seja um anel com unidade e $R$ não;
+\task[\pers{b}] $R$ seja um anel com unidade e $A$ não;
+\task[\pers{c}] $A$ e $R$ sejam anéis com unidade e a unidade de $A$ seja diferente da unidade de $R;$
+\task[\pers{d}] $A$ e $R$ sejam anéis com unidade e as unidades de $A$ e de $R$ coincidem.
+}
+Dar exemplos que ilustrem cada uma das situações acima.
+
+\solucao{
+  \dividiritens{
+\task[\pers{a}] 
+
+\task[\pers{b}] Considere $R = \mathbb{Z} \times \{ 0 \}.$ Então $R$ é um anel com unidade. $R$ é subanel de $A = \mathbb{Z} \times 2 \mathbb{Z},$ que é um anel que não possui unidade.
+}
+\dividiritens{
+\task[\pers{c}] Temos vários exemplos interessantes. Citamos $3$ aqui:
+\begin{itemize}
+    \item Sejam
+    \[
+A:=\left\{\;\begin{pmatrix}x&y\\z&w\end{pmatrix}\;;\;\;x,y,z,w\in\Bbb R\;\right\}\; e \;R:=\left\{\;\begin{pmatrix}a&a\\a&a\end{pmatrix}\;;\;\;a\in\Bbb R\;\right\}
+    \]
+    $R$ é subanel de $A,$ e 
+    \[
+    1_A = \begin{pmatrix}1&0\\0&1\end{pmatrix} \neq 1_R = \begin{pmatrix}\frac{1}{2}&\frac{1}{2}\\\frac{1}{2}&\frac{1}{2}\end{pmatrix}
+    \]
+    \end{itemize}
+    \begin{itemize}
+        \item Sejam
+    \[
+A:=\left\{\;\begin{pmatrix}x&y\\z&w\end{pmatrix}\;;\;\;x,y,z,w\in\Bbb R\;\right\}\; e \;R:=\left\{\;\begin{pmatrix}a&0\\0&0\end{pmatrix}\;;\;\;a\in\Bbb R\;\right\}
+    \]
+    $R$ é subanel de $A,$ e 
+    \[
+    1_A = \begin{pmatrix}1&0\\0&1\end{pmatrix} \neq 1_R = \begin{pmatrix}1&0\\0&0\end{pmatrix}
+    \]
+    \end{itemize}
+%https://math.stackexchange.com/questions/603881/example-of-a-finite-non-commutative-ring-without-a-unity?rq=1 Para todo primo, existe um anel não comutativo sem unidade com p^2 elementos.
+\task[\pers{d}]
+}
+
+
+}
+    \begin{itemize}
+
+            \item Considere o grupo diedral de ordem $8:$
+            \[
+            D_4 = \langle \sigma, \tau | \sigma^4 = \tau^2 = 1, \tau \sigma = \sigma^3 \tau \rangle
+            \]
+Considere o anel de grupo $A = \mathbb{C}[D_4],$ um espaço vetorial de dimensão $8$ sobre $\mathbb{C}$ com base $\{e_{1}, e_{\sigma}, e_{\sigma^2}, e_{\sigma^3}, e_{\tau}, e_{\sigma \tau}, e_{\sigma^2\tau}, e_{\sigma^3 \tau} \}.$ A multiplicação é dada por $e_ge_h = e_{gh}.$ Logo, a unidade de $A$ é $e_{1}.$
+
+Como o centro de $D_4$ é $\{1, \sigma^2 \},$ $v_1 = \frac{1}{2}(e_1 - e_{\sigma^2})$ comuta com todos os elementos de $A.$ Além disso, $v_1$ é idempotente. Para cada $g \in D_4,$ defina $v_g = V_1 e_g.$ Pode-se verificar que $v_g v_h = v_{gh},$ e que $v_{\sigma^2} = -v_1,$ assim
+\[
+\{ v_g |g \in D_4 \} = \{\pm v_1, \pm v_\sigma, \pm v_\tau, \pm v_\sigma v_\tau \}
+\]
+tomemos então
+\[
+R = \{ a_v1 + bv_\sigma + cv_\tau + d v_{\sigma \tau} |a,b,c,d \in \mathbb{C} \}
+\]
+$R$ é um subconjunto de $A$ fechado por subtração e multiplicação, e portanto um subanel de $A,$ cujo elemento identidade é $v_1.$ Assim,
+\[
+1_A = e_1 \neq v_1 = 1_R
+\]
+\end{itemize}
+
+\exercicio{3} Prove que o único automorfismo do anel $\mathbb{Z}$ é o automorfismo idêntico.
+\solucao{
+Seja $\varphi \colon \mathbb{Z} \to \mathbb{Z}$ um automorfismo de $\mathbb{Z}.$ Note primeiramente que
+\[
+\varphi(1) = \varphi(1 \cdot 1) = \varphi(1) \cdot \varphi(1) \Rightarrow \varphi(1) = (\varphi(1))^2
+\]
+Como os únicos elementos idempotentes de $\mathbb{Z}$ são o $0$ e o $1,$ e em particular $\varphi$ é um isomorfismo, temos que a única possibilidade é $\varphi(1) = 1.$ Assim, para todo $z \in \mathbb{Z}^{+},$ temos que $z = n = \underbrace{1 + 1 + \ldots + 1}_{n \mbox{ vezes}}.$ Daí
+\[
+\varphi(z) = \varphi(n) = \varphi(1 + 1 + \ldots + 1) = n \varphi(1)
+\]
+Assim, $\varphi(z) = z \ \forall z \in \mathbb{Z}^{+}.$ Para $z \in \mathbb{Z}^{-},$ temos que $-z \in \mathbb{Z}^{+},$ e então
+\[
+\varphi(z) = -\varphi(-z) = -(-z) = z
+\]
+Portanto, temos que $\varphi(z) = z$ para todo $z \in \mathbb{Z},$ ou seja, trata-se do automorfismo idêntico.
+}
+
+\exercicio{4} Sejam $A$ um corpo, $A^{\prime}$ um anel e $\varphi \colon A \to A^{\prime}$ um homomorfismo de anéis não nulo. Prove que $\varphi$ é monomorfismo.
+\solucao{
+Suponha por absurdo que $\varphi$ não seja um monomorfismo. Dessa forma, existem $x, y \in A$ tais que $\varphi(x) = \varphi(y),$ mas $x \neq y.$ Observe que, como $\varphi$ é homomorfismo de anéis, temos:
+\[
+\varphi(x) = \varphi(y) \Rightarrow \varphi(x) - \varphi(y) = 0 \Rightarrow \varphi(x - y) = 0
+\]
+Sendo $A$ um corpo, como $x - y \in A,$ e $x - y \neq 0,$ este admite um inverso, digamos $(x-y)^{-1}.$ Assim, temos que
+\[
+\varphi(x-y)\varphi((x-y)^{-1}) = 0 \Rightarrow \varphi((x-y)(x-y)^{-1}) = 0 \Rightarrow \varphi(1) = 0
+\]
+Assim, para todo $r \in A,$ temos que
+\[
+\varphi(r) = \varphi(1 \cdot r) = \textcolor{red}{\varphi(1)} \varphi(r) = \textcolor{red}{0} \varphi(r) = 0
+\]
+Portanto, $\varphi$ seria o homomorfismo nulo, uma contradição. Logo,  $\varphi$ é injetora.
+
+Outra solução: Um homomorfismo de anéis é injetor se e somente se $\ker \varphi = \{ 0 \}.$ Sabemos também que $\ker \varphi$ é um ideal de $A.$ Sendo $A$ corpo, seus únicos ideais são os triviais. Então $\ker \varphi = \{ 0 \}$ ou $\ker \varphi = A.$ No primeiro caso, concluímos que $\varphi$ é injetora. Na segunda, $\varphi$ corresponde ao homomorfismo nulo, o que não é o caso. Logo, $\varphi$ é injetora.
+
+Cabe salientar que o resultado não é válido se $A$ for apenas um anel. Por exemplo, tomando
+\[
+\fullfunction{\phi}{\mathbb{Z}}{\mathbb{Z}_2}{z}{\overline{z}},
+\]
+temos um homomorfismo de anéis que não é nem o nulo e nem injetor.
+}
+
+\exercicio{5} Sejam $A$ um anel e $I$ um ideal à esquerda de $A.$ Chama-se anulador de $I$ ao conjunto \[
+\mbox{Ann}(I) = \{x \in
+A | xm = 0, \forall m \in I \}.\] Prove que $\mbox{Ann}(I)$ é um ideal bilateral de $A.$
+\solucao{Vamos mostrar que $\mbox{Ann}(I)$ é um ideal de $A.$ Temos:
+\begin{itemize}
+    \item $0 \in \mbox{Ann}(I),$ pois $0 \cdot m = 0,$ para todo $m \in I.$
+    \item Para $a,b \in  \mbox{Ann}(I),$ temos que $am = 0$ e $bm = 0,$ para todo $m \in I.$ Logo,
+    \[
+    (a-b)m = am - bm = 0, \ \forall m \in I \Rightarrow a-b \in \mbox{Ann}(I).
+    \]
+    \item Seja $\alpha \in A.$ Para $a \in I,$ temos que $am = 0$ para todo $m \in I.$ Dessa forma,
+    \[
+    (\alpha a)m = \alpha \textcolor{blue}{(am)} = \alpha \cdot \textcolor{blue}{0} \Rightarrow \alpha a \in I.
+    \]
+    Analogamente,
+\end{itemize}
+Logo, $\mbox{Ann}(I)$ é um ideal bilateral de $A.$
+}
+\exercicio{6} Consideremos o anel $\mathcal{M}_2(\mathbb{Q})$ das matrizes $2 \times 2$ com coeficientes em $\mathbb{Q}.$
+\dividiritens{
+\task[\pers{a}] Prove que os único ideais bilaterais de $\mathcal{M}_2(\mathbb{Q})$ são $\{ 0\}$ e o próprio $\mathcal{M}_2(\mathbb{Q})$.
+\task[\pers{b}] Dê exemplos de ideais à esquerda e à direita não triviais de $\mathcal{M}_2(\mathbb{Q})$.
+\task[\pers{c}]  Generalize os resultados anteriores para um anel de matrizes $\mathcal{M}_2(F)$ onde $F$ é um corpo.
+}
+\solucao{
+\dividiritens{
+\task[\pers{a}] Seja $I \neq \{ 0 \}$ um ideal de $\mathcal{M}_2(\mathbb{Q}).$ Considere uma matriz $A \in I. $ Seja $\alpha$ uma entrada não nula de $A,$ e assuma que esta pertença à linha $\ell$ e coluna $c.$ Considere $E_1 \in \mathcal{M}_2(\mathbb{Q})$ que possui todas as suas entradas nula a menos da entrada $(1, \ell),$ que valerá $1.$ Seja $E_2 \in \mathcal{M}_2(\mathbb{Q}),$ que possui todas as suas entradas nula a menos da entrada $(c, 1),$ que valerá $1.$ Como $I$ é um ideal bilateral, temos que $B = E_1AE_2 \in I.$ Mas $B$ é a matriz que possui todas as suas entradas nulas, exceto a entrada $(1,1),$ que terá valor $\alpha.$ Para visualizar melhor, considere hipoteticamente
+\[
+A = \begin{pmatrix} 1 & 0 \\ \textcolor{PineGreen}{\alpha} & 3 \end{pmatrix}
+\]
+onde $\alpha$ pertence à linha $2$ e coluna $1.$ Nesse caso, temos que
+\[
+E_1 = \begin{pmatrix} 0 & \textcolor{PineGreen}{1} \\ 0 & 0 \end{pmatrix} \quad \mbox{e} \quad E_2 = \begin{pmatrix}  \textcolor{PineGreen}{1} & 0 \\ 0 & 0 \end{pmatrix}
+\]
+e então
+\[
+B = E_1AE_2 = \begin{pmatrix} 0 & \textcolor{PineGreen}{1} \\ 0 & 0 \end{pmatrix} \begin{pmatrix} 1 & 0 \\ \textcolor{PineGreen}{\alpha} & 3 \end{pmatrix} \begin{pmatrix}  \textcolor{PineGreen}{1} & 0 \\ 0 & 0 \end{pmatrix} = \begin{pmatrix} \textcolor{PineGreen}{\alpha} & 0 \\ 0 & 0 \end{pmatrix}
+\]
+Utilizando um argumento análogo, podemos concluir que $C \in I,$ onde $C$ é a matriz cujas entradas são nulas, exceto pela entrada $(2,2),$ que vale $\alpha,$ tomando 
+\[
+E_3 = \begin{pmatrix} 0 & 0 \\ 0 & \textcolor{PineGreen}{1} \end{pmatrix} \quad \mbox{e} \quad E_4 = \begin{pmatrix}  0 & \textcolor{PineGreen}{1} \\ 0 & 0 \end{pmatrix},
+\]
+temos
+\[
+C = E_3AE_4 = \begin{pmatrix} 0 & 0 \\ 0 & \textcolor{PineGreen}{1} \end{pmatrix}  \begin{pmatrix} 1 & 0 \\ \textcolor{PineGreen}{\alpha} & 3 \end{pmatrix}  \begin{pmatrix}  0 & \textcolor{PineGreen}{1} \\ 0 & 0 \end{pmatrix} = \begin{pmatrix} 0 & 0 \\ 0 & \textcolor{PineGreen}{\alpha} \end{pmatrix}
+\]
+Como $B, C \in I,$ e $I$ é um ideal, evidentemente $B + C \in I.$ Portanto,
+\[
+B + C = \begin{pmatrix} \textcolor{PineGreen}{\alpha} & 0 \\ 0 & 0 \end{pmatrix} + \begin{pmatrix} 0 & 0 \\ 0 & \textcolor{PineGreen}{\alpha} \end{pmatrix} = \begin{pmatrix} \textcolor{PineGreen}{\alpha} & 0 \\ 0 & \textcolor{PineGreen}{\alpha} \end{pmatrix} = \alpha \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \in I
+\]
+Note que $B + C$ é inversível, com inversa $(B + C)^{-1} = \begin{pmatrix} \textcolor{PineGreen}{\alpha^{-1}} & 0 \\ 0 & \textcolor{PineGreen}{\alpha^{-1}} \end{pmatrix}.$ Logo,
+\[
+(B + C)(B + C)^{-1} \in I \Rightarrow  \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \in I
+\]
+
+Como a matriz identidade está em $I,$ concluímos que $I = \mathcal{M}_2(\mathbb{Q}).$
+\task[\pers{b}] 
+\task[\pers{c}] Repetindo um processo análogo ao feito no item (a), podemos concluir que os únicos ideais bilaterais de $\mathcal{M}_2(F)$ são $\{ 0\}$ e o próprio $\mathcal{M}_2(F)$.
+}
+}
+\exercicio{7} Seja $p$ um número primo. Prove que:\dividiritens{
+\task[\pers{a}] Se $A$ é um anel de integridade finito de característica $p,$ então a aplicação $\varphi \colon A \to A$ dada por $\varphi(a) = a^p$ é um automorfismo de $A.$ 
+\task[\pers{b}] O único automorfismo de $\mathbb{Z}_p$ é o automorfismo idêntico. Deduzir que a $p \equiv a \pmod p$ para todo $a \in A.$
+\task[\pers{c}] Prove o \emph{Pequeno Teorema de Fermat}, isto é, se $p$ não divide $a,$ então $a^{p-1} \equiv 1 \pmod p.$
+}
+\solucao{
+\dividiritens{
+\task[\pers{a}]
+}
+}
+\exercicio{8} Seja $A$ um anel tal que $x^2 = x$ para todo $x \in A,$ este anel é chamado \emph{anel de Boole}. Mostre que $A$ é um anel comutativo.
+\solucao{
+Seja $A$ um anel tal que $\forall x\in A:x^2=x$. Vamos primeiramente mostrar que todo elemento é igual a seu inverso. Então:
+\[
+\begin{array}{rcl}
+x+x&=&(x+x)^2\\&=&x(x+x)+x(x+x)\\&=&x^2+x^2+x^2+x^2\\&=&x+x+x+x,
+\end{array}
+\]
+Logo,
+\[
+0=x+x \Rightarrow x = -x
+\]
+Agora, note que
+\[
+\begin{array}{rcl}
+x+y&=&(x+y)^2\\&=&x(x+y)+y(x+y)\\&=&x^2+xy+xy+y^2\\&=&x+xy+xy+y,
+\end{array}
+\]
+Daí:
+\[
+0=xy+yx \Rightarrow -xy = yx
+\]
+Como todo elemento é igual a seu inverso, temos também que $xy = -xy.$ Logo:
+\[
+xy = -xy = yx \Rightarrow xy = yx.
+\]
+Portanto, o anel $A$ é comutativo.
+}
+
+\exercicio{9} Mostre que todo anel de integridade finito é um corpo. Note que $\mathbb{Z}$ é um anel de integridade infinito e não é um corpo.
+\solucao{
+Seja $R$ um anel de integridade finito. Tome $r \in R$ diferente de $0.$ Considere a função:
+\[
+\fullfunction{\varphi}{R}{R}{x}{rx}
+\]
+Observe que $\varphi$ é um injetora, pois se existem $x,y \in R$ tais que $\varphi(x) = \varphi(y),$ então
+\[
+\varphi(x) = \varphi(y) \Rightarrow rx = ry \Rightarrow r(x - y) = 0 \Rightarrow x - y = 0 \Rightarrow x = y.
+\]
+Sendo injetora e $R$ finito, então existe um certo $\rho \in R$ tal que $\varphi(\rho) = 1,$ ou seja, $r\rho = 1.$ Logo, $\rho$ é o inverso de $r.$ Como $r$ foi escolhido arbitrariamente, concluímos que todo elemento não nulo de $R$ é invertível. Portanto, $R$ é um corpo.
+}
+\exercicio{10} Sejam $A$ um anel, $I$ e $J$ ideais à direita (esquerda) de $A.$ Mostre que $I \cup J$ é um ideal à direita
+(esquerda) de $A$ se e somente se $I \subset J$ ou $J \subset I.$
+\solucao{}
+
+\exercicio{11}  Seja $m \in \mathbb{Z}, m > 0.$ Mostre que $m\mathbb{Z}$ é um ideal maximal de $\mathbb{Z}$ se e somente se $m$ é um número primo.
+\solucao{
+Antes, lembremos que um ideal $I$ de um anel $R$ é dito maximal se para todo ideal $J$, se $I \subset J \subset R$, então $J = I$ ou $J = R.$ 
+
+Suponha que $m$ é um número primo. Considere $I$ um ideal contendo $m \mathbb{Z}.$ Se $a \in I \setminus m \mathbb{Z},$ então $a$ não tem fator comum com $m,$ e portanto $\mdc(a,m) = 1.$ Pelo Teorema de Bézout, existem inteiros $r$ e $s$ tais que $as + mr = 1. $ Isso implica que $1 \in I,$ logo $I = \mathbb{Z}.$ Então $m \mathbb{Z}$ é maximal.
+
+Se $m \mathbb{Z}$ é ideal maximal, considere $d$ um divisor de $m.$ Então $d \mathbb{Z}$ é um ideal de $\mathbb{Z},$ e $m \mathbb{Z} \subseteq d \mathbb{Z}.$ Como $m \mathbb{Z}$ é um ideal maximal, isso implica que $d \mathbb{Z} = m \mathbb{Z}$ ou $d \mathbb{Z} = \mathbb{Z}.$ Daí, $d = \pm m$ ou $d = \pm 1,$ e os únicos divisores positivos de $m$ são $1$ e $m.$ Logo, $m$ é um número primo.
+}
+\exercicio{12} Seja $A$ um anel tal que $x^3 = x$ para todo $x \in A.$ Mostre que $A$ é um anel comutativo.
+\solucao{
+Seja $A$ um anel tal que $\forall x\in A:x^3=x$. Então:
+\[
+\begin{array}{rcl}
+2x&=&(2x)^3\\&=&8x^3\\&=&8x,
+\end{array}
+\]
+Portanto, temos que $6x = 0.$ Além disso:
+\[
+\begin{array}{rcl}
+x+x^2&=&(x+x^2)^3\\&=&\textcolor{red}{x^3}+3\textcolor{Laranja}{x^4}+3\textcolor{Verde}{x^5}+\textcolor{Blue}{x^6}\\&=&\textcolor{red}{x}+3\textcolor{Laranja}{x^2}+3\textcolor{Verde}{x}+\textcolor{Blue}{x^2},
+\end{array}
+\]
+Assim, temos que
+\[
+x + x^2 = x + 3x^2 + 3x + x^2 \Rightarrow 3x+3x^2=0.
+\]
+Portanto, para todo $\alpha \in A,$ concluímos que $3\alpha + 3\alpha^2 = 0.$ Em particular, tomando $\alpha = x + y,$ temos
+\[
+3(x+y) + 3(x+y)^2 = 0 \Rightarrow \textcolor{Brown}{3x}+\textcolor{Purple}{3y}+\textcolor{Brown}{3x^2} + 3xy + 3yx + \textcolor{Purple}{3y^2} = 0 \Rightarrow\]\[ \textcolor{Brown}{(3x + 3x^2)} + 3xy + 3yx + \textcolor{Purple}{(3y + 3y^2)} = 0 \Rightarrow 3xy + 3yx = 0
+\]
+Vamos agora mostrar que $2xy - 2yx = 0,$ o que nos permitirá concluir o resultado desejado. Observe que
+\[
+2y = 2y + x - x  \textcolor{Fuchsia}{(x+y)} - \textcolor{Emerald}{(x-y)} \Rightarrow 2y = 2y + x - x  \Rightarrow \]\[
+2y = \textcolor{Fuchsia}{(x+y)} - \textcolor{Emerald}{(x-y)} \Rightarrow 
+2y = \textcolor{Fuchsia}{(x+y)^3} - \textcolor{Emerald}{(x-y)^3} \Rightarrow
+2y = \]\[\textcolor{Fuchsia}{(x^3 + x^2y+xyx + xy^2 + yx^2 + yxy + y^2 x + y^3)} - \textcolor{Emerald}{(x^3 - x^2y-xyx + xy^2 - yx^2 + yxy + y^2 x - y^3)} \Rightarrow \]\[
+2y = x^3 + x^2y+xyx + xy^2 + yx^2 + yxy + y^2 x + y^3 - x^3 + x^2y+xyx - xy^2 + yx^2 - yxy - y^2 x + y^3  \Rightarrow \]\[2y = 2\textcolor{Salmon}{y^3}+2x^2y+2xyx+2yx^2 \Rightarrow
+\]
+\[
+2y = 2\textcolor{Salmon}{y}+2x^2y+2xyx+2yx^2 \Rightarrow
+\]
+\[
+2x^2y+2xyx+2yx^2=0
+\]
+Ademais, multiplicando a expressão obtida acima por $x$ à esquerda e à direita, obtemos: 
+\[
+2x^2y+2xyx+2yx^2=0 \Rightarrow x(2x^2y+2xyx+2yx^2) = 0 \Rightarrow 2x^3y+2x^2yx+2xyx^2=0
+\]
+e também
+\[
+2x^2y+2xyx+2yx^2=0 \Rightarrow (2x^2y+2xyx+2yx^2)x = 0 \Rightarrow 2x^2yx +2xyx^2 + 2yx^3 = 0
+\]
+Subtraindo os resultados obtidos, chegamos a
+\[
+(2x^3y+2x^2yx+2xyx^2) - (2x^2yx +2xyx^2 + 2yx^3 ) = 0 \Rightarrow \]\[ 2x^3y+ \cancel{2x^2yx}+\bcancel{2xyx^2} - \cancel{2x^2yx} - \bcancel{2xyx^2} - 2yx^3 \Rightarrow 2\textcolor{WildStrawberry}{x^3}y-2y\textcolor{WildStrawberry}{x^3}=0 \Rightarrow 2\textcolor{WildStrawberry}{x}y-2y\textcolor{WildStrawberry}{x}=0
+\]
+Dessa forma, concluímos que 2xy - 2yx = 0. Finalmente, 
+\[
+(3xy - 3yx) - (2xy - 2yx) = 0 \Rightarrow xy - yx = 0 \Rightarrow \boxed{xy = yx}
+\]
+
+Portanto, temos que o anel $A$ é comutativo.
+}
+\exercicio{13}  Seja $A$ um anel tal que os únicos ideais à direita de $A$ são $\{0\}$ e $A.$ Mostre que $A$ é um anel com divisão ou um anel com um número primo de elementos no qual $ab = 0$ para todos $a, b \in A.$
+\solucao{ Considere o conjunto
+\[
+I = \{ b \in R | bR = 0 \}
+\]
+Vamos mostrar que $I \lhd_r R,$ ou seja, que $I$ é um ideal à direita de $R.$ Temos que:
+\begin{itemize}
+    \item $0 \in I,$ pois $0R = 0;$
+    \item Para todo $a,b \in I,$ $a - b \ in I,$ pois $(a - b)R = aR- bR = 0;$
+    \item Para $r \in R$ e $a \in I,$ temos que $ar \in I,$ pois $arR = aR = 0.$
+\end{itemize}
+
+Como os únicos ideais à direita de $R$ são os triviais, temos que $I = \{0\}$ ou $I = R.$ No primeiro caso, isso significa que $ab $. Caso contrário, $I = R,$ e portanto temos que $xy = 0$ para todos $x,y \in R.$ Dessa forma, $(R, +)$ é um grupo abeliano simples, ou seja, cujos únicos subgrupos são os triviais, e portanto $\abs{R} = p$ é um número primo.
+}
+\exercicio{14} Sejam $F$ um corpo e $F[X,Y]$ o anel dos polinômios em duas indeterminadas com coeficientes em $F$.
+Prove que $F[X, Y]$ não é um anel principal. 
+\solucao{
+}
+\exercicio{15} Seja $A = \mathcal{C}([0, 1])$ o anel das funções contínuas de $[0, 1]$ em $\mathbb{R}.$ Se $M$ é um ideal maximal de $A$, prove que existe $c \in [0, 1]$ tal que \[M = \{f \in A | f(c) = 0\}.\]
+\solucao{
+}
+\exercicio{16} Prove que: 
+\dividiritens{
+\task[\pers{a}] O ideal $I$ de $\mathbb{Z}$ é maximal se e somente se $I = \langle p \rangle,$ onde $p$ é um número primo.
+\task[\pers{b}] $F[X]$ é um anel principal, onde $F$ é um corpo. Qual a condição sobre $f \in F[X]$ para que $\langle f \rangle$ seja um ideal maximal?
+}
+\solucao{
+\dividiritens{
+\task[\pers{a}] Ver Questão 11.
+\task[\pers{b}] Vamos provar que $\langle f \rangle$ é um ideal maximal se e somente se $f$ é irredutível em $F[X].$
+
+Suponha $f(x)$ irredutível. Tome $I$ um ideal de $F[X]$ tal que 
+\[
+\langle f \rangle \subsetneq I \subseteq F[X].
+\]
+Seja $g \in I \setminus \langle f \rangle.$ Podemos aplicar o Teorema de Bézout para polinômios e ver que existem $a(x)$ e $b(x)$ tais que
+\[
+f(x)a(x) + g(x)b(x) = 1.
+\]
+Portanto, $1 \in I.$ Logo, $I = F[X].$ Daí, o ideal $\langle f \rangle$ é maximal.
+
+Reciprocamente, suponha que $\langle f \rangle$ é um ideal maximal. Tome $d(x)$ um fator de $f(x).$ então $\langle d \rangle$ é um ideal de $F[X],$ e temos $\langle f \rangle \subset \langle d \rangle.$ Isso implica que $\langle f \rangle = \langle d \rangle$ ou $\langle d \rangle = F[X],$ pois $\langle f \rangle$ é maximal. Então $d(x) \in F,$ ou $d$ é um múltiplo escalar de $f.$ Isso implica que $f$ é irredutível.
+}
+}
+\exercicio{17} Seja $A = \mathcal{C}[0, 1]$ o anel das funções reais contínuas definidas no intervalo $[0, 1].$ Prove que 
+\[I = \left\{f \in A | f \left(\frac{1}{2} \right) = 0 \right\}\]
+é um ideal maximal de $A.$ 
+\solucao{}
+\exercicio{18} Seja $M$ um $A$-módulo. Prove que:
+\dividiritens{
+\task[\pers{a}] $(-a)m = a(-m) = -(am), \forall a in A, \forall m \in M;$
+\task[\pers{b}] $0 \cdot m = 0, \forall m \in M;$
+\task[\pers{c}] $a \cdot 0 = 0, \forall a \in A.$
+}
+\solucao{}
+\exercicio{19}  Sejam $M$ um $A$-módulo e $S$ e $T$ submódulos de $M.$ Prove que $S \cup T$ é um submódulo de $M$ se e somente se $S \subset T$ ou $T \subset S.$ 
+\solucao{}
+\exercicio{20} Determinar todos os submódulos do $\mathbb{Z}$-módulo $\mathbb{Z}_{12},$ o anulador de cada elemento de $\mathbb{Z}_{12}$ e o anulador
+do módulo todo.
+\solucao{}
+\exercicio{21} Dar um exemplo de um $\mathbb{Z}$-módulo, onde dois submódulos quaisquer sejam sempre não isomorfos.
+\solucao{}
+\exercicio{22} Prove que se $m$ e $n$ são dois inteiros relativamente primos, o único $\mathbb{Z}$-homomorfismo $\varphi \colon \mathbb{Z}_n \to \mathbb{Z}_m$ é
+o homomorfismo nulo.
+\solucao{}
+\exercicio{23} Seja $M$ um $\mathbb{Z}$-módulo finito tal que o conjunto dos seus submódulos é totalmente ordenado por
+inclusão. Prove que existe um número primo $p$ tal que o número de elementos de $M$ é uma potência de $p.$
+\solucao{}
+\exercicio{24} Um $A$-módulo $M$ é \emph{simples} se $M \neq \{0\}$ e os únicos submódulos de $M$ são $\{ 0\}$ e o próprio $M.$
+\dividiritens{
+\task[\pers{a}] Prove que se $M$ é simples e $\varphi \colon M \to N$ é um $A$-homomorfismo não nulo, então $\varphi$ é um
+monomorfismo. Prove que se $N$ também é simples, então $\varphi$ é um isomorfismo.
+\task[\pers{b}]  Seja $\mbox{Hom}(M, N)$ o conjunto de todos os $A$-homomorfismos de $M$ em $N.$ Mostrar que com a
+soma definida pontualmente e o produto por composição, $\mbox{Hom}(M, M)$ é um anel. Prove que se $M$ é simples, então $\mbox{Hom}(M, M)$ é um anel com divisão. (este resultado é conhecido como
+\emph{Lema de Schur})
+}
+\solucao{}
+\exercicio{25} Prove que, se a sequência $M \xrightarrow{\varphi} N \xrightarrow{\psi} R \xrightarrow{\phi} S$ é exata, são equivalentes:
+\dividiritens{
+\task[\pers{a}] $\varphi$ é epimorfismo;
+\task[\pers{b}] $\mbox{Im}(\psi) = 0;$
+\task[\pers{c}] $\phi$ é monomorfismo.
+}
+\solucao{}
+\exercicio{26} Seja o diagrama comutativo:
+\begin{center}
+\begin{tikzcd}
+            & M^{\prime} \arrow{r}{f^{\prime}} \arrow{d}{\varphi^{\prime}} & M \arrow{r}{f} \arrow{d}{\varphi} & M^{\prime \prime} \arrow{r} \arrow{d}{\varphi^{\prime \prime}} & 0 \\
+0 \arrow{r} & N^{\prime} \arrow{r}{g^{\prime}}                               & N \arrow{r}{g}                      & N^{\prime \prime}                                                 &  
+\end{tikzcd}
+\end{center}
+
+Suponhamos que as filas são sequências exatas, prove que
+\dividiritens{
+\task[\pers{a}] Se $\varphi^\prime$ e $\varphi^{\prime \prime}$ são epimorfismos, então $\varphi$ é epimorfismo.
+\task[\pers{b}] Se $\varphi^\prime$ e $\varphi^{\prime \prime}$ são isomorfismos, então $\varphi$ é isomorfismo.
+}
+\solucao{}
+\exercicio{27} Seja o diagrama comutativo:
+\begin{center}
+\begin{tikzcd}
+M_1 \arrow{r}{f_1} \arrow{d}{h_1} & M_2 \arrow{r}{f_2} \arrow{d}{h_2} & M_3 \arrow{r}{f_3} \arrow{d}{h_3} & M_4 \arrow{r}{f_4} \arrow{d}{h_4} & M_5 \arrow{d}{h_5} \\
+N_1 \arrow{r}{g_1}                   & N_2 \arrow{r}{g_2}                   & N_3 \arrow{r}{g_3}                   & N_4 \arrow{r}{g_4}                   & N_5                  
+\end{tikzcd}
+\end{center}
+Suponhamos que as filas são sequências exatas, prove que
+\dividiritens{
+\task[\pers{a}] Se $h_1$ é epimorfismo e $h_4$ é monomorfismo, então $\ker(h_3) = f_2(\ker(h_2));$
+\task[\pers{b}] Se $h_2$ é epimorfismo e $h_5$ é monomorfismo, então $g_3^{-1}(\mbox{Im}(h_4)) = \mbox{Im}(h_3);$
+\task[\pers{c}] (Lema dos Cinco) Se $h_1, h_2, h_4$ e $h_5$ são isomorfismos, então $h_3$ é um isomorfismo.
+}
+
+\end{document} 

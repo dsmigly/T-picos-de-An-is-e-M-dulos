@@ -1,0 +1,1956 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[a4paper, total={6in,8in}]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[portuguese]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{commath}
+\usepackage{tikz-cd}
+
+\title{Anéis e Módulos: Exercícios 1}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+
+\section*{Lista 1}
+
+\subsection*{Exercício 1}
+Provar que na definição de anel com unidade a comutatividade da adição é consequência dos outros axiomas da definição de anel, e portanto é redundante.
+
+\subsubsection*{Resolução}
+
+Seja $(A,+,0,-,\cdot,1)$ uma estrutura tal que:
+\begin{itemize}
+\item[1,1)] $x+(y+z)=(x+y)+z$,
+\item[1,2)] $x+0=0+x=x$,
+\item[1,3)] $x+(-x)=(-x)+x=0$,
+\item[2,1)] $x\cdot(y\cdot z)=(x\cdot y)\cdot z$,
+\item[3,1)] $x\cdot(y+z)=(x\cdot y)+(x\cdot z)$,
+\item[3,2)] $(x+y)\cdot z=(x\cdot z)+(y\cdot z)$,
+\item[4,1)] $x\cdot 1=1\cdot x=x$.
+\end{itemize}
+Então temos:
+\[
+\begin{array}{rcl}
+(x+y)\cdot(1+1)&=& x\cdot(1+1)+y\cdot(1+1)\\&=&x\cdot 1+x\cdot 1+y\cdot 1+y\cdot 1\\&=&x+x+y+y,
+\end{array}
+\]
+mas também:
+\[
+\begin{array}{rcl}
+(x+y)\cdot(1+1)&=& (x+y)\cdot 1+(x+y)\cdot 1\\&=&x+y+x+y,
+\end{array}
+\]
+assim:
+\[
+x+x+y+y=x+y+x+y,
+\]
+aí:
+\[
+x+y=y+x.
+\]
+
+\newpage
+
+\subsection*{Exercício 2}
+Seja $A$ um anel tal que $x^2=x$ para todo $x\in A$. Mostre que $A$ é comutativo.
+
+\subsubsection*{Resolução}
+
+Seja $A$ um anel tal que $\forall x\in A:x^2=x$. Então:
+\[
+\begin{array}{rcl}
+x+x&=&(x+x)^2\\&=&x(x+x)+x(x+x)\\&=&x^2+x^2+x^2+x^2\\&=&x+x+x+x,
+\end{array}
+\]
+aí:
+\[
+0=x+x,
+\]
+aí:
+\[
+-x=x.
+\]
+Assim:
+\[
+\begin{array}{rcl}
+x+y&=&(x+y)^2\\&=&x(x+y)+y(x+y)\\&=&x^2+xy+xy+y^2\\&=&x+xy+xy+y,
+\end{array}
+\]
+aí:
+\[
+0=xy+yx,
+\]
+aí
+\[
+-xy=yx,
+\]
+mas
+\[
+-xy=xy,
+\]
+aí
+\[
+xy=yx.
+\]
+
+\newpage
+
+\subsection*{Exercício 3}
+Seja $A$ um anel com unidade finito. Mostre que para todo $x$ em $A$, $x\neq 0$, temos que, ou $x$ é inversível, ou $x$ é divisor de $0$.
+
+\subsubsection*{Resolução}
+
+Seja $A$ um anel com unidade finito. Para $x\neq 0$, se $x$ não é um divisor de zero, então para $a,b\in A$, se $xa=xb$, então $x(a-b)=xa-xb=0$, aí $a-b=0$, aí $a=b$; logo a função $f:A\rightarrow A$ tal que $\forall a\in A:f(a)=xa$ é injetora, aí é sobrejetora, aí existe $y\in A$ tal que $f(y)=1$, aí $xy=1$, e analogamente existe $z\in A$ tal que $zx=1$, aí $y=1y=zxy=z1=z$, aí $x$ é inversível.
+
+\subsection*{Exercício 4}
+Seja $A$ um anel com unidade e sejam $a,b\in A$. Mostre que $1-ab$ é inversível se, e somente se, $1-ba$ é inversível. Nesse caso, determine $(1-ab)^{-1}$.
+
+\subsubsection*{Resolução}
+
+Seja $A$ um anel com unidade. Se $1-ab$ é inversível, então existe $c\in A$ tal que $(1-ab)c=c(1-ab)=1$, aí nós temos:
+\[
+\begin{array}{rcl}
+(1-ba)(1+bca)&=&1-ba+bca-babca\\&=&1-ba+b(1-ab)ca\\&=&1-ba+ba\\&=&1
+\end{array}
+\]
+e também:
+\[
+\begin{array}{rcl}
+(1+bca)(1-ba)&=&1-ba+bca-bcaba\\&=&1-ba+bc(1-ab)a\\&=&1-ba+ba\\&=&1
+\end{array}
+\]
+aí $1-ba$ é inversível e:
+\[
+(1-ba)^{-1}=1+b(1-ab)^{-1}a.
+\]
+
+\newpage
+
+\subsection*{Exercício 5}
+Seja $A=M_n(D)$ o anel das matrizes $n\times n$ sobre um anel com divisão $D$. Mostre que seu centro é $Z(A)=\{\lambda I_n:\lambda\in Z(D)\}$. Mostre que $A$ é um anel simples, isto é, os únicos ideais de $A$ são os triviais.
+
+\subsubsection*{Resolução}
+
+a) Para todo $\lambda\in Z(D)$, então para $M\in A$ temos:
+\[
+(\lambda I)M=\lambda(IM)=\lambda(MI)=M(\lambda I);
+\]
+logo $\lambda I\in Z(A)$.
+
+\noindent
+b) Para $M=(a_{i,j})\in Z(A)$, então para $i$ e $j$ tais que $i\neq j$ seja:
+\[
+E=\begin{pmatrix}
+1&&&&&&\\&\ddots&&&&&\\&&1&&&&\\&&&0&&&\\&&&&1&&\\&&&&&\ddots&\\&&&&&&1
+\end{pmatrix}
+\]
+a matriz obtida da identidade substituindo o $i$-ésimo $1$ por $0$, então $ME=EM$, mas a entrada $(i,j)$ de $ME$ é $a_{i,j}$ e a entrada $(i,j)$ de $EM$ é $0$, aí $a_{i,j}=0$. Logo $M$ é diagonal.
+
+\medskip
+\noindent
+Consideremos:
+\[
+F=\begin{pmatrix}
+1&&1\\&\ddots&\\1&&1
+\end{pmatrix}
+\]
+então $MF=FM$, mas para $i$ e $j$ então a entrada $(i,j)$ de $MF$ é $a_{i,i}$ e a entrada $(i,j)$ de $FM$ é $a_{j,j}$, aí $a_{i,i}=a_{j,j}$, aí existe $\lambda\in D$ tal que $M=\lambda I$, mas para todo $r\in D$ temos:
+\[
+\begin{array}{rcl}
+(\lambda r)I&=&\lambda(rI)\\&=&\lambda(I(rI))\\&=&(\lambda I)(rI)\\&=&M(rI)\\&=&(rI)M\\&=&(rI)(\lambda I)\\&=&r(I(\lambda I))\\&=&r(\lambda I)\\&=&(r\lambda)I,
+\end{array}
+\]
+aí $\lambda r=r\lambda$; logo $\lambda\in Z(D)$.
+
+\medskip
+\noindent
+c) Agora seja $J$ um ideal de $A$ tal que $J\neq0$, então existe um $M=(a_{i,j})\neq 0$ tal que $M\in J$, aí existem $i$ e $j$ tais que $a_{i,j}\neq 0$, aí sendo:
+\[
+E=\begin{pmatrix}
+0&&&&&&\\&\ddots&&&&&\\&&0&&&&\\&&&1&&&\\&&&&0&&\\&&&&&\ddots&\\&&&&&&0
+\end{pmatrix},\quad\quad
+F=\begin{pmatrix}
+0&&&&&&\\&\ddots&&&&&\\&&0&&&&\\&&&1&&&\\&&&&0&&\\&&&&&\ddots&\\&&&&&&0
+\end{pmatrix}
+\]
+então:
+\[
+\begin{pmatrix}
+0&&0\\&a_{i,j}&\\0&&0
+\end{pmatrix}
+=EMF\in J,
+\]
+aí:
+\[
+\begin{pmatrix}
+0&&0\\&1&\\0&&0
+\end{pmatrix}
+\in J,
+\]
+aí, multiplicando por matrizes de permutação adequadas pela esquerda e pela direita, então:
+\[
+\begin{pmatrix}
+0&&&&&&\\&\ddots&&&&&\\&&0&&&&\\&&&1&&&\\&&&&0&&\\&&&&&\ddots&\\&&&&&&0
+\end{pmatrix}
+\in J,
+\]
+assim somando todas estas matrizes, obtemos $I\in J$, assim $J=A$. Portanto $A$ é simples.
+
+\subsection*{Exercício 6}
+
+Um anel finito com mais de um elemento sem divisores de zero é um anel com divisão.
+
+\subsubsection*{Resolução}
+
+Seja $A$ um anel finito com mais de um elemento. Então existe $a\in A$ tal que $a\neq 0$. Seja $f:A\rightarrow A$ dada por $f(x)=ax$. Para $x,y\in A$, se $f(x)=f(y)$, então $ax=ay$, aí $a(x-y)=0$, aí $x-y=0$, aí $x=y$. Logo $f$ é injetora, aí $f$ é sobrejetora, aí existe $u\in A$ tal que $f(u)=a$, aí $au=a$, aí para $x\in A$ temos $aux=ax$, aí $ux=x$; em particular $ua=a$, aí para $x\in A$ temos $xua=xa$, aí $xu=x$; logo $\forall x\in A:ux=x=xu$. Assim $A$ é anel com unidade. Como $au=a\neq0$, então $u\neq 0$. Para $r\in A$ tal que $r\neq 0$, considerando $g:A\rightarrow A$ dada por $g(x)=rx$, então $g$ é injetora, aí $g$ é sobrejetora, aí existe $s\in A$ tal que $g(s)=u$, aí $rs=u$. Para $r\in A$, se $r\neq 0$, então existe $s\in A$ tal que $rs=u$, aí $s\neq 0$, aí existe $t\in A$ tal que $st=u$, aí $r=ru=rst=ut=t$, aí $r=t$, aí $rs=u$ e $sr=u$, aí $r$ é inversível. Logo $A$ é anel com divisão.
+
+\newpage
+
+\subsection*{Exercício 7}
+Um elemento de um anel $A$ é \textit{nilpotente} se existir $n\in\mathbb{N}$ tal que $x^n=0$ e é \textit{idempotente} se $x^2=x$. Seja $A$ um anel sem elementos nilpotentes não nulos. Mostre que se $e\in A$ é idempotente, então $e\in Z(A)$.
+
+\subsubsection*{Resolução}
+
+Se todo nilpotente é nulo, então para idempotente $e$, então para $x\in A$ temos o seguinte:
+\[
+\begin{array}{rcl}
+(ex-exe)^2&=&ex(ex-exe)-exe(ex-exe)\\&=&exex-exexe-exeex+exeexe\\&=&exex-exexe-exex+exexe\\&=&0
+\end{array}
+\]
+aí $ex-exe=0$, aí $ex=exe$, e também:
+\[
+\begin{array}{rcl}
+(xe-exe)^2&=&xe(xe-exe)-exe(xe-exe)\\&=&xexe-xeexe-exexe+exeexe\\&=&xexe-xexe-exexe+exexe\\&=&0
+\end{array}
+\]
+aí $xe-exe=0$, aí $xe=exe$, assim $ex=xe$; logo $e\in Z(A)$.
+
+\subsection*{Exercício 8}
+Prove que num anel comutativo $A$, $a+b$ é nilpotente se $a$ e $b$ são nilpotentes. Provar que este resultado pode ser falso se $A$ não é comutativo.
+
+\subsubsection*{Resolução}
+
+a) Se $A$ é anel comutativo então se $a$ e $b$ são nilpotentes, existem $m,n\geq 1$ tais que $a^m=0$ e $b^n=0$, aí $(a+b)^{m+n}=\sum_{i+j=m+n}\binom{m+n}{i}a^ib^j=0$, pois $i+j=m+n$ implica que $i\geq m$ ou $j\neq n$, aí $a^i=0$ ou $b^j=0$, assim $a+b$ é nilpotente.
+
+\medskip
+\noindent
+b) Por outro lado, consideremos $A=M_2(\mathbb{Z})$ e seja:
+\[
+a=\begin{pmatrix}
+0&1\\0&1
+\end{pmatrix},\quad\quad
+b=\begin{pmatrix}
+0&0\\1&0
+\end{pmatrix}
+\]
+então $a^2=b^2=0$, mas:
+\[
+a+b=\begin{pmatrix}
+0&1\\1&0
+\end{pmatrix}
+\]
+aí para todo $n\geq 0$ temos:
+\[
+(a+b)^{2n}=\begin{pmatrix}
+1&0\\0&1
+\end{pmatrix},\quad\quad
+(a+b)^{2n+1}=\begin{pmatrix}
+0&1\\1&0
+\end{pmatrix}
+\]
+aí $a+b$ não é idempotente.
+
+\newpage
+
+\subsection*{Exercício 9}
+Seja $K$ corpo e $M\in M_n(K)$ uma matriz nilpotente. Provar que $I_n-M$ possui inversa.
+
+\subsubsection*{Resolução}
+
+Se $A$ é um anel com unidade e $x$ é nilpotente, então existe $n\geq 1$ tal que $x^n=0$, assim temos:
+\[
+(1-x)(1+\dots+x^{n-1})=1-x^n=1
+\]
+e
+\[
+(1+\dots+x^{n-1})(1-x)=1-x^n=1
+\]
+aí $1-x$ é inversível.
+
+\subsection*{Exercício 10}
+Seja $A$ um anel tal que $x^3=x$ para todo $x\in A$. Mostre que $A$ é comutativo.
+
+\subsubsection*{Resolução}
+
+Seja $A$ um anel tal que $\forall x\in A:x^3=x$. Então:
+\[
+\begin{array}{rcl}
+2x&=&(2x)^3\\&=&8x^3\\&=&8x,
+\end{array}
+\]
+aí:
+\[
+6x=0.
+\]
+Além disso:
+\[
+\begin{array}{rcl}
+x+x^2&=&(x+x^2)^3\\&=&x^3+3x^4+3x^5+x^6\\&=&x+3x^2+3x+x^2,
+\end{array}
+\]
+aí:
+\[
+3x+3x^2=0;
+\]
+logo temos:
+\[
+\begin{array}{rcl}
+0&=&3(x+y)+3(x+y)^2\\&=&3x+3y+3x^2+3xy+3yx+3y^2\\&=&3xy+3yx,
+\end{array}
+\]
+assim:
+\[
+\begin{array}{rcl}
+0&=&3xy+3yx\\&=&3xy+3yx-6yx\\&=&3xy-3yx.
+\end{array}
+\]
+Ademais:
+\[
+\begin{array}{rcl}
+2y&=&(x+y)-(x-y)\\&=&(x+y)^3-(x-y)^3\\&=&2y^3+2x^2y+2xyx+2yx^2\\&=&2y+2x^2y+2xyx+2yx^2,
+\end{array}
+\]
+aí:
+\[
+2x^2y+2xyx+2yx^2=0,
+\]
+aí:
+\[
+2x^3y+2x^2yx+2xyx^2=0
+\]
+e:
+\[
+2x^2yx+2xyx^2+2yx^3=0,
+\]
+aí:
+\[
+2x^3y-2yx^3=0,
+\]
+aí:
+\[
+2xy-2yx=0.
+\]
+Portanto:
+\[
+\begin{array}{rcl}
+xy-yx&=&(3xy-3yx)-(2xy-2yx)\\&=&0,
+\end{array}
+\]
+logo $A$ é comutativo.
+
+\subsection*{Exercício 11}
+Seja $A$ o grupo $\mathbb{Z}\times\mathbb{Z}$ com a soma natural coordenada a coordenada. Provar que $\mathrm{End}(A)$ é um anel não comutativo.
+
+\subsubsection*{Resolução}
+
+Seja $F(x,y)=(0,x+y)$, então:
+\[
+\begin{array}{rcl}
+F(x+x',y+y')&=&(0,x+x'+y+y')\\&=&(0,x+y)+(0,x'+y')\\&=&F(x,y)+F(x',y').
+\end{array}
+\]
+Aí $F\in\mathrm{End}(A)$.
+
+\medskip
+\noindent
+Seja $G(x,y)=(x,0)$. Então:
+\[
+\begin{array}{rcl}
+G(x+x',y+y')&=&(x+x',0)\\&=&(x,0)+(x',0)\\&=&G(x,y)+G(x',y').
+\end{array}
+\]
+Aí $G\in\mathrm{End}(A)$.
+
+\medskip
+\noindent
+Porém $G(F(1,1))=G(0,2)=(0,0)$ e $F(G(1,1))=F(1,0)=(0,1)$. Logo $GF\neq FG$. Aí $A$ não é comutativo.
+
+\subsection*{Exercício 12}
+Seja $S$ um subconjunto não vazio de um anel $A$. Definimos:
+\[
+l(S)=\{a\in A:ax=0,\quad\text{para todo }x\in S\}
+\]
+\[
+r(S)=\{a\in A:xa=0,\quad\text{para todo }x\in S\}
+\]
+o \textit{anulador à esquerda} e \textit{direita} respectivamente.
+
+\medskip
+\noindent
+Mostre que $l(S)$ e $r(S)$ são, respectivamente, ideais à esquerda e direita de $A$.
+
+\subsubsection*{Resolução}
+
+a) Para $l(S)$:
+\begin{itemize}
+\item $\forall s\in S:0s=0$, aí $0\in l(S)$.
+\item Para $x,y\in l(S)$, então $\forall s\in S:(x-y)s=xs-ys=0-0=0$, aí $x-y\in l(S)$.
+\item Para $x\in l(S)$ e $r\in A$, então $\forall s\in S:(ra)s=r(as)=r0=0$, aí $ra\in l(S)$.
+\end{itemize}
+
+\medskip
+\noindent
+b) Para $r(S)$:
+\begin{itemize}
+\item $\forall s\in S:s0=0$, aí $0\in r(S)$.
+\item Para $x,y\in r(S)$, então $\forall s\in S:s(x-y)=sx-sy=0-0=0$, aí $x-y\in r(S)$.
+\item Para $x\in r(S)$ e $r\in A$, então $\forall s\in S:s(ar)=(sa)r=0r=0$, aí $ar\in r(S)$.
+\end{itemize}
+
+\subsection*{Exercício 13}
+Seja $A$ um anel tal que o conjunto $I$ dos elementos não inversíveis de $A$ é um ideal. Mostre que $A/I$ é um anel com divisão e para cada $a\in A$, $a$ é inversível ou $1-a$ é inversível. Mostre que $\mathbb{Z}_{p^2}$ com $p$ primo é um exemplo deste tipo de anel.
+
+\subsubsection*{Resolução}
+
+a) Para cada $a\in A$, se $\overline{a}\neq 0$, então $a\neq I$, aí $a$ é inversível, aí existe $b\in A$ tal que $ab=ba=1$, aí $\overline{a}\overline{b}=\overline{b}\overline{a}=\overline{1}$; logo $A/I$ é anel com divisão.
+
+\medskip
+\noindent
+b) Temos $1\cdot 1=1\cdot 1=1$, aí $1\notin I$, aí para $x\in A$, como $1=x+(1-x)$, então $x+(1-x)\notin I$, aí $x\notin I$ ou $1-x\notin I$, aí $x$ é inversível ou $1-x$ é inversível.
+
+\medskip
+\noindent
+c) Seja $A=\mathbb{Z}_{p^2}$ com $p$ primo. Seja $I$ o conjunto dos elementos não inversíveis de $A$. Para $x\in\mathbb{Z}$, então temos as seguintes equivalências:
+\[
+\begin{array}{rcl}
+\overline{x}\text{ é inversível}&\Leftrightarrow&\exists a\in\mathbb{Z}\overline{x}\overline{a}=\overline{1}\\&\Leftrightarrow&\exists a,b\in\mathbb{Z}:xa-p^2b=1\\&\Leftrightarrow&\mathrm{mdc}(x,p^2)=1\\&\Leftrightarrow&p\nmid x.
+\end{array}
+\]
+Além disso, temos o seguinte:
+\begin{itemize}
+\item Temos $p\mid 0$, aí $\overline{0}\in I$.
+\item Para $x,y\in\mathbb{Z}$, se $\overline{x}\in I$ e $\overline{y}\in I$, então $p\mid x$ e $p\mid y$, aí $p\mid x-y$, aí $\overline{x}-\overline{y}\in I$.
+\item Para $r\in\mathbb{Z}$ e $x\in\mathbb{Z}$, se $\overline{x}\in I$, então $p\mid x$, aí $p\mid rx$, aí $\overline{r}\overline{x}\in I$.
+\end{itemize}
+Logo $I$ é um ideal.
+
+\subsection*{Exercício 14}
+Prove que um anel com unidade não trivial $A$ é de divisão se e somente se $A$ não possui ideais à esquerda próprios.
+
+\subsubsection*{Resolução}
+
+a) Se $A$ é anel com divisão, então para ideal à esquerda $I$, se $I\neq 0$, então existe $a\in I$ tal que $a\neq 0$, aí existe $b\in A$ tal que $ab=ba=1$, aí $1=ba\in I$, aí $1\in I$, aí $I=A$.
+
+\medskip
+\noindent
+b) Se para todo ideal à esquerda $I$ temos $I=0$ e $I=A$, então para $a\in A$ tal que $a\neq 0$ então seja $I$ o conjunto $\{xa:x\in A\}$, então:
+\begin{itemize}
+\item $0=0a\in I$,
+\item Para $x,y\in A$, então $xa-ya=(x-y)a\in I$,
+\item Para $r\in A$ e $x\in A$, então $r(xa)=(rx)a\in I$,
+\end{itemize}
+logo $I$ é um ideal à esquerda, e $a=1a\in I$ e $a\neq 0$, aí $I\neq0$, aí $I=A$, aí $1\in I$, aí existe $b\in A$ tal que $1=ba$, e, analogamente, sendo $J=\{xb:x\in A\}$, então $J$ é um ideal à esquerda e $J\neq 0$, aí $J=A$, aí existe $c\in A$ tal que $1=cb$, aí $c=c1=cba=1a=a$, aí $ab=ba=1$, aí $a$ é inversível. Logo $A$ é anel com divisão.
+
+\subsection*{Exercício 15}
+Se $ab$ é inversível em um anel com unidade $A$, então $ba$ é inversível em $A$?
+
+\subsubsection*{Resolução}
+
+Resposta: Não.
+
+\medskip
+\noindent
+Seja $G=\mathbb{Z}^\mathbb{N}$ e seja $A=\mathrm{End}_\mathbb{Z}(G)$ e sejam:
+\[
+a(x_0,x_1,x_2,\dots)=(x_1,x_2,x_3,\dots)
+\]
+e:
+\[
+b(x_0,x_1,x_2,\dots)=(0,x_0,x_1,\dots),
+\]
+então $a\in R$ e $b\in R$ e $ab=1$, mas:
+\[
+\begin{array}{rcl}
+ba(1,0,\dots)&=&b(0,0,\dots)\\&=&(0,0,\dots)\\&=&ba(0,0,\dots),
+\end{array}
+\]
+aí $ba$ não é inversível.
+
+\subsection*{Exercício 16}
+Provar que se $a^n$ é inversível em um anel com unidade $A$, então $a$ é inversível em $A$.
+
+\subsubsection*{Resolução}
+
+Se $n\geq 1$ e $a^n$ é inversível, então existe $b$ tal que $a^nb=1$ e $ba^n=1$, aí $a(a^{n-1}b)=1$ e $(ba^{n-1})a=1$, aí $a$ é inversível.
+
+\subsection*{Exercício 17}
+Provar que se $a$ é inversível à esquerda e não é um divisor de zero à direita, então $a$ é inversível em $A$.
+
+\subsubsection*{Resolução}
+
+Se $a$ é inversível à esquerda e não é divisor de zero à direita, então existe $b$ tal que $ba=1$, aí temos $aba=a1=a=1a$, aí $(ab-1)a=0$, aí $ab=1$, aí $a$ é inversível.
+
+\subsection*{Exercício 18}
+Seja $I$ um ideal de um anel comutativo $A$. Se $I$ está contido na união finita de ideais primos $P_1\cup\dots\cup P_n$, então $I\subseteq P_i$ para algum $i$.
+
+\subsubsection*{Resolução}
+
+Seja $I$ um ideal. Para ideais primos $P$ e $Q$, se $I\nsubseteq P$ e $I\nsubseteq Q$, então existem $a\in I$ e $b\in I$ tais que $a\notin P$ e $b\notin Q$, aí se $I\subseteq P\cup Q$, então $P\neq P\cup Q$ e $Q\neq P\cup Q$, aí $Q\nsubseteq P$ e $P\nsubseteq Q$, aí há $r\in Q$ tal que $r\notin P$, e há $s\in P$ tal que $s\notin Q$, aí sendo $c=ar+bs$, então $c\in I$, mas $ar\notin P$ e $bs\in P$, aí $c\notin P$, e $ar\in Q$ e $bs\notin Q$, aí $c\notin Q$, aí $c\notin P\cup Q$, contradição. Depois o resto segue por indução.
+
+\subsection*{Exercício 19}
+Seja $f:A\rightarrow B$ um homomorfismo sobrejetor de anéis e $P$ um ideal primo de $A$ tal que $\ker(f)\subseteq P$ e $f[P]\neq B$. Provar que $f[P]$ é um ideal primo de $B$. Provar que se $Q$ é um ideal primo de $B$, então $f^{-1}[Q]$ é um ideal de primo de $A$ que contém $\ker(f)$.
+
+\subsubsection*{Resolução}
+
+a) Se $P$ é um ideal primo de $A$ tal que $\ker(f)\subseteq P$ e $f[P]\neq B$, então:
+\begin{itemize}
+\item Temos $0\in P$ e $0=f(0)$, aí $0\in f[P]$.
+\item Para $a,b\in f[P]$, então existem $x,y\in P$ tais que $a=f(x)$ e $b=f(y)$, aí $x-y\in P$ e $a-b=f(x)-f(y)=f(x-y)$, aí $a-b\in f[P]$.
+\item Para $r\in B$ e $a\in f[P]$, então existem $c\in A$ e $x\in P$ tais que $r=f(c)$ e $a=f(x)$, aí $cx\in P$ e $xc\in P$ e $ra=f(c)f(x)=f(cx)$ e $ar=f(x)f(c)=f(xc)$, aí $ra\in f[P]$ e $ar\in f[P]$.
+\item Para $a,b\in B$, se $ab\in f[P]$, então existem $x,y\in A$ e $p\in P$ tais que $a=f(x)$ e $b=f(y)$ e $ab=f(p)$, aí $f(xy-p)=f(x)f(y)-f(p)=ab-ab=0$, aí $xy-p\in\ker(f)$, aí $xy-p\in P$, aí $xy\in P$, aí $x\in P$ ou $y\in P$, aí $a\in f[P]$ ou $b\in f[P]$.
+\end{itemize}
+
+\noindent
+b) Se $Q$ é um ideal primo de $B$, então:
+\begin{itemize}
+\item $f(0)=0\in Q$, aí $0\in f^{-1}[Q]$.
+\item Para $x,y\in f^{-1}[Q]$, então $f(x)\in Q$ e $f(y)\in Q$, aí $f(x-y)=f(x)-f(y)\in Q$, aí $x-y\in f^{-1}[Q]$.
+\item Para $r\in A$ e $x\in f^{-1}[Q]$, então $f(x)\in Q$, aí $f(rx)=f(r)f(x)\in Q$ e $f(xr)=f(x)f(r)\in Q$, aí $rx\in f^{-1}[Q]$ e $xr\in f^{-1}[Q]$.
+\item Para $x,y\in A$, se $xy\in f^{-1}[Q]$, então $f(x)f(y)=f(xy)\in Q$, aí $f(x)\in Q$ ou $f(y)\in Q$, aí $x\in f^{-1}[Q]$ ou $y\in f^{-1}[Q]$.
+\item Para $x\in\ker(f)$, então $f(x)=0\in Q$, aí $x\in f^{-1}[Q]$.
+\end{itemize}
+
+\newpage
+
+\subsection*{Exercício 20}
+Provar que se $D$ é um anel com divisão finito, então $a^{\abs{D}}=a$ para cada $a\in D$. (Denotamos por $\abs{D}$ a \textit{ordem} do anel, isto é, o número de elementos do anel.)
+
+\subsubsection*{Resolução}
+
+Se $D$ é anel com divisão finito, então $0^{\abs{D}}=0$ e $D\neq\{0\}$ é grupo, aí para $a\in D\setminus\{0\}$ temos $a^{\abs{D\setminus\{0\}}}=1$, aí $a^{\abs{D}-1}=1$, aí $a^{\abs{D}}=a$.
+
+\subsection*{Exercício 21}
+Provar que $\mathbb{Z}_n$ contém elementos nilpotentes não nulos se e somente se $n$ é divisível pelo quadrado de um número primo.
+
+\subsubsection*{Resolução}
+
+Se existe primo $p$ tal que $p^2\mid n$, sendo $m=\frac{n}{p}$, então $m\in\mathbb{Z}$, além disso temos $n=pm\nmid m$ e $p\mid m$, aí $m^2=m\cdot\frac{n}{p}=\frac{m}{p}\cdot n$, aí $n\mid m^2$, assim $\overline{m}\neq\overline{0}$ e $\overline{m}^2=\overline{0}$, assim $\overline{m}$ é um nilpotente não nulo em $\mathbb{Z}_n$.
+
+\medskip
+\noindent
+Se não existe primo $p$ tal que $p^2\mid n$, então $n$ é produto de primos distintos, digamos $n=p_1\dots p_m$, aí para $x\in\mathbb{Z}$, se existe $k\geq 1$ tal que $\overline{x}^k=\overline{0}$, então $n\mid x^k$, aí para $i$ temos $p_i\mid x^k$, aí $p_i\mid x$; logo $p_1\dots p_m\mid x$, aí $n\mid x$, aí $\overline{x}=\overline{0}$; logo todo elemento nilpotente de $\mathbb{Z}_n$ é nulo.
+
+\subsection*{Exercício 22}
+Seja $I$ um ideal próprio de $A$. Provar:
+\[
+\frac{M_n(A)}{M_n(I)}\cong M_n(A/I).
+\]
+
+\subsubsection*{Resolução}
+
+Para cada homomorfismo $f:R\rightarrow S$ a função $\hat{f}:M_n(R)\rightarrow M_n(R)$ aplica $f$ em cada entrada de cada matriz $A\in M_n(R)$ é homomorfismo, pois, sendo $A=(a_{i,j})$, temos:
+\begin{itemize}
+\item $f((a+b)_{i,j})=f(a_{i,j}+b_{i,j})=f(a_{i,j})+f(b_{i,j})$.
+\item $f((ab)_{i,j})=f(\sum_k a_{i,k}b_{k,j})=\sum_k f(a_{i,k})f(b_{k,j})$.
+\end{itemize}
+
+\noindent
+Seja $f:A\rightarrow A/I$ a projeção canônica. Então $\ker(f)=I$. Além disso temos o homomorfismo $\hat{f}:M_n(A)\rightarrow M_n(A/I)$ e $M\in M_n(A)$ temos:
+\[
+\begin{array}{rcl}
+M\in\ker(\hat{f})&\Leftrightarrow&\hat{f}(M)=0\\&\Leftrightarrow&\forall i,j:f(a_{i,j})=0\\&\Leftrightarrow&\forall i,j:a_{i,j}\in\ker(f)\\&\Leftrightarrow&\forall i,j:a_{i,j}\in I\\&\Leftrightarrow&M\in M_n(I).
+\end{array}
+\]
+Além disso é fácil ver que $\hat{f}$ é sobrejetora. Logo pelo teorema do homomorfismo temos $\frac{M_n(A)}{M_n(I)}\cong M_n(A/I)$.
+
+\newpage
+
+\subsection*{Exercício 23}
+Um anel $A$ é \textit{simples} se $A\neq 0$ e não possui ideais próprios. Mostrar que a característica de um anel simples com unidade é $0$ ou um primo $p$.
+
+\subsubsection*{Resolução}
+
+Suponhamos que exista $n\geq 1$ tal que $n1=0$, então consideremos o menor $n\geq 1$ tal que $n1=0$, então $n\geq 2$. Se existirem $a\geq 2$ e $b\geq 2$ tais que $n=ab$ então teremos $0=n1=(a1)(b1)$ e $a1\neq 0$ e $b1\neq 0$, pois ($1<a<n$ e $1<b<n$), aí sendo $\alpha=a1$ e $\beta=b1$, temos $\alpha\neq 0$ e $\beta\neq 0$ e $\alpha\beta=0$. Para cada $m\geq 1$ seja $I_m=\{mx:x\in A\}$, então $I_m$ é um ideal de $A$. Assim $I_n=\{0\}$ e $I_a=A$ e $I_b=A$, aí existe $x\in A$ tal que $1=bx$, aí temos $a1=a(bx)=(ab1)x=0$, contradição. Portanto a característica de $A$ é $0$ ou um primo.
+
+\subsection*{Exercício 24}
+Seja $A[[x]]$ o conjunto das sequências infinitas $(a_0,a_1,\dots)$, $a_i\in A$. Cada elemento de $A[[x]]$ pode ser representado formalmente como $\sum_{i=0}^\infty a_ix^i$, com $a_i\in R$. Provar que $A[[x]]$ é um anel se definirmos $+$, $\cdot$, $0$, $1$ como no anel de polinômios. Chama-se anel das \textit{séries de potências formais em uma indeterminada}. Provar que um elemento $f=\sum_{i=0}^\infty a_ix^i\in A[[x]]$ é inversível em $A[[x]]$ se e somente se $a_0$ é inversível em $A$.
+
+\subsubsection*{Resolução}
+
+Seja $A$ um anel com unidade e consideremos o conjunto $A[[X]]$ como o conjunto $A^\mathbb{N}$ munido de:
+\begin{itemize}
+\item $(a+b)_n=a_n+b_n$.
+\item $0_n=0$.
+\item $(-a)_n=-a_n$.
+\item $(ab)_n=\sum_{i+j=n}a_ib_j$.
+\item $1_n=\left\{\begin{array}{cl}1&\text{ se }n=0\\0&\text{ caso contrário}\end{array}\right.$
+\end{itemize}
+Então temos:
+
+\smallskip
+\noindent
+1,1)
+\[
+\begin{array}{rcl}
+(a+(b+c))_n&=&a_n+(b+c)_n\\&=&a_n+b_n+c_n\\&=&(a+b)_n+c_n\\&=&((a+b)+c)_n.
+\end{array}
+\]
+
+\smallskip
+\noindent
+1,2)
+\[
+\begin{array}{rcl}
+(a+b)_n&=&a_n+b_n\\&=&b_n+a_n\\&=&(b+a)_n.
+\end{array}
+\]
+
+\smallskip
+\noindent
+1,3)
+\[
+\begin{array}{rcl}
+(a+0)_n&=&a_n+0_n\\&=&a_n+0\\&=&a_n.
+\end{array}
+\]
+
+\smallskip
+\noindent
+1,4)
+\[
+\begin{array}{rcl}
+(a+(-a))_n&=&a_n+(-a)_n\\&=&a_n-a_n\\&=&0\\&=&0_n.
+\end{array}
+\]
+
+\smallskip
+\noindent
+2,1)
+\[
+\begin{array}{rcl}
+(a(bc))_n&=&\sum_{i+m=n}a_i(bc)_m\\&=&\sum_{i+m=n}a_i\left(\sum_{j+k=m}b_jc_k\right)\\&=&\sum_{i+m=n}\sum_{j+k=m}a_ib_jc_k\\&=&\sum_{i+j+k=n}a_ib_jc_k\\&=&\sum_{m+k=n}\sum_{i+j=m}a_ib_jc_k\\&=&\sum_{m+k=n}\left(a_ib_j\right)c_k\\&=&\sum_{m+k=n}(ab)_mc_k\\&=&((ab)c)_n.
+\end{array}
+\]
+
+\smallskip
+\noindent
+3,1)
+\[
+\begin{array}{rcl}
+(a(b+c))_n&=&\sum_{i+j=n}a_i(b+c)_j\\&=&\sum_{i+j=n}a_i(b_j+c_j)\\&=&\sum_{i+j=n}(a_ib_j+a_ic_j)\\&=&\sum_{i+j=n}a_ib_j+\sum_{i+j=n}a_ic_j\\&=&(ab)_n+(ac)_n\\&=&(ab+ac)_n.
+\end{array}
+\]
+
+\smallskip
+\noindent
+3,2)
+\[
+\begin{array}{rcl}
+((a+b)c)_n&=&\sum_{i+j=n}(a+b)_ic_j\\&=&\sum_{i+j=n}(a_i+b_i)c_j\\&=&\sum_{i+j=n}(a_ic_j+b_ic_j)\\&=&\sum_{i+j=n}a_ic_j+\sum_{i+j=n}b_ic_j\\&=&(ac)_n+(bc)_n\\&=&(ac+bc)_n.
+\end{array}
+\]
+
+\smallskip
+\noindent
+4,1)
+\[
+\begin{array}{rcl}
+(a1)_n&=&\sum_{i+j=n}a_i1_j\\&=&a_n1\\&=&a_n.
+\end{array}
+\]
+
+\smallskip
+\noindent
+4,2)
+\[
+\begin{array}{rcl}
+(1a)_n&=&\sum_{i+j=n}1_ia_j\\&=&1a_n\\&=&a_n.
+\end{array}
+\]
+
+\noindent
+Logo $A[[X]]$ é anel com unidade.
+
+\medskip
+\noindent
+Seja $a\in A[[X]]$.
+
+\medskip
+\noindent
+1) Se $a$ é inversível, existe $b$ tal que $ab=1$ e $ba=1$, aí $1=1_0=(ab)_0=\sum_{i+j=0}a_ib_j=a_0b_0$ e também $1=1_0=(ba)_0=\sum_{i+j=0}b_ia_j=b_0a_0$, aí $a_0$ é inversível.
+
+\medskip
+\noindent
+2) Se $a_0$ é inversível, podemos ter um $b_0$ tal que $a_0b_0=b_0a_0=1$, aí podemos definir $b'_0=b_0$ e por recorrência $b_{n+1}=-b_0(\sum_{i+j=n}a_{i+1}b_j)$ e $b'_{n+1}=-(\sum_{i+j=n}b'_ia_{j+1})b_0$, então temos $ab=1$ e $b'a=1$, aí $a$ é inversível.
+
+\subsection*{Exercício 25}
+Seja $A$ um anel comutativo e $I$ um ideal de $A$. Definamos:
+\[
+\mathrm{Rad}(I)=\{r\in A:r^n\in I\text{ para algum }n\}.
+\]
+Provar que $\mathrm{Rad}(I)$ é um ideal de $A$.
+
+\subsubsection*{Resolução}
+
+Temos o seguinte:
+\begin{itemize}
+\item $0\in I$ e $0=0^1$, aí $0\in\mathrm{Rad}(I)$.
+\item Para $x,y\in\mathrm{Rad}(I)$, existem $m,n\geq 1$ tais que $x^m\in I$ e $y^n\in I$, aí para $i,j$ tais que $i+j=m+n$ temos $i\geq m$ ou $j\geq n$; logo $(x+y)^{m+n}=\sum_{i+j=m+n}\frac{(m+n)!}{i!j!}x^iy^j\in I$ e $m+n\geq 1$, aí $x+y\in\mathrm{Rad}(I)$.
+\item Para $x\in\mathrm{Rad}(I)$ existe $n\geq 1$ tal que $x^n\in I$, aí $-x^n\in I$, mas $(-x)^n=x^n$ ou $(-x)^n=-x^n$, aí $(-x)^n\in I$, aí $-x\in \mathrm{Rad}(I)$.
+\item Para $r\in A$ e $x\in\mathrm{Rad}(I)$, existem $n\geq 1$ tal que $x^n\in I$, aí $(rx)^n=r^nx^n\in I$, aí $rx\in\mathrm{Rad}(I)$.
+\end{itemize}
+Logo $\mathrm{Rad}(I)$ é um ideal.
+
+\subsection*{Exercício 26}
+Provar que se $I$ é um ideal à esquerda de $A$, então $\mathrm{ann}_l(I)=\{a\in A: \forall x\in I:ax=0\}$ é um ideal de $A$.
+
+\subsubsection*{Resolução}
+
+Temos o seguinte:
+\begin{itemize}
+\item $\forall i\in I:0i=0$, aí $0\in\mathrm{ann}_l(I)$.
+\item Para $x,y\in\mathrm{ann}_l(I)$ então $\forall i\in I:(x-y)i=xi-yi=0-0=0$, aí $x-y\in\mathrm{ann}_l(I)$.
+\item Para $r\in A$ e $x\in\mathrm{ann}_l(I)$ então $\forall i\in I:(rx)i=r(xi)=r0=0$, aí $rx\in\mathrm{ann}_l(I)$.
+\item Para $r\in A$ e $x\in\mathrm{ann}_l(I)$ então para $i\in I$ temos $ri\in I$, aí $(xr)i=x(ri)=0$; aí $xr\in\mathrm{ann}_l(I)$.
+\end{itemize}
+
+\subsection*{Exercício 27}
+Seja $I$ ideal de $A$. Provar que:
+\[
+[A:I]=\{a\in A:xa\in I\text{ para cada }x\in A\}
+\]
+é um ideal de $A$ que contém $I$.
+
+\subsubsection*{Resolução}
+
+Temos o seguinte:
+\begin{itemize}
+\item Para $i\in I$ então $\forall a\in A:ai\in I$, aí $i\in[A:I]$; aí $0\in I\subseteq[A:I]$.
+\item Para $x,y\in[A:I]$, então para $a\in A$ temos $ax\in I$ e $ay\in I$, aí $a(x-y)=ax-ay\in I$; logo $x-y\in[A:I]$.
+\item Para $r\in A$ e $x\in[A:I]$, então para $a\in A$ temos $ax\in I$, aí $a(xr)=(ax)r\in I$; logo $xr\in[A:I]$.
+\item Para $r\in A$ e $x\in[A:I]$, então $\forall a\in A:a(rx)=(ar)x\in I$, aí $rx\in[A:I]$.
+\end{itemize}
+
+\subsection*{Exercício 28}
+Determine todos os ideais primos e maximais de $\mathbb{Z}_n$.
+
+\subsubsection*{Resolução}
+
+Se $I$ é ideal de $\mathbb{Z}_n$, então $J=\{x\in\mathbb{Z}:\overline{x}\in I\}$ é ideal de $\mathbb{Z}$ que contém $n\mathbb{Z}$, aí existe um divisor $d$ de $n$ tal que $J=d\mathbb{Z}$, aí temos $I=\{\overline{x}:x\in J\}$, aí $I=\overline{d}\mathbb{Z}_n$.
+
+\medskip
+\noindent
+Se $p$ é divisor primo de $n$, então para ideal $I$ de $\mathbb{Z}_n$ que contém $\overline{p}\mathbb{Z}_n$ então o conjunto $J=\{x\in\mathbb{Z}:\overline{x}\in I\}$ é um ideal que contém $p\mathbb{Z}$ então existe um divisor $d$ de $p$ tal que $J=d\mathbb{Z}$, aí $d=1$ ou $d=p$, aí $J=\mathbb{Z}$ ou $J=p\mathbb{Z}$, aí $I=\mathbb{Z}_n$ ou $I=\overline{p}\mathbb{Z}_n$. Logo $\overline{p}\mathbb{Z}_n$ é ideal maximal de $\mathbb{Z}_n$.
+
+\medskip
+\noindent
+Se $d$ é divisor de $n$ e $\overline{d}\mathbb{Z}_n$ é ideal primo de $\mathbb{Z}_n$, então $\overline{d}\in\overline{d}\mathbb{Z}_n$, aí existe divisor primo $p$ de $d$ tal que $\overline{p}\in\overline{d}\mathbb{Z}_n$, aí existe $x\in\mathbb{Z}$ tal que $n\mid p-dx$, aí $d\mid p-dx$, aí $d\mid p$, aí $d=p$, aí $d$ é primo.
+
+\medskip
+\noindent
+Logo os ideais maximais de $\mathbb{Z}_n$ são os ideais da forma $\overline{p}\mathbb{Z}_n$ em que $p$ é divisor primo de $n$. Os ideais primos de $\mathbb{Z}_n$ são os ideais da forma $\overline{p}\mathbb{Z}_n$ em que $p$ é divisor primo de $n$.
+
+\subsection*{Exercício 29}
+Provar que cada anel com unidade de ordem $p^2$, com $p$ primo, é comutativo.
+
+\subsubsection*{Resolução}
+
+Seja $A$ um anel com unidade de ordem $p^2$ em que $p$ é primo. Para cada $x\in A$ seja $Z(x)=\{r\in A:rx=xr\}$. Então $Z(x)$ é um subanel de $A$ e $Z(x)\neq 0$, aí $\abs{Z(x)}=p$ ou $\abs{Z(x)}=p^2$, mas se $\abs{Z(x)}=p$ então, como $1\in Z(x)$, eis que o subanel gerado por $1$ tem ordem $p$ e aí é igual a $Z(x)$, aí existe $n\in\mathbb{Z}$ tal que $x=n1$, aí $Z(x)=A$, contradição; logo $\abs{Z(x)}=p^2$, aí $Z(x)=A$. Logo $A$ é comutativo.
+
+\subsection*{Exercício 30}
+Seja $p$ um número primo. Achar um exemplo de anel de ordem $p^3$ não comutativo.
+
+\subsubsection*{Resolução}
+
+Seja $p$ um primo. Consideremos o conjunto $A$ das matrizes da forma:
+\[
+\begin{pmatrix}
+a&b\\0&c
+\end{pmatrix},\quad\text{ em que }a,b,c\in\mathbb{Z}_p,
+\]
+então $A$ é um anel com unidade de ordem $p^3$, mas:
+\[
+\begin{pmatrix}
+0&1\\0&0
+\end{pmatrix}
+\begin{pmatrix}
+1&1\\0&0
+\end{pmatrix}=
+\begin{pmatrix}
+0&0\\0&0
+\end{pmatrix},\quad\quad
+\begin{pmatrix}
+1&1\\0&0
+\end{pmatrix}
+\begin{pmatrix}
+0&1\\0&0
+\end{pmatrix}=
+\begin{pmatrix}
+0&1\\0&0
+\end{pmatrix}
+\]
+e $1\neq 0$, aí $A$ não é comutativo.
+
+\newpage
+
+\section*{Lista 2}
+
+A seguir, $A$ denotará um anel com $1$.
+
+\subsection*{Exercício 1}
+
+Seja $M$ um $A$-módulo e $X$ subconjunto de $M$. Definimos o \textit{anulador} de $X$ por:
+\[
+\mathrm{ann}(X)=\{a\in A:ax=0\text{ para todo }x\in X\}.
+\]
+Mostre que $\mathrm{ann}(X)$ é um ideal à esquerda de $A$ e, quando $X$ é um submódulo de $M$, então é um ideal bilateral de $A$.
+
+\subsubsection*{Resolução}
+
+Temos o seguinte:
+\begin{itemize}
+\item $\forall x\in X:0x=0$, aí $0\in\mathrm{ann}(X)$.
+\item Para $a,b\in\mathrm{ann}(X)$, então $\forall x\in X:(a-b)x=ax-bx=0-0=0$, aí $a-b\in\mathrm{ann}(X)$.
+\item Para $a\in\mathrm{ann}(X)$ e $r\in A$ então $\forall x\in X:(ra)x=r(ax)=r0=0$, aí $ra\in\mathrm{ann}(X)$.
+\end{itemize}
+Logo $\mathrm{ann}(X)$ é ideal à esquerda de $A$.
+
+\medskip
+\noindent
+Se $X$ é submódulo então para $a\in\mathrm{ann}(X)$ e $r\in A$ então para $x\in X$ temos $rx\in X$, aí $(ar)x=a(rx)=a0=0$; logo $ar\in\mathrm{ann}(X)$; logo $\mathrm{ann}(X)$ é ideal bilateral de $A$.
+
+\subsection*{Exercício 2}
+
+Determine todos os submódulos de $\mathbb{Z}_{15}$ como $\mathbb{Z}$-módulo. Determine o anulador de cada elemento de $\mathbb{Z}_{15}$ e o anulador de $\mathbb{Z}_{15}$.
+
+\subsubsection*{Resolução}
+
+a) Descobrindo todos os $\mathbb{Z}$-submódulos de $\mathbb{Z}_{15}$.
+
+\medskip
+\noindent
+a,1) Se existe $m\in\mathbb{Z}$ tal que $\mathrm{mdc}(m,15)=1$ e $\overline{m}\in M$ então existem $x,y\in\mathbb{Z}$ tais que $mx+15y=1$, aí $\overline{1}=x\cdot\overline{m}\in M$, aí para todo $n\in\mathbb{Z}$ temos $\overline{n}=n\cdot\overline{1}\in M$; logo $M=\mathbb{Z}_{15}$.
+
+\medskip
+\noindent
+a,2) Se $\forall m\in\mathbb{Z}:(\overline{m}\in M\Rightarrow\mathrm{mdc}(m,15)\neq 1)$ então:
+
+\medskip
+\noindent
+a,2,1) Se existe $m\in\mathbb{Z}$ tal que $\overline{m}\in M$ e $\mathrm{mdc}(m,15)=3$ e existe $n\in\mathbb{Z}$ tal que $\overline{n}\in M$ e $\mathrm{mdc}(n,15)=5$, existem $x,x',y,y'\in\mathbb{Z}$ tais que $mx+15x'=3$ e $ny+15y'=5$, aí $\overline{3}=x\cdot\overline{m}\in M$ e $\overline{5}=y\cdot\overline{y}\in N$, aí $\overline{1}=\overline{6}-\overline{5}=2\cdot\overline{3}-\overline{5}\in M$, contradição.
+
+\medskip
+\noindent
+a,2,2) Se existe $m\in\mathbb{Z}$ tal que $\overline{m}\in M$ e $\mathrm{mdc}(m,15)=3$ então para todo $n\in\mathbb{Z}$ tal que $\overline{n}\in M$ então $\mathrm{mdc}(n,15)=3$ ou $\mathrm{mdc}(n,15)=15$, aí $3\mid n$, aí existe $m\in\mathbb{Z}$ tal que $n=3x$, aí $\overline{n}=x\cdot\overline{3}$; além disso existem $x,y\in\mathbb{Z}$ tais que $mx+15y=3$, aí $\overline{3}=x\overline{m}\in M$ e aí $M=\{\overline{0},\overline{3},\overline{6},\overline{9},\overline{12}\}$.
+
+\medskip
+\noindent
+a,2,3) Se existe $m\in\mathbb{Z}$ tal que $\overline{m}\in M$ e $\mathrm{mdc}(m,15)=5$ então para $n\in\mathbb{Z}$ tal que $\overline{n}\in M$ então $\mathrm{mdc}(n,15)=5$ ou $\mathrm{mdc}(n,15)=15$, aí $5\mid n$, aí existe $x\in\mathbb{Z}$ tal que $n=5x$, aí $\overline{n}=x\cdot\overline{5}$; além disso existem $x,y\in\mathbb{Z}$ tais que $mx+15y=5$, aí $\overline{5}=x\overline{m}\in M$, aí $M=\{\overline{0},\overline{5},\overline{10}\}$.
+
+\medskip
+\noindent
+a,2,4) Caso contrário, para todo $m\in\mathbb{Z}$ tal que $\overline{m}\in M$ temos $\mathrm{mdc}(m,15)=15$, aí $15\mid m$, aí $\overline{m}=\overline{0}$; logo $M=\{0\}$.
+
+\medskip
+\noindent
+b) Encontrando $\mathrm{ann}(\{\overline{x}\})$ em que $\overline{x}\in\mathbb{Z}$.
+
+\medskip
+\noindent
+Seja $x\in\mathbb{Z}$ e seja $d=\mathrm{mdc}(x,15)$ então existem $m,n\in\mathbb{Z}$ tais que $xm+15n=d$, aí $\overline{d}=m\overline{x}$, aí para $a\in\mathbb{Z}$, então: (i) se $a\in\mathrm{ann}(\{\overline{x}\})$, então $\overline{da}=a\cdot\overline{d}=a\cdot m\overline{x}=m\cdot a\overline{x}=\overline{0}$, aí $15\mid da$, aí $\frac{15}{d}\mid a$; (ii) se $\frac{15}{d}\mid a$ então existe $z\in\mathbb{Z}$ tal que $a=\frac{15}{d}z$, mas existe $y\in\mathbb{Z}$ tal que $x=dy$, aí $a\cdot\overline{x}=\overline{a}\cdot\overline{x}=\overline{\left(\frac{15}{d}\right)}\cdot\overline{z}\cdot\overline{d}\cdot\overline{y}=\overline{15}\cdot\overline{z}\cdot\overline{y}=\overline{0}$, aí $a\in\mathrm{ann}(\{\overline{x}\})$; logo $\mathrm{ann}(\{\overline{x}\})=\frac{15}{d}\mathbb{Z}$.
+
+\subsection*{Exercício 3}
+
+Seja $M\neq 0$ um $\mathbb{Z}$-módulo finito tal que o conjunto dos seus submódulos é totalmente ordenado por inclusão. Prove que existe um primo $p$, tal que a ordem de $M$ é uma potência de $p$.
+
+\subsubsection*{Resolução}
+
+Seja $a\in M$ um elemento tal que $\mathbb{Z}a$ tenha cardinalidade máxima. Para $b\in M$ tal que $b\notin\mathbb{Z}a$, então $\mathbb{Z}b\nsubseteq\mathbb{Z}a$, aí $\mathbb{Z}a\subset\mathbb{Z}b$, aí $\abs{\mathbb{Z}a}<\abs{\mathbb{Z}b}$, contradição. Logo $M=\mathbb{Z}a$. Seja $n=\abs{M}$.
+
+\medskip
+\noindent
+Para primos $p$ e $q$ divisores de $n$ tais que $\mathbb{Z}pa\subseteq\mathbb{Z}qa$ então $pa\in\mathbb{Z}qa$, aí existe $m\in\mathbb{Z}$ tal que $pa=mqa$, aí $(p-mq)a=0$, aí $n\mid p-mq$, aí $q\mid p-mq$, aí $q\mid p$, aí $p=q$.
+
+\medskip
+\noindent
+Logo existe um primo $p$ tal que $n$ é potência de $p$.
+
+\subsection*{Exercício 4}
+
+Seja $D$ um domínio de integridade e $x\in D$ com $x\neq 0$. Mostre que $D\cong Dx$ como $D$-módulos.
+
+\subsubsection*{Resolução}
+
+Seja $f:D\rightarrow D$ a função dada por $f(a)=ax$. Temos:
+\begin{itemize}
+\item $f(a+b)=(a+b)x=ax+bx=f(a)+f(b)$.
+\item $f(ra)=(ra)x=r(ax)=rf(a)$.
+\end{itemize}
+Logo $f$ é homomorfismo de $D$-módulos.
+
+\medskip
+\noindent
+Se $f(a)=f(b)$ então $ax=bx$, mas $x\neq 0$, aí $a=b$; logo $f$ é injetora.
+
+\medskip
+\noindent
+Para todo $a\in Dx$ existe $r\in D$ tal que $a=rx=f(r)$; logo $f$ é sobre $Dx$.
+
+\medskip
+\noindent
+Logo $f$ é isomorfismo de $D$-módulos de $D$ em $Dx$.
+
+\subsection*{Exercício 5}
+
+Mostre que $\mathbb{Q}$ não é um $\mathbb{Z}$-módulo finitamente gerado.
+
+\subsubsection*{Resolução}
+
+Todo conjunto finito $X\subseteq\mathbb{Q}$ é da forma $\left\{\frac{a_0}{b_0},\dots,\frac{a_{n-1}}{b_{n-1}}\right\}$ em que para cada $k<n$ temos $a_k\in\mathbb{Z}$ e $b_k\in\mathbb{N}^+$, aí é fácil ver que $X\subseteq\mathbb{Z}\frac{1}{b_0\dots b_{n-1}}$, mas temos $0<b_0\dots b_{n-1}<b_0\dots b_{n-1}+1$, aí para todo $z\in\mathbb{Z}$ temos $b_0\dots b_{n-1}\neq z(b_0\dots b_{n-1}+1)$, aí $\frac{1}{b_0\dots b_{n-1}}\neq z\frac{1}{b_0\dots b_{n-1}}$; logo $\frac{1}{b_0\dots b_{n-1}}\notin\mathbb{Z}\frac{1}{b_0\dots b_{n-1}}$. Logo $\mathbb{Q}$ não é finitamente gerado como $\mathbb{Z}$-módulo.
+
+\subsection*{Exercício 6}
+
+Mostre que $\mathbb{Q}$ não é um $\mathbb{Z}$-módulo livre.
+
+\subsubsection*{Resolução}
+
+Se $\mathbb{Q}$ fosse $\mathbb{Z}$-módulo livre, então teria uma base $B$, mas sabemos que $\mathbb{Q}$ não é finitamente gerado, aí $B$ é infinito e assim existem $p,q\in B$ tais que $p\neq q$, aí existem $a,b\in\mathbb{Z}$ e $m,n\in\mathbb{N}^+$ tais que $p=\frac{a}{m}$ e $q=\frac{b}{n}$, assim $mp=a$ e $nq=b$, aí $amp=ab$ e $bnq=ba$, mas $ab=ba$, aí $amp=bnq$, aí $am=0$ e $bn=0$, aí $a=0$ e $b=0$, aí $p=0$ e $q=0$, aí $p=q$, contradição. Logo $\mathbb{Q}$ não é $\mathbb{Z}$-módulo livre.
+
+\subsection*{Exercício 7}
+
+Se $M$, $N$ são $A$-módulos, então o conjunto $\mathrm{Hom}_A(M,N)$ de todos os homomorfismos de $A$-módulos de $M$ em $N$ é um grupo abeliano em relação à operação ``soma de homomorfismos''. Prove que $\mathrm{Hom}_A(M,M)$ é um anel, em que o produto é a composição de aplicações. Prove que $M$ é um $\mathrm{Hom}_A(M,M)$-módulo à esquerda em relação à ação de $\mathrm{Hom}_A(M,M)$ em $M$:
+\[
+f\cdot x=f(x),\quad\text{para todo }f\in\mathrm{Hom}_A(M,M)\text{ e }x\in M.
+\]
+
+\subsubsection*{Resolução}
+
+a) Temos o seguinte:
+\begin{itemize}
+\item Para $f,g\in\mathrm{Hom}_A(M,N)$ então temos:
+\[
+\begin{array}{rcl}
+(f+g)(ax+by)&=&f(ax+by)+g(ax+by)\\&=&af(x)+bf(y)+ag(x)+bg(y)\\&=&af(x)+ag(x)+bf(y)+bg(y)\\&=&a(f(x)+g(x))+b(f(y)+g(y))\\&=&a(f+g)(x)+b(f+g)(y);
+\end{array}
+\]
+logo $f+g\in\mathrm{Hom}_A(M,N)$.
+\item Temos:
+\[
+\begin{array}{rcl}
+0(ax+by)&=&0\\&=&a\cdot0+b\cdot0\\&=&a0(x)+b0(y);
+\end{array}
+\]
+logo $0\in\mathrm{Hom}_A(M,N)$.
+\item Para $f\in\mathrm{Hom}_A(M,N)$ então temos:
+\[
+\begin{array}{rcl}
+(-f)(ax+by)&=&-f(ax+by)\\&=&-(af(x)+bf(y))\\&=&-af(x)-bf(y)\\&=&a(-f(x))+b(-f(y))\\&=&a(-f)(x)+b(-f)(y);
+\end{array}
+\]
+logo $-f\in\mathrm{Hom}_A(M,N)$.
+\end{itemize}
+
+\noindent
+Além disso temos o seguinte:
+\begin{itemize}
+\item Temos:
+\[
+\begin{array}{rcl}
+(f+(g+h))(x)&=&f(x)+(g+h)(x)\\&=&f(x)+g(x)+h(x)\\&=&(f+g)(x)+h(x)\\&=&((f+g)+h)(x);
+\end{array}
+\]
+logo $f+(g+h)=(f+g)+h$.
+\item Temos:
+\[
+\begin{array}{rcl}
+(f+g)(x)&=&f(x)+g(x)\\&=&g(x)+f(x)\\&=&(g+f)(x);
+\end{array}
+\]
+logo $f+g=g+f$.
+\item Temos:
+\[
+\begin{array}{rcl}
+(f+0)(x)&=&f(x)+0(x)\\&=&f(x)+0\\&=&f(x);
+\end{array}
+\]
+logo $f+0=f$.
+\item Temos:
+\[
+\begin{array}{rcl}
+(f+(-f))(x)&=&f(x)+(-f)(x)\\&=&f(x)+(-f(x))\\&=&0\\&=&0(x);
+\end{array}
+\]
+logo $f+(-f)=0$.
+\end{itemize}
+
+\noindent
+Logo $\mathrm{Hom}_A(M,N)$ é grupo abeliano.
+
+\medskip
+\noindent
+b) Temos o seguinte:
+\begin{itemize}
+\item Para $f,g\in\mathrm{Hom}_A(M,M)$ então:
+\[
+\begin{array}{rcl}
+(fg)(ax+by)&=&f(g(ax+by))\\&=&f(ag(x)+bg(y))\\&=&af(g(x))+bf(g(y))\\&=&a(fg)(x)+b(fg)(y);
+\end{array}
+\]
+logo $fg\in\mathrm{Hom}_A(M,M)$.
+\item Temos:
+\[
+\begin{array}{rcl}
+1(ax+by)&=&ax+by\\&=&a1(x)+b1(y);
+\end{array}
+\]
+logo $1\in\mathrm{Hom}_A(M,M)$.
+\end{itemize}
+
+\noindent
+Além disso temos o seguinte:
+\begin{itemize}
+\item Temos:
+\[
+\begin{array}{rcl}
+(f(g+h))(x)&=&f((g+h)(x))\\&=&f(g(x)+h(x))\\&=&f(g(x))+f(h(x))\\&=&(fg)(x)+(fh)(x)\\&=&(fg+fh)(x);
+\end{array}
+\]
+logo $f(g+h)=fg+fh$.
+\item Temos:
+\[
+\begin{array}{rcl}
+((f+g)h)(x)&=&(f+g)(h(x))\\&=&f(h(x))+g(h(x))\\&=&(fh)(x)+(gh)(x)\\&=&(fh+gh)(x);
+\end{array}
+\]
+logo $(f+g)h=fh+gh$.
+\item Temos:
+\[
+\begin{array}{rcl}
+(f(gh))(x)&=&f((gh)(x))\\&=&f(g(h(x)))\\&=&(fg)(h(x))=((fg)h)(x);
+\end{array}
+\]
+logo $f(gh)=(fg)h$.
+\item Temos:
+\[
+\begin{array}{rcl}
+(f1)(x)&=&f(1(x))\\&=&f(x);
+\end{array}
+\]
+logo $f1=f$.
+\item Temos:
+\[
+\begin{array}{rcl}
+(1f)(x)&=&1(f(x))\\&=&f(x);
+\end{array}
+\]
+logo $1f=f$.
+\end{itemize}
+
+\noindent
+Logo $\mathrm{Hom}_A(M,M)$ é um anel com unidade.
+
+\medskip
+\noindent
+c) Temos o seguinte:
+\begin{itemize}
+\item Por definição, $M$ é um grupo abeliano.
+\item Temos:
+\[
+\begin{array}{rcl}
+f\cdot(x+y)&=&f(x+y)\\&=&f(x)+f(y)\\&=&f\cdot x+f\cdot y.
+\end{array}
+\]
+\item Temos:
+\[
+\begin{array}{rcl}
+(f+g)\cdot x&=&(f+g)(x)\\&=&f(x)+g(x)\\&=&f\cdot x+g\cdot x.
+\end{array}
+\]
+\item Temos:
+\[
+\begin{array}{rcl}
+(fg)\cdot x&=&(fg)(x)\\&=&f(g(x))\\&=&f\cdot g(x)\\&=&f\cdot(g\cdot x).
+\end{array}
+\]
+\item Temos:
+\[
+\begin{array}{rcl}
+1\cdot x&=&1(x)\\&=&x.
+\end{array}
+\]
+\end{itemize}
+
+\noindent
+Logo $M$ é um $\mathrm{Hom}_A(M,M)$-módulo.
+
+\subsection*{Exercício 8}
+
+Determinar $\mathrm{Hom}_\mathbb{Z}(\mathbb{Z},\mathbb{Z}_n)$ e $\mathrm{Hom}_\mathbb{Z}(\mathbb{Z}_n,\mathbb{Z})$, com $n>0$ como $\mathbb{Z}$-módulos.
+
+\subsubsection*{Resolução}
+
+a) Para $a\in\mathbb{Z}_n$ seja $\varphi_a:\mathbb{Z}\rightarrow\mathbb{Z}_n$ dada por $\varphi_a(x)=a\overline{x}$, então $\varphi_a(x+y)=a\overline{(x+y)}=a(\overline{x}+\overline{y})=a\overline{x}+a\overline{y}=\varphi_a(x)+\varphi_a(y)$; logo $\varphi_a\in\mathrm{Hom}_\mathbb{Z}(\mathbb{Z},\mathbb{Z}_n)$.
+
+\medskip
+\noindent
+Para $a,b\in\mathbb{Z}_n$ então $\varphi_{a+b}(x)=(a+b)\overline{x}=a\overline{x}+b\overline{x}=\varphi_a(x)+\varphi_b(x)=(\varphi_a+\varphi_b)(x)$; logo $\varphi_{a+b}=\varphi_a+\varphi_b$.
+
+\medskip
+\noindent
+Para $\mathbb{Z}_n$, se $\varphi_a=0$ então $a=a\cdot\overline{1}=\varphi_a(1)=0(1)=\overline{0}$, aí $a=\overline{0}$.
+
+\medskip
+\noindent
+Para $f\in\mathrm{Hom}_\mathbb{Z}(\mathbb{Z},\mathbb{Z}_n)$ seja $a=f(1)$, então temos $\varphi_a(x)=a\overline{x}=f(1)\overline{x}=x\cdot f(1)=f(x\cdot1)=f(x)$; logo $\varphi_a=f$.
+
+\medskip
+\noindent
+Logo $\mathrm{Hom}_\mathbb{Z}(\mathbb{Z},\mathbb{Z}_n)\cong\mathbb{Z}_n$.
+
+\medskip
+\noindent
+b) Para $f\in\mathrm{Hom}_\mathbb{Z}(\mathbb{Z}_n,\mathbb{Z})$ então para $x\in\mathbb{Z}_n$ temos $nf(x)=n\cdot f(x)=f(n\cdot x)=f(\overline{0})=0$, aí $f(x)=\overline{0}$; logo $f=0$.
+
+\medskip
+\noindent
+Logo $\mathrm{Hom}_\mathbb{Z}(\mathbb{Z}_n,\mathbb{Z})\cong 0$.
+
+\subsection*{Exercício 9}
+
+Provar que, para todo $A$-módulo $M$, temos $\mathrm{Hom}_A(A,M)\cong(M,+,0,-)$.
+
+\subsubsection*{Resolução}
+
+Para $x\in M$ seja $\varphi_x:A\rightarrow M$ dada por $\varphi_x(a)=ax$. Então:
+\begin{itemize}
+\item $\varphi_x(a+b)=(a+b)x=ax+bx=\varphi_x(a)+\varphi_x(b)$.
+\item $\varphi_x(ra)=(ra)x=r(ax)=r\varphi_x(a)$.
+\end{itemize}
+Logo $\varphi_x\in\mathrm{Hom}_A(A,M)$.
+
+\medskip
+\noindent
+Além disso, temos $\varphi_{x+y}(a)=a(x+y)=ax+ay=\varphi_{x}(a)+\varphi_{x}(b)$; logo $\varphi_{x+y}=\varphi_x+\varphi_y$.
+
+\medskip
+\noindent
+Se $\varphi_x=0$ então $x=1x=\varphi_x(1)=0$, aí $x=0$;
+
+\medskip
+\noindent
+Para $f\in\mathrm{Hom}_A(A,M)$ seja $x=f(1)$ então $\varphi_x(a)=ax=af(1)=f(a\cdot1)=f(a)$; logo $\varphi_x=f$.
+
+\medskip
+\noindent
+Logo $\mathrm{Hom}_A(A,M)\cong M$.
+
+\subsection*{Exercício 10}
+
+Seja $M$ um $A$-módulo. Seja $x\mapsto ax$ o endomorfismo do grupo $M$ definido por um elemento fixo $a$ de $A$. Este endomorfismo pertence a $\mathrm{End}_A(M)$?
+
+\subsubsection*{Resolução}
+
+Resposta: Não.
+
+\medskip
+\noindent
+De fato, existe um anel $A$ tal que existam $a,b\in A$ tais que $ab\neq ba$. Seja $M=A$, então $M$ é um $A$-módulo. Sendo $\varphi_a(x)=ax$ então $\varphi_a(b\cdot1)=\varphi_a(b)=ab$ e $b\varphi_a(1)=b(a\cdot1)=ba$, aí $\varphi_a(b\cdot1)\neq b\varphi_a(1)$, aí $\varphi_a\notin\mathrm{End}_A(M)$.
+
+\subsection*{Exercício 11}
+
+Um $A$-módulo $M$ é \textit{simples} (ou \textit{irredutível}) se $M\neq 0$ e os únicos submódulos de $M$ são $0$ e $M$. Seja $f:M\rightarrow N$ um homomorfismo não nulo de $A$-módulos. Mostre que se $M$ é simples então $f$ é injetora e se $N$ é simples, então $f$ é sobrejetora.
+
+\subsubsection*{Resolução}
+
+Se $M$ é simples, então $\mathrm{Ker}(f)$, sendo um submódulo de $M$, é igual a $0$ ou a $M$, mas $f\neq 0$, aí $\mathrm{Ker}(f)\neq M$, aí $\mathrm{Ker}(f)=0$, aí $f$ é injetora.
+
+\medskip
+\noindent
+Se $N$ é simples, então $\mathrm{Im}(f)$, sendo um submódulo de $N$, é igual a $0$ ou a $N$, mas $f\neq 0$, aí $\mathrm{Im}(f)\neq 0$, aí $\mathrm{Im}(f)=N$, aí $f$ é sobrejetora.
+
+\subsection*{Exercício 12}
+
+Prove o Lema de Schur: Se $M$ e $N$ são módulos simples, então qualquer homomorfismo de $M$ em $N$ não nulo é um isomorfismo. Em particular, o anel de endomorfismos de um módulo simples é um anel com divisão.
+
+\subsubsection*{Resolução}
+
+Para $f\in\mathrm{Hom}_A(M,N)$, se $f\neq 0$, como $M$ é simples, então $f$ é injetora, e como $N$ é simples, então $f$ é sobrejetora, aí $f$ é isomorfismo de $M$ a $N$.
+
+\subsection*{Exercício 13}
+
+A recíproca do lema é verdadeira? Isto é, se $\mathrm{End}_A(M)$ é um anel com divisão, então necessariamente $M$ é simples?
+
+\subsubsection*{Resolução}
+
+Resposta: Não.
+
+\medskip
+\noindent
+Seja $K$ algum corpo e consideremos as matrizes:
+\[
+A=\begin{pmatrix}
+1&1\\0&0
+\end{pmatrix},\quad\quad B=\begin{pmatrix}
+0&0\\0&1
+\end{pmatrix}
+\]
+e seja $R$ a $K$-álgebra de $M_2(K)$ gerada por $A$ e $B$. Seja $M=K\times K$. Então $M$ é um $R$-módulo via a multiplicação à esquerda por matriz.
+
+\medskip
+\noindent
+Para $f\in\mathrm{End}_R(M)$ então temos $f(x+y)=f(x)+f(y)$ e:
+\[
+f(rx)=f\left(\begin{pmatrix}
+r&0\\0&r
+\end{pmatrix}x\right)=\begin{pmatrix}
+r&0\\0&r
+\end{pmatrix}f(x)=rf(x),
+\]
+aí $f\in\mathrm{End}_K(M)$, aí existe $F\in M_2(K)$ tal que $f(x)=Fx$, aí para $E\in R$ temos $f(Ex)=Ef(x)$, aí $FEx=EFx$; logo $FE=EF$; sendo:
+\[
+F=\begin{pmatrix}
+a&b\\c&d
+\end{pmatrix}
+\]
+então:
+\[
+\begin{pmatrix}
+a&b\\c&d
+\end{pmatrix}\begin{pmatrix}
+1&1\\0&0
+\end{pmatrix}=\begin{pmatrix}
+1&1\\0&0
+\end{pmatrix}\begin{pmatrix}
+a&b\\c&d
+\end{pmatrix},
+\]
+aí:
+\[
+\begin{pmatrix}
+a&a\\c&c
+\end{pmatrix}=
+\begin{pmatrix}
+a+c&b+d\\0&0
+\end{pmatrix},
+\]
+aí $c=0$ e $a=b+d$, e também:
+\[
+\begin{pmatrix}
+a&b\\c&d
+\end{pmatrix}\begin{pmatrix}
+0&0\\0&1
+\end{pmatrix}=\begin{pmatrix}
+0&0\\0&1
+\end{pmatrix}\begin{pmatrix}
+a&b\\c&d
+\end{pmatrix},
+\]
+aí:
+\[
+\begin{pmatrix}
+0&b\\0&d
+\end{pmatrix}=
+\begin{pmatrix}
+0&0\\c&d
+\end{pmatrix},
+\]
+aí $b=0$ e $a=d$, aí:
+\[
+F=\begin{pmatrix}
+a&0\\0&a
+\end{pmatrix},
+\]
+aí:
+\[
+f(x)=Fx=\begin{pmatrix}
+a&0\\0&a
+\end{pmatrix}x=ax.
+\]
+Logo $\mathrm{End}_R(M)\cong K$, aí $\mathrm{End}_R(M)$ é um corpo.
+
+\medskip
+\noindent
+Porém:
+\[
+\begin{pmatrix}
+1&1\\0&0
+\end{pmatrix}\begin{pmatrix}
+1\\0
+\end{pmatrix}=\begin{pmatrix}
+1\\0
+\end{pmatrix}\quad\text{e}\quad\begin{pmatrix}
+0&0\\0&1
+\end{pmatrix}\begin{pmatrix}
+1\\0
+\end{pmatrix}=\begin{pmatrix}
+0\\0
+\end{pmatrix},
+\]
+aí o conjunto:
+\[
+R\begin{pmatrix}
+1\\0
+\end{pmatrix}
+\]
+é um $R$-submódulo de $M$ e:
+\[
+R\begin{pmatrix}
+1\\0
+\end{pmatrix}\neq 0\quad\text{e}\quad\begin{pmatrix}
+1\\0
+\end{pmatrix}\neq M,
+\]
+aí $M$ não é simples.
+
+\subsection*{Exercício 14}
+
+Provar que um $A$-módulo $M$ é simples se e somente se $M\cong A/I$ em que $I$ é um ideal à esquerda maximal de $A$.
+
+\subsubsection*{Resolução}
+
+a) Seja $M$ um $A$-módulo simples. Então $M\neq 0$, aí existe $m\in M$ tal que $m\neq 0$, aí seja $f:A\rightarrow M$ dada por $f(a)=am$, então $f(a+b)=(a+b)m=am+bm=f(a)+f(b)$ e $f(ra)=(ra)m=r(am)=rf(a)$, aí $f\in\mathrm{Hom}_A(A,M)$, aí $\mathrm{Im}(f)$ é um $A$-submódulo de $M$ e $f(1)=1m=m\neq 0$, aí $\mathrm{Im}(f)=M$, aí $f$ é sobrejetora, e $\mathrm{Ker}(f)$ é um ideal à esquerda de $A$ e $\mathrm{Ker}(f)\neq A$ e para todo ideal à esquerda $I$ de $A$ tal que $\mathrm{Ker}(f)\subseteq I$ e $\mathrm{Ker}(f)\neq I$, então $f[I]$ é um $A$-submódulo de $M$ e existe $i\in I$ tal que $i\notin\mathrm{Ker}(f)$, aí $f(i)\in f[I]$ e $f(i)\neq 0$, aí $f[I]=M$, aí existe $j\in I$ tal que $f(j)=f(1)$, aí $1-j\in\mathrm{Ker}(f)\subseteq I$, aí $1\in I$, aí $I=A$; logo $\mathrm{Ker}(f)$ é ideal à esquerda maximal de $A$. Pelo teorema do homomorfismo, temos $M\cong A/\mathrm{Ker}(f)$.
+
+\medskip
+\noindent
+b) Seja $I$ um ideal à esquerda maximal de $A$ e seja $M=A/I$, e seja $N$ um $A$-submódulo de $M$ tal que $N\neq 0$ então existe $n\in N$ tal que $n\neq\overline{0}$, aí existe $b\in A$ tal que $\overline{b}=n$, aí $\mathbb{b}\neq\overline{0}$, aí $b\notin I$, aí $I+Ab=A$, aí existem $a\in A$ e $i\in I$ tais que $1=i+ab$, aí $\overline{1}=\overline{i}+a\overline{b}=an\in N$, aí para todo $m\in M$ existe $c\in A$ tal que $m=\overline{c}$, aí $m=\overline{c}=\overline{c\cdot1}=c\cdot\overline{1}\in N$; logo $N=M$, aí $M$ é simples.
+
+\subsection*{Exercício 15}
+
+Sejam $M,M_1,\dots,M_n$ uma família de $A$-módulos. Provar que $M\cong M_1\oplus\dots\oplus M_n$ se e somente se para cada $i\in\{1,\dots,n\}$, existe um homomorfismo de $A$-módulos $\varphi_i:M\rightarrow M$ tal que $\mathrm{Im}(\varphi_i)\cong M_i$, $\varphi_i\varphi_j=0$ para $i\neq j$ e $\varphi_1+\dots+\varphi_n=I_M$.
+
+\subsubsection*{Resolução}
+
+a) Para cada $k$ seja $\varphi_k=\bigoplus_{i=1}^n M_i\rightarrow\bigoplus_{i=1}^n M_i$ dada por $\varphi_k(x_1,\dots,x_n)=(0,\dots,x_k,\dots,0)$, então é fácil ver que $\varphi_k\in\mathrm{End}_A(\bigoplus_{i=1}^n M_i)$ e também $\mathrm{Im}\varphi_k=0\oplus\dots\oplus M_k\oplus\dots\oplus 0$ e $\varphi_i\varphi_j=0$ para $i\neq j$ e $\varphi_1+\dots+\varphi_n=1$.
+
+\medskip
+\noindent
+b) Se existem $\varphi_i:M\rightarrow M$ tais que $\varphi_i\in\mathrm{End}(M)$ e $\mathrm{Im}(\varphi_i)\cong M_i$ e $\varphi_i\varphi_j=0$ para $i\neq j$ e $\varphi_1+\dots+\varphi_n=1$, então temos $x=1(x)=(\varphi_1+\dots+\varphi_n)(x)=\varphi_1(x)+\dots+\varphi_n(x)\in\mathrm{Im}(\varphi_1)+\dots\mathrm{Im}(\varphi_n)$; logo $M=\mathrm{Im}(\varphi_1)+\dots+\mathrm{Im}(\varphi_n)$, além disso, para $x_1,\dots,x_m\in M$, se $\varphi_1(x_1)+\dots+\varphi_n(x_n)=0$, então $0=\varphi_i(0)=\varphi_i(\varphi_1(x_1)+\dots+\varphi_n(x_n))=\varphi_i(\varphi_1(x_1))+\dots+\varphi_i(\varphi_n(x_n))=(\varphi_i\varphi_1)(x_1)+\dots+(\varphi_i\varphi_n)(x_n)=(\varphi_i\varphi_i)(x_i)=(\varphi_i\varphi_1+\dots+\varphi_i\varphi_n)(x_i)=(\varphi_i(\varphi_1+\dots+\varphi_n))(x_i)=(\varphi_i1)(x_i)=\varphi_i(x_i)$, aí $\varphi_i(x_i)=0$; logo $M=\mathrm{Im}(\varphi_1)\oplus\dots\oplus\mathrm{Im}(\varphi_n)\cong M_1\oplus\dots\oplus M_n$.
+
+\subsection*{Exercício 16}
+
+Seja $0\rightarrow M'\xrightarrow{f}N\xrightarrow{g}M''\rightarrow0$ uma sequência exata curta de $A$-módulos. Provar que se $M'$ e $M''$ são finitamente gerados, então $N$ é finitamente gerado.
+
+\subsubsection*{Resolução}
+
+Nesse caso existem $\alpha_1,\dots,\alpha_m\in M'$ e $\beta_1,\dots,\beta_n\in M''$ tais que $M'=A\alpha_1+\dots+A\alpha_m$ e $M''=A\beta_1+\dots+A\beta_n$. Para caada $i$ seja $a_i=f(\alpha_i)$. Para cada $j$ existe $b_j\in N$ tal que $\beta_j=g(b_j)$.
+
+\medskip
+\noindent
+Para cada $x\in N$ então existem $s_1,\dots,s_n\in A$ tais que $g(x)=s_1\beta_1+\dots+s_n\beta_n=s_1g(b_1)+\dots+s_ng(b_n)=g(s_1b_1+\dots+s_nb_n)$, aí $x-(s_1b_1+\dots+s_nb_n)\in\mathrm{Ker}(g)=\mathrm{Im}(f)$, aí existe $w\in M'$ tal que $x-(s_1b_1+\dots+s_nb_n)=f(w)$, aí existem $r_1,\dots,r_m\in A$ tais que $w=r_1\alpha_1+\dots+r_m\alpha_m$, aí $f(w)=r_1f(\alpha_1)+r_mf(\alpha_m)$, aí $x-(s_1b_1+\dots+s_nb_n)=r_1a_1+\dots+r_ma_m$, aí $x=r_1a_1+\dots+r_ma_m+s_1b_1+\dots+s_nb_n$.
+
+\medskip
+\noindent
+Logo $N$ é gerado por $\{a_1,\dots,a_m,b_1,\dots,b_n\}$.
+
+\subsection*{Exercício 17}
+
+Considerar o seguinte diagrama comutativo de $A$-módulos:
+\[
+\begin{tikzcd}
+M \arrow{r}{f} \arrow{d}{g} & N \arrow{d}{h} \\
+M' \arrow{r}{f'} & N'
+\end{tikzcd}
+\]
+Provar que $g$ envia $\mathrm{Ker}(f)$ em $\mathrm{Ker}(f')$ e que $h$ envia $\mathrm{Im}(f)$ em $\mathrm{Im}(f')$. Consequentemente, $g$ e $h$ determinam homomorfismos:
+\[
+\begin{array}{lcl}
+g_1:\mathrm{Ker}(f)\rightarrow\mathrm{Ker}(f'),&&g_2:\mathrm{Coim}(f)\rightarrow\mathrm{Coim}(f')\\h_1:\mathrm{Im}(f)\rightarrow\mathrm{Im}(f'),&&h_2:\mathrm{Coker}(f)\rightarrow\mathrm{Coker}(f').
+\end{array}
+\]
+
+\subsubsection*{Resolução}
+
+Para $x\in\mathrm{Ker}(f)$ então $f(x)=0$, aí $h(f(x))=0$, aí $f'(g(x))=0$, aí $g(x)\in\mathrm{Ker}(f')$.
+
+\medskip
+\noindent
+Para $y\in\mathrm{Im}(f)$ existe $x\in M$ tal que $y=f(x)$, aí $h(y)=h(f(x))=f'(g(x))$, aí $h(y)\in\mathrm{Im}(f')$.
+
+\medskip
+\noindent
+Logo existem $g_1:\mathrm{Ker}(f)\rightarrow\mathrm{Ker}(f')$ e $g_2:\mathrm{Coim}(f)\rightarrow\mathrm{Coim}(f')$ tais que:
+\[
+\begin{tikzcd}
+\mathrm{Ker}(f) \arrow{r} \arrow{d}{g_1} & M \arrow{r} \arrow{d}{g} & \mathrm{Coim}(f) \arrow{d}{g_2} \\
+\mathrm{Ker}(f') \arrow{r}                 & M' \arrow{r}               & \mathrm{Coim}(f')                
+\end{tikzcd}
+\]
+Além disso, há $h_1:\mathrm{Im}(f)\rightarrow\mathrm{Im}(f')$ e $h_2:\mathrm{Coker}(f)\rightarrow\mathrm{Coker}(f')$ tais que:
+\[
+\begin{tikzcd}
+\mathrm{Im}(f) \arrow{r} \arrow{d}{h_1} & N \arrow{r} \arrow{d}{h} & \mathrm{Coker}(f) \arrow{d}{h_2} \\
+\mathrm{Im}(f') \arrow{r}                 & N' \arrow{r}               & \mathrm{Coker}(f')                
+\end{tikzcd}
+\]
+
+\subsection*{Exercício 18}
+
+Considera-se o seguinte diagrama comutativo de $A$-módulos com filas exatas:
+\[
+\begin{tikzcd}
+M \arrow{r}{f} \arrow{d}{\alpha} & N \arrow{r}{g} \arrow{d}{\beta} & T \arrow{d}{\gamma} \\
+M' \arrow{r}{f'}                   & N' \arrow{r}{g'}                  & T'                   
+\end{tikzcd}
+\]
+Provar que $f$ e $g$ induzem homomorfismos $\mathrm{Ker}(\alpha)\rightarrow\mathrm{Ker}(\beta)$ e $\mathrm{Ker}(\beta)\rightarrow\mathrm{Ker}(\gamma)$ respectivamente. Provar que $f'$ e $g'$ induzem homomorfismos $\mathrm{Coker}(\alpha)\rightarrow\mathrm{Coker}(\beta)$ e $\mathrm{Coker}(\beta)\rightarrow\mathrm{Coker}(\gamma)$. Além do mais, se $f'$ é monomorfismo, então a sequência $\mathrm{Ker}(\alpha)\rightarrow\mathrm{Ker}(\beta)\rightarrow\mathrm{Ker}(\gamma)$ é exata e se $g$ é epimorfismo, então é exata a sequência $\mathrm{Coker}(\alpha)\rightarrow\mathrm{Coker}(\beta)\rightarrow\mathrm{Coker}(\gamma)$.
+
+\subsubsection*{Resolução}
+
+Como os seguintes diagramas comutam:
+\[
+\begin{tikzcd}
+M \arrow{r}{f} \arrow{d}{\alpha} & N \arrow{d}{\beta} \\
+M' \arrow{r}{f'}                   & N' 
+\end{tikzcd}
+\quad\quad\text{e}\quad\quad
+\begin{tikzcd}
+N \arrow{r}{g} \arrow{d}{\beta} & T \arrow{d}{\gamma} \\
+N' \arrow{r}{g'}                  & T'                   
+\end{tikzcd}
+\]
+Então há $f_1:\mathrm{Ker}(\alpha)\rightarrow\mathrm{Ker}(\beta)$ e $f'_2:\mathrm{Coker}(\alpha)\rightarrow\mathrm{Coker}(\beta)$ e $g_1:\mathrm{Ker}(\beta)\rightarrow\mathrm{Ker}(\gamma)$ e $g'_2:\mathrm{Coker}(\beta)\rightarrow\mathrm{Coker}(\gamma)$ tais que:
+\[
+\begin{tikzcd}
+0 \arrow{r} & \mathrm{Ker}(\alpha) \arrow{r}{\iota_\alpha} \arrow{d}{f_1} & M \arrow{r}{\alpha} \arrow{d}{f} & M' \arrow{r}{\pi_\alpha} \arrow{d}{f'} & \mathrm{Coker}(\alpha) \arrow{r} \arrow{d}{f'_2} & 0 \\
+0 \arrow{r} & \mathrm{Ker}(\beta) \arrow{d}{g_1} \arrow{r}{\iota_\beta}   & N \arrow{d}{g} \arrow{r}{\beta}  & N' \arrow{d}{g'} \arrow{r}{\pi_\beta}  & \mathrm{Coker}(\beta) \arrow{r} \arrow{d}{g'_2}  & 0 \\
+0 \arrow{r} & \mathrm{Ker}(\gamma) \arrow{r}{\iota_\gamma}                  & T \arrow{r}{\gamma}                & T' \arrow{r}{\pi_\gamma}                 & \mathrm{Coker}(\gamma) \arrow{r}                   & 0
+\end{tikzcd}
+\]
+Para $x_0\in\mathrm{Ker}(\alpha)$ então $\iota_\alpha(x_0)\in M$, aí $g(f(\iota_\alpha(x_0)))=0$, aí $\iota_\gamma(g_1(f_1(x_0)))=0$, aí $g_1(f_1(x_0))=0$.
+
+\medskip
+\noindent
+Para $x''\in\mathrm{Coker}(\alpha)$, existe $x'\in M'$ tal que $x''=\pi_\alpha(x')$, aí $g'_2(f'_2(x''))=g'_2(f'_2(\pi_\alpha(x')))=\pi_\gamma(g'(f'(x')))=\pi_\gamma(0)=0$, aí $g'_2(f'_2(x''))=0$.
+
+\medskip
+\noindent
+Se $f'$ é monomorfismo, então para $y_0\in\mathrm{Ker}(\beta)$, se $g_1(y_0)=0$ então $\iota_\gamma(g_1(y_0))=0$, aí $g(\iota_\beta(y_0))=0$, aí existe $x\in M$ tal que $f(x)=\iota_\beta(y_0)$, aí $\beta(f(x))=\beta(\iota_\beta(y_0))$, aí $f'(\alpha(x))=0$, aí $\alpha(x)=0$, aí existe $x_0\in\mathrm{Ker}(\alpha)$ tal que $x=\iota_\alpha(x_0)$, aí $f(x)=f(\iota_\alpha(x_0))$, aí $\iota_\beta(y_0)=\iota_\beta(f_1(x_0))$, aí $y_0=f_1(x_0)$. Logo a sequência $\mathrm{Ker}(\alpha)\xrightarrow{f_1}\mathrm{Ker}(\beta)\xrightarrow{g_1}\mathrm{Ker}(\gamma)$ é exata.
+
+\medskip
+\noindent
+Se $g$ é epimorfismo, então para $y''\in\mathrm{Coker}(\beta)$, se $g'_2(y'')=0$, então existe $y'\in N'$ tal que $y''=\pi_\beta(y')$, aí $g'_2(\pi_\beta(y'))=0$, aí $\pi_\gamma(g'(y'))=0$, aí existe $z\in T$ tal que $g'(y')=\gamma(z)$, aí existe $y\in N$ tal que $z=g(y)$, aí $g'(y')=\gamma(g(y))$, aí $g'(y')=g'(\beta(y))$, aí $g'(y'-\beta(y))=0$, aí existe $x'\in M'$ tal que $y'-\beta(y)=f'(x')$, aí $y'=f'(x')+\beta(y)$, aí $y''=\pi_\beta(y')=\pi_\beta(f'(x')+\beta(y))=\pi_\beta(f'(x'))+\pi_\beta(\beta(y))=f'_2(\pi_\alpha(x'))$, aí $y''=f'_2(\pi_\alpha(x'))$. Logo a sequência $\mathrm{Coker}(\alpha)\xrightarrow{f'_1}\mathrm{Coker}(\beta)\xrightarrow{g'_1}\mathrm{Coker}(\gamma)$ é exata.
+
+\subsection*{Exercício 19}
+
+Provar que se $F$ é um $A$-módulo livre, então para qualquer diagrama de $A$-módulos com linha exata da forma:
+\[
+\begin{tikzcd}
+                 & F \arrow{d}{h} &   \\
+M \arrow{r}{g} & N \arrow{r}      & 0
+\end{tikzcd}
+\]
+existe um homomorfismo $\varphi:F\rightarrow M$, tal que $g\varphi=h$.
+
+\subsubsection*{Resolução}
+
+Nesse caso, $g$ é sobrejetora. Seja $B$ uma base de $F$. Para cada $b\in B$ então $h(b)\in N$, aí existe um $x_b\in M$ tal que $g(x_b)=h(b)$. Logo existe um homomorfismo $\varphi:F\rightarrow M$ tal que $\forall b\in B:\varphi(b)=x_b$. Assim, para $b\in B$ então $\varphi(b)=x_b$, aí $g(\varphi(b))=g(x_b)$, aí temos $g\varphi(b)=h(b)$; logo, como $B$ é base de $F$, então $g\varphi=h$.
+
+\subsection*{Exercício 20}
+
+Provar que para todo $A$-módulo livre $F$ e toda sequência exata da $A$-módulos:
+\[
+0\rightarrow M\xrightarrow{f}N\xrightarrow{g}T\rightarrow 0
+\]
+a sequência
+\[
+0\rightarrow\mathrm{Hom}(F,M)\xrightarrow{f^*}\mathrm{Hom}(F,N)\xrightarrow{g^*}\mathrm{Hom}(F,T)\rightarrow 0
+\]
+é exata, em que $f^*$ e $g^*$ são definidas por $f^*(\varphi)=f\circ\varphi$ e $g^*(\varphi)=g\circ\varphi$.
+
+\subsubsection*{Resolução}
+
+Para $\varphi\in\mathrm{Hom}(F,M)$, se $f^*(\varphi)=0$, então $f\circ\varphi=0$, mas $f$ é injetora, aí $\varphi=0$. Logo $f^*$ é injetora.
+
+\medskip
+\noindent
+Para $\varphi\in\mathrm{Hom}(F,M)$, então $g^*(f^*(\varphi))=g^*(f\circ\varphi)=g\circ(f\circ\varphi)=(g\circ f)\circ\varphi=0\circ\varphi=0$. Logo $\mathrm{Im}(f^*)\subseteq\mathrm{Ker}(g^*)$.
+
+\medskip
+\noindent
+Para $\psi\in\mathrm{Hom}(F,N)$, se $g^*(\psi)=0$ então $g\circ\psi=0$, aí para $t\in F$ então $g(\psi(t))=0$, aí existe um único $\varphi(t)\in M$ tal que $\psi(t)=f(\varphi(t))$; logo $\varphi:F\rightarrow M$, e é fácil ver que $\varphi\in\mathrm{Hom}(F,M)$, aí $\varphi=f\circ\varphi=f^*(\varphi)$. Logo $\mathrm{Ker}(g^*)\subseteq\mathrm{Im}(f^*)$.
+
+\medskip
+\noindent
+Para $\chi\in\mathrm{Hom}(F,T)$, então o seguinte diagrama:
+\[
+\begin{tikzcd}
+                 & F \arrow{d}{\chi} &   \\
+N \arrow{r}{g} & T \arrow{r}      & 0
+\end{tikzcd}
+\]
+é comutativo, mas $F$ é livre e a linha é exata, aí existe um homomorfismo $\psi:F\rightarrow N$ tal que $g\circ\psi=\chi$, aí $\psi\in\mathrm{Hom}(F,N)$ e $g^*(\psi)=\chi$. Logo $g^*$ é sobrejetora.
+
+\medskip
+\noindent
+Logo a sequência em questão é exata.
+
+\subsection*{Exercício 21}
+
+Prove que, se $f$ é um endomorfismo sobrejetivo de $A^n$, então $f$ é bijetora. Podemos também concluir que $f$ é necessariamente bijetora se assumir que $f$ é um endomorfismo de $A^n$ injetor?
+
+\subsubsection*{Resolução}
+
+a) Se $f$ é endomorfismo sobrejetor de $A^n$ então o seguinte diagrama tem linha exata:
+\[
+\begin{tikzcd}
+                 & A^n \arrow{d}{I} &   \\
+A^n \arrow{r}{f} & A^n \arrow{r}      & 0
+\end{tikzcd}
+\]
+Como $A^n$ é livre, existe um homomorfismo $g:A^n\rightarrow A^n$ tal que $f\circ g=I$, assim sendo $M$ a matriz representante de $f$ e $N$ a matriz representante de $g$, então $MN=I$, aí $\det(M)\det(N)=1$, aí $\det(M)$ é inversível, mas sendo $\mathrm{adj}(M)$ a matriz adjunta, wntão $M\cdot\mathrm{adj}(M)=\mathrm{adj}(M)\cdot M=\det(M)\cdot I$, aí $M\cdot\frac{\mathrm{adj}(M)}{\det(M)}=\frac{\mathrm{adj}(M)}{\det(M)}\cdot M=I$, aí $M$ é inversível, aí $f$ é inversível.
+
+\medskip
+\noindent
+b) Se $A=\mathrm{End}_\mathbb{Z}(\mathbb{Z}^{(\mathbb{Z})})$, então $A\oplus A\cong A$ como $A$-módulos, aí sendo $\varphi:A\oplus A\rightarrow A$ um isomorfismo, então seja $f:A\oplus A\rightarrow A\oplus A$ dada por $f(x,y)=(\varphi(x,y),0)$, então $f$ é um endomorfismo injetor mas não bijetor.
+
+\newpage
+
+\section*{Lista 3}
+
+\subsection*{Exercício 1}
+
+Seja $K$ corpo e $A=M_n(K)$. Provar que para cada $t$, $t=1,\dots, n$, os subconjuntos de $A$ dados por:
+\[
+S_t=\{(a_{i,j})\in A:a_{i,j}=0\text{ se }j\neq t\}
+\]
+são submódulos de $_AA$. Provar que $S_t$ é um submódulo simples de $_AA$ e $A=S_1\oplus S_2\oplus\dots\oplus S_n$.
+
+\subsubsection*{Resolução}
+
+Temos o seguinte:
+\begin{itemize}
+\item Se $j\neq t$ então $0_{i,j}=0$; logo $0\in S_t$.
+\item Para $x,y\in S_t$, então se $j\neq t$ então $(x+y)_{i,j}=x_{i,j}+y_{i,j}=0+0=0$; logo $x+y\in S_t$.
+\item Para $a\in A$ e $x\in S_t$, então se $j\neq t$ então $(ax)_{i,j}=\sum_ka_{i,k}x_{k,j}=\sum_ka_{i,k}\cdot0=0$; logo $ax\in S_t$.
+\end{itemize}
+Logo $S_t$ é submódulo de $_AA$.
+
+\medskip
+\noindent
+Para submódulo $M$ de $S_t$ tal que $M\neq 0$, existe $m\in M$ tal que $m\neq 0$, aí exisitem $k$ e $l$ tais que $m_{k,l}\neq 0$, aí $l=t$, aí $m_{k,t}\neq 0$, aí para $i$ temos $e_{i,t}=m_{k,t}^{-1}e_{i,k}m\in M$, aí para todo $x\in S_t$ temos $x=\sum_ix_{i,t}e_{i,t}\in M$; logo $M=S_t$; logo $S_t$ é simples.
+
+\medskip
+\noindent
+Para $x\in A$, então para todo $t$ então temos $xe_{t,t}\in S_t$, aí $x=xI=x(\sum_te_{t,t})=\sum_txe_{t,t}\in\sum_tS_t$. Logo $A=S_1+\oplus+S_n$.
+
+\medskip
+\noindent
+Para $x_1\in S_1$ e $\dots$ e $x_n\in S_n$, se $x_1+\dots+x_n=0$, então para $t$ então $x_t=(x_1+\dots+x_n)e_{t,t}=0$. Logo $A=S_1\oplus\dots\oplus S_n$.
+
+\subsection*{Exercício 2}
+
+Seja $(M_i)_{i\in I}$ uma família de $A$-módulos e para cada $i\in I$ seja $N_i$ um submódulo de $M_i$. Mostre:
+\[
+\frac{\bigoplus_{i\in I}M_i}{\bigoplus_{i\in I}N_i}\cong\bigoplus_{i\in I}\frac{M_i}{N_i}.
+\]
+Determinar quais das seguintes somas em $\mathbb{Z}\oplus\mathbb{Z}$ são diretas:
+\[
+\text{a)}\quad\mathbb{Z}(3,5)+\mathbb{Z}(-3,5),\quad\quad\text{b)}\quad\mathbb{Z}(1,2)+\mathbb{Z}(5,10).
+\]
+
+\subsubsection*{Resolução}
+
+Consideremos a função $f:\bigoplus_{i\in I}M_i\rightarrow\bigoplus_{i\in I}\frac{M_i}{N_i}$ dada por $f(x)=\sum_{i\in I}\overline{x_i}e_i$. Para $x\in\bigoplus_{i\in I}M_i$, então:
+\[
+\begin{array}{rcl}
+f(x)=0&\Leftrightarrow&\sum_{i\in I}\overline{x_i}e_i=0\\&\Leftrightarrow&\forall i\in I:\overline{x_i}=0\\&\Leftrightarrow&\forall i\in I:x_i\in N_i\\&\Leftrightarrow&x\in\bigoplus_{i\in I}N_i.
+\end{array}
+\]
+Logo $\mathrm{Ker}(f)=\bigoplus_{i\in I}N_i$.
+
+\medskip
+\noindent
+Para $y\in\bigoplus_{i\in I}\frac{M_i}{N_i}$ então para cada $i\in I$ temos $y_i\in\frac{M_i}{N_i}$, aí existe $x_i\in M_i$ tal que $\overline{x_i}=y_i$; logo $y=\sum_{i\in I}y_ie_i=\sum_{i\in I}\overline{x_i}e_i=f(x)$. Logo $f$ é sobrejetora.
+
+\medskip
+\noindent
+Logo pelo teorema do isomorfismo temos:
+\[
+\frac{\bigoplus_{i\in I}M_i}{\bigoplus_{i\in I}N_i}\cong\bigoplus_{i\in I}\frac{M_i}{N_i}.
+\]
+Agora partiremos aos itens:
+
+\medskip
+\noindent
+a) Resposta: A soma é direta. Para $x,y\in\mathbb{Z}$, se $x(3,5)+y(-3,5)=0$, então $(3x-3y,5x+5y)=0$, aí $3x-3y=0$ e $5x+5y=0$, aí $x-y=0$ e $x+y=0$, aí $x=y$, aí $x+x=0$, aí $2x=0$, aí $x=0$, aí $y=0$; logo a soma $\mathbb{Z}(3,5)+\mathbb{Z}(-3,5)$ é direita.
+
+\medskip
+\noindent
+b) Resposta: A soma não é direta. Temos $(5,10)=1\cdot(5,10)\in\mathbb{Z}(5,10)$ e $(5,10)=5\cdot(1,2)\in\mathbb{Z}(1,2)$, e $(5,10)\neq 0$, aí a soma $\mathbb{Z}(1,2)+\mathbb{Z}(5,10)$ não é direta.
+
+\subsection*{Exercício 3}
+
+Prove que $\mathbb{Z}(1,1)$ é somando direto de $\mathbb{Z}\oplus\mathbb{Z}$ e determine o quociente:
+\[
+\frac{\mathbb{Z}\oplus\mathbb{Z}}{\mathbb{Z}(1,1)}.
+\]
+
+\subsubsection*{Resolução}
+
+Para $x,y\in\mathbb{Z}$ então $(x,y)=(x,x)+(0,y-x)\in\mathbb{Z}(1,1)+\mathbb{Z}(0,1)$; logo $\mathbb{Z}\oplus\mathbb{Z}=\mathbb{Z}(1,1)+\mathbb{Z}(0,1)$.
+
+\medskip
+\noindent
+Para $x,y\in\mathbb{Z}$, se $x(1,1)+y(0,1)=0$, então $(x,x)+(y,0)=0$, aí $(x,x+y)=0$, aí $x=0$ e $x+y=0$, aí $y=0$; logo $\mathbb{Z}\oplus\mathbb{Z}=\mathbb{Z}(1,1)\oplus\mathbb{Z}(0,1)$.
+
+\medskip
+\noindent
+Logo:
+\[
+\frac{\mathbb{Z}\oplus\mathbb{Z}}{\mathbb{Z}(1,1)}\cong\mathbb{Z}(0,1)\cong\mathbb{Z}.
+\]
+
+\subsection*{Exercício 4}
+
+Prove que $\mathbb{Z}(a,b)$ é somando direto de $\mathbb{Z}\oplus\mathbb{Z}$ se e somente se $a$ e $b$ são primos entre si.
+
+\subsubsection*{Resolução}
+
+Sejam $a,b\in\mathbb{Z}$ tais que $(a,b)\neq(0,0)$.
+
+\medskip
+\noindent
+a) Se $a$ e $b$ são primos entre si, então existem $c,d$ tais que $ac+bd=1$, aí para $x,y\in\mathbb{Z}$ então:
+\[
+\begin{array}{rcl}
+(x,y)&=&(acx+bdx,acy+bdy)\\&=&(acx+ady,bcx+bdy)+(bdx-ady,-bcx+acy)\\&=&(cx+dy)(a,b)+(-bx+ay)(-d,c)\\&\in&\mathbb{Z}(a,b)+\mathbb{Z}(-d,c);
+\end{array}
+\]
+logo $\mathbb{Z}\oplus\mathbb{Z}=\mathbb{Z}(a,b)+\mathbb{Z}(-d,c)$, e para $x,y\in\mathbb{Z}$, se $x(a,b)+y(-d,c)=0$, então $(ax-dy,bx+cy)=0$, aí $ax-dy=0$ e $bx+cy=0$, aí $acx-cdy=0$ e $bdx+cdy=0$, aí $acx+bdx=0$, aí $x=0$, e também $-abx+bdy=0$ e $abx+acy=0$, aí $acy+bdy=0$, aí $y=0$; logo a soma é direta, ou seja, $\mathbb{Z}\oplus\mathbb{Z}=\mathbb{Z}(a,b)\oplus\mathbb{Z}(-d,c)$.
+
+\medskip
+\noindent
+b) Se existe subgrupo $M$ de $\mathbb{Z}\oplus\mathbb{Z}$ tal que $\mathbb{Z}\oplus\mathbb{Z}=\mathbb{Z}(a,b)\oplus M$, então existem $x\in\mathbb{Z}$ e $m\in M$ tais que $(1,0)=x(a,b)+m$, e existem $y\in\mathbb{Z}$ e $n\in M$ tais que $(0,1)=y(a,b)+n$, assim nós temos $(1-xa,-xb)=m\in M$ e $(-ya,1-yb)=n\in M$, aí $(y-xya,-xyb)=ym\in M$ e $(-xya,x-xyb)=xm\in M$, aí $(y,-x)=ym-xn\in M$, aí temos $(ya,-xa)\in M$ e aí $(0,1-xa-yb)\in M$, aí $(1-xa-yb)(0,1)\in M$, mas também $(yb,-xb)\in M$, aí $(1-xa-yb,0)\in M$, aí $(1-xa-yb)(1,0)\in M$, aí $(1-xa-yb)(a,b)=(1-xa-yb)(a(1,0)+b(0,1))\in M$, assim como $(1-xa-yb)(a,b)\in\mathbb{Z}(a,b)$, então $1-xa-yb=0$, aí $ax+by=1$, aí $a$ e $b$ são primos entre si.
+
+\subsection*{Exercício 5}
+
+Dê um exemplo de módulo livre com um submódulo que é somando direto e não é livre.
+
+\subsubsection*{Resolução}
+
+Consideremos $R=\mathbb{Z}_6$, então $R$ é anel comutativo com unidade e aí $_RR$ é $R$-módulo livre.
+
+\medskip
+\noindent
+Além disso, como $R$-módulos, então $\mathbb{Z}_6\cong\mathbb{Z}_2\oplus\mathbb{Z}_3$, mas todo $R$-módulo livre, sendo isomorfo a algum $R^{(I)}$, deve ter cardinalidade infinita ou potência de $\abs{R}=6$, mas $\abs{\mathbb{Z}_2}=2$, que não é potência de $6$, aí $\mathbb{Z}_2$ é isomorfo a um submódulo somando direto de $\mathbb{Z}_6={}_RR$, mas não é livre.
+
+\subsection*{Exercício 6}
+
+O produto direto de módulos livres é sempre livre?
+
+\subsubsection*{Lema}
+
+\textit{Seja $A$ um $\mathbb{Z}$-módulo livre e seja $v\in A$ um elemento não nulo. Então existe apenas um número finito de inteiros $n\in\mathbb{Z}$ tais que a equação $v=nx$ admita solução $x\in A$.}
+
+\medskip
+\noindent
+Demonstração:
+
+\noindent
+Podemos assumir sem perder a generalidade que $A=\bigoplus_{\alpha\in I}\mathbb{Z}$. Escrevamos $v=(n_\alpha)_{\alpha\in I}$ e escolhamos um $\beta\in I$ com $n_\beta\neq 0$. Se a equação $v=nx$ tem solução $x\in A$, então $n$ divide $n_\beta$. Sendo um inteiro não nulo, $n_\beta$ tem apenas um número finito de divisores. $\square$.
+
+\subsubsection*{Resolução}
+
+Resposta: Não.
+
+\medskip
+\noindent
+Consideremos $\mathbb{Z}^\mathbb{N}$. Mostraremos que $\mathbb{Z}^\mathbb{N}$ não é $\mathbb{Z}$-módulo livre.
+
+\medskip
+\noindent
+Seja $G=\prod_{m=1}^\infty\mathbb{Z}$ o proguto de infinitas cópias dos inteiros. Nossa tarefa é mostrar que esse $\mathbb{Z}$-módulo não é livre.
+
+\medskip
+\noindent
+Suponhamos que exista uma base $(e_\alpha)_{\alpha\in I}$ de $G$. Notemos que $I$ deve ser um conjunto não enumerável, pois qualquer produto infinito de conjuntos com pelo menos dois elementos é um conjunto não enumerável, enquanto que todo $\mathbb{Z}$-módulo com um número enumerável de geradores é enumerável.
+
+\medskip
+\noindent
+Consideremos os vetores elementares $e^*_k=(\dots,0,1,0,\dots)\in G$, em que a única entrara não nula é um $1$ na $k$-ésima posição. Notemos que os $e^*_k$ com $k\geq 1$ geram a soma direta infinita $\bigoplus_{m=1}^\infty\mathbb{Z}$ dentro do produto direto infinito. Com a notação de combinações lineares, escrevamos os vetores elementares $e^*_k=\sum_{\alpha\in I}\lambda_{\alpha,k}e_\alpha$ como combinação linear de nossa base, em que todos exceto um número finito de coeficientes são zero. Seja $J\subseteq I$ o subconjunto de todos os índices $\alpha\in I$ com a propriedade de que $\lambda_{\alpha,k}\neq 0$ para algum $k\geq 1$. Sendo uma reunião enumerável de conjuntos finitos, o conjunto $J$ é enumerável. A ideia é considerar o submódulo gerado pelos $e_\alpha$, $\alpha\in J$, e chamemo-lo de $H$.
+
+\medskip
+\noindent
+Notemos dois fatos de $H\subseteq G$: (1) $H$ é enumerável e contém a soma direta $\bigoplus_{m=1}^\infty\mathbb{Z}$; (2) o grupo quociente $G/H$ contém uma base, mais especificamente as classes de equivalência $\overline{e_\alpha}$ com $\alpha\in I\setminus J$.
+
+\medskip
+\noindent
+Consideremos elementos $y\in G$ cujas entradas são estritamente crescentes no sentido multiplicativo, ou seja, $y=(n_1,n_2,n_3,\dots)\in G$ em que cada quociente $\frac{n_{i+1}}{n_i}$ é um inteiro que não seja $1$ nem $-1$. Qualquer sequência $(q_1,q_2,\dots)$ de inteiros que não sejam $1$ nem $-1$ nos oferece um tal $y=(n_1,n_2,\dots)$ fazendo $n_i=q_1q_2\dots q_i$. Como podemos notar, existe uma infinidade não enumerável de tais $(q_1,q_2,dots)$. Assim existe uma infinidade não enumerável de $y\in G$ como descrito acima. Logo existe um tal $y\in G$ que satisfaz $\overline{y}\in G/H$ e $\overline{y}\neq\overline{0}$, pois $H$ é enumerável. Agora, como $y\neq(0,\dots,0,n_{i+1},n_{i+2},\dots)$ (módulo $H$), a equação $\overline{y}=nx$ tem uma solução $x\in G/H$ para todos os inteiros $n=n_1,n_2,\dots$. Pelo lema, isso é impossível para $\mathbb{Z}$-módulos livres. Pela construção, no entanto, o quociente $G/H$ tem base, contradição.
+
+\medskip
+\noindent
+Portanto $\mathbb{Z}^\mathbb{N}$ não é livre.
+
+\subsection*{Exercício 7}
+
+Todo submódulo de um $A$-módulo cíclico também é cíclico?
+
+\subsubsection*{Resolução}
+
+Resposta: Não.
+
+\medskip
+\noindent
+a) Um exemplo: Seja $A=K[x,y]$ em que $K$ é corpo, e seja $I=\langle x,y\rangle$ o ideal de $A$ gerado por $x$ e $y$. Temos $_AA=A\cdot1$, aí $_AA$ é $A$-módulo cíclico, porém $I$ é um $A$-submódulo não cíclico.
+
+\medskip
+\noindent
+b) Outro exemplo: Seja $A=\mathbb{Z}[x]$ e seja $I=\langle 2,x\rangle$. Então $_AA=A\cdot1$ é um $A$-módulo cíclico, mas $I$ é um submódulo não cíclico.
+
+\subsubsection*{Observação}
+
+Se $A$ é domínio de ideais principais, então se $M$ é um $A$-módulo cíclico então existe ideal $I$ de $A$ tal que $M\cong A/I$ como $A$-módulos, aí todo submódulo de $M$ tem a forma $J/I$ em que $J\supseteq I$ é ideal de $A$, aí existe $a\in A$ tal que $J=Aa$, aí temos $J/I=A\overline{a}$, aí $J/I$ é cíclico.
+
+\subsection*{Exercício 8}
+
+Dar um exemplo de anel $A$ e um $A$-módulo $M$ tal que $T(M)$ não seja um submódulo de $M$.
+
+\subsubsection*{Resolução}
+
+Dado anel $A$ e módulo $M$ definimos:
+\[
+T(M)=\{x\in M\mid\exists a\in A:(a\neq 0\text{ e }ax=0)\}.
+\]
+Exemplo 1: Seja $A=\{0\}$ e $M=\{0\}$. Então $T(M)=\emptyset$, aí $T(M)$ não é submódulo de $M$.
+
+\medskip
+\noindent
+Exemplo 2: Seja $A=\mathbb{Z}_6$ e $M=\mathbb{Z}_6$. Então $\overline{2}\in T(M)$ e $\overline{3}\in T(M)$, mas $\overline{2}+\overline{3}=\overline{5}\notin T(M)$, aí $T(M)$ não é submódulo de $M$.
+
+\subsection*{Exercício 9}
+
+Seja $A$ um domínio de integridade e sejam $a,b\in A$. Prove que:
+\[
+\frac{Aa}{A(ab)}\cong\frac{A}{Ab}.
+\]
+Prove que se $\mathrm{mdc}(a,b)=1$, então:
+\[
+\frac{A}{A(ab)}\cong\frac{A}{Aa}\oplus\frac{A}{Ab}.
+\]
+
+\subsubsection*{Resolução}
+
+a) Para $x,y\in A$, se $xa=ya$ então $xa-ya=0$, aí $(x-y)a=0$, aí $x-y=0$, aí $x=y$.
+
+\medskip
+\noindent
+Logo existe $f:Aa\rightarrow\frac{A}{Ab}$ tal que $\forall x\in A:f(xa)=\overline{x}$.
+
+\begin{itemize}
+\item $f(xa+ya)=f((x+y)a)=\overline{x+y}=\overline{x}+\overline{y}=f(xa)+f(ya)$.
+\item $f(r\cdot xa)=f(rx\cdot a)=\overline{rx}=r\cdot\overline{x}=rf(xa)$.
+\end{itemize}
+Logo $f$ é homomorfismo de $A$-módulos.
+
+\medskip
+\noindent
+É fácil ver que $f$ é sobrejetora.
+
+\medskip
+\noindent
+Para $x\in A$ temos:
+\[
+\begin{array}{rcl}
+xa\in\mathrm{Ker}(f)&\Leftrightarrow&f(xa)=\overline{0}\\&\Leftrightarrow&\overline{x}=\overline{0}\\&\Leftrightarrow&b\mid x\\&\Leftrightarrow&ab\mid xa.
+\end{array}
+\]
+Logo $\mathrm{Ker}(f)=A(ab)$.
+
+\medskip
+\noindent
+Logo pelo teorema do isomorfismo temos:
+\[
+\frac{Aa}{A(ab)}\cong\frac{A}{Ab}.
+\]
+
+\medskip
+\noindent
+b) Se $\mathrm{mdc}(a,b)=1$ então consideremos $g:A\rightarrow\frac{A}{Aa}\oplus\frac{A}{Ab}$ dada por $g(x)=(\overline{x},\overline{x})$, então:
+\begin{itemize}
+\item $g(x+y)=(\overline{x+y},\overline{x+y})=(\overline{x}+\overline{y},\overline{x}+\overline{y})=(\overline{x},\overline{x})+(\overline{y},\overline{y})=g(x)+g(y)$,
+\item $g(rx)=(\overline{rx},\overline{rx})=(r\overline{x},r\overline{x})=r(\overline{x},\overline{x})=rg(x)$;
+\end{itemize}
+logo $g$ é homomorfismo de $A$-módulos. Além disso, existem $r,s\in A$ tais que $ar+bs=1$, então para $x,y\in A$ temos:
+\[
+\begin{array}{rcl}
+(\overline{x},\overline{y})&=&(\overline{arx+bsx},\overline{ary+bsy})\\&=&(\overline{bsx},\overline{ary})\\&=&(\overline{ary+bsx},\overline{ary+bsx})\\&=&g(ary+bsx);
+\end{array}
+\]
+logo $g$ é sobrejetora.
+
+\medskip
+\noindent
+Para $x\in A$ então:
+\[
+\begin{array}{rcl}
+g(x)=(\overline{0},\overline{0})&\Leftrightarrow&(\overline{x},\overline{x})=(\overline{0},\overline{0})\\&\Leftrightarrow&(\overline{x}=\overline{0}\text{ e }\overline{x}=\overline{0})\\&\Leftrightarrow&(a\mid x\text{ e }b\mid x)\\&\Leftrightarrow&ab\mid x.
+\end{array}
+\]
+Logo $\mathrm{Ker}(g)=A(ab)$.
+
+\medskip
+\noindent
+Portanto pelo teorema do isomorfismo temos:
+\[
+\frac{A}{A(ab)}\cong\frac{A}{Aa}\oplus\frac{A}{Ab}.
+\]
+
+\subsection*{Exercício 10}
+
+Seja $M$ o ideal de $\mathbb{Z}[x]$ gerado por $2$ e $x$. Provar que $M$ não é soma direta de $\mathbb{Z}[x]$-módulos cíclicos.
+
+\subsubsection*{Resolução}
+
+Se $I$ for soma direta de submódulos cíclicos, ou seja, se $I=\bigoplus_{\alpha\in A}N_\alpha$ em que $N_\alpha$ são $\mathbb{Z}[x]$-módulos cíclicos não nulos, então para $\alpha,\beta\in A$ existem $x_\alpha\in N_\alpha$ e $x_\beta\in N_\beta$ não nulos, aí $x_\alpha x_\beta\in N_\alpha\cap N_\beta$ e $x_\alpha x_\beta\neq 0$, aí $N_\alpha\cap N_\beta\neq 0$, aí $\alpha=\beta$; logo existe $\alpha\in A$ tal que $A=\{\alpha\}$, assim $I$ é principal, contradição.
+
+\subsection*{Exercício 11}
+
+Seja $D$ um D.I.P. e $M$ um $D$-módulo cíclico, $\mathrm{ann}(M)=(a)$. Provar:
+\begin{itemize}
+\item[a)] Se $b\in D$ e $\mathrm{mdc}(a,b)=1$, então $bM=M$.
+\item[b)] Se $b$ divide $a$, ($a=bc$ com $c\in D$), então $bM\cong D/(c)$ e $M/bM\cong D/(b)$.
+\end{itemize}
+
+\subsubsection*{Resolução}
+
+a) Se $b\in D$ e $\mathrm{mdc}(a,b)=1$, então existem $r,s\in A$ tais que $ar+bs=1$, aí para $x\in M$ então $x=1x=(ar+bs)x=arx+bsx=bsx\in bM$; logo $bM=M$.
+
+\medskip
+\noindent
+b) Se $b$ divide $a$ e $b\neq 0$, existe $c\in D$ tal que $a=bc$, aí consideremos $f:D\rightarrow bM$ definida por $f(x)=bxm$, então:
+\begin{itemize}
+\item $f(x+y)=b(x+y)m=bxm+bym=f(x)+f(y)$,
+\item $f(rx)=brxm=rbxm=rf(x)$;
+\end{itemize}
+logo $f$ é homomorfismo de $D$-módulos, e como $M=Dm$ então $f$ é sobrejetora, e para $x\in D$ temos:
+\[
+\begin{array}{rcl}
+f(x)=0&\Leftrightarrow&bxm=0\\&\Leftrightarrow&bx\in\mathrm{ann}(m)\\&\Leftrightarrow&a\mid bx\\&\Leftrightarrow&bc\mid bx\\&\Leftrightarrow&c\mid x;
+\end{array}
+\]
+logo $\mathrm{Ker}(f)=(c)$, aí $bM\cong D/(c)$.
+
+\medskip
+\noindent
+Além disso seja $g:D\rightarrow M/bM$ definida por $g(x)=\overline{xm}$, então:
+\begin{itemize}
+\item $g(x+y)=\overline{(x+y)m}=\overline{xm}+\overline{ym}=g(x)+g(y)$.
+\item $g(rx)=\overline{rxm}=r\overline{xm}=rg(x)$;
+\end{itemize}
+logo $g$ é homomorfismo de $D$-módulos e como $M=Dm$ então $g$ é sobrejetora, e também:
+\begin{itemize}
+\item para $x\in D$, se $g(x)=\overline{0}$ então $\overline{xm}=\overline{0}$, aí $xm\in bM$, aí existe $y\in D$ tal que $xm=bym$, aí $(x-by)m=0$, aí $x-by\in\mathrm{ann}(m)$, aí $a\mid x-by$, aí $b\mid x-by$, aí $b\mid x$,
+\item para $x\in D$, se $b\mid x$ então existe $y\in D$ tal que $x=by$, aí $xm=bym\in bM$, aí $g(x)=\overline{xm}=\overline{0}$;
+\end{itemize}
+logo $\mathrm{Ker}(g)=(b)$, portanto $M/bM\cong D/(b)$.
+
+\subsection*{Exercício 12}
+
+Seja $D$ um D.I.P. e $M$ um $D$-módulo cíclico com $\mathrm{ann}(M)=(a)$. Então:
+\begin{itemize}
+\item[a)] Cada submódulo de $M$ é cíclico de período um divisor de $a$.
+\item[b)] Para cada ideal $(b)\supseteq(a)$ de $D$, $M$ possui exatamente um submódulo que é cíclico com anulador $(b)$.
+\end{itemize}
+
+\subsubsection*{Resolução}
+
+Nesse caso existe $z\in M$ tal que $M=Dz$, aí $\mathrm{ann}(z)=(a)$.
+
+\medskip
+\noindent
+a) Se $N$ é um submódulo de $M$, então seja $I=\{x\in D:xz\in N\}$, então $I$ é ideal de $D$, aí existe $r\in D$ tal que $I=(r)$, aí $N=D(rz)$, e aí sendo $a=br$, então $\mathrm{ann}(rz)=(b)$, aí $N$ é cíclico com período divisor de $a$.
+
+\medskip
+\noindent
+b) Para ideal $(b)\supseteq(a)$ então $b\mid a$, aí seja $a=br$, então seja $N=D(rz)$, então $N$ é cíclico e seu anulador é $(b)$. Se $P$ é submódulo cíclico com anulador $(b)$, então existe $s\in D$ tal que $P=D(sz)$, aí seja $a=cs$, então $\mathrm{ann}(P)=(c)$, aí $(b)=(c)$, mas $br=cs$, aí $(r)=(s)$, aí $D(rz)=D(sz)$, aí $N=P$.
+
+\subsection*{Exercício 13}
+
+Seja $D$ um D.I.P. Provar que um módulo de torção $M$ sobre $D$ é \textit{irredutível} ou \textit{simples} no sentido que $M\neq 0$ e os únicos submódulos são $0$ e $M$, se e somente se $M=Dz$ e $\mathrm{ann}(z)=(p)$ com $p$ primo. Provar que se $M$ é finitamente gerado, então é \textit{indecomponível} no sentido que não é soma direta de dois submódulos não zero, se e somente se $M=Dz$ com $\mathrm{ann}(z)=(p^n)$ e $p$ é primo.
+
+\subsubsection*{Preliminares}
+
+1) Seja $D$ um domínio de ideais principais. Seja $M$ um $D$-módulo finitamente gerado de torção.
+
+\medskip
+\noindent
+a) Seja $\{g_1,\dots,g_l\}$ conjunto gerador, então para $i$ existe $c_i\in D$ tal que $c_i\neq 0$ e $c_ig_i=0$; logo seja $c=c_1\dots c_l$ então $c\neq 0$ e $c\in\mathrm{ann}(M)$, aí existe um $a\in D$ tal que $a\neq 0$ e $\mathrm{ann}(M)=(a)$.
+
+\medskip
+\noindent
+b) Seja $a=p_1^{e_1}\dots p_n^{e_n}$ em que $p_1,\dots,p_n$ são primos mutuamente desassociados. Seja $M_i=\{x\in M:p_i^{e_i}x=0\}$. Seja $q_i=\prod_{j\neq i}p_j^{e_j}$. Então existem $d_1,\dots,d_n\in D$ tais que $\sum_{i=1}^nd_iq_i=1$. Para $x\in M$ então $p_i^{e_i}q_ix=ax=0$, aí $x=\sum_{i=1}^nd_iq_ix\in M_1+\dots+M_n$. Logo $M=M_1+\dots+M_n$. Para $m_1\in M_1$ e $\dots$ e $m_n\in M_n$, se $x_1+\dots+x_n=0$, então $q_ix_1+\dots+q_ix_n=0$, aí $q_ix_i=0$, mas $p_i^{e_i}x_i=0$ e $p_i^{e_i}$ e $q_i$ são primos entre si, então $x_i=0$. Portanto $M=M_1\oplus\dots\oplus M_n$.
+
+\medskip
+\noindent
+c) Para $i$ então $p_i^{e_i}\in\mathrm{ann}(M_i)$, aí $(p_i^{e_i})\subseteq\mathrm{ann}(M_i)$, e para $r\in\mathrm{ann}(M_i)$ então para $x\in M$ temos $ax=0$, aí $p_i^{e_i}q_ix=0$, aí $q_ix\in M_i$, aí $rq_ix=0$, aí $a\mid rq_i$, aí $p_i^{e_i}q_i\mid rq_i$, aí $p_i^{e_i}\mid r$, aí $r\in(p_i^{e_i})$; logo $\mathrm{ann}(M_i)=(p_i^{e_i})$.
+
+\medskip
+\noindent
+2) Seja $D$ um domínio de ideais principais e seja $M$ um $D$-módulo e $p\in D$ um primo.
+
+\medskip
+\noindent
+a) Se $pM=\{0\}$, então, como $p$ é primo, $D/(p)$ é corpo, e para $r,s\in D$ tais que $\overline{r}=\overline{s}$ então $\overline{r-s}=\overline{0}$, aí $r-s\in(p)$, aí existe $a\in D$ tal que $r-s=pa$, aí para $x\in M$ temos $rx-sx=(r-s)x=pax=0$, aí $rx=sx$; logo existe uma função $\cdot:(D/(p))\times M\rightarrow M$ tal que $\forall r\in D:\forall x\in M:\overline{r}x=rx$, aí é fácil ver que $M$ é um espaço vetorial sobre $D/(p)$.
+
+\medskip
+\noindent
+b) Para submódulo $S$ de $M$ seja $S_p=\{x\in S:px=0\}$, então para submódulos $S$ e $T$ de $M$, se $M=S\oplus T$ então $S_p\subseteq S$ e $T_p\subseteq T$, aí $S_p\cap T_p=\{0\}$, e para $x\in M_p$ então existem $s\in S$ e $t\in T$ tais que $x=s+t$, aí $0=px=ps+pt$ e $ps\in S$ e $pt\in T$, aí $ps=0$ e $pt=0$, aí $s\in S_p$ e $t\in T_p$; logo $M_p=S_p\oplus T_p$.
+
+\medskip
+\noindent
+3) Seja $D$ um domínio de ideais principais e $p\in D$ um primo e seja $M$ um módulo de torção finitamente gerado tal que $\mathrm{ann}(M)=(p^e)$ para algum $e\geq 1$.
+
+\medskip
+\noindent
+a) Seja $v_1\in M$ tal que $\mathrm{ann}(v_1)=(p^e)$. Tal elemento deve existir pois para $x\in M$ temos $p^ex=0$, aí temos $p^e\in\mathrm{ann}(x)$, aí $(p^e)\subseteq\mathrm{ann}(x)$, mas existe $v_1\in M$ tal que $p^{e-1}v_1\neq 0$, aí $p^{e-1}\notin\mathrm{ann}(v_1)$, aí $(p^{e-1})\nsubseteq\mathrm{ann}(v_1)$, aí $\mathrm{ann}(v_1)=(p^e)$.
+
+\medskip
+\noindent
+b) Se mostrarmos que $Dv_1$ é complementado, ou seja, se $M=Dv_1\oplus S_1$ para algum submódulo $S_1$, então $S_1$ é também módulo de torção finitamente gerado, aí podemos repetir o processo e conseguir $M=Dv_1\oplus Dv_2\oplus S_2$ em que $\mathrm{ann}(v_i)=(p_i^{e_i})$. Conseguimos continuar a decomposição sempre que $S_n\neq\{0\}$. Porém a cadeia ascendente de submódulos $Dv_1,Dv_1\oplus Dv_2,\dots$ deve terminar pois $D$ é Noetheriano e $M$ é finitamente gerado, logo é Noetheriano, aí existe um $n\geq 1$ tal que $S_n=\{0\}$.
+
+\medskip
+\noindent
+c) Seja $v\in M$ tal que $\mathrm{ann}(v)=(p^e)$. Então a soma direta $M_1=Dv\oplus\{0\}$ existe. Suponhamos que a soma direta $M_k=Dv\oplus S_n$ exista. Mostraremos que se $M_n\neq M$ então existe submódulo $S_{k+1}$ tal que $S_k\subset S_{k+1}$ e para o qual a soma direta $M_{k+1}=Dv\oplus S_{k+1}$ também exista. Esse processo também para após um número finito de passos, dando $M=Dv\oplus S$.
+
+\medskip
+\noindent
+d) Se $M_k\neq M$ e $u\in M\setminus M_k$ seja $S_{k+1}=S_k+D(u-\alpha v)$ para $\alpha\in D$. Então $S_k\subset S_{k+1}$, já que $u\notin M_k$. Queremos mostrar que para algum $\alpha\in D$ a soma direta $Dv\oplus S_{k+1}$ existe, ou seja, $x\in Dv\cap(S_k+D(u-\alpha v))$ implica $x=0$. Agora existem escalares $a,b\in D$ tais que $x=av=s+b(u-\alpha v)$ para $s\in S_k$, e aí se encontrarmos $\alpha\in D$ para o qual $b(u-\alpha v)\in S_k$, então $Dv\cap S_k=\{0\}$ implica $x=0$, aí a prova da decomposição acabará. Resolver para $bu$ resulta em $bu=(a+\alpha b)v-s\in Dv\oplus S_k=M_k$, aí consideremos $I=\{r\in R:ru\in M_k\}$. Como $p^e\in I$ e $I$ é principal, então $I=(p^f)$ para algum $f\leq e$. Também $f>0$ já que $u\notin M_k$ implica $1\notin I$. Como $b\in I$ então $b=\beta p^f$ para algum $\beta\in D$, aí existem $d\in R$ e $t\in S_k$ tais que $p^fu=dv+t$. Assim $bu=\beta p^fu=\beta(dv+t)=\beta dv+\beta t$. Precisamos de mais informação sobre $d$. Multiplicar a expressão para $p^f u$ por $p^{e-f}$ nos dá $0=p^eu=p^{e-f}(p^fu)=p^{e-f}dv+p^{e-f}t$, e como $Dv\cap S_k=\{0\}$, então $p^{e-f}dv=0$, aí $p^e\mid p^{e-f}d$, aí $p^f\mid d$, aí $d=\delta p^f$ para algum $\delta\in D$. Agora $bu-\beta\delta p^fv+\beta t$, aí $b(u-\delta v)=\beta t\in S_k$, aí tomamos $\alpha=\delta$ para obter $b(u-\alpha v)\in S_k$ e aí termina.
+
+\subsubsection*{Resolução}
+
+Seja $D$ um domínio de ideais principais e seja $M$ um $D$-módulo de torção finitamente gerado. Pelo preliminar, existe $a\in D$ tal que $a\neq 0$ e $\mathrm{ann}(M)=(a)$, e aí sendo $a=p_1^{e_1}\dots p_n^{e_n}$ e sendo $M_i=\{x\in M:p_i^{e_i}x=0\}$ então $M=M_1\oplus\dots\oplus M_n$ e também para $i$ existem $v_{i,1},\dots,v_{i,m_i}\in M$ tais que $M_i=Dv_{i,1}\oplus\dots\oplus Dv_{i,m_i}$.
+
+\medskip
+\noindent
+Se $M=Dz$ e $\mathrm{ann}(z)=(p)$ com $p$ primo então para submódulo $N$ de $M$ tal que $N\neq \{0\}$ existe $a\in D$ tal que $az\in N$ e $az\neq 0$, aí $p\nmid a$, aí $a$ e $p$ são primos entre si, aí existem $r,s\in D$ tais que $ar+ps=1$, aí $z=arz+psz=raz+spz=raz\in N$, aí $N=M$; logo $M$ é simples.
+
+\medskip
+\noindent
+Se $M=Dz$ e $\mathrm{ann}(z)=(p^n)$ com $p$ primo então para submódulos $X$ e $Y$ tais que $M=X\oplus Y$, então existem divisores $a,b\in D$ de $p^n$ tais que $X=D(az)$ e $Y=D(bz)$, aí existem $e,f\geq 0$ tais que $X=D(p^ez)$ e $Y=D(p^fz)$, aí sendo $g=\max\{e,f\}$ então $X\cap Y=D(p^gz)$, aí $D(p^gz)=0$, aí $g=n$, aí $e=n$ ou $f=n$, aí $X=0$ ou $Y=0$; logo $M$ é indecomponível.
+
+\medskip
+\noindent
+Se $M$ é indecomponível então $n=1$ e $m_1=1$, aí existe $p\in D$ primo e $e\geq 1$ e $z\in M$ tais que $M=Dz$ e $\mathrm{ann}(z)=(p^e)$.
+
+\medskip
+\noindent
+Se $M$ é simples, então $M$ é indecomponível, aí existem $p\in D$ primo e $e\geq 1$ e $z\in M$ tais que $M=Dz$ e $\mathrm{ann}(z)=(p^e)$, aí sendo $N=D(pz)$ então $N\neq M$, aí $N=0$, aí $p\in\mathrm{ann}(z)$, aí $p^e\mid p$, aí $p^{e-1}\mid 1$, aí $e=1$, aí $M=Dz$ e $\mathrm{ann}(z)=(p)$.
+
+\subsection*{Exercício 14}
+
+Seja $G$ um grupo abeliano de ordem $n$ e seja $m$ tal que $m\mid n$. Prove que $G$ possui um subgrupo de ordem $m$.
+
+\subsubsection*{Resolução}
+
+Sendo $n=p_1^{\alpha_1}\dots p_k^{\alpha_k}$ temos $m=p_1^{\beta_1}\dots p_k^{\beta_k}$ para alguns $\beta_1\leq\alpha_1$ e $\dots$ e $\beta_k\leq\alpha_k$, aí pela decomposição cíclica podemos decompor $G$ em $\bigoplus_{i=1}^k\bigoplus_{j=1}^{m_i}\mathbb{Z}p_i^{e_{i,j}}$, pois todo $\mathbb{Z}$-módulo cíclico $M$ tal que $\mathrm{ann}(M)=(l)$ é isomorfo a $\mathbb{Z}_l$, e temos $\sum_{j=1}^{m_i}e_{i,j}=\alpha_i$, aí tome o menor $j_0$ tal que $\sum_{j=1}^{j_0}e_{i,j}\geq\beta_i$ e seja $\gamma_i=\sum_{j=1}^{j_0}e_{i,j}-\beta_i$ e aí consideremos $G_i=\mathbb{Z}p_i^{e_{i,1}}\oplus\dots\oplus\mathbb{Z}p_i^{e_{i,j_0-1}}\oplus p_i^{e_{i,j_0}-\gamma_i}\mathbb{Z}p_i^{e_{i,j_0}}$, então $G_1\oplus\dots\oplus G_k$ é subgrupo de $G$ de ordem $m$.
+
+\end{document}

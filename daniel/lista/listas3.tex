@@ -1,0 +1,789 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[a4paper, total={6in,8in}]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[portuguese]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{commath}
+
+\title{Anéis e Módulos: Exercícios 3}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+
+\section*{Lista 1}
+
+\subsection*{Exercício 1}
+
+Seja $R$ um anel e $S$ um subanel de $R$. Pode acontecer que:
+\begin{itemize}
+\item[a)] $R$ seja anel com unidade e $S$ não.
+\item[b)] $S$ seja anel com unidade e $R$ não.
+\item[c)] $R$ e $S$ sejam anéis com unidade, mas a unidade de $R$ seja diferente da unidade de $S$.
+\end{itemize}
+Dar exemplos que ilustrem cada uma das situações acima.
+
+\subsubsection*{Resolução}
+
+a) Considere $R=\mathbb{Z}$ e $S=2\mathbb{Z}$. Outro exemplo: Seja $R$ o conjunto $\mathbb{Z}^\mathbb{N}$ munido da adição e da multiplicação coordenada por coordenada e seja $S=\mathbb{Z}^{(\mathbb{N})}$ o conjunto dos $a\in\mathbb{Z}^\mathbb{N}$ tais que o conjunto $\{n\in\mathbb{N}:a_n\neq 0\}$ seja finito.
+
+\medskip
+\noindent
+b) Seja $R=\mathbb{Z}^{(\mathbb{N})}$ e seja $S$ o conjunto dos $a\in\mathbb{Z}^\mathbb{N}$ tais que $\{n\in\mathbb{N}:a_n\neq 0\}\subseteq\{0\}$.
+
+\medskip
+\noindent
+c) Seja $R=\mathbb{Z}\times\mathbb{Z}$ e $S=\mathbb{Z}\times\{0\}$.
+
+\subsection*{Exercício 2}
+
+Seja $R=M_n(D)$ o anel das matrizes $n\times n$ sobre um anel com divisão $D$. Mostre que:
+\begin{itemize}
+\item[a)] $X(R)=\{\lambda I_n:\lambda\in Z(D)\}$, em que $I_n$ é a matriz identidade $n\times n$.
+\item[b)] Mostre que $R$ é um anel simples.
+\end{itemize}
+
+\subsubsection*{Resolução}
+
+a) Para $\lambda\in Z(D)$ então para $A\in R$ temos $(\lambda I_n)A=\lambda A=A\lambda=A(\lambda I_n)$; logo $\lambda I_n\in Z(R)$.
+
+\medskip
+\noindent
+Para $A\in Z(R)$ então para $i\neq j$ seja:
+\[
+E=\begin{pmatrix}
+1&&&&&&\\&\ddots&&&&&\\&&1&&&&\\&&&0&&&\\&&&&1&&\\&&&&&\ddots&\\&&&&&&1
+\end{pmatrix}
+\]
+a matriz obtida da identidade retirando o $i$-ésimo $1$, então $AE=EA$, mas $(AE)_{i,j}=a_{i,j}$ e $(EA)_{i,j}=0$, aí $a_{i,j}=0$. Logo $A$ é do tipo:
+\[
+\begin{pmatrix}
+c_1&&\\&\ddots&\\&&c_n
+\end{pmatrix}.
+\]
+Seja:
+\[
+F=\begin{pmatrix}
+1&&1\\&\ddots&\\1&&1
+\end{pmatrix}
+\]
+então $AF=FA$, mas para $i$ e $j$ então $(AF)_{i,j}=c_i$ e $(FA)_{i,j}=c_j$, aí $c_i=c_j$. Logo $A$ é do tipo:
+\[
+\begin{pmatrix}
+\lambda&&\\&\ddots&\\&&\lambda
+\end{pmatrix}
+\]
+em que $\lambda\in D$. Para $\mu\in D$ então $(\lambda\mu)I_n=(\lambda I_n)(\mu I_n)=(\mu I_n)(\lambda I_n)=(\mu\lambda)I_n$, aí $\lambda\mu=\mu\lambda$; logo $\lambda\in Z(D)$.
+
+\medskip
+\noindent
+b) Seja $I$ ideal de $R$ tal que $I\neq\{0\}$ então existe $A\in I$ tal que $A\neq 0$, aí existem $i$ e $j$ tais que $a_{i,j}\neq 0$, aí sendo:
+\[
+E=\begin{pmatrix}
+0&&&&&&\\&\ddots&&&&&\\&&0&&&&\\&&&a_{i,j}^{-1}&&&\\&&&&0&&\\&&&&&\ddots&\\&&&&&&0
+\end{pmatrix},\quad\quad F=\begin{pmatrix}
+0&&&&&&\\&\ddots&&&&&\\&&0&&&&\\&&&1&&&\\&&&&0&&\\&&&&&\ddots&\\&&&&&&0
+\end{pmatrix}
+\]
+em que $a_{i,j}^{-1}$ está na entrada $(i,i)$ de $E$ e $1$ está na entrada $(j,j)$ de $F$, então:
+\[
+\begin{pmatrix}
+0&&&&0\\&\ddots&&\ddots&\\&&1&&\\&\ddots&&\ddots&\\0&&&&0
+\end{pmatrix}=EAF\in I,
+\]
+em que $1$ está na entrada $(i,j)$ de $EAF$, aí para $k$, sendo $P$ e $Q$ matrizes de permutação adequadas temos:
+\[
+\begin{pmatrix}
+0&&&&&&\\&\ddots&&&&&\\&&0&&&&\\&&&1&&&\\&&&&0&&\\&&&&&\ddots&\\&&&&&&0
+\end{pmatrix}=P\begin{pmatrix}
+0&&&&0\\&\ddots&&\ddots&\\&&1&&\\&\ddots&&\ddots&\\0&&&&0
+\end{pmatrix}Q\in I,
+\]
+em que $1$ está na entrada $(k,k)$ de $PEAFQ$; logo:
+\[
+I_n=\sum_k\begin{pmatrix}
+0&&&&&&\\&\ddots&&&&&\\&&0&&&&\\&&&1&&&\\&&&&0&&\\&&&&&\ddots&\\&&&&&&0
+\end{pmatrix}\in I,
+\]
+aí $I=R$. Logo $R$ é simples.
+
+\subsection*{Exercício 3}
+
+Seja $R$ um anel comutativo tal que $R^2\neq\{0\}$ e possuindo exatamente dois ideais. Prove que $R$ é um corpo.
+
+\subsubsection*{Resolução}
+
+Nesse caso, existem $u,v\in R$ tais que $uv\neq 0$, aí seja $I=\{ux:x\in R\}$, então $I$ é ideal e $I\neq\{0\}$, aí $I=R$, aí existe $e\in R$ tal que $ue=u$, aí seja $J=\{x\in R:xe=x\}$, então $J$ é ideal e $J\neq\{0\}$, aí $J=R$, aí $\forall x\in R:xe=x$. Assim $R$ é um anel com unidade. Para $a\in R$ tal que $a\neq 0$, seja $K=\{ax:x\in R\}$, então $K$ é um ideal com $K\neq \{0\}$, aí $K=R$, aí $e\in K$, aí existe $b\in R$ tal que $ab=e$. Logo $R$ é um corpo.
+
+\subsection*{Exercício 4}
+
+Seja $R$ um anel com unidade e $I\neq R$ um ideal de $R$. Mostre, usando o Lema de Zorn, que $I$ está contido em um ideal maximal de $R$.
+
+\subsubsection*{Resolução}
+
+Seja $\mathcal{E}$ o conjunto dos ideais próprios contendo $I$. Então $I\in\mathcal{E}$. Para cadeia não vazia $\mathcal{C}$ de $\mathcal{E}$, então temos o seguinte: (1) existe $J\in\mathcal{C}$, aí $0\in J$, aí $0\in\bigcup\mathcal{C}$; (2) para $x,y\in\bigcup\mathcal{C}$, existem $A,B\in\mathcal{C}$ tais que $x\in A$ e $y\in B$, mas $A\subseteq B$ ou $B\subseteq A$, aí sendo $C=A\cup B$ então $C\in\mathcal{C}$ e $x\in C$ e $y\in C$, aí $x-y\in C$, aí $x-y\in\bigcup\mathcal{C}$; (3) para $r\in R$ e $x\in\bigcup\mathcal{C}$, existe $A\in\mathcal{C}$ tal que $x\in A$, aí $rx\in A$ e $xr\in A$, aí $rx\in\bigcup\mathcal{A}$ e $xr\in\bigcup\mathcal{A}$; (4) para todo $A\in\mathcal{C}$, então $1\notin A$; logo $1\notin\bigcup\mathcal{A}$; portanto $\bigcup\mathcal{C}\in\mathcal{E}$ e $\forall A\in\mathcal{C}:A\subseteq\bigcup\mathcal{A}$. Assim, pelo lema de Zorn, $\mathcal{E}$ tem um elemento maximal e é fácil ver que ele é um ideal maximal contendo $I$.
+
+\subsection*{Exercício 5}
+
+Seja $R$ um anel comutativo com $1$. Prove que:
+\begin{itemize}
+\item[a)] $M$ é um ideal maximal de $R$ se, e somente se, $R/M$ é um corpo.
+\item[b)] $P$ é um ideal primo de $R$ se, e somente se, $R/P$ é um domínio de integridade.
+\item[c)] Todo ideal maximal de $R$ é primo.
+\end{itemize}
+
+\subsubsection*{Resolução}
+
+a) Se $R/M$ é um corpo, então $\overline{1}\neq\overline{0}$, aí $1\notin M$, aí $M\neq R$, e para ideal $I$ tal que $M\subset I$ (aqui $\subset$ quer dizer inclusão estrita), então existe $r\in I$ tal que $r\notin M$, aí $\overline{r}\neq\overline{0}$, aí existe $s\in R$ tal que $\overline{r}\overline{s}=\overline{1}$, aí $1-rs\in M$, aí $1-rs\in I$, mas $r\in I$, aí $rs\in I$, aí $1\in I$, aí $I=R$; logo $M$ é maximal.
+
+\medskip
+\noindent
+Se $M$ é ideal maximal, então $1\notin M$, aí $\overline{1}\neq\overline{0}$, e para $a\in R$, se $\overline{a}\neq\overline{0}$, então $a\notin M$, aí, sendo $I=\{ax+m:(x\in R\text{ e }m\in M)\}$, então $I$ é ideal e também $M\subset I$, aí $I=R$, aí $1\in I$, aí existem $b\in R$ e $m\in M$ tais que $1=ab+m$, aí $1-ab=m\in M$, aí $\overline{1}=\overline{a}\overline{b}$; logo $R/M$ é corpo.
+
+\medskip
+\noindent
+b) Se $R/P$ é domínio de integridade, então $\overline{1}\neq\overline{0}$, aí $1\notin P$, aí $P\neq R$, e para $x,y\in R$, se $xy\in P$, então $\overline{x}\overline{y}=\overline{0}$, aí $\overline{x}=\overline{0}$ ou $\overline{y}=\overline{0}$, aí $x\in P$ ou $y\in P$; logo $P$ é primo.
+
+\medskip
+\noindent
+Se $P$ é ideal primo, então $P\neq R$, aí $1\notin P$, aí $\overline{1}\neq\overline{0}$, e para $x,y\in R$, se $\overline{x}\overline{y}=\overline{0}$, então $xy\in P$, aí $x\in P$ ou $y\in P$, aí $\overline{x}=\overline{0}$ ou $\overline{y}=\overline{0}$; logo $R/P$ é domínio de integridade.
+
+\medskip
+\noindent
+c) Se $I$ é ideal maximal então $R/I$ é corpo, aí $R/I$ é domínio de integridade, aí $I$ é primo.
+
+\subsection*{Exercício 6}
+
+Seja $I$ um ideal à esquerda de um anel $R$. O conjunto:
+\[
+\mathrm{Anl}(I)=\{x\in R\mid\forall a\in I:xa=0\}
+\]
+é chamado \textit{anulador} de $I$. Mostre que $\mathrm{Anl}(I)$ é um ideal (bilateral) de $R$.
+
+\subsubsection*{Resolução}
+
+Temos o seguinte:
+\begin{itemize}
+\item Para $a\in I$ então $0a=0$; logo $0\in\mathrm{Anl}(I)$.
+\item Para $x,y\in\mathrm{Anl}(I)$, para $a\in I$ temos $xa=0$ e $ya=0$, aí $(x-y)a=xa-ya=0-0=0$; logo $x-y\in\mathrm{Anl}(I)$.
+\item Para $x\in\mathrm{Anl}(I)$ e $r\in R$ então para $a\in I$ temos $xa=0$, aí $rxa=0$; logo $rx\in\mathrm{Anl}(I)$.
+\item Para $x\in\mathrm{Anl}(I)$ e $r\in R$, para $a\in I$ temos $ra\in I$, aí $xra=0$; logo $xr\in\mathrm{Anl}(I)$.
+\end{itemize}
+
+\subsection*{Exercício 7}
+
+Seja $R$ um anel com unidade, finito. Mostre que para todo $x\neq 0$ em $R$ temos que, ou $x$ é inversível, ou $x$ é divisor de $0$.
+
+\subsubsection*{Resolução}
+
+Para $a\neq 0$ que não é divisor de $0$, então seja $f:R\rightarrow R$ dada por $f(x)=ax$, então para $x,y\in R$, se $f(x)=f(y)$ então $ax=ay$, aí $a(x-y)=0$, mas $a\neq 0$ e $a$ não é divisor de zero, aí $x-y=0$, aí $x=y$; logo $f$ é injetora, mas $R$ é finito, aí $f$ é sobrejetora, aí existe $b\in R$ tal que $f(b)=1$, aí $ab=1$. Além disso consideremos $g:R\rightarrow R$ dada por $g(x)=xa$, aí para $x,y\in R$, se $g(x)=g(y)$, então $xa=ya$, aí $(x-y)a=0$, mas $a\neq 0$ e $a$ não é divisor de $0$, aí $x-y=0$, aí $x=y$; logo $g$ é injetora, mas $R$ é finito, aí $g$ é sobrejetora, aí existe $c\in R$ tal que $g(c)=1$, aí $ca=1$. Juntando tudo temos $b=1b=cab=c1=c$, aí $a$ é inversível.
+
+\subsection*{Exercício 8}
+
+Seja $R$ um anel com unidade e suponha que exista $x\in R$, tal que $x$ é inversível à esquerda, mas não é inversível à direita. Mostre que $x$ possui infinitos inversos à esquerda. Dê um exemplo de um anel que tenha um elemento como o descrito acima.
+
+\subsubsection*{Resolução}
+
+Seja $x\in R$ tal que $x$ é inversível à esquerda mas tenha apenas um número finito de inversos à esquerda, então seja $y\in R$ um inverso à esquerda de $x$, então $yx=1$, e consideremos $y_n=y+x^n(1-xy)$ para $n\geq 0$, aí $y_nx=(y+x^n(1-xy))x=yx+x^n(x-xyx)=1+x^n(x-x)=1+x^n\cdot 0=1$, aí $y_n$ é inversa à esquerda de $x$; logo existem $m,n\geq 0$ tais que $m>n$ e $y_m=y_n$, aí $y+x^m(1-xy)=y+x^n(1-xy)$, aí $x^m(1-xy)=x^n(1-xy)$, aí $x^{m-n}(1-xy)=1-xy$, aí $x(x^{m-n-1}(1-xy)+y)=1$, aí $x^{m-n-1}(1-xy)+y$ é inversa à direita de $x$, aí $x$ é inversível à direita.
+
+\subsection*{Exercício 9}
+
+Seja $R$ um anel com unidade e sejam $a,b\in R$. Mostre que $1-ab$ é inversível se, e somente se, $1-ba$ é inversível. Nesse caso, determine $(1-ab)^{-1}$.
+
+\subsubsection*{Resolução}
+
+Se $1-ab$ é inversível, então seja $c=(1-ab)^{-1}$ e consideremos $x=1+bca$, então $(1-ba)x=(1-ba)(1+bca)=1-ba+bca-babca=1-ba+b(1-ab)ca=1-ba+ba=1$ e $x(1-ba)=(1+bca)(1-ba)=1-ba+bca-bcaba=1-ba+bc(1-ab)a=1-ba+ba=1$, aí $1-ba$ é inversível e $(1-ba)^{-1}=1+b(1-ab)^{-1}a$.
+
+\subsection*{Exercício 10}
+
+Seja $R$ um anel tal que $x^2=x$ para todo $x\in R$. Mostre que $R$ é comutativo.
+
+\subsubsection*{Resolução}
+
+$(2x)^2=2x$, aí $4x^2=2x$, aí $4x=2x$, aí $2x=0$.
+
+\medskip
+\noindent
+$(x+y)^2=x+y$, aí $x^2+xy+yx+y^2=x+y$, aí $x+xy+yx+y=x+y$, aí $xy+yx=0$.
+
+\medskip
+\noindent
+Logo $xy=-yx=yx$.
+
+\medskip
+\noindent
+Logo o anel é comutativo.
+
+\subsection*{Exercício 11}
+
+Seja $R$ um anel sem elementos nilpotentes não nulos. Mostre que se $e\in R$ é idempotente, então $e\in Z(R)$.
+
+\subsubsection*{Resolução}
+
+Se todo nilpotente é nulo, então para $e\in R$ idempotente temos $e^2=e$, aí para $x\in R$ temos o seguinte:
+\[
+\begin{array}{rcl}
+(ex-exe)^2&=&exex-exexe-exeex+exeexe\\&=&exex-exexe-exex+exexe\\&=&0,
+\end{array}
+\]
+aí $ex-exe=0$, aí $ex=exe$ e também:
+\[
+\begin{array}{rcl}
+(xe-exe)^2&=&xexe-xeexe-exexe+exeexe\\&=&xexe-xexe-exexe+exexe\\&=&0,
+\end{array}
+\]
+aí $xe-exe=0$, aí $xe=exe$, logo $ex=xe$; portanto $e\in Z(R)$.
+
+\subsection*{Exercício 12}
+
+Seja $R$ um anel tal que $x^3=x$ para todo $x\in R$. Mostre que $R$ é comutativo.
+
+\subsubsection*{Resolução}
+
+Para $x$, então $(2x)^3=2x$, aí $8x^3=2x$, aí $8x=2x$, aí $6x=0$.
+
+\medskip
+\noindent
+Para $x,y$, então $(x+y)^3=x+y$, aí $x^3+x^2y+xyx+yx^2+xy^2+yxy+y^2x+y^3=x+y$, aí $x+x^2y+xyx+yx^2+xy^2+yxy+y^2x+y=x+y$, aí $x^2+xyx+yx^2+xy^2+yxy+y^2x=0$.
+
+\medskip
+\noindent
+Para $x,y$, então $x^2+xyx+yx^2-xy^2-yxy-y^2x=0$.
+
+\medskip
+\noindent
+Para $x,y$, então $2(x^2y+xyx+yx^2)=0$, aí $2(x^3y+x^2yx+xyx^2)=0$ e $2(x^2yx+xyx^2+xyx^3)=0$, aí $2x^3y=2yx^3$, aí $2xy=2yx$.
+
+\medskip
+\noindent
+Para $x$, então $(x^2+x)^3=x^2+x$, aí $x^6+3x^5+3x^4+x^3=x^2+x$, aí $x^2+3x+3x^2+x=x^2+x$, aí $3x+3x^2=0$, aí $3(x+x^2)=0$.
+
+\medskip
+\noindent
+Para $x,y$, então $3(x+y+(x+y)^2)=0$, aí $3(x+y+x^2+xy+yx+y^2)=0$, aí $3(xy+yx)=0$.
+
+\medskip
+\noindent
+Logo, para $x,y$, então $3xy=-3yx=3yx$, mas $2xy=2yx$, aí $xy=yx$.
+
+\medskip
+\noindent
+Logo o anel é comutativo.
+
+\subsection*{Exercício 13}
+
+Seja:
+\[
+S=\left\{\begin{pmatrix}
+x+y&4y\\-y&x-y
+\end{pmatrix}\mid x,y\in\mathbb{Q}\right\}.
+\]
+Mostre que $S$ é um subcorpo de $M_2(\mathbb{Q})$ isomorfo ao corpo:
+\[
+\mathbb{Q}(\sqrt{-3})=\{a+b\sqrt{-3}\mid a,b\in\mathbb{Q}\}.
+\]
+Sugestão: Considere a matriz:
+\[
+\alpha=\begin{pmatrix}
+1&4\\-1&-1
+\end{pmatrix}.
+\]
+
+\subsubsection*{Resolução}
+
+Temos:
+\[
+\begin{pmatrix}
+x+y&4y\\-y&x-y
+\end{pmatrix}
+=\begin{pmatrix}
+x&0\\0&x
+\end{pmatrix}+\begin{pmatrix}
+y&4y\\-y&-y
+\end{pmatrix}=
+x\begin{pmatrix}
+1&0\\0&1
+\end{pmatrix}+y\begin{pmatrix}
+1&4\\-1&-1
+\end{pmatrix}=xI+y\alpha
+\]
+Além disso, temos:
+\[
+\alpha^2=\begin{pmatrix}
+1&4\\-1&-1
+\end{pmatrix}\begin{pmatrix}
+1&4\\-1&-1
+\end{pmatrix}=\begin{pmatrix}
+-3&0\\0&-3
+\end{pmatrix}=-3I
+\]
+Logo $S\cong\mathbb{Q}(\sqrt{-3})$.
+
+\subsection*{Exercício 14}
+
+Seja $\mathbb{H}$ o conjunto de $M_2(\mathbb{C})$ consituído pelas matrizes da forma:
+\[
+\textbf{q}=\begin{pmatrix}
+a+ib&c+id\\-c+id&a-ib
+\end{pmatrix},\quad\quad a,b,c,d\in\mathbb{R}
+\]
+Mostre que $\mathbb{H}$ é um subanel de $M_2(\mathbb{C})$. Mostre que $\mathbb{H}$ é um anel com divisão não comutativo. Sejam:
+\[
+\textbf{1}=\begin{pmatrix}
+1&0\\0&1
+\end{pmatrix},\quad\quad\textbf{i}=\begin{pmatrix}
+i&0\\0&-i
+\end{pmatrix},\quad\quad\textbf{j}=\begin{pmatrix}
+0&1\\-1&0
+\end{pmatrix},\quad\quad\textbf{k}=\begin{pmatrix}
+0&i\\i&0
+\end{pmatrix}\in\mathbb{H}.
+\]
+Então $\textbf{q}=a\textbf{1}+b\textbf{i}+c\textbf{j}+d\textbf{k}$, $a,b,c,d\in\mathbb{R}$. Este anel é o \textit{anel dos quatérnios}. Determine o centro $Z(\mathbb{H})$ de $\mathbb{H}$.
+
+\subsubsection*{Resolução}
+
+Temos:
+\[
+\begin{array}{rcl}
+\begin{pmatrix}
+a+ib&c+id\\-c+id&a-ib
+\end{pmatrix}&=&\begin{pmatrix}
+a&0\\0&a
+\end{pmatrix}+\begin{pmatrix}
+ib&0\\0&-ib
+\end{pmatrix}+\begin{pmatrix}
+0&c\\-c&0
+\end{pmatrix}+\begin{pmatrix}
+0&id\\id&0
+\end{pmatrix}
+\\&=&a\begin{pmatrix}
+1&0\\0&1
+\end{pmatrix}+b\begin{pmatrix}
+i&0\\0&-i
+\end{pmatrix}+c\begin{pmatrix}
+0&1\\-1&0
+\end{pmatrix}+d\begin{pmatrix}
+0&i\\i&0
+\end{pmatrix}\\&=&
+a\textbf{1}+b\textbf{i}+c\textbf{j}+d\textbf{k}.
+\end{array}
+\]
+Além disso, temos:
+\begin{itemize}
+\item $\textbf{i}^2=\begin{pmatrix}
+i&0\\0&-i
+\end{pmatrix}\begin{pmatrix}
+i&0\\0&-i
+\end{pmatrix}=\begin{pmatrix}
+-1&0\\0&-1
+\end{pmatrix}=-\textbf{1}$
+\item $\textbf{j}^2=\begin{pmatrix}
+0&1\\-1&0
+\end{pmatrix}\begin{pmatrix}
+0&1\\-1&0
+\end{pmatrix}=\begin{pmatrix}
+-1&0\\0&-1
+\end{pmatrix}=-\textbf{1}$
+\item $\textbf{k}^2=\begin{pmatrix}
+0&i\\i&0
+\end{pmatrix}\begin{pmatrix}
+0&i\\i&0
+\end{pmatrix}=\begin{pmatrix}
+-1&0\\0&-1
+\end{pmatrix}=-\textbf{1}$
+\item $\textbf{ij}=\begin{pmatrix}
+i&0\\0&-i
+\end{pmatrix}\begin{pmatrix}
+0&1\\-1&0
+\end{pmatrix}=\begin{pmatrix}
+0&i\\i&0
+\end{pmatrix}=\textbf{k}$
+\item $\textbf{j}\textbf{k}=-(-\textbf{1})\textbf{j}\textbf{k}=-\textbf{i}^2\textbf{j}\textbf{k}=-\textbf{i}\textbf{k}^2=-\textbf{i}(-\textbf{1})=\textbf{i}$
+\item $\textbf{k}\textbf{i}=-\textbf{k}\textbf{i}(-\textbf{1})=-\textbf{k}\textbf{i}\textbf{j}^2=-\textbf{k}^2\textbf{j}=-(-\textbf{1})\textbf{j}=\textbf{j}$
+\item $\textbf{j}\textbf{i}=\textbf{k}\textbf{i}^2=\textbf{k}(-\textbf{1})=-\textbf{k}$
+\item $\textbf{k}\textbf{j}=\textbf{i}\textbf{j}^2=\textbf{i}(-\textbf{1})=-\textbf{i}$
+\item $\textbf{i}\textbf{k}=\textbf{j}\textbf{k}^2=\textbf{j}(-\textbf{1})=-\textbf{j}$
+\end{itemize}
+Logo $\mathbb{H}$ é subanel de $M_2(\mathbb{C})$ e não é comutativo.
+
+\medskip
+\noindent
+Além disso, para $\alpha,\beta\in\mathbb{C}$, então:
+\[
+\begin{pmatrix}
+\alpha&\beta\\-\overline{\beta}&\overline{\alpha}
+\end{pmatrix}
+\begin{pmatrix}
+\overline{\alpha}&-\beta\\\overline{\beta}&\alpha
+\end{pmatrix}=
+\begin{pmatrix}
+\alpha\overline{\alpha}+\beta\overline{\beta}&0\\0&\alpha\overline{\alpha}+\beta\overline{\beta}
+\end{pmatrix}=
+(\alpha\overline{\alpha}+\beta\overline{\beta})\textbf{1}
+\]
+e:
+\[
+\begin{pmatrix}
+\overline{\alpha}&-\beta\\\overline{\beta}&\alpha
+\end{pmatrix}
+\begin{pmatrix}
+\alpha&\beta\\-\overline{\beta}&\overline{\alpha}
+\end{pmatrix}=
+\begin{pmatrix}
+\alpha\overline{\alpha}+\beta\overline{\beta}&0\\0&\alpha\overline{\alpha}+\beta\overline{\beta}
+\end{pmatrix}=
+(\alpha\overline{\alpha}+\beta\overline{\beta})\textbf{1}
+\]
+e se $\alpha\overline{\alpha}+\beta\overline{\beta}=0$, então $\abs{\alpha}^2+\abs{\beta}^2=0$, aí $\abs{\alpha}=0$ e $\abs{\beta}=0$, aí $\alpha=0$ e $\beta=0$.
+
+\medskip
+\noindent
+Logo $\mathbb{H}$ é anel com divisão.
+
+\subsection*{Exercício 15}
+
+Mostre que:
+\[
+\begin{pmatrix}
+\mathbb{Z}&\mathbb{Q}\\0&\mathbb{Z}
+\end{pmatrix},\quad\quad\begin{pmatrix}
+\mathbb{Z}&\mathbb{R}\\0&\mathbb{Z}
+\end{pmatrix}
+\]
+são subanéis de $M_2(\mathbb{R})$.
+
+\subsubsection*{Resolução}
+
+a)
+\[
+\begin{pmatrix}
+\mathbb{Z}&\mathbb{Q}\\0&\mathbb{Z}
+\end{pmatrix}\begin{pmatrix}
+\mathbb{Z}&\mathbb{Q}\\0&\mathbb{Z}
+\end{pmatrix}\subseteq\begin{pmatrix}
+\mathbb{Z}\cdot\mathbb{Z}&\mathbb{Z}\cdot\mathbb{Q}+\mathbb{Q}\cdot\mathbb{Z}\\0&\mathbb{Z}\cdot\mathbb{Z}
+\end{pmatrix}\subseteq\begin{pmatrix}
+\mathbb{Z}&\mathbb{Q}\\0&\mathbb{Z}
+\end{pmatrix}
+\]
+
+\noindent
+b)
+\[
+\begin{pmatrix}
+\mathbb{Z}&\mathbb{R}\\0&\mathbb{Z}
+\end{pmatrix}\begin{pmatrix}
+\mathbb{Z}&\mathbb{R}\\0&\mathbb{Z}
+\end{pmatrix}\subseteq\begin{pmatrix}
+\mathbb{Z}\cdot\mathbb{Z}&\mathbb{Z}\cdot\mathbb{R}+\mathbb{R}\cdot\mathbb{Z}\\0&\mathbb{Z}\cdot\mathbb{Z}
+\end{pmatrix}\subseteq\begin{pmatrix}
+\mathbb{Z}&\mathbb{R}\\0&\mathbb{Z}
+\end{pmatrix}
+\]
+
+\noindent
+O fechamento pelas outras operações é evidente.
+
+\subsection*{Exercício 16}
+
+Seja:
+\[
+R=\begin{pmatrix}
+\mathbb{Z}&\mathbb{Q}\\0&0
+\end{pmatrix}.
+\]
+Mostre que todo ideal à direita de $R$ é um ideal de $R$ e que existem ideais à esquerda de $R$ que não são ideais de $R$.
+
+\subsubsection*{Resolução}
+
+Temos:
+\[
+\begin{pmatrix}
+\mathbb{Z}&\mathbb{Q}\\0&0
+\end{pmatrix}\begin{pmatrix}
+\mathbb{Z}&\mathbb{Q}\\0&0
+\end{pmatrix}\subseteq\begin{pmatrix}
+\mathbb{Z}\cdot\mathbb{Z}&\mathbb{Z}\cdot\mathbb{Q}\\0&0
+\end{pmatrix}\subseteq\begin{pmatrix}
+\mathbb{Z}&\mathbb{Q}\\0&0
+\end{pmatrix}
+\]
+O fechamento pelas outras operações é evidente. Assim $R$ é subanel de $M_2(\mathbb{C})$.
+
+\medskip
+\noindent
+Para ideal $I$ à direita de $R$, então para:
+\[
+\begin{pmatrix}
+x&y\\0&0
+\end{pmatrix}\in R,\quad\quad\begin{pmatrix}
+a&b\\0&0
+\end{pmatrix}\in I
+\]
+então $x\in\mathbb{Z}$, aí temos:
+\[
+\begin{pmatrix}
+x&y\\0&0
+\end{pmatrix}\begin{pmatrix}
+a&b\\0&0
+\end{pmatrix}=\begin{pmatrix}
+xa&xb\\0&0
+\end{pmatrix}=x\begin{pmatrix}
+a&b\\0&0
+\end{pmatrix}\in I
+\]
+logo $I$ é ideal à direita de $R$.
+
+\medskip
+\noindent
+Consideremos o conjunto:
+\[
+J=\begin{pmatrix}
+\mathbb{Z}&\mathbb{Z}\\0&0
+\end{pmatrix}.
+\]
+Então temos:
+\[
+\begin{pmatrix}
+\mathbb{Z}&\mathbb{Z}\\0&0
+\end{pmatrix}\begin{pmatrix}
+\mathbb{Z}&\mathbb{Z}\\0&0
+\end{pmatrix}\subseteq
+\begin{pmatrix}
+\mathbb{Z}\cdot\mathbb{Z}&\mathbb{Z}\cdot\mathbb{Z}\\0&0
+\end{pmatrix}\subseteq
+\begin{pmatrix}
+\mathbb{Z}&\mathbb{Z}\\0&0
+\end{pmatrix}
+\]
+logo $J$ é ideal à esquerda.
+
+\medskip
+\noindent
+Por outro lado, temos:
+\[
+\begin{pmatrix}
+1&0\\0&0
+\end{pmatrix}\in\begin{pmatrix}
+\mathbb{Z}&\mathbb{Z}\\0&0
+\end{pmatrix},\quad\quad\begin{pmatrix}
+1&\frac{1}{2}\\0&0
+\end{pmatrix}\in\begin{pmatrix}
+\mathbb{Z}&\mathbb{Q}\\0&0
+\end{pmatrix},
+\]
+mas:
+\[
+\begin{pmatrix}
+1&0\\0&0
+\end{pmatrix}\begin{pmatrix}
+1&\frac{1}{2}\\0&0
+\end{pmatrix}=\begin{pmatrix}
+1&\frac{1}{2}\\0&0
+\end{pmatrix}\notin\begin{pmatrix}
+\mathbb{Z}&\mathbb{Z}\\0&0
+\end{pmatrix},
+\]
+aí $J$ não é ideal de $R$.
+
+\subsection*{Exercício 17}
+
+Seja $(M,+,0,-)$ um grupo abeliano. Denote por $\mathrm{End}(M)$ o conjunto dos endomorfismos de $M$. Se $f,g\in\mathrm{End}(M)$, defina $f+g$ e $fg$ por $(f+g)(x)=f(x)+g(x)$ e $(fg)(x)=f(g(x))$ para todo $x\in M$. Mostre que $(\mathrm{End}(M),+,0,-,\cdot,1)$, em que $0$ indica o endomorfismo nulo e $1$ é a identidade, é um anel com unidade.
+
+\subsubsection*{Resolução}
+
+Seja $R=\mathrm{End}(M)$
+
+\begin{itemize}
+\item $0(x+y)=0=0+0=0(x)+0(y)$; logo $0\in R$.
+\item Para $f,g\in R$ então $(f+g)(x+y)=f(x+y)+g(x+y)=f(x)+f(y)+g(x)+g(y)=f(x)+g(x)+f(y)+g(y)=(f+g)(x)+(f+g)(y)$; logo $f+g\in R$.
+\item Para $f\in R$ temos $(-f)(x+y)=-f(x+y)=-(f(x)+f(y))=-f(x)-f(y)=(-f)(x)+(-f)(y)$; logo $-f\in R$.
+\item Para $f,g\in R$, então $(fg)(x+y)=f(g(x+y))=f(g(x)+g(y))=f(g(x))+f(g(y))=(fg)(x)+(fg)(y)$; logo $fg\in R$.
+\item Temos $1(x+y)=x+y=1(x)+1(y)$; logo $1\in R$.
+\end{itemize}
+
+\noindent
+Agora temos o seguinte:
+\begin{itemize}
+\item Para $f,g,h\in R$ temos $((f+g)+h)(x)=(f+g)(x)+h(x)=(f(x)+g(x))+h(x)=f(x)+(g(x)+h(x))=f(x)+(g+h)(x)=(f+(g+h))(x)$; logo $(f+g)+h=f+(g+h)$.
+\item Para $f,g\in R$ temos $(f+g)(x)=f(x)+g(x)=g(x)+f(x)=(g+f)(x)$; logo $f+g=g+f$.
+\item Para $f\in R$ então $(f+0)(x)=f(x)+0(x)=f(x)+0=f(x)$; logo $f+0=f$.
+\item Para $f\in R$ então $(f+(-f))(x)=f(x)+(-f)(x)=f(x)-f(x)=0=0(x)$; logo $f+(-f)=0$.
+\item Para $f,g,h\in R$ temos $((fg)h)(x)=(fg)(h(x))=f(g(h(x)))=f((gh)(x))=(f(gh))(x)$; logo $((fg)h)=(f(gh))$.
+\item Para $f\in R$ temos $(f1)(x)=f(1(x))=f(x)$; logo $f1=f$.
+\item Para $f\in R$ temos $(1f)(x)=1(f(x))=f(x)$; logo $1f=f$.
+\item Para $f,g,h\in R$ temos $(f(g+h))(x)=f((g+h)(x))=f(g(x)+h(x))=f(g(x))+f(h(x))=(fg)(x)+(fh)(x)=(fg+fh)(x)$; logo $f(g+h)=fg+fh$.
+\item Para $f,g,h\in R$ temos $((f+g)h)(x)=(f+g)(h(x))=f(h(x))+g(h(x))=(fh)(x)+(gh)(x)=(fh+gh)(x)$; logo $(f+g)h=fh+gh$.
+\end{itemize}
+Logo $\mathrm{End}(M)$ é um anel com unidade.
+
+\subsection*{Exercício 18}
+
+Determine $\mathrm{End}(M)$ para:
+\begin{itemize}
+\item[a)] $(M,+)=(\mathbb{Z},+)$.
+\item[b)] $(M,+)=(\mathbb{Q},+)$.
+\item[c)] $(M,+)=(\mathbb{Z}_n,+)$, em que $\mathbb{Z}_n$ denota o grupo aditivo dos inteiros módulo $n$.
+\item[d)] $(M,+)=(\mathbb{Z}\times\mathbb{Z},+)$, em que a adição é definida por:
+\[
+(m,n)+(k,l)=(m+k,n+l)
+\]
+para todo $m,n,k,l\in\mathbb{Z}$.
+\end{itemize}
+
+\subsubsection*{Resolução}
+
+a) Para $n\in\mathbb{Z}$ seja $\varphi_n:\mathbb{Z}\rightarrow\mathbb{Z}$ dada por $\varphi_n(x)=nx$. Então:
+\begin{itemize}
+\item Para $n\in\mathbb{Z}$ temos $\varphi_n(x+y)=n(x+y)=nx+ny=\varphi_n(x)+\varphi_n(y)$; logo $\varphi_n\in\mathrm{End}(\mathbb{Z})$.
+\item Para $m,n\in\mathbb{Z}$ temos $\varphi_{m+n}(x)=(m+n)x=mx+nx=\varphi_m(x)+\varphi_n(x)=(\varphi_m+\varphi_n)(x)$; logo $\varphi_{m+n}=\varphi_m+\varphi_n$.
+\item Para $m,n\in\mathbb{Z}$ temos $\varphi_{mn}(x)=mnx=m\varphi_n(x)=\varphi_m(\varphi_n(x))=(\varphi_m\varphi_n)(x)$; logo $\varphi_{mn}=\varphi_m\varphi_n$.
+\item Temos $\varphi_1(x)=1x=x=1(x)$; logo $\varphi_1=1$.
+\end{itemize}
+Logo $\varphi$ é homomorfismo de anéis de $\mathbb{Z}$ a $\mathrm{End}(\mathbb{Z})$.
+
+\medskip
+\noindent
+Para $n\in\mathbb{Z}$, se $\varphi_n=0$ então $\varphi_n(1)=0(1)$, aí $n1=0$, aí $n=0$; logo $\varphi$ é injetora.
+
+\medskip
+\noindent
+Para $f\in\mathrm{End}(\mathbb{Z})$, sendo $n=f(1)$, então temos $f(x)=f(x1)=xf(1)=xn=nx=\varphi_n(x)$; logo $f=\varphi_n$; logo $\varphi$ é sobrejetora.
+
+\medskip
+\noindent
+Portanto $\mathrm{End}(\mathbb{Z})\cong\mathbb{Z}$.
+
+\medskip
+\noindent
+b) Para $a\in\mathbb{Q}$ seja $\varphi_a:\mathbb{Q}\rightarrow\mathbb{Q}$ dada por $\varphi_a(x)=ax$, então:
+\begin{itemize}
+\item $\varphi_a(x+y)=a(x+y)=ax+ay=\varphi_a(x)+\varphi_a(y)$; logo $\varphi_a\in\mathrm{End}(\mathbb{Q})$.
+\item $\varphi_{a+b}(x)=(a+b)x=ax+bx=\varphi_a(x)+\varphi_b(x)=(\varphi_a+\varphi_b)(x)$; logo $\varphi_{a+b}=\varphi_a+\varphi_b$.
+\item $\varphi_{ab}(x)=abx=a\varphi_b(x)=\varphi_a(\varphi_b(x))=(\varphi_a\varphi_b)(x)$; logo $\varphi_{ab}=\varphi_a\varphi_b$.
+\item $\varphi_1(x)=1x=x=1(x)$; logo $\varphi_1=1$.
+\end{itemize}
+
+\medskip
+\noindent
+Se $\varphi_a=0$ então $\varphi_a(1)=0(1)$, aí $a1=0$, aí $a=0$; logo $\varphi$ é injetora.
+
+\medskip
+\noindent
+Para $f\in\mathrm{End}(\mathbb{Q})$ então para $x\in\mathbb{Q}$ temos $f(nx)=nf(x)$; logo temos $mf(1)=f(m1)=f(m)=f(n\frac{m}{n})=nf(\frac{m}{n})$, aí $f(\frac{m}{n})=\frac{m}{n}f(1)$; logo sendo $a=f(1)$ temos $f(x)=xf(1)=xa=ax=\varphi_a(x)$; logo $f=\varphi_a$; logo $\varphi$ é sobrejetora.
+
+\medskip
+\noindent
+Portanto $\mathrm{End}(\mathbb{Q})\cong\mathbb{Q}$.
+
+\medskip
+\noindent
+c) Para $m\in\mathbb{Z}$ seja $\varphi_m:\mathbb{Z}_n\rightarrow\mathbb{Z}_n$ definida por $\varphi_m(x)=mx$. Então:
+\begin{itemize}
+\item $\varphi_m(x+y)=m(x+y)=mx+my=\varphi_m(x)+\varphi_m(y)$; logo $\varphi_m\in\mathrm{End}(\mathbb{Z}_n)$.
+\item $\varphi_{m+n}(x)=(m+n)x=mx+nx=\varphi_m(x)+\varphi_n(x)=(\varphi_m+\varphi_n)(x)$; logo $\varphi_{m+n}=\varphi_m+\varphi_n$.
+\item $\varphi_{mn}(x)=mnx=m\varphi_n(x)=\varphi_m(\varphi_n(x))=(\varphi_m\varphi_n)(x)$; logo $\varphi_{mn}=\varphi_m\varphi_n$.
+\item $\varphi_1(x)=1x=x=1(x)$; logo $\varphi_1=1$.
+\end{itemize}
+
+\medskip
+\noindent
+Se $\varphi_m=0$, então $\varphi_m(1)=0(1)$, aí $m\cdot1=0$, aí $m=0$; logo $\varphi$ é injetora.
+
+\medskip
+\noindent
+Para $f\in\mathrm{End}(\mathbb{Z}_n)$, então seja $m=f(\overline{1})$, aí existe $t\in\mathbb{Z}$ tal que $m=\overline{t}$, aí para $x\in\mathbb{Z}$ temos $f(\overline{x})=f(x\overline{1})=xf(\overline{1})=x\overline{t}=\overline{xt}=\overline{x}\overline{t}=\overline{t}\overline{x}=m\overline{x}=\varphi_m(\overline{x})$; logo $f=\varphi_m$; logo $\varphi$ é sobrejetora.
+
+\medskip
+\noindent
+Portanto $\mathrm{End}(\mathbb{Z}_n)\cong\mathbb{Z}_n$.
+
+\medskip
+\noindent
+d) Para cada $A\in M_2(\mathbb{Z})$ seja $\varphi_A:\mathbb{Z}\times\mathbb{Z}\rightarrow\mathbb{Z}\times\mathbb{Z}$ dada por $\varphi_A(x)=Ax$. Então:
+\begin{itemize}
+\item Para cada $A\in M_2(\mathbb{Z})$ então $\varphi_A(x+y)=A(x+y)=Ax+Ay=\varphi_A(x)+\varphi_A(y)$; logo $\varphi_A\in\mathrm{End}(\mathbb{Z}\times\mathbb{Z})$.
+\item Para $A,B\in M_2(\mathbb{Z})$ então $\varphi_{A+B}(x)=(A+B)x=Ax+Bx=\varphi_A(x)+\varphi_B(x)=(\varphi_A+\varphi_B)(x)$; logo $\varphi_{A+B}=\varphi_A+\varphi_B$.
+\item Para $A,B\in M_2(\mathbb{Z})$ então $\varphi_{AB}(x)=(AB)x=A(Bx)=\varphi_A(\varphi_B(x))=(\varphi_A\varphi_B)(x)$; logo $\varphi_{AB}=\varphi_A\varphi_B$.
+\item Para $\varphi_1(x)=1x=x=1(x)$; logo $\varphi_1=1$.
+\end{itemize}
+Logo $\varphi$ é homomorfismo de anéis de $M_2(\mathbb{Z})$ em $\mathrm{End}(\mathbb{Z}\times\mathbb{Z})$.
+
+\medskip
+\noindent
+Para $A\in M_2(\mathbb{Z})$, se $\varphi_A=0$ então $Ae_i=\varphi_A(e_i)=0(e_i)=0$ para todo $i$, aí $A=0$; logo $\varphi$ é injetora.
+
+\medskip
+\noindent
+Para $f\in\mathrm{End}(\mathbb{Z}\times\mathbb{Z})$, sendo $f(1,0)=(a,b)$ e $f(0,1)=(c,d)$ e:
+\[
+A=\begin{pmatrix}
+a&c\\b&d
+\end{pmatrix}
+\]
+temos $f(x,y)=f(x(1,0)+y(0,1))=xf(1,0)+yf(0,1)=x(a,b)+y(c,d)=(ax,bx)+(cy,dy)=(ax+cy,bx+dy)=A(x,y)=\varphi_A(x,y)$; logo $f=\varphi_A$; logo $\varphi$ é sobrejetora.
+
+\medskip
+\noindent
+Portanto $\mathrm{End}(\mathbb{Z}\times\mathbb{Z})\cong M_2(\mathbb{Z})$.
+
+\subsection*{Exercício 19}
+
+Em vários casos que consideramos, obtivemos que $\mathrm{End}(R,+,0,-)\cong R$ para um anel $R$. Isso é verdade em geral? Isso é verdade quando $R$ é um corpo? O que acontece quando $(R,+)=(\mathbb{R},+)$?
+
+\subsubsection*{Resolução}
+
+a) Seja $R$ um anel. Seja $M$ um $R$-módulo à esquerda. Para $r\in R$ seja $\varphi_r:M\rightarrow M$ dada por $\varphi_r(x)=rx$.
+\begin{itemize}
+\item $\varphi_r(x+y)=r(x+y)=rx+ry=\varphi_r(x)+\varphi_r(y)$; logo $\varphi_r\in\mathrm{End}_\mathbb{Z}(M)$.
+\item $\varphi_{r+s}(x)=(r+s)x=rx+sx=\varphi_r(x)+\varphi_s(x)=(\varphi_r+\varphi_s)(x)$; logo $\varphi_{r+s}=\varphi_r+\varphi_s$.
+\item $\varphi_{rs}(x)=(rs)x=r(sx)=\varphi_r(\varphi_s(x))=(\varphi_r\varphi_s)(x)$; logo $\varphi_{rs}=\varphi_r\varphi_s$.
+\item $\varphi_1(x)=1x=x=1(x)$; logo $\varphi_1=1$.
+\end{itemize}
+Logo $\varphi$ é homomorfismo de anéis de $R$ em $\mathrm{End}_\mathbb{Z}(M)$.
+
+\medskip
+\noindent
+b) Se $M$ é o $R$-módulo à esquerda $R$, então para $r\in R$, se $\varphi_r=0$, então $\varphi_r(1)=0(1)$, aí $r1=0$, aí $r=0$; logo $\varphi$ é injetora.
+
+\medskip
+\noindent
+c) Agora seja $M$ um $\mathbb{Q}$-módulo. Então temos $\mathrm{End}_\mathbb{Q}(M)\subseteq\mathrm{End}_\mathbb{Z}(M)$ e para $f\in\mathrm{End}_\mathbb{Z}(M)$ então para $m\in\mathbb{Z}$ e $n\in\mathbb{N}^+$ e $x\in M$ então $f(\frac{m}{n}x)=1f(\frac{m}{n}x)=\frac{1}{n}nf(\frac{m}{n}x)=\frac{1}{n}f(n\frac{m}{n}x)=\frac{1}{n}f(mx)=\frac{1}{n}mf(x)=\frac{m}{n}f(x)$; logo $\mathrm{End}_\mathbb{Q}(M)=\mathrm{End}_\mathbb{Z}(M)$.
+
+\medskip
+\noindent
+d) Agora seja $B$ uma base de $\mathbb{R}$ sobre $\mathbb{Q}$. Para cada $x\in\mathbb{R}$ existem $n_x\in\mathbb{N}$ e $b_{x,1},\dots,b_{x,n_x}\in B$ e $q_{x,1},\dots,q_{x,n_x}\in\mathbb{Q}$ tais que $\sum_{k=1}^{n_x}q_{x,k}b_{x,k}$. Sendo $\mathcal{F}$ o conjunto dos subconjuntos finitos de $B$, como $B$ é infinito, então $\abs{\mathcal{F}}=\abs{B}$. Para cada $F=\{b_1,\dots,b_n\}\in\mathcal{F}$ existem $\abs{\mathbb{Q}^n}=\aleph_0^n\leq\aleph_0$ combinações lineares $q_1b_1+\dots+q_nb_n$ com $q_k\in\mathbb{Q}$, assim $2^{\aleph_0}=\abs{\mathbb{R}}=\abs{\mathrm{span}_\mathbb{Q}(B)}\leq\abs{\mathcal{F}}\cdot\aleph_0=\abs{B}\cdot\aleph_0=\abs{B}\leq\abs{\mathbb{R}}=2^{\aleph_0}$, aí $\abs{B}=2^{\aleph_0}$.
+
+\medskip
+\noindent
+Além disso, cada elemento de $\mathrm{End}_\mathbb{Q}(\mathbb{R})$ é unicamente determinado pelos valores nos elementos de $B$; logo $\abs{\mathrm{End}_\mathbb{Q}(\mathbb{R})}=\abs{\mathbb{R}}^{\abs{\mathbb{B}}}=(2^{\aleph_0})^{2^{\aleph_0}}=2^{\aleph_0\cdot 2^{\aleph_0}}=2^{2^{\aleph_0}}>2^{\aleph_0}=\abs{\mathbb{R}}$.
+
+\medskip
+\noindent
+Em suma $\abs{\mathrm{End}_\mathbb{Q}(\mathbb{R})}>\abs{\mathbb{R}}$, mas $\mathrm{End}_\mathbb{Z}(\mathbb{R})=\mathrm{End}_\mathbb{Q}(\mathbb{R})$, assim $\mathrm{End}_\mathbb{Z}(\mathbb{R})$, logo $\mathrm{End}_\mathbb{Z}(\mathbb{R})\not\cong\mathbb{R}$.
+
+\subsubsection*{Observação}
+
+Apesar de $\mathrm{End}(\mathbb{R},+,0,-)\not\cong\mathbb{R}$ como anéis com unidade, temos $\mathrm{End}(\mathbb{R},+,0,-,\cdot)=\{0,1\}$ e também $\mathrm{End}(\mathbb{R},+,0,-)\cap\mathcal{C}(\mathbb{R},\mathbb{R})\cong\mathbb{R}$, em que $\mathcal{C}(\mathbb{R},\mathbb{R})$ é o conjunto das funções contínuas de $\mathbb{R}$ em $\mathbb{R}$.
+
+\medskip
+\noindent
+a) Se $f\in\mathrm{End}(\mathbb{R},+,0,-)$ e $\forall x\in\mathbb{R}:(x\geq 0\Rightarrow f(x)\geq 0)$ então temos $\forall r\in\mathbb{Q}:\forall x\in\mathbb{R}:f(rx)=rf(x)$, aí para $x\in\mathbb{R}$ e para $r,s\in\mathbb{Q}$ tais que $r\leq x\leq s$ então $s-x\geq 0$ e $x-r\geq 0$, aí $f(s-x)\geq 0$ e $f(x-r)\geq 0$, aí $f(r)\geq f(x)\geq f(s)$, aí $rf(1)\leq f(x)\leq sf(1)$; logo $f(x)=xf(1)$.
+
+\medskip
+\noindent
+b) Se $f\in\mathrm{End}(\mathbb{R},+,0,-,\cdot)$ então para $x\in\mathbb{R}$ então se $x\geq 0$ então existe $t\in\mathbb{R}$ tal que $x=t^2$, aí $f(x)=f(t^2)=f(t)^2\geq 0$; logo $\forall x\in\mathbb{R}:f(x)=xf(1)$, mas $f(1)=f(1^2)=f(1)^2$, aí $f(1)=0$ ou $f(1)=1$, aí $\forall x\in\mathbb{R}:f(x)=0$ e $\forall x\in\mathbb{R}:f(x)=x$.
+
+\medskip
+\noindent
+c) Se $f\in\mathrm{End}(\mathbb{R},+,0,-)\cap\mathcal{C}(\mathbb{R},\mathbb{R})$, então, sendo $a=f(1)$, e sendo $g(x)=xa$, temos $\forall r\in\mathbb{Q}:f(r)=g(r)$, aí para $x\in\mathbb{R}$ então para $\varepsilon>0$ existe $\delta_1>0$ tal que $\forall t\in\mathbb{R}:\left(\abs{x-t}<\delta_1\Rightarrow\abs{f(t)-f(x)}<\frac{\varepsilon}{2}\right)$ e existe $\delta_2>0$ tal que $\forall t\in\mathbb{R}:\left(\abs{x-t}<\delta_2\Rightarrow\abs{g(t)-g(x)}<\frac{\varepsilon}{2}\right)$, aí seja $\delta=\min\{\delta_1,\delta_2\}$, então existe $t\in\mathbb{Q}$ tal que $\abs{t-x}<\delta$, aí $f(t)=g(t)$, aí $\abs{f(x)-g(x)}=\abs{f(x)-f(t)+g(t)-g(x)}\leq\abs{f(x)-f(t)}+\abs{g(x)-g(t)}<\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon$, aí $\abs{f(x)-g(x)}<\varepsilon$; logo $f(x)=g(x)$; logo $\forall x\in\mathbb{R}:f(x)=xf(1)$.
+\end{document}

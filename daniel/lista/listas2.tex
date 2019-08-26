@@ -1,0 +1,1280 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[a4paper, total={6in,8in}]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[portuguese]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{commath}
+
+\title{Anéis e Módulos: Exercícios 2}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+
+\section*{Lista 1}
+
+Seja $R$ um anel com $1\neq 0$.
+
+\subsection*{Exercício 1}
+
+Mostre que $(-1)^2=1$ em $R$.
+
+\subsubsection*{Resolução}
+
+Num anel com unidade temos o seguinte:
+
+\medskip
+\noindent
+$x+(-x)=0=(-x)+(-(-x))=(-(-x))+(-x)$, aí $x=-(-x)$.
+
+\medskip
+\noindent
+$a0+a0=a(0+0)=a0$, aí $a0=0$.
+
+\medskip
+\noindent
+$ab+a(-b)=a(b+(-b))=a0=0$, aí $a(-b)=-(ab)$.
+
+\medskip
+\noindent
+$0a=(0+0)a=0a+0a$, aí $0a=0$.
+
+\medskip
+\noindent
+$ab+(-a)b=(a+(-a))b=0b=0$, aí $(-a)b=-(ab)$.
+
+\medskip
+\noindent
+$(-a)(-b)=-(a(-b))=-(-(ab))=ab$.
+
+\medskip
+\noindent
+$(-1)^2=(-1)(-1)=1\cdot 1=1$.
+
+\subsection*{Exercício 2}
+
+Seja $u$ um elemento inversível de $R$. Mostre que $-u$ é inversível também.
+
+\subsubsection*{Resolução}
+
+Se $u$ é inversível, existe $v$ tal que $uv=1$ e $vu=1$, aí $1=uv=(-u)(=v)$ e $1=vu=(-v)(-u)$, aí $-u$ é inversível.
+
+\subsection*{Exercício 3}
+
+Mostre que a interseção de qualquer família de subanéis de um anel é subanel.
+
+\subsubsection*{Resolução}
+
+Se $\mathcal{A}$ é um conjunto de subanéis então:
+
+\begin{itemize}
+\item[1)] Para $A\in\mathcal{A}$, então $0\in A$; logo $0\in\bigcap\mathcal{A}$.
+\item[2)] Para $x,y\in\bigcap\mathcal{A}$, então para $A\in\mathcal{A}$ temos $x\in A$ e $y\in A$, aí $x+y\in A$; logo $x+y\in\bigcap\mathcal{A}$.
+\item[3)] Para $x\in\bigcap\mathcal{A}$, então para todo $A\in\mathcal{A}$ então $x\in A$, aí $-x\in A$; logo $-x\in\bigcap\mathcal{A}$.
+\item[4)] Para $x,y\in\bigcap\mathcal{A}$, então para todo $A\in\mathcal{A}$ temos $x\in A$ e $y\in A$, aí $xy\in A$; logo $xy\in\bigcap\mathcal{A}$.
+\item[5)] Para $A\in\mathcal{A}$ temos $1\in A$; logo $1\in\bigcap\mathcal{A}$.
+\end{itemize}
+Logo $\bigcap\mathcal{A}$ é um subanel.
+
+\subsection*{Exercício 4}
+
+Decida qual conjunto é subanel de $\mathbb{Q}$.
+
+\begin{itemize}
+\item[a)] o conjunto de todos os números racionais com denominadores ímpares;
+\item[b)] o conjunto de todos os números racionais com denominadores pares;
+\item[c)] o conjunto de todos os números racionais não-negativos;
+\item[d)] o conjunto de todas as raízes dos números racionais;
+\item[e)] o conjunto de todos os números racionais com numeradores ímpares;
+\item[f)] o conjunto de todos os números racionais com numeradores pares.
+\end{itemize}
+
+\subsubsection*{Resolução}
+
+a) Sim.
+
+\medskip
+\noindent
+De fato, se $a,b\in\mathbb{Z}$ e $m,n\in\mathbb{N}^+$ com $m$ e $n$ ímpares então $mn\in\mathbb{N}^+$ e $mn$ é ímpar e $\frac{a}{m}+\frac{b}{n}=\frac{an+bm}{mn}$, aí sendo $\frac{an+bm}{mn}=\frac{p}{q}$ com $\mathrm{mdc}(p,q)=1$ então $(an+bm)q=pmn$, aí $2\nmid q$, aí $q$ é ímpar. Além disso $\frac{a}{m}\cdot\frac{b}{n}=\frac{ab}{mn}$.
+
+\medskip
+\noindent
+b) Não.
+
+\medskip
+\noindent
+De fato $\frac{1}{2}+\frac{1}{2}=\frac{1}{1}$ e $\mathrm{mdc}(1,2)=\mathrm{mdc}(1,1)=1$.
+
+\medskip
+\noindent
+c) Não.
+
+\medskip
+\noindent
+$1\geq 0$ mas $-1\ngeq 0$.
+
+\medskip
+\noindent
+d) Não.
+
+\medskip
+\noindent
+De fato $(\sqrt{1}+\sqrt{2})^2=3+2\sqrt{2}\notin\mathbb{Q}$, aí $\sqrt{1}+\sqrt{2}\notin\{\sqrt{r}:r\in\mathbb{Q}\}$.
+
+\medskip
+\noindent
+e) Não.
+
+\medskip
+\noindent
+De fato $\frac{1}{1}+\frac{1}{1}=\frac{2}{1}$ e $\mathrm{mdc}(1,1)=\mathrm{mdc}(2,1)=1$.
+
+\medskip
+\noindent
+f) Sim.
+
+\medskip
+\noindent
+De fato:
+\[
+\frac{2a}{m}+\frac{2b}{n}=\frac{2(an+bm)}{mn}
+\]
+e se $\mathrm{mdc}(2a,m)=\mathrm{mdc}(2b,n)=1$, então $2\nmid m$ e $2\nmid n$, aí $2\nmid mn$, aí mesmo que $\frac{p}{q}=\frac{2(an+bm)}{mn}$ com $\mathrm{mdc}(p,q)=1$ então $2\nmid q$ e $2\mid p$. Além disso $\frac{2a}{m}\cdot\frac{2b}{n}=\frac{4ab}{mn}$.
+
+\subsection*{Exercício 5}
+
+Decida qual conjunto é subanel do anel de todas as funções $f:[0,1]\rightarrow\mathbb{R}$:
+
+\begin{itemize}
+\item[a)] o conjunto de todas as funções $f(x)$ tais que $f(q)=0$ para todos $q\in\mathbb{Q}\cap[0,1]$;
+\item[b)] o conjunto de todas as funções polinomiais;
+\item[c)] o conjunto de todas as funções que possuam somente um número finito de zeros incluindo a função nula;
+\item[d)] o conjunto de todas as funções que possuem somente um número finito de zeros;
+\item[e)] o conjunto de todas as funções $f$ tais que $\lim_{x\to 1^-}f(x)=0$;
+\item[f)] o conjunto de todas as combinações racionais lineares das funções $\sin(nx)$ e $\cos(nx)$, $m,n\in\{0,1,2,\dots\}$.
+\end{itemize}
+
+\subsubsection*{Resolução}
+
+a) Sim.
+
+\medskip
+\noindent
+Seja $A=\mathbb{Q}\cap[0,1]$.
+
+\medskip
+\noindent
+$\forall a\in A:0(a)=0$.
+
+\medskip
+\noindent
+Para $f,g$, se $\forall a\in A:f(a)=0$ e $\forall a\in A:g(a)=0$, então $\forall a\in A:(f-g)(a)=f(a)-g(a)=0-0=0$.
+
+\medskip
+\noindent
+Para $f,g$, se $\forall a\in A:f(a)=0$ e $\forall a\in A:g(a)=0$, então $\forall a\in A:(fg)(a)=f(a)g(a)=0\cdot 0=0$.
+
+\medskip
+\noindent
+b) Sim.
+
+\medskip
+\noindent
+c) Não.
+
+\medskip
+\noindent
+Pegue:
+\[
+f(x)=x,\quad\quad g(x)=\left\{\begin{array}{cl}-x&\text{se }x\neq 1\\0&\text{se }x=1\end{array}\right.
+\]
+Então $f$ e $g$ estão no conjunto e $f+g$ não está.
+
+\medskip
+\noindent
+d) Não.
+
+\medskip
+\noindent
+Pegue $f(x)=x$ e $g(x)=-x$.
+
+\medskip
+\noindent
+e) Sim.
+
+\medskip
+\noindent
+$\lim_{x\to 1^-}0(x)=0$.
+
+\medskip
+\noindent
+$\lim_{x\to 1^-}(f(x)-g(x))=\lim_{x\to 1^-}f(x)-\lim_{x\to 1^-}g(x)$.
+
+\medskip
+\noindent
+$\lim_{x\to 1^-}(f(x)g(x))=(\lim_{x\to 1^-}f(x))(\lim_{x\to 1^-}g(x))$.
+
+\medskip
+\noindent
+$\lim_{x\to 1^-}1(x)=1$.
+
+\medskip
+\noindent
+f) Sim.
+
+\medskip
+\noindent
+$\sin(nx)\cos(mx)=\frac{1}{2}(\sin((n+m)x)+\sin((n-m))x)$ e $\sin(-x)=-\sin(x)$.
+
+\subsection*{Exercício 6}
+
+O \textbf{centro} do anel $R$ é $\{z\in R:za=az\text{ para todo }a\in R\}$. Mostre que o centro do anel é subanel que contém a identidade. Mostre que o centro do anel de divisão é corpo.
+
+\subsubsection*{Resolução}
+
+1) $\forall a\in R:0a=0=a0$, aí $0\in Z$.
+
+\medskip
+\noindent
+2) Para $x,y\in Z$, então $\forall a\in R:(x-y)a=xa-ya=ax-ay=a(x-y)$, aí $x-y\in Z$.
+
+\medskip
+\noindent
+3) Para $x,y\in Z$, então $\forall a\in R:(xy)a=x(ya)=x(ay)=(xa)y=(ax)y=a(xy)$, aí $xy\in Z$.
+
+\medskip
+\noindent
+4) $\forall a\in R:1a=a=a1$, aí $1\in Z$.
+
+\medskip
+\noindent
+Também temos $\forall x,y\in Z:xy=yx$. Logo $Z$ é anel comutativo com unidade.
+
+\medskip
+\noindent
+Se $R$ é um anel com divisão, então para $x\in Z$, se $x\neq 0$, então para $a\in R$ temos $xa=ax$, aí $a=x^{-1}ax$, aí $ax^{-1}=x^{-1}a$; logo $x^{-1}\in Z$.
+
+\subsection*{Exercício 7}
+
+Para o elemento fixo $a\in R$, definimos $C(a)=\{r\in R:ra=ar\}$. Mostre que $C(a)$ é subanel de $R$ que contém $a$. Mostre que o centro de $R$ é a interseção de todos os subanéis $C(a)$ para todo $a\in R$.
+
+\subsubsection*{Resolução}
+
+1) $aa=aa$, aí $a\in C(a)$.
+
+\medskip
+\noindent
+2) Para $x,y\in C(a)$, então $(x-y)a=xa-ya=ax-ay=a(x-y)$, aí $x-y\in C(a)$.
+
+\medskip
+\noindent
+3) Para $x,y\in C(a)$, então $xya=xay=axy$, aí $xy\in C(a)$.
+
+\medskip
+\noindent
+4) $1a=a=a1$, aí $1\in C(a)$.
+
+\medskip
+\noindent
+Para $z\in R$, então:
+\[
+\begin{array}{rcl}
+z\in Z&\Leftrightarrow&\forall a\in R:za=az\\&\Leftrightarrow&\forall a\in R:z\in C(a)\\&\Leftrightarrow&z\in\bigcap_{a\in R}C(a).
+\end{array}
+\]
+Logo $Z=\bigcap_{a\in R}C(a)$.
+
+\subsection*{Exercício 8}
+
+Mostre que, se $R$ é domínio de integridade e $x^2=1$ para algum $x\in R$, então $x=\pm1$.
+
+\subsubsection*{Resolução}
+
+Se $R$ é domínio de integridade e $x^2=1$ então:
+\[
+\begin{array}{rcl}
+0&=&x^2-1\\&=&x^2-x+x-1\\&=&x^2-x1+1x-1\cdot 1\\&=&(x+1)(x-1),
+\end{array}
+\]
+aí $x+1=0$ ou $x-1=0$, aí $x=-1$ ou $x=1$.
+
+\subsection*{Exercício 9}
+
+Um elemento $x\in R$ se chama \textit{nilpotente} se $x^m=0$ para algum $m\in\mathbb{Z}^+$.
+
+\begin{itemize}
+\item[a)] Mostre que, se $n=a^kb$ para números inteiros $a,b$, então $\overline{ab}$ é um elemento nilpotente de $\mathbb{Z}/n\mathbb{Z}$.
+\item[b)] Se $a\in\mathbb{Z}$ é um número inteiro, mostre que o elemento $\overline{a}\in\mathbb{Z}/n\mathbb{Z}$ é nilpotente se, e somente se, qualquer divisor primo de $n$ é divisor de $a$ também. Em particular, ache elementos nilpotentes de $\mathbb{Z}/72\mathbb{Z}$ explicitamente.
+\item[c)] Seja $R$ um anel das funções de um conjunto não vazio $X$ a um corpo $F$. Mostre que $R$ não contém elementos nilpotentes não nulos.
+\end{itemize}
+
+\subsubsection*{Resolução}
+
+a) Temos $(ab)^k=a^kb^k=a^kbb^{k-1}=nb^{k-1}$, aí $(\overline{a}\overline{b})^k=\overline{0}$.
+
+\medskip
+\noindent
+b) Se $\overline{a}$ é nilpotente, então existe $k\geq 1$ tal que $\overline{a}^k=\overline{0}$, aí $n\mid a^k$, aí para todo divisor primo $p$ de $n$ então $p\mid a^k$, aí $p\mid a$.
+
+\medskip
+\noindent
+Se $\forall p\text{ primo}:(p\mid n\Rightarrow p\mid a)$ então sendo $n=p_0^{\alpha_0}\dots p_{k-1}^{\alpha_{k-1}}$ com $\forall i<k:\alpha_i\geq 1$ então $\forall i<k:p_i\mid a$, aí $p_0\dots p_{k-1}\mid a$, aí sendo $l=\max\{\alpha_0,\dots,\alpha_{k-1}\}$ então $l\geq 1$ e aí $n=p_0^{\alpha_0}\dots p_{k-1}^{\alpha_{k-1}}\mid p_0^l\dots p_{k-1}^l\mid a^l$, aí $\overline{a}^l=\overline{0}$, aí $\overline{a}$ é nilpotente.
+
+\medskip
+\noindent
+No caso do $n=72$, temos $72=8\cdot 9=2^3\cdot 3^2$ e $2\cdot 3=6$, então para $a\in\mathbb{Z}$ então $\overline{a}$ é nilpotente se e só se $6\mid a$; aí os nilpotentes de $\mathbb{Z}/72\mathbb{Z}$ são $\overline{0}$ e $\overline{6}$ e $\overline{12}$ e $\overline{18}$ e $\overline{24}$ e $\overline{30}$ e $\overline{36}$ e $\overline{42}$ e $\overline{48}$ e $\overline{54}$ e $\overline{60}$ e $\overline{66}$.
+
+\medskip
+\noindent
+c) Se $R=F^X$ e $F$ é corpo, então para $f\in R$ nilpotente, existe $k\geq 1$ tal que $f^k=0$, aí para todo $x\in X$ temos $(f^k)(x)=0$, aí $(f(x))^k=0$, mas $F$ é corpo, aí $f(x)=0$; logo $f=0$. 
+
+\subsection*{Exercício 10}
+
+Seja $x$ um elemento nilpotente do anel comutativo $R$.
+
+\begin{itemize}
+\item[a)] Mostre que $x$ é zero ou divisor de zero.
+\item[b)] Mostre que $rx$ é nilpotente para todo $r\in R$.
+\item[c)] Mostre que $x+1$ é inversível em $R$.
+\item[d)] Mostre que a soma de um elemento nilpotente e um elemento inversível é inversível.
+\end{itemize}
+
+\subsubsection*{Resolução}
+
+Seja $k\geq 1$ o menor tel que $x^k=0$.
+
+\medskip
+\noindent
+a) Temos $x^{k-1}\neq0$ e $xx^{k-1}=x^k=0$, aí $x$ é divisor de zero.
+
+\medskip
+\noindent
+b) $(rx)^k=r^kx^k=r^k0=0$
+
+\medskip
+\noindent
+c) Se $y=-x$, então $y^k=0$, aí $1-y^k=(1-y)(1+y+\dots+y^{k-1})=(1+x)(1+\dots+y^{k-1})$, aí $1+x$ é inversível.
+
+\medskip
+\noindent
+d) Se $x$ é nilpotente e $y$ é inversível, existe $k\geq 1$ tal que $x^k=0$ e existe $z$ tal que $yz=1$, aí $(xz)^k=0$, aí $(x+y)z=xz+yz=xz+1$ é inversível, aí existe $w$ tal que $(x+y)zw=1$, aí $x+y$ é inversível.
+
+\subsection*{Exercício 11}
+
+Um anel $R$ se chama \textit{booleano} se $a^2=a$ para todo $a\in R$. Mostre que qualquer anel booleano é comutativo.
+
+\subsubsection*{Resolução}
+
+Temos $2x=(2x)^2=4x^2=4x$, aí $2x=0$.
+
+\medskip
+\noindent
+Temos $x+y=(x+y)^2=x^2+xy+yx+y^2=x+xy+yx+y$, aí $xy+yx=0$.
+
+\medskip
+\noindent
+Logo $xy=-yx=yx$.
+
+\medskip
+\noindent
+Logo $R$ é comutativo.
+
+\subsection*{Exercício 12}
+Seja $R$ a coleção das sequências $(a_1,a_2,a_3,\dots)$ de números inteiros, em que os $a_i$ são todos nulos exceto para um número finito de termos. Mostre que $R$ é um anel com respeito à adição e multiplicação componente por componente que não possui uma identidae.
+
+\subsubsection*{Resolução}
+
+Para $a\in\mathbb{Z}^{\mathbb{N}^+}$, seja $I_a=\{i\in\mathbb{N}^+:a_i\neq0\}$.
+
+\medskip
+\noindent
+Temos $I_0=\emptyset$, aí $0\in R$.
+
+\medskip
+\noindent
+Para $a\in R$ e $b\in R$, para $i\in I_{a-b}$ temos $a_i-b_i\neq 0$, aí $a_i\neq 0$ ou $b_i\neq 0$, aí $i\in I_a\cup I_b$; logo $I_{a-b}\subseteq I_a\cup I_b$, aí $a-b\in R$.
+
+\medskip
+\noindent
+Para $a\in R$ e $b\in R$, para $i\in I_{ab}$ temos $a_ib_i\neq 0$, aí $a_i\neq 0$, aí $i\in I_a$; logo $I_{ab}\subseteq I_a$, aí $ab\in R$.
+
+\medskip
+\noindent
+Se existisse $1\in R$ tal que $\forall a\in R:a1=a$, então para $i\in\mathbb{N}^+$ sendo:
+\[
+(e_i)_k=\left\{\begin{array}{cl}
+1&\text{se }k=i\\0&\text{caso contrário}
+\end{array}\right.
+\]
+então $e_i\in R$ e aí $e_i\cdot 1=e_i$, aí $(e\cdot 1)_i=(e_i)_i$, aí $1\cdot 1_i=1$, aí $1_i=1\neq 0$; logo $I_1\in\mathbb{N}^+$, contradição.
+
+\subsection*{Exercício 13}
+Seja $F$ um corpo, e seja $T$ o conjunto das matrizes:
+\[
+\begin{pmatrix}
+r&t\\0&s
+\end{pmatrix}
+\]
+com $r,s,t\in R$. Mostre que $T$ é um anel com as operações de adição e multiplicação usuais. Mostre que $T$ não é comutativo. Sejam:
+\[
+H=\left\{\begin{pmatrix}
+r&t\\0&0
+\end{pmatrix}\mid r,t\in F\right\}
+\]
+\[
+I=\left\{\begin{pmatrix}
+0&t\\0&s
+\end{pmatrix}\mid t,s\in F\right\}
+\]
+\[
+I=\left\{\begin{pmatrix}
+0&t\\0&0
+\end{pmatrix}\mid t\in F\right\}
+\]
+Mostre que $H,I,J$ são ideais bilaterais em $T$, e que $T/H=T/I=F$ com $T/J=F\times F$.
+
+\subsubsection*{Resolução}
+
+Sabemos que as matrizes quadradas formam um anel com unidade.
+
+\medskip
+\noindent
+Temos o seguinte:
+\begin{itemize}
+\item $\begin{pmatrix}
+0&0\\0&0
+\end{pmatrix}\in T$
+\item $\begin{pmatrix}
+r&t\\0&s
+\end{pmatrix}-\begin{pmatrix}
+r'&t'\\0&s'
+\end{pmatrix}=\begin{pmatrix}
+r-r'&t-t'\\0&s-s'
+\end{pmatrix}\in T$
+\item $\begin{pmatrix}
+r&t\\0&s
+\end{pmatrix}\begin{pmatrix}
+r'&t'\\0&s'
+\end{pmatrix}=\begin{pmatrix}
+rr'&rt'+ts'\\0&ss'
+\end{pmatrix}\in T$
+\item $\begin{pmatrix}
+1&0\\0&1
+\end{pmatrix}\in T$
+\end{itemize}
+Além disso:
+\[
+\begin{pmatrix}
+1&1\\0&0
+\end{pmatrix}\in T,\quad\quad\begin{pmatrix}
+0&1\\0&0
+\end{pmatrix}\in T,\quad\quad\begin{pmatrix}
+1&1\\0&0
+\end{pmatrix}\begin{pmatrix}
+0&1\\0&0
+\end{pmatrix}=\begin{pmatrix}
+0&1\\0&0
+\end{pmatrix},\quad\quad\begin{pmatrix}
+0&1\\0&0
+\end{pmatrix}\begin{pmatrix}
+1&1\\0&0
+\end{pmatrix}=\begin{pmatrix}
+0&0\\0&0
+\end{pmatrix},
+\]
+aí $T$ não é comutativo.
+
+\medskip
+\noindent
+Agora, para o $H$ temos:
+\begin{itemize}
+\item $\begin{pmatrix}
+0&0\\0&0
+\end{pmatrix}\in H$
+\item $\begin{pmatrix}
+r&t\\0&0
+\end{pmatrix}-\begin{pmatrix}
+r'&t'\\0&0
+\end{pmatrix}=\begin{pmatrix}
+r-r'&t-t'\\0&0
+\end{pmatrix}\in H$
+\item $\begin{pmatrix}
+r&t\\0&0
+\end{pmatrix}\begin{pmatrix}
+a&b\\0&c
+\end{pmatrix}=\begin{pmatrix}
+ra&rb+tc\\0&0
+\end{pmatrix}\in H$
+\item $\begin{pmatrix}
+a&b\\0&c
+\end{pmatrix}\begin{pmatrix}
+r&t\\0&0
+\end{pmatrix}=\begin{pmatrix}
+ar&at\\0&0
+\end{pmatrix}\in H$
+\end{itemize}
+
+\noindent
+Para o $I$ temos:
+\begin{itemize}
+\item $\begin{pmatrix}
+0&0\\0&0
+\end{pmatrix}\in I$
+\item $\begin{pmatrix}
+0&t\\0&s
+\end{pmatrix}-\begin{pmatrix}
+0&t'\\0&s'
+\end{pmatrix}=\begin{pmatrix}
+0&t-t'\\0&s-s'
+\end{pmatrix}\in I$
+\item $\begin{pmatrix}
+0&t\\0&s
+\end{pmatrix}\begin{pmatrix}
+a&b\\0&c
+\end{pmatrix}=\begin{pmatrix}
+0&tc\\0&sc
+\end{pmatrix}\in I$
+\item $\begin{pmatrix}
+a&b\\0&c
+\end{pmatrix}\begin{pmatrix}
+0&t\\0&s
+\end{pmatrix}=\begin{pmatrix}
+0&at+bs\\0&cs
+\end{pmatrix}\in I$
+\end{itemize}
+
+\noindent
+Para o $J$ temos:
+\begin{itemize}
+\item $\begin{pmatrix}
+0&0\\0&0
+\end{pmatrix}\in J$
+\item $\begin{pmatrix}
+0&t\\0&0
+\end{pmatrix}-\begin{pmatrix}
+0&t'\\0&0
+\end{pmatrix}=\begin{pmatrix}
+0&t-t'\\0&0
+\end{pmatrix}\in J$
+\item $\begin{pmatrix}
+0&t\\0&0
+\end{pmatrix}\begin{pmatrix}
+a&b\\0&c
+\end{pmatrix}=\begin{pmatrix}
+0&tc\\0&0
+\end{pmatrix}\in J$
+\item $\begin{pmatrix}
+a&b\\0&c
+\end{pmatrix}\begin{pmatrix}
+0&t\\0&0
+\end{pmatrix}=\begin{pmatrix}
+0&at\\0&0
+\end{pmatrix}\in J$
+\end{itemize}
+
+\noindent
+Agora seja:
+\[
+h\begin{pmatrix}
+r&t\\0&s
+\end{pmatrix}=s.
+\]
+Então temos:
+\begin{itemize}
+\item $h\begin{pmatrix}
+r+r'&t+t'\\0&s+s'
+\end{pmatrix}=s+s'=h\begin{pmatrix}
+r&t\\0&s
+\end{pmatrix}+h\begin{pmatrix}
+r'&t'\\0&s'
+\end{pmatrix}.$
+\item $h\begin{pmatrix}
+rr'&rt'+ts'\\0&ss'
+\end{pmatrix}=ss'=h\begin{pmatrix}
+r&t\\0&s
+\end{pmatrix}h\begin{pmatrix}
+r'&t'\\0&s'
+\end{pmatrix}.$
+\item $h\begin{pmatrix}
+1&0\\0&1
+\end{pmatrix}=1.$
+\end{itemize}
+Também temos:
+\[
+h\begin{pmatrix}
+r&t\\0&s
+\end{pmatrix}=0\Leftrightarrow s=0\Leftrightarrow\begin{pmatrix}
+r&t\\0&s
+\end{pmatrix}\in H
+\]
+Logo $\ker(h)=H$, aí $T/H\cong F$.
+
+\medskip
+\noindent
+Agora seja:
+\[
+i\begin{pmatrix}
+r&t\\0&s
+\end{pmatrix}=r.
+\]
+Então temos:
+\begin{itemize}
+\item $i\begin{pmatrix}
+r+r'&t+t'\\0&s+s'
+\end{pmatrix}=r+r'=i\begin{pmatrix}
+r&t\\0&s
+\end{pmatrix}+i\begin{pmatrix}
+r'&t'\\0&s'
+\end{pmatrix}.$
+\item $i\begin{pmatrix}
+rr'&rt'+ts'\\0&ss'
+\end{pmatrix}=rr'=i\begin{pmatrix}
+r&t\\0&s
+\end{pmatrix}i\begin{pmatrix}
+r'&t'\\0&s'
+\end{pmatrix}.$
+\item $i\begin{pmatrix}
+1&0\\0&1
+\end{pmatrix}=1.$
+\end{itemize}
+Também temos:
+\[
+i\begin{pmatrix}
+r&t\\0&s
+\end{pmatrix}=0\Leftrightarrow r=0\Leftrightarrow\begin{pmatrix}
+r&t\\0&s
+\end{pmatrix}\in I
+\]
+Logo $\ker(i)=I$, aí $T/I\cong F$.
+
+
+\medskip
+\noindent
+Agora seja:
+\[
+j\begin{pmatrix}
+r&t\\0&s
+\end{pmatrix}=(r,s).
+\]
+Então temos:
+\begin{itemize}
+\item $j\begin{pmatrix}
+r+r'&t+t'\\0&s+s'
+\end{pmatrix}=(r+r',s+s')=(r,s)+(r',s')=j\begin{pmatrix}
+r&t\\0&s
+\end{pmatrix}+j\begin{pmatrix}
+r'&t'\\0&s'
+\end{pmatrix}.$
+\item $j\begin{pmatrix}
+rr'&rt'+ts'\\0&ss'
+\end{pmatrix}=(rr',ss')=(r,s)(r',s')=j\begin{pmatrix}
+r&t\\0&s
+\end{pmatrix}j\begin{pmatrix}
+r'&t'\\0&s'
+\end{pmatrix}.$
+\item $j\begin{pmatrix}
+1&0\\0&1
+\end{pmatrix}=(1,1)=1.$
+\end{itemize}
+Também temos:
+\[
+j\begin{pmatrix}
+r&t\\0&s
+\end{pmatrix}=0\Leftrightarrow(r,s)=(0,0)\Leftrightarrow(r=0\text{ e }s=0)\Leftrightarrow\begin{pmatrix}
+r&t\\0&s
+\end{pmatrix}\in J
+\]
+Logo $\ker(j)=J$, aí $T/J\cong F\times F$.
+
+\subsection*{Exercício 14}
+Seja $F$ um corpo e seja $R$ o anel de todas as matrizes $2\times 2$ sobre $F$. Mostre que $R$ não possui ideais bilaterais além de $0$ e $R$.
+
+\subsubsection*{Resolução}
+
+Seja $I$ um ideal de $R$ tal que $I\neq 0$, aí existe:
+\[
+A=\begin{pmatrix}
+a_{0,0}&a_{0,1}\\a_{1,0}&a_{1,1}
+\end{pmatrix}\in I
+\]
+tal que:
+\[
+\begin{pmatrix}
+a_{0,0}&a_{0,1}\\a_{1,0}&a_{1,1}
+\end{pmatrix}\neq
+\begin{pmatrix}
+0&0\\0&0
+\end{pmatrix},
+\]
+aí existem $i$ e $j$ tais que $a_{i,j}\neq 0$, aí sendo:
+\[
+(E_{i,j})_{k,l}=\left\{\begin{array}{cl}
+1&\text{se }(k,l)=(i,j)\\0&\text{caso contrário}
+\end{array} \right.
+\]
+então temos $E_{i,j}=(a_{i,j}^{-1}E_{i,i})AE_{j,j}\in I$, aí aplicando matrizes de permutação adequadas temos:
+\[
+\begin{pmatrix}
+1&0\\0&0
+\end{pmatrix}\in I ,\quad\quad\begin{pmatrix}
+0&0\\0&1
+\end{pmatrix}\in I,
+\]
+aí:
+\[
+\begin{pmatrix}
+1&0\\0&1
+\end{pmatrix}\in I,
+\]
+aí $I=R$.
+
+\subsection*{Exercício 15}
+Mostre que os anéis $2\mathbb{Z}$ e $3\mathbb{Z}$ não são isomorfos.
+
+\subsubsection*{Resolução}
+
+Para homomorfismo $f:2\mathbb{Z}\rightarrow 3\mathbb{Z}$, então $2^2=4=2+2$, aí $(f(2))^2=f(2)+f(2)$, aí $f(2)(f(2)-2)=0$, mas $f(2)\in 3\mathbb{Z}$, aí $f(2)\neq 2$, aí $f(2)=0$, mas $f(0)=0$ e $0\neq 2$, aí $f$ não é injetora.
+
+\subsection*{Exercício 16}
+Mostre que os anéis $\mathbb{Z}[x]$ e $\mathbb{Q}[x]$ não são isomorfos.
+
+\subsubsection*{Resolução}
+
+Para homomorfismo $f:\mathbb{Q}[x]\rightarrow\mathbb{Z}[x]$ então para $a\in\mathbb{Q}[x]$ então para todo $n\in\mathbb{N}^+$ existe $b\in\mathbb{Q}[x]$ tal que $a=nb$, aí $f(a)=nf(b)\in(n\mathbb{Z})[x]$; aí cada coeficiente de $f(a)$ deve pertencer a cada $n\mathbb{Z}$ e portanto ser igual a $0$; aí $f(a)=0$; logo $f=0$, aí $f$ não é injetora.
+
+\subsection*{Exercício 17}
+Ache todas as imagens homomórficas de $\mathbb{Z}$.
+
+\subsubsection*{Resolução}
+
+Para anel $X$ e homomorfismo sobrejetor $f:\mathbb{Z}\rightarrow X$, então seja $a=f(1)$, então para cada $x\in X$ existe $n\in\mathbb{Z}$ tal que $x=f(n)$, aí $x=f(n)=nf(1)=na$; logo $X$ é gerado por um único elemento $a$, aí seja:
+\[
+n=o(a)=\left\{\begin{array}{l}
+\text{o menor }n\geq 1\text{ tal que }na=0\text{ se existir}\\0\text{ caso contrário}
+\end{array}\right.
+\]
+então para todo $m\in\mathbb{Z}$ temos:
+\[
+f(m)=0\Leftrightarrow mf(1)=0\Leftrightarrow ma=0\Leftrightarrow o(a)\mid m;
+\]
+aí $\ker(f)=m\mathbb{Z}$, aí $X\cong\mathbb{Z}/m\mathbb{Z}$.
+
+\subsection*{Exercício 18}
+Ache todos os homomorfismos de anéis de $\mathbb{Z}$ para $\mathbb{Z}/30\mathbb{Z}$. Descreva o núcleo e a imagem de cada homomorfismo.
+
+\subsubsection*{Resolução}
+
+Se $f$ é homomorfismo de $\mathbb{Z}$ a $\mathbb{Z}/30\mathbb{Z}$, existe $a\in\mathbb{Z}$ tal que $f(1)=\overline{a}$, aí temos $f(n)=nf(1)=n\overline{a}=\overline{na}$, além disso temos $f(1)f(1)=f(1\cdot 1)=f(1)$, aí $\overline{a^2}=\overline{a}$, aí $30\mid a(a-1)$, mas $2\cdot 3\cdot5 =30$, aí $2\mid a(a-1)$ e $3\mid a(a-1)$ e $5\mid a(a-1)$, aí ($a\equiv_30$ ou $a\equiv_31$) e ($a\equiv_50$ ou $a\equiv_51$).
+
+\medskip
+\noindent
+Por outro lado, se ($a\equiv_30$ ou $a\equiv_31$) e ($a\equiv_50$ ou $a\equiv_51$), então $30\mid a(a-1)$, já que $2\mid a(a-1)$ sempre, aí $\overline{ma}+\overline{na}=\overline{ma+na}=\overline{(m+n)a}$ e $\overline{ma}\cdot\overline{na}=\overline{mna^2}=\overline{mna}$; logo a função $f:\mathbb{Z}\rightarrow\mathbb{Z}/30\mathbb{Z}$ dada por $f(x)=\overline{xa}$ é um homomorfismo.
+
+\medskip
+\noindent
+Os valores de $a$ que satisfazem $30\mid a(a-1)$ são exatamente aqueles tais que:
+\[
+\overline{a}\in\{\overline{0},\overline{1},\overline{6},\overline{10},\overline{15},\overline{16},\overline{21},\overline{25}\}.
+\]
+
+\subsection*{Exercício 19}
+Decida qual aplicação é um homomorfismo de $M_2(\mathbb{Z})$ para $\mathbb{Z}$:
+\begin{itemize}
+\item[a)] $\begin{pmatrix}
+a&b\\c&d
+\end{pmatrix}\mapsto a$
+\item[b)] $\begin{pmatrix}
+a&b\\c&d
+\end{pmatrix}\mapsto a+d$
+\item[c)] $\begin{pmatrix}
+a&b\\c&d
+\end{pmatrix}\mapsto ad-bc$
+\end{itemize}
+
+\subsubsection*{Resolução}
+
+a) Não.
+\begin{itemize}
+\item $f\begin{pmatrix}
+0&1\\0&0
+\end{pmatrix}f\begin{pmatrix}
+0&0\\1&0
+\end{pmatrix}=0\cdot 0=0$.
+\item $f\left(\begin{pmatrix}
+0&1\\0&0
+\end{pmatrix}\begin{pmatrix}
+0&0\\1&0
+\end{pmatrix}\right)=f\begin{pmatrix}
+1&0\\0&0
+\end{pmatrix}=0$.
+\end{itemize}
+
+b) Não.
+\begin{itemize}
+\item $f\begin{pmatrix}
+0&1\\1&0
+\end{pmatrix}f\begin{pmatrix}
+0&1\\1&0
+\end{pmatrix}=0\cdot 0=0$.
+\item $f\left(\begin{pmatrix}
+0&1\\1&0
+\end{pmatrix}\begin{pmatrix}
+0&1\\1&0
+\end{pmatrix}\right)=f\begin{pmatrix}
+1&0\\0&1
+\end{pmatrix}=2$.
+\end{itemize}
+
+c) Não.
+\begin{itemize}
+\item $f\begin{pmatrix}
+1&0\\0&1
+\end{pmatrix}+f\begin{pmatrix}
+-1&0\\0&-1
+\end{pmatrix}=1+1=2$.
+\item $f\left(\begin{pmatrix}
+1&0\\0&1
+\end{pmatrix}+\begin{pmatrix}
+-1&0\\0&-1
+\end{pmatrix}\right)=f\begin{pmatrix}
+0&0\\0&0
+\end{pmatrix}=0$.
+\end{itemize}
+
+\subsection*{Exercício 20}
+Decida qual conjunto é ideal do anel $\mathbb{Z}\times\mathbb{Z}$:
+\begin{itemize}
+\item[a)] $\{(a,a)\mid a\in\mathbb{Z}\}$;
+\item[b)] $\{(2a,2b)\mid a,b\in\mathbb{Z}\}$;
+\item[c)] $\{(2a,0)\mid a\in\mathbb{Z}\}$;
+\item[d)] $\{(a,-a)\mid\mathbb{Z}\}$.
+\end{itemize}
+
+\subsubsection*{Resolução}
+
+a) Não. De fato $(1,1)\in I$ mas $(1,0)(1,1)=(1,0)\notin I$.
+
+\medskip
+\noindent
+b) Sim. De fato:
+\begin{itemize}
+\item $(0,0)=(2\cdot 0,2\cdot 0)$.
+\item $(2a,2b)-(2a',2b')=(2(a-a'),2(b-b'))$.
+\item $(2a,2b)(r,s)=(2ar,2bs)$.
+\end{itemize}
+
+\medskip
+\noindent
+c) Sim. De fato:
+\begin{itemize}
+\item $(0,0)=(2\cdot 0,0)$.
+\item $(2a,0)-(2a',0)=(2(a-a'),0)$.
+\item $(2a,0)(r,s)=(2ar,0)$.
+\end{itemize}
+
+\medskip
+\noindent
+d) Não. De fato $(1,-1)\in I$ mas $(1,0)(1,-1)=(1,0)\notin I$.
+
+\subsection*{Exercício 21}
+Decida qual conjunto é ideal do anel $\mathbb{Z}[x]$:
+\begin{itemize}
+\item[a)] o conjunto de todos os polinômios com termo constante múltiplo de $3$;
+\item[b)] o conjunto de todos os polinômios com coeficiente de $x^2$ múltiplo de $3$;
+\item[c)] o conjunto de todos os polinômios com termo constante, coeficiente de $x$ e coeficiente de $x^2$ nulos;
+\item[d)] o conjunto $\mathbb{Z}[x^2]$;
+\item[e)] o conjunto de todos os polinômios com soma dos coeficientes igual a zero;
+\item[f)] o conjunto de todos os polinômios $p(x)$ com $p'(0)=0$.
+\end{itemize}
+
+\subsubsection*{Resolução}
+
+a) Sim. De fato:
+\begin{itemize}
+\item $3\mid 0=0_0$.
+\item Se $3\mid a_0$ e $3\mid b_0$, então $3\mid a_0-b_0=(a-b)_0$.
+\item Se $3\mid a_0$, então $3\mid a_0b_0=(ab)_0$.
+\end{itemize}
+
+\noindent
+b) Não. De fato, se $a=x$ e $b=x$, então $a_2=0$ e $b_2=0$, mas $(ab)_2=1$.
+
+\medskip
+\noindent
+c) Sim. De fato:
+\begin{itemize}
+\item $\forall i<3:0_i=0$.
+\item Se $\forall i<3:a_i=0$ e $\forall i<3:b_i=0$, então $\forall i<3:(a-b)_i=a_i-b_i=0-0=0$.
+\item Se $\forall i<3:a_i=0$, então para $i$ e $j$ tais que $i+j<3$, então $i<3$, aí $a_ib_j=0$; logo $\forall k<3:(ab)_k=\sum_{i+j=k}a_ib_j=0$.
+\end{itemize}
+
+\noindent
+d) Não. De fato $x^2\in\mathbb{Z}[x]$, mas $x\cdot x^2=x^3\notin\mathbb{Z}[x^2]$.
+
+\medskip
+\noindent
+e) Sim. De fato:
+\begin{itemize}
+\item $\sum_k0_k=\sum_k0=0$.
+\item Se $\sum_ka_k=0$ e $\sum_kb_k=0$, então $\sum_k(a-b)_k=\sum_k(a_k-b_k)=\sum_ka_k-\sum_kb_k=0-0=0$.
+\item Se $\sum_ka_k=0$, então $\sum_k(ab)_k=\sum_k\sum_{i+j=k}a_ib_j=\sum_i\sum_ja_ib_j=\left(\sum_ia_i\right)\left(\sum_jb_j\right)=0\left(\sum_jb_j\right)=0$.
+\end{itemize}
+
+\noindent
+f) Não. De fato seja $a=1$ e $b=x$, então $ab=x$, aí $a'=0$ e $(ab)'=1$, aí $a'(0)=0$ e $(ab)'(0)=1$.
+
+\subsection*{Exercício 22}
+Seja $R[[x]]$ o conjunto das séries de potências formais em $x$ sobre um anel comutativo com unidade $R$, i.e., o conjunto de todas as somas da forma:
+\[
+\sum_{i=0}^\infty=a_0+a_1x+a_2x^2+\dots.
+\]
+Definimos a soma na maneira óbvia e multiplicação por:
+\[
+\left(\sum_{i=0}^\infty a_ix^i\right)\cdot\left(\sum_{i=0}^\infty b_ix^i\right)=\sum_{i=0}^\infty\left(\sum_{k=0}^ia_kb_{i-k}\right)x^i.
+\]
+\begin{itemize}
+\item[a)] Mostre que $R[[x]]$ é anel comutativo com $1$;
+\item[b)] Mostre que $1-x$ é inversível em $R[[x]]$ com inverso $1+x+x^2+\dots$;
+\item[c)] Mostre que $\sum_{i=0}^\infty a_i x^i$ é inversível se, e somente se, $a_0$ é inversível em $R$;
+\item[d)] Mostre que $R[[x]]$ é um domínio de integridade se $R$ é um domínio de integridade.
+\end{itemize}
+
+\subsubsection*{Resolução}
+
+a) Temos o seguinte:
+
+\smallskip
+\noindent
+1,1)
+\[
+\begin{array}{rcl}
+(a+(b+c))_n&=&a_n+(b+c)_n\\&=&a_n+b_n+c_n\\&=&(a+b)_n+c_n\\&=&((a+b)+c)_n.
+\end{array}
+\]
+
+\smallskip
+\noindent
+1,2)
+\[
+\begin{array}{rcl}
+(a+b)_n&=&a_n+b_n\\&=&b_n+a_n\\&=&(b+a)_n.
+\end{array}
+\]
+
+\smallskip
+\noindent
+1,3)
+\[
+\begin{array}{rcl}
+(a+0)_n&=&a_n+0_n\\&=&a_n+0\\&=&a_n.
+\end{array}
+\]
+
+\smallskip
+\noindent
+1,4)
+\[
+\begin{array}{rcl}
+(a+(-a))_n&=&a_n+(-a)_n\\&=&a_n-a_n\\&=&0\\&=&0_n.
+\end{array}
+\]
+
+\smallskip
+\noindent
+2,1)
+\[
+\begin{array}{rcl}
+(a(bc))_n&=&\sum_{i+m=n}a_i(bc)_m\\&=&\sum_{i+m=n}a_i\left(\sum_{j+k=m}b_jc_k\right)\\&=&\sum_{i+m=n}\sum_{j+k=m}a_ib_jc_k\\&=&\sum_{i+j+k=n}a_ib_jc_k\\&=&\sum_{m+k=n}\sum_{i+j=m}a_ib_jc_k\\&=&\sum_{m+k=n}\left(a_ib_j\right)c_k\\&=&\sum_{m+k=n}(ab)_mc_k\\&=&((ab)c)_n.
+\end{array}
+\]
+
+\smallskip
+\noindent
+2,2)
+\[
+\begin{array}{rcl}
+(ab)_n&=&\sum_{i+j=n}a_ib_j\\&=&\sum_{i+j=n}b_ja_i=\\&=&\sum_{j+i=n}b_ja_i=(ba)_n.
+\end{array}
+\]
+
+\smallskip
+\noindent
+3,1)
+\[
+\begin{array}{rcl}
+(a(b+c))_n&=&\sum_{i+j=n}a_i(b+c)_j\\&=&\sum_{i+j=n}a_i(b_j+c_j)\\&=&\sum_{i+j=n}(a_ib_j+a_ic_j)\\&=&\sum_{i+j=n}a_ib_j+\sum_{i+j=n}a_ic_j\\&=&(ab)_n+(ac)_n\\&=&(ab+ac)_n.
+\end{array}
+\]
+
+\smallskip
+\noindent
+3,2)
+\[
+\begin{array}{rcl}
+((a+b)c)_n&=&\sum_{i+j=n}(a+b)_ic_j\\&=&\sum_{i+j=n}(a_i+b_i)c_j\\&=&\sum_{i+j=n}(a_ic_j+b_ic_j)\\&=&\sum_{i+j=n}a_ic_j+\sum_{i+j=n}b_ic_j\\&=&(ac)_n+(bc)_n\\&=&(ac+bc)_n.
+\end{array}
+\]
+
+\smallskip
+\noindent
+4,1)
+\[
+\begin{array}{rcl}
+(a1)_n&=&\sum_{i+j=n}a_i1_j\\&=&a_n1\\&=&a_n.
+\end{array}
+\]
+
+\noindent
+Logo $R[[X]]$ é anel comutativo com unidade.
+
+\medskip
+\noindent
+b) Seja $a=1-x$ e $b=1+x+x^2+\dots$, então $(ab)_0=a_0b_0=1\cdot 1=1$ e para $n\geq 1$ então $(ab)_n=\sum_{i+j=n}a_ib_j=a_0b_n+a_1b_{n-1}=1\cdot1+(-1)\cdot 1=0$; logo $ab=1$.
+
+\medskip
+\noindent
+c) Seja $a\in R[[X]]$.
+
+\begin{itemize}
+\item Se $a$ é inversível, existe $b$ tal que $ab=1$ e $ba=1$, aí $1=1_0=(ab)_0=\sum_{i+j=0}a_ib_j=a_0b_0$ e também $1=1_0=(ba)_0=\sum_{i+j=0}b_ia_j=b_0a_0$, aí $a_0$ é inversível.
+\item Se $a_0$ é inversível, podemos ter um $b_0$ tal que $a_0b_0=b_0a_0=1$, aí podemos definir $b'_0=b_0$ e por recorrência $b_{n+1}=-b_0(\sum_{i+j=n}a_{i+1}b_j)$ e $b'_{n+1}=-(\sum_{i+j=n}b'_ia_{j+1})b_0$, então temos $ab=1$ e $b'a=1$, aí $a$ é inversível.
+\end{itemize}
+
+\noindent
+d) Se $R$ é domínio de integridade, então para $a\neq 0$ e $b\neq 0$ sejam $m$ o menor tal que $a_m\neq 0$ e $n$ o menor tal que $b_n\neq 0$, então para $i$ e $j$ tais que $i+j=m+n$ e $a_ib_j\neq 0$ então $a_i\neq 0$ e $b_j\neq 0$, aí $i\geq m$ e $j\neq n$, aí $i=m$ e $j=n$; logo $(ab)_{m+n}=\sum_{i+j=m+n}a_ib_j=a_mb_n\neq 0$, aí $ab\neq 0$. Logo $R[[x]]$ é um domínio de integridade.
+
+\subsection*{Exercício 23}
+Seja $R=\mathcal{C}[0,1]$. Mostre que a aplicação $\varphi:R\rightarrow\mathbb{R}$ definida por:
+\[
+\varphi(f)=\int_0^1f(t)\dif t
+\]
+é um homomorfismo de grupos aditivos mas não é homomorfismo de anéis.
+
+\subsubsection*{Resolução}
+
+a) Temos:
+\[
+\begin{array}{rcl}
+\varphi(f+g)&=&\int_0^1(f+g)(t)\dif t\\&=&\int_0^1(f(t)+g(t))\dif t\\&=&\int_0^1f(t)\dif t+\int_0^1g(t)\dif t\\&=&\varphi(f)+\varphi(g).
+\end{array}
+\]
+
+\noindent
+b) Seja $f(x)=x$ e $g(x)=x$. Temos:
+\[
+\begin{array}{rcl}
+\varphi(f)\varphi(g)&=&\left(\int_0^1f(t)\dif t\right)\left(\int_0^1g(t)\dif t\right)\\&=&\left(\int_0^1t\dif t\right)\left(\int_0^1t\dif t\right)\\&=&\left(\frac{1^2}{2}-\frac{0^2}{2}\right)\left(\frac{1^2}{2}-\frac{0^2}{2}\right)\\&=&\frac{1}{4},
+\end{array}
+\]
+mas:
+\[
+\begin{array}{rcl}
+\varphi(fg)&=&\int_0^1(fg)(t)\dif t\\&=&\int_0^1f(t)g(t)\dif t\\&=&\int_0^1t\cdot t\dif t\\&=&\int_0^1t^2\dif t\\&=&\frac{1^3}{3}-\frac{0^3}{3}\\&=&\frac{1}{3}.
+\end{array}
+\]
+Assim $\varphi(fg)\neq\varphi(f)\varphi(g)$.
+
+\subsection*{Exercício 24}
+Seja $\varphi:R\rightarrow S$ um homomorfismo sobrejetor de anéis. Mostre que a imagem do centro de $R$ está contido no centro de $S$.
+
+\subsubsection*{Resolução}
+
+Para $a\in Z_R$ então para todo $s\in S$ existe $r\in R$ tal que $s=\varphi(r)$, aí $f(a)s=f(a)f(r)=f(ar)=f(ra)=f(r)f(a)=sf(a)$; logo $f(a)\in Z_S$. Logo $f[Z_R]\subseteq Z_S$.
+
+\subsection*{Exercício 25}
+Seja $\varphi:R\rightarrow S$ um homomorfismo de anéis. Mostre que, se $\varphi(1_R)=1_S$, então, para todo elemento inversível $u\in R$, $\varphi(u)$ é inversível e $\varphi(u^{-1})=\varphi(u)^{-1}$.
+
+\subsubsection*{Resolução}
+
+Se $u$ é inversível, então existe $u^{-1}\in R$ tal que $uu^{-1}=1$ e $u^{-1}u=1$, aí $f(uu^{-1})=f(1)$ e $f(u^{-1}u)=f(1)$, aí $f(u)f(u^{-1})=1$ e $f(u^{-1})f(u)=1$, aí $f(u)$ é inversível e $f(u)^{-1}=f(u^{-1})$.
+
+\subsection*{Exercício 26}
+\begin{itemize}
+\item[a)] Se $I$ e $J$ são ideais de $R$, mostre que $I\cap J$ é um ideal de $R$.
+\item[b)] Mostre que, se $I_1\subseteq I_2\subseteq \dots$ são ideais de $R$, então $\bigcup_{n=1}^\infty I_n$ é um ideal de $R$.
+\end{itemize}
+
+\subsubsection*{Resolução}
+
+a) Faremos algo melhor: se $\mathcal{A}$ é um conjunto de ideais, então $\bigcap\mathcal{A}$ é um ideal. De fato:
+\begin{itemize}
+\item Para todo $A\in\mathcal{A}$ então $0\in A$; aí $0\in\bigcap\mathcal{A}$.
+\item Para $x,y\in\bigcap\mathcal{A}$, então para todo $A\in\mathcal{A}$, temos $x\in A$ e $y\in A$, aí $x-y\in A$; aí $x-y\in\bigcap\mathcal{A}$.
+\item Para $r\in R$ e $x\in\bigcap\mathcal{A}$ então para todo $A\in\mathcal{A}$ temos $x\in A$, aí $rx\in A$ e $xr\in A$; logo $rx\in\bigcap\mathcal{A}$ e $xr\in\bigcap\mathcal{A}$.
+\end{itemize}
+
+\noindent
+b) Faremos algo melhor: se $\mathcal{A}$ é um conjunto não vazio de ideais tal que para $A,B\in\mathcal{A}$ exista $C\in\mathcal{A}$ tal que $A\subseteq C$ e $B\subseteq C$, então $\bigcup\mathcal{A}$ é um ideal. De fato:
+\begin{itemize}
+\item Como $\mathcal{A}\neq\emptyset$, então existe um $I\in\mathcal{A}$, aí $0\in I$, aí $0\in\bigcup\mathcal{A}$.
+\item Para $x,y\in\bigcup\mathcal{A}$, então existem $A,B\in\mathcal{A}$ tais que $x\in A$ e $y\in B$, aí existe $C\in\mathcal{A}$ tal que $A\subseteq C$ e $B\subseteq C$, aí $x\in C$ e $y\in C$, aí $x-y\in C$, aí $x-y\in\bigcup\mathcal{A}$.
+\item Para $r\in R$ e $x\in\bigcup\mathcal{A}$ então existe $A\in\mathcal{A}$ tal que $x\in A$, aí $rx\in A$ e $xr\in A$, aí $rx\in\bigcup\mathcal{A}$ e $xr\in\bigcup\mathcal{A}$.
+\end{itemize}
+
+\subsection*{Exercício 27}
+Seja $\varphi:R\rightarrow S$ um homomorfismo de anéis.
+\begin{itemize}
+\item[a)] Mostre que, se $J$ é um ideal de $S$, então $\varphi^{-1}[J]$ é um ideal de $R$.
+\item[b)] Mostre que, se $\varphi$ é sobrejetor e $I$ é um ideal de $R$, então $\varphi[I]$ é um ideal de $S$. Encontre um contra-exemplo em que $\varphi$ não é sobrejetor.
+\end{itemize}
+
+\subsubsection*{Resolução}
+
+a) Se $J$ é ideal de $S$, então:
+\begin{itemize}
+\item $f(0)=0\in J$, aí $0\in f^{-1}[J]$.
+\item Se $x,y\in f^{-1}[J]$, então $f(x)\in J$ e $f(y)\in J$, aí $f(x-y)=f(x)-f(y)\in J$, aí $x-y\in f^{-1}[J]$.
+\item Se $r\in R$ e $x\in f^{-1}[J]$, então $f(x)\in J$, aí $f(rx)=f(r)f(x)\in J$ e $f(xr)=f(x)f(r)\in J$, aí $rx\in f^{-1}[J]$ e $xr\in f^{-1}[J]$.
+\end{itemize}
+Logo $f^{-1}[J]$ é ideal de $R$.
+
+\medskip
+\noindent
+b) Se $f$ é sobrejetor e $I$ é ideal de $R$, então:
+\begin{itemize}
+\item $0\in I$, aí $0=f(0)\in f[I]$.
+\item Para $a,b\in f[I]$ existem $x,y\in I$ tais que $a=f(x)$ e $b=f(y)$, aí $x-y\in I$ e $a-b=f(x)-f(y)=f(x-y)$, aí $a-b\in f[I]$.
+\item Para $s\in S$ e $a\in f[I]$, então existem $r\in R$ e $x\in I$ tais que $s=f(r)$ e $a=f(x)$, aí $rx\in I$ e $xr\in I$ e $sa=f(r)f(x)=f(rx)$ e $as=f(x)f(r)=f(xr)$, aí $sa\in f[I]$ e $as\in f[I]$.
+\end{itemize}
+Logo $f^{-1}[J]$ é ideal de $R$.
+
+\medskip
+\noindent
+Por outro lado, se $R=\mathbb{Z}$ e $S=\mathbb{Q}$ e $I=R$ e $f:R\rightarrow S$ é a imersão canônica, então $I$ é ideal de $R$ mas $f[I]$ não é ideal de $S$, pois $\frac{1}{2}f(1)=\frac{1}{2}\cdot 1=\frac{1}{2}\notin\mathbb{Z}=f[\mathbb{Z}]$.
+
+\subsection*{Exercício 28}
+Seja $R$ um anel comutativo. Mostre que o conjunto de todos os elementos nilpotentes é um ideal, chamado \textit{nilradical} de $N(R)$. Mostre que o único elemento nilpotente em $R/N(R)$ é $0$, i.e., $N(R/N(R))=0$.
+
+\subsubsection*{Resolução}
+
+Temos o seguinte:
+\begin{itemize}
+\item $0^1=0$, aí $0\in N(R)$.
+\item Para $x,y\in N(R)$, então existem $m,n\geq 1$ tais que $x^m=0$ e $y^n=0$, aí $m+n\geq 2$ e para $i,j$ tais que $i+j=m+n$ temos $i\geq m$ ou $j\geq n$, aí $x^i=0$ ou $y^j=0$, aí $x^iy^j=0$; logo $(x+y)^{m+n}=\sum_{i+j=m+n}\frac{(m+n)!}{i!j!}x^iy^j=0$, aí $x+y\in N(R)$.
+\item Para $x\in N(R)$, então existe $n\geq 1$ tal que $x^n=0$, aí $-x^n=0$, mas $(-x)^n=x^n$ ou $(-x)^n=-x^n$, aí $-x\in N(R)$.
+\item Para $r\in R$ e $x\in N(R)$, então existe $n\geq 1$ tal que $x^n=0$, aí $(rx)^n=r^nx^n=r^n\cdot0=0$, aí $rx\in N(R)$.
+\end{itemize}
+Logo $N(R)$ é ideal.
+
+\medskip
+\noindent
+Para $x\in R$, se $\overline{x}$ é nilpotente, então existe $n\geq 1$ tal que $\overline{x}^n=\overline{0}$, aí $x^n\in N(R)$, aí existe $m\geq 1$ tal que $(x^n)^m=0$, aí $x^{nm}=0$ e $nm\geq 1$, aí $x\in N(R)$, aí $\overline{x}=\overline{0}$. Logo $N(R/N(R))=0$.
+
+\subsection*{Exercício 29}
+Seja $I$ um ideal de anel comutativo $R$ e defina:
+\[
+\mathrm{Rad}(I)=\{r\in R\mid r^n\in I,\text{ para algum }n\in\mathbb{Z}^+\}
+\]
+chamado \textit{radical} de $I$. Mostre que $\mathrm{Rad}(I)$ é um ideal, $I\subseteq\mathrm{Rad}(I)$, e que $\mathrm{Rad}(I)/I=N(R/I)$.
+
+\subsubsection*{Resolução}
+
+Seja $f:R\rightarrow R/I$ o homomorfismo canônico. Então:
+\[
+\begin{array}{rcl}
+x\in\mathrm{Rad}(I)&\Leftrightarrow&\exists n\geq 1:x^n\in I\\&\Leftrightarrow&\exists n\geq 1:\overline{x^n}=\overline{0}\\&\Leftrightarrow&\exists n\geq 1:\overline{x}^n=\overline{0}\\&\Leftrightarrow&\overline{x}\in N(R/I)\\&\Leftrightarrow&f(x)\in N(R/I)\\&\Leftrightarrow&x\in f^{-1}[N(R/I)].
+\end{array}
+\]
+Logo $\mathrm{Rad}(I)=f^{-1}[N(R/I)]$.
+
+\medskip
+\noindent
+Como $N(R/I)$ é ideal de $R/I$ e $I=\ker(f)$, então $\mathrm{Rad}(I)$ é ideal de $R$.
+
+\medskip
+\noindent
+Além disso, como $\mathrm{Rad}(I)=f^{-1}[N(R/I)]$, então $\mathrm{Rad}(I)/I=N(R/I)$.
+\subsection*{Exercício 30}
+Sejam $I,J,K$ ideais de $R$.
+\begin{itemize}
+\item[a)] Mostre que $I(J+K)=IJ+IK$ e $(I+J)K=IK+JK$;
+\item[b)] Mostre que, se $I\supseteq J$, então $I\cap(J+K)=J+(I\cap K)$.
+\end{itemize}
+
+\subsubsection*{Resolução}
+
+a) Como $I,J,K$ são ideais, então $IJ$ e $IK$ são ideais, aí $IJ+IK$ é ideal de $R$. Além disso, para $i\in I$ e $l\in J+K$, existem $j\in J$ e $k\in K$ tais que $l=j+k$, aí $il=i(j+k)=ij+ik\in IJ+IK$. Logo $I(J+K)\subseteq IJ+IK$.
+
+\medskip
+\noindent
+Além disso temos $J\subseteq J+K$ e $K\subseteq J+K$, aí $IJ\subseteq I(J+K)$ e $IK\subseteq I(J+K)$, aí $IJ+IK\subseteq I(J+K)$.
+
+\medskip
+\noindent
+Logo $I(J+K)=IJ+IK$.
+
+\medskip
+\noindent
+Como $I,J,K$ são ideais, então $IK$ e $JK$ são ideais, aí $IK+JK$ é ideal de $R$. Além disso, para $l\in I+J$ e $k\in K$, existem $i\in I$ e $j\in J$ tais que $l=i+j$, aí $lk=(i+j)k=ik+jk\in IK+JK$. Logo $(I+J)K\subseteq IK+JK$.
+
+\medskip
+\noindent
+Além disso temos $I\subseteq I+J$ e $J\subseteq I+J$, aí $IK\subseteq (I+J)K$ e $JK\subseteq (I+J)K$, aí $IK+JK\subseteq (I+J)K$.
+
+\medskip
+\noindent
+Logo $(I+J)K=IK+JK$.
+
+\medskip
+\noindent
+b) Se $I\supseteq J$ então $J\subseteq J+K$ e $J\subseteq I$ e $I\cap K\subseteq K\subseteq J+K$ e $I\cap K\subseteq I$, aí $J\subseteq I\cap(J+K)$ e $I\cap K\subseteq I\cap (J+K)$, aí $J+(I\cap K)\subseteq I\cap(J+K)$.
+
+\medskip
+\noindent
+Para $x\in I\cap(J+K)$ então $x\in I$ e $x\in J+K$, aí existem $y\in J$ e $z\in K$ tais que $x=y+z$, aí $y\in I$, aí $z=x-y\in I$, aí $z\in I\cap K$, aí $x=y+z\in J+(I\cap K)$; logo $I\cap(J+K)\subseteq J+(I\cap K)$.
+
+\medskip
+\noindent
+Logo $I\cap(J+K)=J+(I\cap K)$.
+
+\subsection*{Exercício 31}
+Seja $R$ um anel comutativo. Mostre que $R$ é um corpo se, e somente se, $0$ é o único ideal maximal.
+
+\subsubsection*{Resolução}
+
+Se $R$ é corpo, então para ideal $I$ de $R$ tal que $I\neq 0$ existe $a\in I$ tal que $a\neq 0$, aí $1=aa^{-1}\in I$, aí $I=R$.
+
+\medskip
+\noindent
+Se o único ideal maximal de $R$ é $0$, então todo ideal $I$ de $R$ é igual a $0$ ou a $R$, aí para $a\in R$ tal que $a\neq 0$ então o conjunto $I=\{ax:x\in R\}$ é um ideal que possui $a$, aí $I\neq 0$, aí $I=R$, aí $1\in I$, aí existe $b\in R$ tal que $ab=1$; logo $R$ é corpo.
+
+\subsection*{Exercício 32}
+Seja $R$ um anel comutativo. Mostre que, se $a$ é um elemento nilpotente de $R$, então $1-ab$ é inversível para todo $b\in R$.
+
+\subsubsection*{Resolução}
+
+Se $a$ é nilpotente, existe $k\geq 1$ tal que $a^k=0$, aí para $b\in R$ temos $(ab)^k=a^kb^k=0b^k=0$, aí $1-(ab)^k=(1-ab)(1+ab+\dots+(ab)^{k-1})$, aí $1-ab$ é inversível.
+
+\subsection*{Exercício 33}
+Seja $R=\mathcal{C}[0,1]$, e $M_c=\{f\in\mathcal{C}[0,1]\mid f(c)=0\}$ para $c\in[0,1]$.
+\begin{itemize}
+\item[a)] Mostre que, se $M$ é um ideal maximal de $R$, então existe $c\in[0,1]$ tal que $M_c=M$;
+\item[b)] Mostre que, se $b\neq c$ em $[0,1]$, então $M_b\neq M_c$;
+\item[c)] Mostre que $M_c$ não é finitamente gerado.
+\end{itemize}
+
+\subsection*{Resolução}
+
+a) Seja $M$ um ideal de $R$. Se $\forall c\in[0,1]:M\nsubseteq M_c$, então para $c\in[0,1]$ existe $f_c\in M$ tal que $f_c(c)\neq 0$, aí, sendo $\varphi_c=f_c^2$, então $\varphi_c\geq 0$ e $\varphi_c(c)>0$ e $\varphi_c\in M$, aí existe $\varepsilon_c>0$ tal que $\forall x\in[0,1]:\left(\abs{x-c}<\varepsilon_c\Rightarrow\varphi_c(x)>0\right)$. Assim $[0,1]\subseteq\bigcup_{c\in[0,1]}(c-\varepsilon_c,c+\varepsilon_c)$, mas $[0,1]$ é compacto, aí existem $c_1,\dots,c_n\in[0,1]$ tais que $[0,1]\subseteq\bigcup_{k=1}^n(c_k-\varepsilon_{c_k},c_k+\varepsilon_{c_k})$, aí seja $\varphi=\sum_{k=1}^n\varphi_{c_k}$, aí para $x\in[0,1]$ existe $k$ tal que $x\in(c_k-\varepsilon_{c_k},c_k+\varepsilon_{c_k})$, aí $\varphi(x)\geq\varphi_{c_k}(x)>0$, aí $\varphi(x)>0$; além disso $\varphi\in M$, aí podemos definir $\psi(x)=\frac{1}{\varphi(x)}$, então $\psi\in R$ e $\varphi\psi=1$, aí $1\in M$, aí $M=R$.
+
+\medskip
+\noindent
+Logo, se $M$ é ideal maximal de $R$, então $M\neq R$, aí existe $c\in[0,1]$ tal que $M\subseteq M_c$, mas $M_c\neq R$, aí $M=M_c$.
+
+\medskip
+\noindent
+b) Para $b,c\in[0,1]$, se $M_b=M_c$, então, sendo $\varphi(x)=\abs{x-b}$, então $\varphi\in M_b$, aí $\varphi\in M_c$, aí $0=\varphi(c)=\abs{c-b}$, aí $b=c$.
+
+\medskip
+\noindent
+c) Para $n\geq 1$ seja $I_n=\{f\in\mathcal{C}[0,1]:\forall x\in[0,1]:\left(\abs{x-c}\leq\frac{1}{n}\Rightarrow f(x)=0\right)\}$, então é fácil ver que $I_n$ é ideal; também é fácil ver que $I_1\subseteq I_2\subset I_3\subset\dots\subseteq M_c$ (em que $\subset$ quer dizer inclusão estrita), aí $M_c$ não é finitamente gerado.
+
+\end{document}

@@ -1,0 +1,703 @@
+\PassOptionsToPackage{dvipsnames}{xcolor}
+
+\documentclass[11pt,twoside,a4paper]{book}
+
+\usepackage{estilos} %Relacionado ao arquivo estilos.sty com os packages usados
+\makeindex
+\title{Tópicos de Anéis e Módulos \\  Douglas Smigly}
+\author{MAT0501 / MAT6680}
+\date{2º semestre de 2019}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\newpage
+
+\chapter{Anéis}
+
+%  --- Aula 1 ---  05/08/2019%
+
+
+\section{Anéis}
+
+\begin{definicao}
+Seja $A$ um conjunto. Uma \textbf{operação} sobre $A$ é uma função de $A\times A$ em $A$.
+\end{definicao}
+
+\begin{definicao}
+Sejam $A$ um conjunto com duas operações, que indicaremos por $+$ e $\cdot$.
+\[
+\begin{array}{rcl}
+
++:A\times A&\rightarrow&A \\ (a,b)&\mapsto&a+b \\ \\
+\cdot:A\times A&\rightarrow&A \\ (a,b)&\mapsto&a\cdot b
+\end{array}
+\]
+Dizemos que a terna $(A,+,\cdot)$ é um \textbf{anel} se:
+\begin{itemize}
+\item[A1)] Associativa da adição:
+\[
+\forall a,b,c\in A:(a+b)+c=a+(b+c).
+\]
+\item[A2)] Comutativa da adição:
+\[
+\forall a,b\in A:a+b=b+a.
+\]
+\item[A3)] Elemento neutro:
+\[
+\forall a\in A:a+0=a.
+\]
+\item[A4)] Elemento oposto:
+\[
+\forall a\in A:a+(-a)=0.
+\]
+\item[M1)] Associatividade da multiplicação:
+\[
+\forall a,b,c\in A:(ab)c=a(bc).
+\]
+\item[D)] Distributiva:
+\[
+\forall a,b,c\in A:a(b+c)=ab+ac.
+\]
+\[
+\forall a,b,c\in A:(a+b)c=ac+bc.
+\]
+\end{itemize}
+\end{definicao}
+
+\begin{contraexemplo}
+O conjunto $\mathbb{R}^3$, munido da adição coordenada por coordendada e do produto vetorial, satisfaz todos as propriedades exceto (M1), pois:
+\[
+(i\times i)\times j=0.
+\]
+\[
+i\times(i\times j)=i\times k=-j.
+\]
+\end{contraexemplo}
+
+\begin{exemplo}
+O conjunto dos \textbf{quatérnios}, denotado por $\mathbb{H}\coloneqq\mathbb{R}^4$, é um anel.
+\end{exemplo}
+
+\begin{proposicao}
+O elemento neutro é único. Além disso, o elemento oposto de $A$ é único.
+\end{proposicao}
+\begin{proof}
+Suponha que existem dois elementos neutros, $0$ e $0^{\prime}.$ Então:
+\[
+a + 0 = a = a + 0^{\prime} \Rightarrow a + 0 + (-a) = (a + 0^{\prime} + (-a) \Rightarrow 0 = 0^{\prime}
+\]
+\end{proof}
+\begin{notacao}
+Denotamos por $-a$ o oposto de $a$.
+\end{notacao}
+
+\begin{definicao}
+Dizemos que o anel $(A,+,\cdot)$ é \textbf{comutativo} se vale:
+\begin{itemize}
+\item[M2)] Comutatividade da multiplicação:
+\[
+\forall a,b\in A:ab=ba.
+\]
+\end{itemize}
+\end{definicao}
+
+\begin{definicao}
+Dizemos que o anel $(A,+,\cdot)$ tem \textbf{elemento unidade} se existe $1\in A$ tal que valha o seguinte:
+\begin{itemize}
+\item[M3)] Elemento unidade:
+\[
+\forall a\in A:a1=1a=a.
+\]
+\end{itemize}
+
+\end{definicao}
+
+\begin{proposicao}
+Se $(A,+,\cdot)$ tem unidade, então ele é único.
+\end{proposicao}
+
+\begin{definicao}
+Seja $(A,+,\cdot)$ anel com elemento unidade. Dizemos que $a\in A$ tem \textbf{inverso} se existe um $b\in A$ tal que:
+\[
+ab=ba=1.
+\]
+\end{definicao}
+
+\begin{proposicao}
+Temos o seguinte:
+\begin{itemize}
+\item $\forall b\in A:b0=0b=0$.
+\item O inverso de um elemento de $A$ é único.
+\end{itemize}
+\end{proposicao}
+
+\begin{notacao}
+Denotaremos o inverso de $a$, caso existir, por $a^{-1}$.
+\end{notacao}
+
+\begin{definicao}
+Seja $(A,+,\cdot)$ um anel.
+\begin{itemize}
+\item Dizemos que $a\in A$ é um \textbf{divisor de zero} se $a\neq 0$ e existe $b\in A$ tal que $b\neq 0$ e $ab=0$.
+\item Dizemos que $A$ é um \textbf{anel de integridade} se $A$ é comutativo e não tem divisores de zero.
+\item Dizemos que $A$ é um \textbf{anel com divisão} se $A$ tem unidade de todo elemento de $A$ não nulo tem inverso.
+\item Dizemos que $A$ é um \textbf{corpo} se $A$ é um anel com divisão comutativo.
+\end{itemize}
+\end{definicao}
+
+\begin{exemplo}
+Temos alguns outros exemplos:
+\begin{itemize}
+\item $(\mathbb{Z},+,\cdot)$ é um anel de integridade, mas não é um corpo.
+\item $\mathbb{Q}$ e $\mathbb{R}$ e $\mathbb{C}$ são corpos.
+\item $\mathbb{H}$ é um anel com divisão que é chamado de \textbf{quatérnios}.
+\item Seja $K$ um corpo. Então $M_n(K)$ é um anel com unidade com a adição e multiplicação usuais de matrizes. Ele não é comutativo e tem divisores de zero.
+\item Sejam $m\in\mathbb{Z}$, $m\geq 2$ e:
+\[
+\mathbb{Z}_m=\{0,\dots,m-1\}
+\]
+\begin{center}
+(restos da divisão de um inteiro por $m$)
+\end{center}
+Definimos:
+\begin{itemize}
+\item[•] $a+b=r$ em que $r$ é o resto da divisão de $a+b$ por $m$.
+\item[•] $ab=s$ em que $s$ é o resto da divisão de $ab$ por $m$.
+\end{itemize}
+Então $(\mathbb{Z}_m,+,\cdot)$ é um anel comutativo com elemento unidade. Além disso, para $a\in\mathbb{Z}_m$, com $a\neq 0$, então:
+\begin{itemize}
+\item[•] $a$ é divisor de zero $\Longleftrightarrow$ $\mathrm{mdc}(a,m)\neq 1$.
+\item[•] $a$ é inversível $\Longleftrightarrow$ $\mathrm{mdc}(a,m)=1$.
+\end{itemize}
+Também, $\mathbb{Z}_m$ é um corpo $\Longleftrightarrow$ $m$ é um primo.
+\end{itemize}
+\end{exemplo}
+
+\begin{exercicio}
+Seja $A$ um anel. Mostre que:
+\begin{itemize}
+\item $\forall a\in A:a0=0a=0$.
+\item $\forall a,b\in A:(-a)b=b(-a)=-(ab)$.
+\item $\forall a\in A:-(-a)=a$.
+\item $\forall a,b,c\in A:(a+b=a+c\Rightarrow b=c)$.
+\end{itemize}
+\end{exercicio}
+
+\begin{exercicio}
+Seja $A$ um anel com integridade. Mostre que:
+\[
+\forall a,b,c\in A:((ab=ac\wedge a\neq 0)\Rightarrow b=c).
+\]
+\end{exercicio}
+
+\begin{exercicio}
+Se $K$ é um corpo, então $K$ é um anel de integridade.
+\end{exercicio}
+
+\begin{exemplo}
+Vamos encontrar os divisores de zero e os invertíveis em $\mathbb{Z}_4.$ Temos a seguinte tabela de multiplicação:
+\begin{center}
+\begin{tabular}{c|c|c|c|c}
+$\cdot$ & $\overline{0}$ & $\overline{1}$ & $\overline{2}$ & $\overline{3}$ \\ \hline
+$\overline{0}$ & $\overline{0}$ & $\overline{0}$ & $\overline{0}$ & $\overline{0}$ \\ \hline
+$\overline{1}$ & $\overline{0}$ & $\textcolor{Green}{\overline{1}}$ & $\overline{2}$ & $\overline{3}$ \\ \hline
+$\overline{2}$ & $\overline{0}$ & $\overline{2}$ & $\textcolor{Blue}{\overline{0}}$ & $\overline{2}$ \\ \hline
+$\overline{2}$ & $\overline{0}$ & $\overline{3}$ & $\overline{2}$ & $\textcolor{Green}{\overline{1}}$ \\ \hline
+\end{tabular}
+\end{center}
+Observe que $\overline{2}$ é divisor de $\overline{0},$ pois $\textcolor{Blue}{\overline{2} \cdot \overline{2} = \overline{0}}.$
+Além disso, $\overline{1}$ e $\overline{3}$ são invertíveis em $\mathbb{Z}_4,$ pois $\textcolor{Green}{\overline{1} \cdot \overline{1} = \overline{1}}$ e $\textcolor{Green}{\overline{3} \cdot \overline{3} = \overline{1}}.$ Obviamente, $\abs{\mathcal{U}(\mathbb{Z}_m)} = \varphi(m).$
+\end{exemplo}
+\section{Grupos}
+
+\begin{definicao}
+$(G,*)$ é um \textbf{grupo} se valem:
+\begin{itemize}
+\item $\forall a,b,c\in G:(a*b)*c=a*(b*c)$.
+\item $\forall a\in G:a*e=e*a=a$.
+\item $\forall a\in G:a*a^{-1}=a^{-1}*a=e$.
+\end{itemize}
+\end{definicao}
+
+\begin{definicao}
+$H$ é \textbf{subgrupo} de um grupo $G$ se:
+\begin{itemize}
+\item $e\in H$.
+\item $\forall a,b \in H:ab\in H$.
+\item $\forall a\in H:a^{-1}\in H$.
+\end{itemize}
+\end{definicao}
+
+\begin{definicao}
+$H$ é dito um \textbf{subgrupo normal} se:
+\begin{itemize}
+\item $\forall a\in G:aH=Ha$,
+\end{itemize}
+em que $aH=\{ah:h\in H\}$ e $Ha=\{ha:h\in H\}$.
+\end{definicao}
+
+\begin{observacao}
+Se $G$ é comutativo, todo subgrupo de $G$ é normal. A recíproca não é verdadeira. De fato, consideremos:
+\[
+G=\{\pm1,\pm i,\pm j,\pm k\},\quad\quad G\text{ tem }8\text{ elementos.}
+\]
+Chamamos esse grupo de \textbf{grupo dos quaterniônicos}. Então $G$ não é comutativo, mas todo subgrupo de $G$ é normal.
+\end{observacao}
+
+\newpage
+
+\section{Subanéis}
+
+\begin{definicao}
+Seja $A$ anel e $B\subseteq A$. Dizemos que $B$ é \textbf{subanel} de $A$ se as operações de $A$ induzem em $B$, isto é, $a+b\in B$ e $ab\in B$ para $a,b\in B$ e $B$ com estas operações é um anel.
+\end{definicao}
+
+\begin{proposicao}
+Sejam $A$ um anel e $B\subseteq A$. Então $B$ é subanel de $A$ se e somente se valem as seguintes condições:
+\begin{itemize}
+\item[i)] $0\in B$.
+\item[ii)] $a-b\in B$ para $a,b\in B$.
+\item[iii)] $ab\in B$ para $a,b\in B$.
+\end{itemize}
+\end{proposicao}
+\begin{proof}
+Temos o seguinte:
+\begin{itemize}
+\item[($\Rightarrow$)] Temos o seguinte:
+\begin{itemize}
+\item[i)] Existe $e\in B$ tal que $\forall a\in B:a+e=a$, aí $e+e=e$, aí passando para $A$ temos $-e+(e+e)=-e+e$, aí $(-e+e)+e=0$, aí $0+e=0$, aí $e=0$, aí $0\in B$.
+\item[ii)] Para $a\in B$ existe $a'\in B$ tal que $a+a'=0$, aí passando para $A$ temos $-a+(a+a')=-a+0$, aí $(-a+a)+a'=-a$, aí $0+a'=-a$, aí $a'=-a$, aí $-a\in B$.
+\item[iii)] Decorre da definição.
+\end{itemize}
+\item[($\Leftarrow$)]
+\begin{itemize}
+\item[•] Temos $0\in B$, aí temos (A3).
+\item[•] Para $a\in B$ então $0-a\in B$, aí $-a\in B$; logo temos (A4).
+\item[•] Para $a,b\in B$ então $-b\in B$, aí $a-(-b)\in B$, aí $a+b\in B$.
+\item[•] As propriedades (A1) e (A2) e (M1) e (D) são válidas para todos os elementos de $A$, aí em particular são válidas para os elementos de $B$.
+\end{itemize}
+
+\end{itemize}
+\end{proof}
+
+\newpage
+
+\section{Ideais}
+
+\begin{definicao}
+Seja $A$ um anel e $I\subseteq A$. Dizemos que $I$ é um \textbf{ideal à direita (à esquerda)} se:
+\begin{itemize}
+\item $0\in I$.
+\item $a-b\in I$ para $a,b\in I$.
+\item $ar\in I$ ($ra\in I$) para $a\in I$ e $r\in A$.
+\end{itemize}
+\end{definicao}
+
+\noindent
+É claro que todo ideal à direta ou à esquerda de $A$ é subanel de $A$.
+
+\begin{definicao}
+Sejam $A$ um anel e $I\subseteq A$. Dizemos que $I$ é um \textbf{ideal bilateral} ou simplesmente um \textbf{ideal} de $A$ se $I$ é ideal à direita e à esquerda de $A$.
+\end{definicao}
+
+\begin{exemplo}
+Eis alguns exemplos:
+\begin{itemize}
+\item[1)] Seja $A$ um anel, então $\{0\}$ e $A$ são ideais de $A$, chamados \textbf{ideais triviais}.
+\item[2)] Seja $A$ um anel, $a\in A$, então $aA=\{ab\mid b\in A\}$ ($Aa=\{ba\mid b\in A\}$) é um ideal à direita (esquerda) de $A$. De fato:
+\begin{itemize}
+\item[•] $0=a0\in aA$.
+\item[•] Dados $u,v\in aA$, então existem $b,c\in A$ tais que $u=ab$ e $v=ac$, aí $u-v=ab-ac=a(b-c)\in aA$.
+\item[•] Dado $u\in aA$ e $c\in A$, então existe $b\in A$ tal que $u=ab$, aí $uc=(ab)c=a(bc)\in aA$.
+\end{itemize}
+\item[3)] Se $A$ é anel comutativo, então $aA$ é um ideal de $A$.
+\item[4)] Sejam $m\in\mathbb{Z}$, $m>0$, então $m\mathbb{Z}=\{mz\mid z\in\mathbb{Z}\}$ é um ideal de $\mathbb{Z}$.
+\item[5)] Seja $A=\{f\mid f:I\rightarrow\mathbb{R}\}$, $I$ um conjunto. Para $f,g\in A$, definimos $f+g,fg>I\rightarrow\mathbb{R}$ por:
+\[
+\begin{array}{rcl}
+(f+g)(a)&=&f(a)+g(a)\\
+(fg)(a)&=&f(a)g(a)
+\end{array}
+\]
+Temos que $(A,+,\cdot)$ é um anel comutativo com unidade ($1(a)=1$ para todo $a\in I$).
+
+\medskip
+\noindent
+Seja $a\in I$. Definimos o subconjunto de $A$:
+\[
+J=\{f\in A:f(a)=0\}
+\]
+Então $J$ é um ideal de $A$. De fato:
+\begin{itemize}
+\item[•] $0(a)=0$, aí $0\in J$.
+\item[•] Se $f,g\in J$, então $(f-g)(a)=f(a)-g(a)=0-0=0$, aí $f-g\in J$.
+\item[•] Se $f\in J$ e $g\in A$, então $(fg)(a)=f(a)g(a)=0g(a)=0$.
+\end{itemize}
+\end{itemize}
+\end{exemplo}
+
+\begin{proposicao}
+Seja $A$ um anel com elemento unidade e $I$ um ideal à direita (esquerda) de $A$.
+\begin{itemize}
+\item[a)] Se $1\in I$, então $I=A$.
+\item[b)] Se existe um $a\in I$ inversível, então $I=A$.
+\end{itemize}
+\end{proposicao}
+\begin{proof}
+Temos o seguinte:
+\begin{itemize}
+\item Se $1\in I$, então para $a\in A$ temos $1\cdot a\in I$ ($a\cdot 1\in I$), aí $a\in I$.
+\item Se existe $a\in I$ inversível, então $a^{-1}a\in I$ ($aa^{-1}\in I$), aí $1\in I$.
+\end{itemize}
+\end{proof}
+
+\begin{corolario}
+Se $A$ é um anel com divisão, então $\{0\}$ e $A$ são os únicos ideais à direita (esquerda) de $A$.
+\end{corolario}
+
+\begin{corolario}
+Se $A$ é um corpo, então $\{0\}$ e $A$ são os únicos ideais de $A$.
+\end{corolario}
+
+\begin{proposicao}
+Seja $A$ um anel com elemento unidade tal que $\{0\}$ e $A$ são os únicos ideais à direita (à esquerda) de $A$. Então $A$ é um anel com divisão.
+\end{proposicao}
+\begin{proof}
+Para $a\in A$ tal que $a\neq 0$, então $aA$ é um ideal à direita de $A$, aí, como $a=a\cdot 1\in aA$, aí $aA\neq\{0\}$, logo $aA=A$. Como $1\in A$, então existe $b\in A$ tal que $ab=1$. Falta provar que $ba=1$. Claramente $b\neq 0$ e usando o mesmo argumento existe $a'\in A$ tal que $ba'=1$. Queremos mostrar que $a'=a$. Temos $ab=1$ e $ba'=1$. Aí:
+\[
+a'=1a'=(ab)a'=a(ba')=a1=a.
+\]
+\end{proof}
+
+\begin{corolario}
+Se $A$ é um anel comutativo com elemento unidade em que $\{0\}$ e $A$ são os únicos ideais de $A$, então $A$ é um corpo.
+\end{corolario}
+
+\begin{exercicio}
+Mostre que os únicos ideais de $M_n(K)$ ($K$ um corpo) são $\{0\}$ e $M_n(K)$.
+\end{exercicio}
+
+\noindent
+Ou seja, existe anel com elemento unidade $A$ tal que $\{0\}$ e $A$ são os únicos ideais, mas $A$ não é anel com divisão.
+
+\begin{proposicao}
+Seja $I$ um ideal de $\mathbb{Z}$. Então existe $m\in\mathbb{Z}$, $m\geq 0$, tal que $I=m\mathbb{Z}=\{mz\mid z\in\mathbb{Z}\}$.
+\end{proposicao}
+\begin{proof}
+Se $I=\{0\}$, então $I=0\mathbb{Z}$. Se $I\neq\{0\}$, então existe $a\in I$ tal que $a\neq 0$. Como $I$ é um ideal, então $-a\in I$, logo existe $b\in I$ tal que $b>0$. Seja $J=\{c\in I\mid c>0\}$. Então $\emptyset\neq J\subseteq\mathbb{N}$. Pelo princípio da boa ordem, $J$ tem um elemento mínimo. Seja $m=\min J>0$. Mostremos que $I=m\mathbb{Z}$. Claro que $m\mathbb{Z}\subseteq I$, pois $m\in I$. Dado $d\in I$, pelo algoritmo da divisão, existem $q,r\in\mathbb{Z}$ tais que $d=mq+r$ em que $0\geq r<m$, aí $r=d-mq\in I$, aí pela minimalidade de $m$, eis que $r=0$, assim $d=mq\in m\mathbb{Z}$; logo $I\subseteq m\mathbb{Z}$.
+\end{proof}
+
+\begin{exercicio}
+Sejam $K$ um corpo e $K[x]$ o anel dos polinômios na indeterminada $x$. Seja $I$ um ideal de $K[x]$. Mostre que existe $p(x)\in K[x]$ tal que $I=p(x)K[x]=\{p(x)g(x)\mid g(x)\in K[x]\}$.
+\end{exercicio}
+
+\begin{exercicio}
+Seja $A$ um anel.
+\begin{itemize}
+\item[1)] Sejam $I$ e $J$ ideais. Mostre que:
+\[
+I+J=\{i+j\in A\mid i\in I\text{ e }j\in J\}
+\]
+é um ideal de $A$.
+\item[2)] Seja $\mathcal{F}$ um conjunto de ideais de $A$. Mostre que:
+\[
+\bigcap\mathcal{F}=\{a\in A\mid \forall I\in\mathcal{F}:A\in I\}
+\]
+é um ideal de $A$.
+\end{itemize}
+\end{exercicio}
+
+\begin{definicao}
+Sejam $A$ um anel e $S\subseteq A$. Definimos o \textbf{ideal gerado} por $S$ como a interseção de todos os ideais de $A$ que contêm $S$.
+\end{definicao}
+
+\begin{notacao}
+\[
+\langle S \rangle = [S]=\bigcap \{I\mid I\text{ é ideal de }A\text{ e }S\subseteq I\}.
+\]
+\end{notacao}
+
+Observe que:
+\begin{itemize}
+    \item $\langle \emptyset \rangle = \{ 0 \};$
+    \item $[S] \subset I$ para todo ideal $A$ com $S \subset I;$
+    \item $S \subset [S];$
+    \item $[S] = S \Leftrightarrow S$ é ideal de $A.$
+    \item $[[S]] = [S];$
+    \item $[S]$ é o menor ideal que contém $S$, isto é, se $I$ é ideal de $A$ tal que $S \subset I,$ então $[S] \subset I.$
+\end{itemize}
+
+\begin{exemplo}
+Seja $A$ um anel comutativo com unidade e $a \in A.$ Então
+\[
+[a] = aA = \{ab |b \in A\}
+\]
+
+Veja que $aA$ é ideal de $A$ e $a \cdot 1 = a \in aA.$
+Logo, $[a] \subset aA.$
+
+Sendo $x = ab \in aA,$ como $a \in [a],$ então $ab \in [a],$ pela definição de ideal. Assim, $aA \subset [a].$
+
+Portanto, $[a] = aA.$
+\end{exemplo}
+
+\begin{exemplo}
+Seja $A$ anel comutativo e $a \in A.$ Então:
+\[
+[a] = \mathbb{Z}a + aA
+\]
+onde $\mathbb{Z}a = \{ma |m \in \mathbb{Z} \}.$
+
+Vejamos que $I = \mathbb{Z}a + aA$ é ideal de $A.$ Lembramos que
+\[
+\left\{\begin{array}{lc}
+0a = 0, & \forall a \in A\\
+(m+1)a = ma+a, &m \in \mathbb{Z}^{+} \\
+ma = (-m)(-a), m \in \mathbb{Z}^{-}
+\end{array}\right.
+\]
+
+Então:
+\begin{itemize}
+    \item $0 = 0_{\mathbb{Z}} a + a 0 \in I;$
+    \item Para $ma + ab, na+ac \in I,$
+    \[
+    (ma+ab)-(na+ac) = (m-n)a - a(b-c) \in I
+    \]
+    \item Para $ma + ab \in I, r \in A,$
+    \[
+    (ma + ab)r = mar + abr = a(mr+br) \in aA \subset I.
+    \]
+\end{itemize}
+
+Para $a \in [a],$ temos que $a = 1a + a0 \in I \Rightarrow [a] \subset I.$
+Dado $x \in I,$ temos que $[a]$ é ideal de $A$ e $a \in [a].$ Logo, $am + ab \in [a].$ Assim, $I \subset [a].$
+\end{exemplo}
+
+\begin{definicao}
+$A$ é chamado \textbf{anel principal} se todo ideal é gerado por um único elemento.
+\end{definicao}
+
+\begin{exemplo}
+Como já visto, todo ideal de $\mathbb{Z}$ é da forma $m \mathbb{Z} = \langle m \rangle,$ com $m \in \mathbb{N}.$ Logo, $\mathbb{Z}$ é um anel principal.
+\end{exemplo}
+\begin{exemplo}
+Sendo $K$ um corpo, então $K[x]$ é um anel principal, pois todo ideal pode ser escrito na forma $p(x)K[x] = \langle p(x) \rangle.$
+\end{exemplo}
+
+\begin{exemplo}
+O anel
+\[
+\mathbb{Z} \left( \frac{ 1 + \sqrt{-19}}{2} \right)
+\]
+é um exemplo de anel principal que não é um domínio euclidiano.
+\end{exemplo}
+\begin{exemplo}
+$\mathbb{Q} \times \mathbb{Q}$ é um anel principal.
+\end{exemplo}
+
+\section{Anel quociente}
+
+\begin{definicao}
+Seja $A$ um anel e $I$ um ideal. Dados $a,b \in A,$ definimos a relação:
+\[
+a \sim b \Leftrightarrow a - b \in I
+\]
+$\sim$ é uma relação de equivalência.
+\end{definicao}
+
+Considere as classes de equivalências dadas por
+\[
+\overline{a} = \{ b \in A | b \sim a \}
+\]
+\[
+\overline{a} = a + I = \{ a + b \in A | b \in I \}
+\]
+
+Denotemos
+\[
+A/I = \{ \overline{a} |a \in A \}
+\]
+$A/I$ é chamado \textbf{anel quociente} de $A$ por $I.$
+
+Se $A$ for comutativo, então $A/I$ também é.
+Se $A$ tem unidade, então $A/I$ tem unidade.
+
+\section{Homomorfismos}
+
+Sejam $A$ e $B$ conjuntos e $f:A\rightarrow B$ uma função. Dizemos que $f$ é \textbf{inversível} se e só se existe:
+\[
+g:B\rightarrow A
+\]
+tal que:
+\[
+g\circ f=\mathrm{id}_A\quad\quad\text{e}\quad\quad f\circ g=\mathrm{id}_B
+\]
+em que $\mathrm{id}_B$ é a função identidade de $B$:
+\[
+\forall b\in B:\mathrm{id}_B(b)=b,\quad\quad\forall a\in A:\mathrm{id}_A(a)=a.
+\]
+
+\medskip
+\noindent
+Se $f$ é inversível, então $f$ tem uma única inversa. Notação: $g=f^{-1}$.
+
+\medskip
+\noindent
+Sejam $A$ e $B$ conjuntos e $f:A\rightarrow B$ uma função. Então $f$ é inversível se e só se $f$ é bijetora.
+
+\medskip
+\noindent
+Sejam $\varphi:A\rightarrow A'$ e $\psi:A'\rightarrow A''$ homomorfismos de anéis, então $\psi\circ\varphi$ é homomorfismo de anéis.
+
+\medskip
+\noindent
+Sejam $A$ e $A'$ anéis e $\varphi:A\rightarrow A'$ um homomorfismo de anéis bijetor (chamamos de \textbf{isomorfismo}). Sabemos da teoria dos conjuntos que existe:
+\[
+\varphi^{-1}:A'\rightarrow A
+\]
+inversa da $\varphi$. Mostremos que $\varphi^{-1}$ é um homomorfismo de anéis, logo $\varphi^{-1}$ também é um isomorfismo.
+
+\medskip
+\noindent
+Temos:
+\[
+\begin{array}{rcl}
+\varphi^{-1}(a+b)&=&\varphi^{-1}(\varphi(\varphi^{-1}(a))+\varphi(\varphi^{-1}(b)))\\&=&\varphi^{-1}(\varphi(\varphi^{-1}(a)+\varphi^{-1}(b)))\\&=&\varphi^{-1}(a)+\varphi^{-1}(b)
+\end{array}
+\]
+e analogamente para a multiplicação.
+
+\begin{definicao}
+Sejam $A$ e $A'$ anéis e $\varphi:A\rightarrow B$ um homomorfismo de anéis.
+\begin{itemize}
+\item Se $\varphi$ é injetora, dizemos que $\varphi$ é um \textbf{monomorfismo}.
+\item Se $\varphi$ é sobrejetora, dizemos que $\varphi$ é um \textbf{epimorfismo}.
+\item Se $\varphi$ é sobrejetora, dizemos que $\varphi$ é um \textbf{isomorfismo}.
+\item Se $A'=A$ é $\varphi$ é isomorfismo, dizemos que $\varphi$ é um \textbf{automorfismo}.
+\end{itemize}
+\end{definicao}
+
+\begin{observacao}
+Em geral, definimos um \textcolor{blue}{monomorfismo} como um homomorfismo $f:A\rightarrow B$ tal que para $C$ e para homomorfismos $g,h:C\rightarrow A$, se $f\circ g=f\circ h$, então $g=h$. Esta definição é equivalente à que foi dada em aula.
+
+\medskip
+\noindent
+Por outro lado, em geral definimos um \textcolor{blue}{epimorfismo} como um homomorfismo $f:A\rightarrow B$ tal que para $C$ e para homomorfismos $g,h:B\rightarrow C$, se $g\circ f=h\circ f$, então $g=h$. Esta definição \textcolor{red}{não} é equivalente à que foi dada em aula. Por exemplo, a função de imersão canônica $\iota:\mathbb{Z}\rightarrow\mathbb{Q}$ é um \textcolor{blue}{epimorfismo} segundo a definição em geral, mas não é um epimorfismo segundo a definição da aula.
+\end{observacao}
+
+\begin{definicao}
+Sejam $A$ e $A'$ anéis. Dizemos que $A$ é isomorfo a $A'$ se existe um isomorfismo de $A$ em $A'$. Notação $A\cong A'$.
+\end{definicao}
+
+\begin{observacao}
+A relação de isomorfismo é uma relação de equivalência na classe dos anéis.
+\end{observacao}
+
+\begin{teorema}
+(\textbf{Teorema dos homomorfismos})
+
+\noindent
+Sejam $A$ e $A'$ anéis e $\varphi:A\rightarrow B$ um homomorfismo de anéis. Então:
+\[
+A/\mathrm{Ker}(\varphi)\cong\mathrm{Im}(\varphi).
+\]
+\end{teorema}
+\begin{proof}
+
+\end{proof}
+
+\begin{observacao}
+
+\end{observacao}
+
+\begin{corolario}
+Sejam $A$ e $A'$ anéis e $\varphi:A\rightarrow A'$ um epimorfismo. Então:
+\[
+A/\mathrm{Ker}(\varphi)\cong A'.
+\]
+\end{corolario}
+
+\begin{corolario}
+Sejam $A$ um anel, $I$ e $J$ ideais de $A$. Então:
+\[
+\frac{I+J}{I}\cong\frac{J}{I\cap J}
+\]
+em que $I+J=\{a+b\in A\mid a\in I\text{ e }b\in J\}$.
+\end{corolario}
+
+\begin{observacao}
+O conjunto $I+J$ é um ideal de $A$. Além disso $I\subseteq I+J$ pois $0\in J$ e $\forall a\in I:a=a+0$. Analogamente $J\subseteq I+J$.
+\end{observacao}
+
+\begin{proof}
+Seja $\varphi:J\rightarrow(I+J)/I$ definida por $\varphi(a)=\overline{a}$, então $\varphi$ é homomorfismo de anéis.
+
+\medskip
+\noindent
+Para $u\in(I+J)/I$, então existem $a\in I$ e $b\in J$ tais que $u=\overline{a+b}$, aí:
+\[
+u=\overline{a}+\overline{b}=\overline{0}+\overline{b}=\overline{b}=\varphi(b)
+\]
+aí $\varphi$ é epimorfismo, assim:
+\[
+\frac{J}{\mathrm{Ker}(\varphi)}=\frac{I+J}{I}
+\]
+Mostremos que $\mathrm{Ker}(\varphi)=I\cap J$.
+
+\medskip
+\noindent
+Claramente $\mathrm{Ker}(\varphi)\subseteq J$. Além disso:
+\[
+a\in\mathrm{Ker}(\varphi)\Leftrightarrow a\in J\text{ e }\varphi(a)=\overline{a}=\overline{0}\Leftrightarrow a\in J\text{ e }a\in I\Leftrightarrow a\in I\cap J.
+\]
+\end{proof}
+
+\begin{corolario}
+Sejam $A$ um anel e $I$ e $J$ e $K$ ideais de $A$ com $K\subseteq J\subseteq I$. Então:
+\[
+\frac{I/K}{J/K}\cong\frac{I}{J}.
+\]
+\end{corolario}
+
+\begin{observacao}
+Quais são os ideais de $I/K$? São os conjuntos da forma $L/K$ em que $L$ é um ideal de $I$ e $K\subseteq L$.
+\end{observacao}
+
+\begin{proof}
+Seja $\varphi:I/K\rightarrow I/J$ dada por $\varphi(a_K)=a_J$ em que $a_K=a+K$ e $a_J=a+J$.
+
+\medskip
+\noindent
+Mostremos que $\varphi$ é função. Se $a_K=b_K$, então $a-b\in K$, aí $a-b\in J$, aí $a_J=b_J$.
+
+\medskip
+\noindent
+Claramente $\varphi$ é epimorfismo, aí:
+\[
+\frac{I/K}{\mathrm{Ker}(\varphi)}\cong I/J.
+\]
+
+\noindent
+Agora mostremos que $\mathrm{Ker}(\varphi)=J/K$. Temos:
+\[
+a_K\in\mathrm{Ker}(\varphi)\Leftrightarrow \varphi(a_K)=0\Leftrightarrow a_J=0\Leftrightarrow a\in J\Leftrightarrow a_K\in J/K.
+\]
+
+\begin{definicao}
+Sejam $A$ um anel e sejam $I$ e $J$ ideais de $A$. Dizemos que a soma $I+J$ é \textbf{direta} se $I\cap J=\{0\}$. Notação: $A=I\oplus J$.
+\end{definicao}
+
+\begin{definicao}
+
+\end{definicao}
+
+\end{proof}
+
+\printindex
+
+\end{document}
