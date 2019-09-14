@@ -698,6 +698,86 @@ Sejam $A$ um anel e sejam $I$ e $J$ ideais de $A$. Dizemos que a soma $I+J$ é \
 
 \end{proof}
 
+\chapter{Módulos}
+
+\section{Módulos}
+
+\begin{definicao}
+Dizemos que um conjunto $M$ é um $A$-módulo à esquerda (direita) se
+\begin{itemize}
+    \item $(m+n)+p = m+(n+p)$
+    \item $m+n = n + m;$
+    \item $\exists 0 \in M : m +0 = m;$
+    \item $\forall m \in M, \exists m {\prime}: m+m^{\prime} = 0.$
+    \item $(ab)m = a(bm), \forall m\in M, \forall a,b \in A.$
+    \item $a(m+n) = am+an, \forall m,n\in M, \forall a \in A.$
+    \item $(a+b)m = am+bm, \forall m\in M, \forall a,b \in A.$
+    \item 
+\end{itemize}
+\end{definicao}
+
+\section{Sequências Exatas}
+
+\begin{definicao}
+Consideremos uma sequência de $A$-módulos, em que os $f_i$ são homomorfismos de $A$-módulos.
+\[
+\dots\rightarrow M_{i-1}\rightarrow^{f_{i-1}} M_i\rightarrow^{f_i} M_{i+1}\rightarrow\dots.
+\]
+Dizemos que esta sequência é \textbf{exata} se para todo $i$ tivermos $\mathrm{Im}(f_{i-1})=\mathrm{Ker}(f_i)$.
+\end{definicao}
+
+\begin{exemplo}
+A sequência:
+\[
+0\rightarrow^\varphi M\rightarrow^f N
+\]
+é exata se e só se $f$ é monomorfismo.
+\end{exemplo}
+
+\begin{exemplo}
+A sequência:
+\[
+M\rightarrow^f N\rightarrow^\varphi 0
+\]
+é exata se e só se $f$ é epimorfismo.
+\end{exemplo}
+
+\begin{exemplo}
+Seja $m\in\mathbb{Z}$ com $m>0$. Consideremos:
+\[
+\varphi:\mathbb{Z}\rightarrow\mathbb{Z}_m.
+\]
+Então $\varphi$ é um epimorfismo de anéis. Pelo teorema do homomorfismo, temos:
+\[
+\mathbb{Z}/\mathrm{Ker}(\varphi)\cong\mathbb{Z}_m.
+\]
+Claramente $\mathrm{Ker}(\varphi)=m\mathbb{Z}$, assim:
+\[
+\mathbb{Z}/m\mathbb{Z}\cong\mathbb{Z}_m.
+\]
+$\mathbb{Z}$ é um $\mathbb{Z}$-módulo, aí os $\mathbb{Z}$-submódulos de $\mathbb{Z}$ são os subgrupos de $\mathbb{Z}$, ou seja, os $m\mathbb{Z}$ com $m\in\mathbb{Z}$, $m\geq 0$. A sequência:
+\[
+0\rightarrow m\mathbb{Z}\rightarrow^i\mathbb{Z}\rightarrow^\pi\mathbb{Z}/m\mathbb{Z}\rightarrow 0,
+\]
+em que $i$ é a inclusão e $\pi$ é a projeção, é exata.
+\end{exemplo}
+
+\begin{exemplo}
+Seja:
+\[
+0\rightarrow N\rightarrow^f M\rightarrow^g P\rightarrow 0
+\]
+uma sequência exata. Consideremos a sequência exata:
+\[
+0\rightarrow N\rightarrow^f M\rightarrow^\pi M/\mathrm{Im}(f)\rightarrow 0,
+\]
+em que $\pi$ é a projeção canônica. Agora seja $M$ um $A$-módulo à esquerda e $N$ submódulo de $M$. Temos a sequência exata:
+\[
+0\rightarrow N\rightarrow^i M\rightarrow^\pi M/N\rightarrow 0.
+\]
+em que $i$ é a inclusão e $\pi$ é a projeção canônica.
+\end{exemplo}
+
 \printindex
 
 \end{document}

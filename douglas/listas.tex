@@ -1,7 +1,8 @@
 \documentclass[11pt,a4paper]{article}
 \usepackage{estilosexercicios}
 \usepackage{hyperref}
-
+%https://yutsumura.com
+%https://yutsumura.com/polynomial-ring-with-integer-coefficients-and-the-prime-ideal-ifx-in-zx-mid-f-20/
 %\usepackage[bottom=2cm,top=3cm,left=3cm,right=2cm]{geometry}
 %\usepackage[utf8]{inputenc}
 %Environments para esta lista
@@ -53,13 +54,13 @@ Vamos calcular o valor de $(x+y)(1+1):$
 Por um lado, temos:
 \[
 \begin{array}{rcl}
-(x+y)\cdot(1+1)&=& x\cdot(1+1)+y\cdot(1+1)\\&=&x\cdot 1+x\cdot 1+y\cdot 1+y\cdot 1\\&=&x+x+y+y,
+(x+y)\cdot \textcolor{Purple}{(1+1)}&=& x\cdot\textcolor{Purple}{(1+1)}+y\cdot \textcolor{Purple}{(1+1)}\\&=&x\cdot \textcolor{Purple}{1}+x\cdot \textcolor{Purple}{1}+y\cdot \textcolor{Purple}{1}+y\cdot \textcolor{Purple}{1}\\&=&x+x+y+y,
 \end{array}
 \]
 mas também:
 \[
 \begin{array}{rcl}
-(x+y)\cdot(1+1)&=& (x+y)\cdot 1+(x+y)\cdot 1\\&=&x+y+x+y,
+\textcolor{Brown}{(x+y)}\cdot(1+1)&=& \textcolor{Brown}{(x+y)}\cdot 1+\textcolor{Brown}{(x+y)}\cdot 1\\&=&x+y+x+y,
 \end{array}
 \]
 Dessa forma:
@@ -67,12 +68,10 @@ Dessa forma:
 (x+y)(1+1) = (x+y)(1+1) \Rightarrow \cancel{x} + x + y + \bcancel{y} = \cancel{x} + y + x + \bcancel{y} \Rightarrow x + y = y + x
 \]
 \[
-x+x+y+y=x+y+x+y,
+x+x+y+y=x+y+x+y \Rightarrow \boxed{x+y=y+x}
 \]
-aí:
-\[
-x+y=y+x.
-\]
+Concluímos portanto que $x+y=y+x.$ Logo, combinado com as demais condições, $A$ é um anel.
+
 
 }
 \exercicio{2}
@@ -87,7 +86,7 @@ Dar exemplos que ilustrem cada uma das situações acima.
 
 \solucao{
   \dividiritens{
-\task[\pers{a}] 
+\task[\pers{a}] Considere $A = \mathbb{Z}$ e $R = 2 \mathbb{Z}.$ Observe que $ \mathbb{Z}$ é um anel com unidade, mas $2 \mathbb{Z}$ não.
 
 \task[\pers{b}] Considere $R = \mathbb{Z} \times \{ 0 \}.$ Então $R$ é um anel com unidade. $R$ é subanel de $A = \mathbb{Z} \times 2 \mathbb{Z},$ que é um anel que não possui unidade.
 }
@@ -113,7 +112,7 @@ A:=\left\{\;\begin{pmatrix}x&y\\z&w\end{pmatrix}\;;\;\;x,y,z,w\in\Bbb R\;\right\
     1_A = \begin{pmatrix}1&0\\0&1\end{pmatrix} \neq 1_R = \begin{pmatrix}1&0\\0&0\end{pmatrix}
     \]
     \end{itemize}
-%https://math.stackexchange.com/questions/603881/example-of-a-finite-non-commutative-ring-without-a-unity?rq=1 Para todo primo, existe um anel não comutativo sem unidade com p^2 elementos.
+
 \task[\pers{d}]
 }
 
@@ -244,36 +243,95 @@ Como a matriz identidade está em $I,$ concluímos que $I = \mathcal{M}_2(\mathb
 }
 }
 \exercicio{7} Seja $p$ um número primo. Prove que:\dividiritens{
-\task[\pers{a}] Se $A$ é um anel de integridade finito de característica $p,$ então a aplicação $\varphi \colon A \to A$ dada por $\varphi(a) = a^p$ é um automorfismo de $A.$ 
-\task[\pers{b}] O único automorfismo de $\mathbb{Z}_p$ é o automorfismo idêntico. Deduzir que a $p \equiv a \pmod p$ para todo $a \in A.$
+\task[\pers{a}] Se $A$ é um anel de integridade finito de característica $p,$ então a aplicação $\varphi \colon A \to A$ dada por $\varphi(a) = a^p$ é um automorfismo de $A.$  $\varphi$ é conhecido como \textbf{automorfismo de Frobenius.}
+\task[\pers{b}] O único automorfismo de $\mathbb{Z}_p$ é o automorfismo idêntico. Deduzir que a $a^p \equiv a \pmod p$ para todo $a \in A.$
 \task[\pers{c}] Prove o \emph{Pequeno Teorema de Fermat}, isto é, se $p$ não divide $a,$ então $a^{p-1} \equiv 1 \pmod p.$
 }
 \solucao{
 \dividiritens{
-\task[\pers{a}]
+\task[\pers{a}] Lembrando que um automorfismo é um isomorfismo de $A$ nele mesmo, temos que:
+\begin{itemize}
+    \item[$\textcolor{red}{\varheart}$] $\varphi$ é homomorfismo:
+\begin{itemize}
+    \item  Para todos $x, y \in A,$ temos 
+    \[
+    \varphi(xy) = (xy)^p = \textcolor{Blue}{x^p}\textcolor{Green}{y^p} = \textcolor{Blue}{\varphi(x)}\textcolor{Green}{\varphi(y)}
+    \]
+    \item Vamos mostrar que, $x, y \in A,$ temos $\varphi(x+y) = \varphi(x) + \varphi(y).$ Para isso, temos pelo teorema binomial que
+    \[
+    \varphi(x + y) = (x+y)^p = \sum\limits_{k=0}^p \binom{p}{k} x^k y^{p-k}.
+    \]
+Lembrando que
+\[
+\binom{p}{k} = \frac{p!}{k!(p-k)!}
+\]
+Para $0 < k < p,$ $k!$ e $(k-p)!$ são produtos de números positivos menores do que $p.$ Consequentemente, $p$ não divide o denominador na fração acima. Como $p$ ivide o numerador, temos que $p$ divide $\binom{p}{k}.$ Mantendo em mene que $pz = 0$ para todo $z \in A,$ pois $A$ é um anel de integridade finito de característica $p,$ vemos que os termos para $0 < k< p$ do lado direito são todos nulos. Os termos remanescentes serão para $k = 0$ e $k = p,$ $x^p$ e $y^p.$ Daí,
+\[
+    \varphi(x + y) = (x+y)^p = \sum\limits_{k=0}^p \binom{p}{k} x^k y^{p-k} =\]\[ \textcolor{Emerald}{\binom{p}{0} x^0y^{p-0}} + \underbrace{\binom{p}{1} x^1y^{p-1} + \binom{p}{2} x^2y^{p-2} + \ldots + \binom{p}{p-1} x^{p-1}y^{p-(p-1)}}_{ = 0} + \]\[\textcolor{Magenta}{\binom{p}{p} x^py^{p-p}} = \textcolor{Emerald}{y^p} \textcolor{Magenta}{x^p} = \textcolor{Emerald}{\varphi(y)} \textcolor{Magenta}{\varphi(x)} 
+\]
+
+\item $\varphi(1) = 1^p = 1.$
+\end{itemize}
+   \item[$\clubsuit$] $\varphi$ é injetora: Como $\varphi(1) = 1,$ então $\varphi$ não é o homomorfismo nulo. Daí, o núcleo de $\varphi$ é um ideal $I \subseteq A,$ com $I \neq A.$ Mas como $A$ é um corpo, seus únicos ideais os  trivias. Logo, $I = \{ 0 \}.$ Portanto, $\Ker \varphi = \{ 0 \},$ e $\varphi$ é injetora.
+   \item[$\spadesuit$] $\varphi$ é sobrejetora: Como $A$ é finito, e $\varphi$ é um homomorfismo injetor de $A$ em $A,$ segue que $A$ é sobrejetora.
+\end{itemize}
+
+Portanto, concluímos que $\varphi$ é um automorfismo.
+
+\task[\pers{b}] Como $\varphi$ é um automorfismo em $\mathbb{Z}_p,$ então $\varphi$ é o automorfismo idêntico. Logo,
+\[
+Id(a) = a \quad \mbox{e} \quad \varphi(a) = a^p \Rightarrow \textcolor{Red}{Id} = \textcolor{Green}{\varphi} \Rightarrow  \textcolor{Red}{Id(a)} = \textcolor{Green}{\varphi(a)} \Rightarrow a = a^p
+\]
+Portanto, temos que
+\[
+a^p - a \equiv 0 \pmod p \Rightarrow \boxed{a^p \equiv a \mod p}
+\]
+
+\task[\pers{c}] Do item anterior, temos que 
+
+\[a^p \equiv a \mod p \Rightarrow p \mid a^p - a \Rightarrow p \mid a(a^{p-1} - 1)\]
+
+Como $p$ não divide $a,$ então $p \mid a^{p-1} - 1.$ Portanto,
+\[
+p \mid a^{p-1} - 1 \Rightarrow a^{p-1} - 1 \equiv 0 \pmod p \Rightarrow \boxed{a^{p-1} \equiv 1 \pmod p}
+\]
 }
+\textbf{Observação:} Para resolver essa questão, utilizamos o seguinte resultado:
+\begin{proposicao}
+Todo anel de integridade finito é corpo.
+\end{proposicao}
+\begin{proof}
+Seja $D = \{0, d_1, \ldots, d_n \}$ um anel de integridade finito. Para cada $i \in \{ 1 , 2 , \ldots , n\},$ consideremos os produtos $d_id_1, d_id_2, \ldots , d_id_n.$ Estes são distintos dois a dois, pois 
+\[d_id_j = d_id_k \Leftrightarrow d_i(d_j - d_k) = 0;\] como $d_i \neq 0$ e $D$ não tem divisores de zero, necessariamente $d_j - d_k = 0,$ isto é, $d_j = d_k.$
+
+Assim, os produtos $d_id_1, d_id_2, \ldots , d_id_n$ percorrem todos os elementos não nulos de $D;$ em particular, existe $j$ tal que $d_id_j = 1,$ o que significa que $d_i$ é invertível.
+
+Portanto, todo o elemento não nulo de $D$ é invertível, logo $D$ é um corpo.
+\end{proof}
+%http://www.mat.uc.pt/~picado/algebraII/0405/Apontamentos/aula2.pdf - pg 2
 }
+
 \exercicio{8} Seja $A$ um anel tal que $x^2 = x$ para todo $x \in A,$ este anel é chamado \emph{anel de Boole}. Mostre que $A$ é um anel comutativo.
 \solucao{
 Seja $A$ um anel tal que $\forall x\in A:x^2=x$. Vamos primeiramente mostrar que todo elemento é igual a seu inverso. Então:
 \[
 \begin{array}{rcl}
-x+x&=&(x+x)^2\\&=&x(x+x)+x(x+x)\\&=&x^2+x^2+x^2+x^2\\&=&x+x+x+x,
+x+x&=&(x+x)^2\\&=&x(x+x)+x(x+x)\\&=&\textcolor{red}{x^2}+\textcolor{Laranja}{x^2}+\textcolor{Blue}{x^2}+\textcolor{Green}{x^2}\\&=&\textcolor{red}{x}+\textcolor{Laranja}{x}+\textcolor{Blue}{x}+\textcolor{Green}{x},
 \end{array}
 \]
 Logo,
 \[
-0=x+x \Rightarrow x = -x
+x + x = x + x +x +x \Rightarrow 0=x+x \Rightarrow x = -x
 \]
 Agora, note que
 \[
 \begin{array}{rcl}
-x+y&=&(x+y)^2\\&=&x(x+y)+y(x+y)\\&=&x^2+xy+xy+y^2\\&=&x+xy+xy+y,
+x+y&=&(x+y)^2\\&=&x(x+y)+y(x+y)\\&=&\textcolor{CadetBlue}{x^2}+xy+yx+\textcolor{Mahogany}{y^2}\\&=&\textcolor{CadetBlue}{x}+xy+yx+\textcolor{Mahogany}{y},
 \end{array}
 \]
 Daí:
 \[
-0=xy+yx \Rightarrow -xy = yx
+x + y = x + y + xy + yx \Rightarrow 0=xy+yx \Rightarrow -xy = yx
 \]
 Como todo elemento é igual a seu inverso, temos também que $xy = -xy.$ Logo:
 \[
@@ -296,7 +354,8 @@ Sendo injetora e $R$ finito, então existe um certo $\rho \in R$ tal que $\varph
 }
 \exercicio{10} Sejam $A$ um anel, $I$ e $J$ ideais à direita (esquerda) de $A.$ Mostre que $I \cup J$ é um ideal à direita
 (esquerda) de $A$ se e somente se $I \subset J$ ou $J \subset I.$
-\solucao{}
+\solucao{Suponha por absurdo que, dados $I$ e $J$ ideais à direita (esquerda) de $A,$ $I \cup J$ é um ideal à direita (esquerda) de $A$, mas $I \nsubseteq J$ nem $J \nsubseteq I.$ Então, existem $i \in I \setminus J$ e $j \in J \setminus I.$ Sendo $I \cup J$ um ideal, então $i+j \in I \cup J.$ Então, $i+j \in I,$ o que implica $j \in I,$ e também $i+j \in J,$ o que implica $i \in J.$ Ambas conclusões são contradição, logo tais elementos $i$ e $j$ não existem.
+}
 
 \exercicio{11}  Seja $m \in \mathbb{Z}, m > 0.$ Mostre que $m\mathbb{Z}$ é um ideal maximal de $\mathbb{Z}$ se e somente se $m$ é um número primo.
 \solucao{
@@ -377,10 +436,38 @@ Como os únicos ideais à direita de $R$ são os triviais, temos que $I = \{0\}$
 }
 \exercicio{14} Sejam $F$ um corpo e $F[X,Y]$ o anel dos polinômios em duas indeterminadas com coeficientes em $F$.
 Prove que $F[X, Y]$ não é um anel principal. 
-\solucao{
+\solucao{Vamos encontrar um ideal em $F[X, Y]$ que não pode ser gerado por um único elemento. Tomemos $I = \langle X, Y \rangle.$ Mostraremos que $I$ não admite um gerador único.
+
+Suponha por absurdo que $I = \langle p \rangle,$ para certo $p(X,Y) \in F[X,Y].$ Isso quer dizer que, para todos $g(X,Y), h(X,Y) \in F[X,Y],$ existe um certo $i(X,Y) \in F[X,Y]$ tal que
+\[
+Xg + Yh = ip.
+\]
+Em particular, devemos ter $X = i_1p$ e $Y = i_2p.$ Desse modo, segue que o grau de $p$ é no máximo $1.$ Note que este grau não pode ser zero, pois caso contrário $p$ seria uma unidade ou $0$ e não teríamos $\langle p \rangle = \langle X,Y \rangle.$ Portanto, $\deg(p) = 1.$ Sendo assim, podemos escrever $p(X,Y)$ como
+\[
+p(X,Y) = aX + bY + c, \mbox{ onde } a,b,c \in F.
+\]
+Mas então
+\[
+X = i_1\textcolor{Magenta}{p(X,Y)} \Rightarrow X = i_1\textcolor{Magenta}{(aX + bY + c)} \Rightarrow b = 0
+\]
+e analogamente, 
+\[
+Y = i_2\textcolor{JungleGreen}{p(X,Y)} \Rightarrow X = i_1\textcolor{JungleGreen}{(aX + bY + c)} \Rightarrow a = 0
+\]
+Daí, concluímos que
+\[
+p(X,Y) = \textcolor{red}{a}X +  \textcolor{red}{b}Y + c \Rightarrow p(X,Y) = \textcolor{red}{0}X +  \textcolor{red}{0}Y + c \Rightarrow p(X,Y) = c,
+\]
+o que significa que $\deg(p) \neq 1,$ contradição.
+Logo, $\langle X, Y \rangle$ não é um ideal principal, e portanto $F[X,Y]$ não é um anel principal.
 }
 \exercicio{15} Seja $A = \mathcal{C}([0, 1])$ o anel das funções contínuas de $[0, 1]$ em $\mathbb{R}.$ Se $M$ é um ideal maximal de $A$, prove que existe $c \in [0, 1]$ tal que \[M = \{f \in A | f(c) = 0\}.\]
-\solucao{
+\solucao{%http://www.math.cmu.edu/~mubayi/mathstudies/hw2sol.pdf
+Para cada $c \in [0,1],$ vamos supor, por contradição, que existe $f \in M$ que não se anula em $c$ (caso contrário $M$ contém todas as funções que se anulam em $c$ e nós já teremos provado que ele é maximal, e então $M$ será o ideal desejado). Como $f$ é contínua, existe uma vizinhança $N_c$ de $c$ na qual $f(x) > y_c > 0.$ Isso produz uma coleção de conjuntos abertos que cobrem $[0,1],$ e como este é compacto, segue que existe uma subcobertura finita $T_1, \ldots, T_n.$ Também temos funções $f_1, \ldots, f_n.$ Defina aagora
+\[
+g(x) = \sum\limits_{i=1}^n (f_i(x))^2 \in M.
+\]
+Por definiçaão, existe um $\gamma > 0$ tal que $g(x) > \gamma$ para todo $x \in [0,1].$ Consequentemente, $\frac{1}{g(x)} \in M,$ pois $g(x)$ é contínua. Portanto, $1 \in M$ e $M = R.$  
 }
 \exercicio{16} Prove que: 
 \dividiritens{
@@ -411,24 +498,149 @@ Reciprocamente, suponha que $\langle f \rangle$ é um ideal maximal. Tome $d(x)$
 \solucao{}
 \exercicio{18} Seja $M$ um $A$-módulo. Prove que:
 \dividiritens{
-\task[\pers{a}] $(-a)m = a(-m) = -(am), \forall a in A, \forall m \in M;$
+\task[\pers{a}] $(-a)m = a(-m) = -(am), \forall a \in A, \forall m \in M;$
 \task[\pers{b}] $0 \cdot m = 0, \forall m \in M;$
 \task[\pers{c}] $a \cdot 0 = 0, \forall a \in A.$
 }
-\solucao{}
+\solucao{
+\dividiritens{
+\task[\pers{a}] %Temos que
+%\[(0 + (-a))m = 0 \cdot m + (-a) \cdot m \Rightarrow (0 -a )m = 0 \cdot m -a \cdot m \Rightarrow (-a)m = -(am)\]
+%e também:
+%\[a(0 + (-m)) = a \cdot \]
+\task[\pers{b}] Temos que, $\forall m \in M:$
+\[
+0 \cdot m = (0+0)m \Rightarrow 0 \cdot m + 0 \cdot m = 0 \cdot m \Rightarrow 0 \cdot m = 0
+\]
+Note que utilizamos que $(a+b)m = am + bm, \forall a,b \in A, \ \forall m \in M.$
+\task[\pers{c}] Temos que, $\forall a \in A:$
+\[
+a \cdot 0 = a(0+0) \Rightarrow a \cdot 0 = a \cdot 0 + a \cdot 0  \Rightarrow a \cdot 0 = 0
+\]
+Note que utilizamos que $a(m+n) = am + an, \forall a \in A, \ \forall m,n \in M.$
+}
+}
 \exercicio{19}  Sejam $M$ um $A$-módulo e $S$ e $T$ submódulos de $M.$ Prove que $S \cup T$ é um submódulo de $M$ se e somente se $S \subset T$ ou $T \subset S.$ 
-\solucao{}
-\exercicio{20} Determinar todos os submódulos do $\mathbb{Z}$-módulo $\mathbb{Z}_{12},$ o anulador de cada elemento de $\mathbb{Z}_{12}$ e o anulador
-do módulo todo.
-\solucao{}
+\solucao{Suponha por absurdo que, dados $S$ e $T$ ideais à direita (esquerda) de $M,$ $S \cup T$ é um ideal à direita (esquerda) de $M$, mas $S \nsubseteq T$ nem $T \nsubseteq S.$ Então, existem $s \in S \setminus T$ e $t \in T \setminus S.$ Sendo $S \cup T$ um submódulo à esquerda (direita), então $s+t \in S \cup T.$ Então, $s+t \in S,$ o que implica $t \in S,$ e também $s+t \in T,$ o que implica $s \in T.$ Ambas conclusões são contradição, logo tais elementos $s$ e $t$ não existem.}
+\exercicio{20} Determinar todos os submódulos do $\mathbb{Z}$-módulo $\mathbb{Z}_{12},$ o anulador de cada elemento de $\mathbb{Z}_{12}$ e o anulador do módulo todo.
+\solucao{
+Notemos que os $\mathbb{Z}$-submódulos de $\mathbb{Z}_{12}$ são exatamente os subgrupos de $\mathbb{Z}_{12},$ já que este é abeliano. Como $\langle \overline{1} \rangle = \mathbb{Z}_{12}$ é cíclico, todos os seus subgrupos são cíclicos. Então, basta analisar o subgrupo gerado por cada elemento de $\mathbb{Z}_{12}.$ Os possíveis $\mathbb{Z}$-submódulos de $\mathbb{Z}_{12}$ são:
+\begin{itemize}
+    \item $ \langle \overline{0} \rangle = \{ \overline{0} \};$
+    \item $ \langle \overline{1} \rangle = \{ \overline{0}, \overline{1}, \overline{2},\overline{3}, \overline{4}, \overline{5}, \overline{6}, \overline{7}, \overline{8}, \overline{9}, \overline{10}, \overline{11}\} = \mathbb{Z}_{12};$
+    \item $ \langle \overline{2} \rangle = \{ \overline{0},  \overline{2}, \overline{4},  \overline{6}, \overline{8},  \overline{10}\};$
+    \item $ \langle \overline{3} \rangle = \{ \overline{0}, \overline{3}, \overline{6}, \overline{9}\};$
+    \item $ \langle \overline{4} \rangle = \{ \overline{0}, \overline{4}, \overline{8}\} ;$
+    \item $ \langle \overline{6} \rangle = \{ \overline{0},  \overline{6}\}.$
+\end{itemize}
+
+Logo, $\mathbb{Z}_{12}$ possui $6$ $\mathbb{Z}$-submódulos.
+
+Calculemos o anulador de cada elemento de $\mathbb{Z}_{12}:$
+\[
+\mbox{Ann}(\overline{0}) = \{a \in \mathbb{Z}_{12} | a \cdot \overline{0} = \overline{0} \} = \mathbb{Z}_{12};
+\]
+\[
+\mbox{Ann}(\overline{1}) = \{a \in \mathbb{Z}_{12} | a \cdot \overline{1} = \overline{0} \} = \{ \overline{0} \} = \langle \overline{0} \rangle;
+\]
+\[
+\mbox{Ann}(\overline{2}) = \{a \in \mathbb{Z}_{12} | a \cdot \overline{2} = \overline{0} \} = \{ \overline{0}, \overline{6} \} = \langle \overline{6} \rangle;
+\]
+\[
+\mbox{Ann}(\overline{3}) = \{a \in \mathbb{Z}_{12} | a \cdot \overline{3} = \overline{0} \} = \{ \overline{0}, \overline{4}, \overline{8} \} = \langle \overline{4} \rangle;
+\]
+\[
+\mbox{Ann}(\overline{4}) = \{a \in \mathbb{Z}_{12} | a \cdot \overline{4} = \overline{0} \} = \{ \overline{0}, \overline{3}, \overline{6}, \overline{9} \} = \langle \overline{3} \rangle;
+\]
+\[
+\mbox{Ann}(\overline{5}) = \{a \in \mathbb{Z}_{12} | a \cdot \overline{5} = \overline{0} \} = \{ \overline{0} \} = \langle \overline{0} \rangle;
+\]
+\[
+\mbox{Ann}(\overline{6}) = \{a \in \mathbb{Z}_{12} | a \cdot \overline{6} = \overline{0} \} = \{ \overline{0}, \overline{2}, \overline{4}, \overline{6}, \overline{8}, \overline{10} \} = \langle \overline{2} \rangle;
+\]
+\[
+\mbox{Ann}(\overline{7}) = \{a \in \mathbb{Z}_{12} | a \cdot \overline{7} = \overline{0} \} = \{ \overline{0} \} = \langle \overline{0} \rangle;
+\]
+\[
+\mbox{Ann}(\overline{8}) = \{a \in \mathbb{Z}_{12} | a \cdot \overline{8} = \overline{0} \} = \{ \overline{0}, \overline{3}, \overline{6}, \overline{9}\} = \langle \overline{3} \rangle;
+\]
+\[
+\mbox{Ann}(\overline{9}) = \{a \in \mathbb{Z}_{12} | a \cdot \overline{9} = \overline{0} \} = \{ \overline{0}, \overline{4}, \overline{8}\} = \langle \overline{4} \rangle;
+\]
+\[
+\mbox{Ann}(\overline{10}) = \{a \in \mathbb{Z}_{12} | a \cdot \overline{10} = \overline{0} \} = \{ \overline{0}, \overline{6}\} = \langle \overline{6} \rangle;
+\]
+\[
+\mbox{Ann}(\overline{11}) = \{a \in \mathbb{Z}_{12} | a \cdot \overline{11} = \overline{0} \} = \{ \overline{0} \} = \langle \overline{0} \rangle.
+\]
+Temos portanto os seguintes resultados:
+ \begin{table}[h]
+ \begin{minipage}{.5\textwidth}
+ \centering
+ \begin{tabular}{|c|c|}
+ \toprule
+ Elemento & Anulador \\ \hline
+$\overline{0}$ & $\mathbb{Z}_{12}$ \\\hline
+$\overline{1}$ & $\langle \overline{0} \rangle$ \\\hline
+$\overline{2}$ & $\langle \overline{6} \rangle$ \\\hline
+$\overline{3}$ & $\langle \overline{4} \rangle$ \\\hline
+$\overline{4}$ & $\langle \overline{3} \rangle$ \\\hline
+$\overline{5}$ & $\langle \overline{0} \rangle$ \\ \hline
+ \end{tabular}
+  
+ \end{minipage} 
+ \begin{minipage}{.5\textwidth}
+ \centering
+ \begin{tabular}{|c|c|}
+ \toprule
+ Elemento & Anulador \\ \hline
+$\overline{6}$ & $\langle \overline{2} \rangle$ \\\hline
+$\overline{7}$ & $\langle \overline{0} \rangle$ \\\hline
+$\overline{8}$ & $\langle \overline{3} \rangle$ \\\hline
+$\overline{9}$ & $\langle \overline{4} \rangle$ \\\hline
+$\overline{10}$ & $\langle \overline{6} \rangle$ \\\hline
+$\overline{11}$ & $\langle \overline{0} \rangle$ \\ \hline
+ \end{tabular}
+  
+ \end{minipage} 
+\end{table}
+
+Temos também que
+\[
+\mbox{Ann}(\mathbb{Z}_{12}) = \{ a \in \mathbb{Z}_{12} | ax = \overline{0}, \ \forall x \in \mathbb{Z}_{12} \} = \{ 0 \}
+\]
+}
 \exercicio{21} Dar um exemplo de um $\mathbb{Z}$-módulo, onde dois submódulos quaisquer sejam sempre não isomorfos.
-\solucao{}
+\solucao{Considere o $\mathbb{Z}$-módulo $\mathbb{Z}_{12},$ dado no exercício acima. Observe que a cardinalidade de todos os seus submódulos são distintas, de modo que estes não podem ser $2$ a $2$ isomorfos.}
 \exercicio{22} Prove que se $m$ e $n$ são dois inteiros relativamente primos, o único $\mathbb{Z}$-homomorfismo $\varphi \colon \mathbb{Z}_n \to \mathbb{Z}_m$ é
 o homomorfismo nulo.
-\solucao{}
+\solucao{
+Vamos mostrar algo mais forte: a quantidade de $\mathbb{Z}$-homomorfismo $\varphi \colon \mathbb{Z}_n \to \mathbb{Z}_m$ é exatamente $\mdc(m,n).$ 
+
+Como $1$ é gerador de $\mathbb{Z}_n,$ podemos escolher um certo $\overline{a} \in \mathbb{Z}_m,$ onde $0 \le a \le m-1$ tal que $\varphi(\ovelrine{1}) = \overline{a}.$ Sendo um homomorfismo, para qualquer $n \in \mathbb{N},$ temos que
+\[
+\varphi(n) = \varphi(\underbrace{\ovelrine{1} + \ovelrine{1} + \ldots + \ovelrine{1}}_{n \mbox{ vezes}}) = \underbrace{\varphi(\ovelrine{1}) + \varphi(\ovelrine{1}) + \ldots + \varphi(\ovelrine{1})}_{n \mbox{ vezes}} =n \textcolor{RawSienna}{\varphi(\overline{1})} =n \textcolor{RawSienna}{\overline{a}} = \overline{na}
+\]
+Como $\overline{na} \in \mathbb{Z}_m,$ temos que $na \equiv 0 \pmod m.$ Daí, temos que $m \mid na.$ Como $\mdc(m,n) = 1,$ temos que $m \nmid n.$ Logo, $m \mid a.$ Sendo $0 \le a \le m-1,$ concluímos que $a = 0.$ Daí, $\varphi(\overline{1}) = \overline{a} = \overline{0},$ e portanto $\varphi$ é o homomorfismo nulo.
+
+
+
+%https://math.stackexchange.com/questions/1807358/number-of-homomorphisms-between-two-cyclic-groups
+
+
+}
 \exercicio{23} Seja $M$ um $\mathbb{Z}$-módulo finito tal que o conjunto dos seus submódulos é totalmente ordenado por
 inclusão. Prove que existe um número primo $p$ tal que o número de elementos de $M$ é uma potência de $p.$
-\solucao{}
+\solucao{
+Se a ordem de $M$ não for uma potência de um primo, então existem dois números primos $r$ e $s$ distintos que dividem a ordem de $M.$ Pelo Teorema de Cauchy, como $(M, +)$ é um grupo abeliano finito, existem subgrupos $R$ e $S$ tais que $\abs{R} = r$ e $\abs{S} = s.$ Sendo $R$ e $S$ de ordem prima e abelianos, então $R$ e $S$ são cíclicos. Como o conjunto de submódulos de $M$ é totalmente ordenado por inclusão, então $S \subset R$ ou $R \subset S,$ o que implica $s < r$ ou $r < s.$ Suponha sem perda de generalidade que $S \subset R.$ 
+
+Pelo Teorema de Lagrange, sabemos que a ordem de todo subgrupo de $R$ divide a ordem de $R.$ Sendo $S \subset R,$ então 
+
+\[\textcolor{Green}{\abs{S}} \mid \textcolor{Green}{\abs{R}} \Rightarrow \textcolor{Green}{s} \mid \textcolor{Green}{r},\]
+um absurdo, já que $r$ e $s$ são primos.
+
+Logo, a ordem de $M$ é uma potência de $p.$
+}
 \exercicio{24} Um $A$-módulo $M$ é \emph{simples} se $M \neq \{0\}$ e os únicos submódulos de $M$ são $\{ 0\}$ e o próprio $M.$
 \dividiritens{
 \task[\pers{a}] Prove que se $M$ é simples e $\varphi \colon M \to N$ é um $A$-homomorfismo não nulo, então $\varphi$ é um
@@ -437,14 +649,44 @@ monomorfismo. Prove que se $N$ também é simples, então $\varphi$ é um isomor
 soma definida pontualmente e o produto por composição, $\mbox{Hom}(M, M)$ é um anel. Prove que se $M$ é simples, então $\mbox{Hom}(M, M)$ é um anel com divisão. (este resultado é conhecido como
 \emph{Lema de Schur})
 }
-\solucao{}
+\solucao{
+\dividiritens{
+\task[\pers{a}] Sabemos que um $A$-homomorfismo de módulos $\varphi$ é injetor, isto é, é um monomorfismo, se e somente se $\Ker(\varphi) = \{ 0 \}.$ Também sabemos que $\Ker(\varphi)$ é um $A$-submódulo de $M.$ Sendo $\varphi \colon M \to N$ um $A$-homomorfismo, então como $\varphi \ncong 0,$ temos que $\Ker(\varphi)$ é um submódulo de $M$ tal que $\Ker(\varphi) \neq M.$ Sendo $M$ simples, seus únicos submódulos são $\{ 0\}$ e o próprio $M.$ Mas $\Ker(\varphi) \neq M.$ Logo, segue que a única possibilidade é $\Ker(\varphi) = \{ 0 \}.$ Portanto, $\varphi$ é um monomorfismo.
+
+Sabemos que $\mbox{Im}(\varphi)$ é um submódulo de $N.$ Se $N$ for simples, então as únicas possibilidades para $\mbox{Im}(\varphi)$ são $\{ 0 \}$ ou $N.$ Mas note que $\mbox{Im}(\varphi) \neq \{ 0 \},$ pois caso contrário $\varphi$ seri o homomorfismo nulo. Logo, $\mbox{Im}(\varphi) = N,$ e $\varphi$ é sobrejetora. Sendo injetora também, segue que $\varphi$ é um isomorfismo.
+
+\task[\pers{b}] Para provar que $\mbox{Hom}(M, M)$ é um anel com divisão, precisamos verificar que todo elemento não-nulo de $\mbox{Hom}(M, M)$ é invertível. Para isso, tome $\varphi \in \mbox{Hom}(M, M)$ não nulo. Como $M$ é simples, então $\varphi \colon M \to M$ é um $A$-homomorfismo não nulo, então pelo item a,$\varphi$ é um isomorfismo. Consequentemente, este possui uma inversa. Portanto,  $\mbox{Hom}(M, M)$ é um anel com divisão.
+}
+
+
+}
 \exercicio{25} Prove que, se a sequência $M \xrightarrow{\varphi} N \xrightarrow{\psi} R \xrightarrow{\phi} S$ é exata, são equivalentes:
 \dividiritens{
 \task[\pers{a}] $\varphi$ é epimorfismo;
 \task[\pers{b}] $\mbox{Im}(\psi) = 0;$
 \task[\pers{c}] $\phi$ é monomorfismo.
 }
-\solucao{}
+\solucao{
+Primeiramente, observemos que, como a sequência é exata, temos que
+\[
+\mbox{Im } \varphi = \Ker \psi \quad \mbox{e} \quad \mbox{Im } \psi = \Ker \phi.
+\]
+Com base nisso, temo que:
+
+$\textbf{\textcolor{Floresta}{(a)}} \Rightarrow \textbf{\textcolor{Floresta}{(b)}}:$ Se $\varphi$ é epimorfismo, então $\mbox{Im}(\varphi)=N.$ Então \[\mbox{Ker}(\psi)=\mbox{Im}(\varphi)=N,\] aí $\mbox{Im}(\psi)=0$.
+\medskip
+\noindent
+$\textbf{\textcolor{Floresta}{(b)}} \Rightarrow \textbf{\textcolor{Floresta}{(c)}}:$
+Se $\mbox{Im}(\psi)=0$, então temos \[\mbox{Ker}(\phi)=\mbox{Im}(\psi)=0.\]
+Logo,$\phi$ é monomorfismo.
+\medskip
+\noindent
+$\textbf{\textcolor{Floresta}{(c)}} \Rightarrow \textbf{\textcolor{Floresta}{(a)}}:$ Se $\phi$ é monomorfismo, então $\Ker \phi = 0.$ Pela sequência exata, temos
+\[\mbox{Im}(\psi)=\mbox{Ker}(\phi)=0 \Rightarrow \mbox{Ker}(\psi)=N.\]
+Então, \[\mbox{Im}(\varphi)=\mbox{Ker}(\psi)=N.\] 
+
+Assim, $\varphi$ é epimorfismo.
+}
 \exercicio{26} Seja o diagrama comutativo:
 \begin{center}
 \begin{tikzcd}
@@ -458,7 +700,12 @@ Suponhamos que as filas são sequências exatas, prove que
 \task[\pers{a}] Se $\varphi^\prime$ e $\varphi^{\prime \prime}$ são epimorfismos, então $\varphi$ é epimorfismo.
 \task[\pers{b}] Se $\varphi^\prime$ e $\varphi^{\prime \prime}$ são isomorfismos, então $\varphi$ é isomorfismo.
 }
-\solucao{}
+\solucao{
+\dividiritens{
+\task[\pers{a}] Se $\varphi^\prime$ e $\varphi^{\prime \prime}$ são epimorfismos, então para $n\in N$ então $g(n)\in N''$, aí existe um $m''\in M''$ tal que $\varphi''(m'')=g(n)$, aí existe $m\in M$ tal que $f(m)=m''$, aí $g(\varphi(m))=\varphi''(f(m))=\varphi''(m'')=g(n)$, aí $n-\varphi(m)\in\mathrm{Ker}(g)=\mathrm{Im}(g')$, aí existe $n'\in N'$ tal que $g'(n')=n-\varphi(m)$, aí existe $m'\in M'$ tal que $\varphi'(m')=n'$, aí $\varphi(f'(m'))=g'(\varphi'(m'))=g'(n')=n-\varphi(m)$, aí $n=\varphi(m+f'(m'))$, aí $n\in\mathrm{Im}(\varphi)$; assim $\varphi$ é epimorfismo.
+\task[\pers{b}] Se $\varphi^\prime$ e $\varphi^{\prime \prime}$ são monomorfismos, então para $m\in M$, se $\varphi(m)=0$, então $\varphi''(f(m))=g(\varphi(m))=g(0)=0$, aí $f(m)=0$, aí $m\in\mathrm{Ker}(f)=\mathrm{Im}(f')$, aí existe $m'\in M'$ tal que $f'(m')=m$, aí $g'(\varphi'(m'))=\varphi(f'(m'))=\varphi(m)=0$, aí $\varphi'(m')=0$, aí $m'=0$, aí $f'(m')=0$, aí $m=0$; logo $\varphi$ é monomorfismo. Agora é só juntar com o que fizemos no item (a).
+}
+}
 \exercicio{27} Seja o diagrama comutativo:
 \begin{center}
 \begin{tikzcd}
@@ -473,4 +720,152 @@ Suponhamos que as filas são sequências exatas, prove que
 \task[\pers{c}] (Lema dos Cinco) Se $h_1, h_2, h_4$ e $h_5$ são isomorfismos, então $h_3$ é um isomorfismo.
 }
 
+
+\solucao{
+\dividiritens{
+\task[\pers{a}] Vamos mostrar que $\ker(h_3) \subseteq f_2(\ker(h_2))$ e que $f_2(\ker(h_2)) \subseteq \ker(h_3):$
+\begin{itemize}
+    \item[$\textcolor{red}{\vardiamond}$] $f_2(\ker(h_2)) \subseteq \ker(h_3):$ Seja $m_2\in M_2$ tal que $h_2(m_2)=0$, então $g_2(h_2(m_2))=0$, aí $h_3(f_2(m_2))=0$. 
+    
+    \item[$\spadesuit$] $\ker(h_3) \subseteq f_2(\ker(h_2)):$ Seja $m_3\in M_3$ tal que $h_3(m_3)=0$, então $g_3(h_3(m_3))=0$, aí $h_4(f_3(m_3))=0$, aí $f_3(m_3)=0$, aí existe $m_2\in M_2$ tal que $f_2(m_2)=m_3$, aí $g_2(h_2(m_2))=h_3(f_2(m_2))=h_3(m_3)=0$, aí existe $n_1\in N_1$ tal que $g_1(n_1)=h_2(m_2)$, aí existe $m_1\in M_1$ tal que $h_1(m_1)=n_1$, aí $h_2(f_1(m_1))=g_1(h_1(m_1))=g_1(n_1)=h_2(m_2)$, aí $h_2(m_2-f_1(m_1))=0$, mas nós temos $f_2(m_2-f_1(m_1))=f_2(m_2)-f_2(f_1(m_1))=m_3$.
+\end{itemize}
+\task[\pers{b}] Vamos mostrar que $g_3^{-1}(\mbox{Im}(h_4)) \subseteq \mbox{Im}(h_3)$ e que $\mbox{Im}(h_3) \subseteq g_3^{-1}(\mbox{Im}(h_4)):$
+\begin{itemize}
+    \item[$\textcolor{red}{\varheart}$] $\mbox{Im}(h_3) \subseteq g_3^{-1}(\mbox{Im}(h_4)):$ Seja $x_3\in M_3$, então $g_3(h_3(x_3))=h_4(f_3(x_3))\in\mathrm{Im}(h_4)$, aí $h_3(x_3)\in g_3^{-1}(\mbox{Im}(h_4))$.
+    
+    \item[$\clubsuit$] $g_3^{-1}(\mbox{Im}(h_4)) \subseteq \mbox{Im}(h_3):$ Seja $n_3\in g_3^{-1}(\mbox{Im}(h_4))$, então existe $m_4\in M_4$ tal que $g_3(n_3)=h_4(m_4)$, aí $h_5(f_4(m_4))=g_4(h_4(m_4))=g_4(g_3(n_3))=0$, aí $f_4(m_4)=0$, aí existe $m_3\in M_3$ tal que $f_3(m_3)=m_4$, aí $g_3(h_3(m_3))=h_4(f_3(m_3))=h_4(m_4)=g_3(n_3)$, aí $g_3(n_3-h_3(m_3))=0$, aí existe $n_2\in N_2$ tal que $g_2(n_2)=n_3-h_3(m_3)$, aí existe $m_2\in M_2$ tal que $h_2(m_2)=n_2$, aí $h_3(f_2(m_2))=g_2(h_2(m_2))=g_2(n_2)=n_3-h_3(m_3)$, aí $n_3=h_3(m_3+f_2(m_2))$, aí $n_3\in\mathrm{Im}(h_3)$.
+\end{itemize}
+\task[\pers{c}] Se $h_1, h_2, h_4$ e $h_5$ são isomorfismos, então, pelos itens (a) e (b), nós obtemos $\ker(h_3) = f_2(\ker(h_2))=f_2(0)=0$ e $\mbox{Im}(h_3) = g_3^{-1}(\mbox{Im}(h_4))=g_3^{-1}(N_4)=N_3$, assim $h_3$ é isomorfismo.
+}
+%http://www.rc.unesp.br/igce/matematica/bicmat/volume_10.pdf - pg 9
+}
+
+\textcolor{Red}{Questões Suplementares}
+
+\exercicio{28} Prove que para todo número primo $p$, existe um anel não comutativo sem unidade com exatamente $p^2$ elementos.
+\solucao{Para $p$ primo, temos que
+\[
+\mathbb{Z}_p = \{ \overline{0}, \overline{1}, \overline{2}, \ldots, \overline{p-1} \}
+\]
+é um corpo de ordem $p$. Sob adição e multiplicação módulo $p,$ $\mathcal{M}_2(\mathbb{Z}_p)$ é o anel das matrizes de ordem $2 \times 2$ cujas entradas são elementos de $\mathbb{Z}_p.$
+Considere
+\[
+R = \left\{ \begin{bmatrix} a & b \\ 0 & 0 \\ 
+\end{bmatrix} \Big| a,b \in \mathbb{Z}_p \right\},
+\]
+um subconjunto não vazio finito de $\mathcal{M}_2(\mathbb{Z}_p)$.
+Para cada $X = \begin{bmatrix} a & b \\ 0 & 0 \\ 
+\end{bmatrix}$ e $Y = \begin{bmatrix} c & d \\ 0 & 0 \\ 
+\end{bmatrix},$ temos que
+\begin{itemize}
+    \item $X + Y = \begin{bmatrix} a & b \\ 0 & 0 \\ 
+\end{bmatrix} +  \begin{bmatrix} c & d \\ 0 & 0 \\ 
+\end{bmatrix} =  \begin{bmatrix} a+c & b+d \\ 0 & 0 \\ 
+\end{bmatrix} \in R;$
+\item $X \cdot Y = \begin{bmatrix} a & b \\ 0 & 0 \\ 
+\end{bmatrix} \cdot  \begin{bmatrix} c & d \\ 0 & 0 \\ 
+\end{bmatrix} = \begin{bmatrix} ac & ad \\ 0 & 0 \\ 
+\end{bmatrix} \in R.$
+\end{itemize}
+Portanto, $(R, +, \cdot)$ é um anel (subanel de $\mathcal{M}_2(\mathbb{Z}_p).$ É um anel que possui identidade à esquerda $\begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix},$ mas não possui identidade à direita. Além disso, $\begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix}, \begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix} \in R.$ Então
+\[\begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix} \cdot \begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix} = \begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix} \neq \begin{bmatrix} 0 & 0 \\ 0 & 0 \end{bmatrix} =   \begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix} \begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix}
+\]
+Logo, concluímos que $R$ é umm anel não comutativo de ordem $p^2$ que não possui unidade.%http://marathwadamathsociety.org/vol13-1/june12salunke3%20pg%2039-47.pdf
+}
+\newpage
+\section{\textcolor{Floresta}{Lista 2}}
+
+\exercicio{1} Sejam $\{ M_i\}_{i \in I}$ e $\{ N_i\}_{i \in I}$ duas famílias de $A$-módulos. Se $N_i$ é submódulo de $M_i$ para todo $i \in I,$ prove que $\bigoplus\limits_{i \in I} N_i$ pode ser identificado naturalmente como um submódulo de $\bigoplus\limits_{i \in I} M_i$ e   \[\frac{\bigoplus\limits_{i \in I} M_i}{\bigoplus\limits_{i \in I} N_i } \cong \bigoplus\limits_{i \in I} \frac{M_i}{N_i}.\] 
+\solucao{}
+
+\exercicio{2} Sejam $M$ um $A$-módulo, $N_1$ e $N_2$ submódulos de $M$ tais que $M = N_1 \oplus N_2.$ Seja $N^\prime_1$ um submódulo de $M$ isomorfo a $N_1.$ Em geral, não é verdade que
+\[
+\frac{N_1 \oplus N_2}{N_1^{\prime}} \cong N_2
+\]
+Dê um contra-exemplo.
+\solucao{}
+
+\exercicio{3} Sejam $F$ um corpo e $A = \mathcal{M}_n(F).$ Prove que:
+\dividiritens{
+\task[\pers{a}] Os subconjuntos
+\[
+S_k = \{ (a_{ij}) \in A | a_{ij} = 0 \ \mbox{se} \ i \neq k \}
+\]
+são submódulos de ${}_AA;$
+\task[\pers{b}] Os submódulos $S_k$, para $1 \le k \le n,$ são simples, isto é, os únicos submódulos dele são $\{0\}$ e ele próprio;
+\task[\pers{c}] A = $S_1 \oplus S_2 \oplus \ldots \oplus S_n.$
+}
+\solucao{}
+
+\exercicio{4} Dada uma sequência exata
+\begin{center}
+\begin{tikzcd}
+0 \arrow{r} & M \arrow{r}{f} & N \arrow{r}{g} & P \arrow{r} & 0,
+\end{tikzcd}
+\end{center}
+nem sempre $N^{\prime} = \mbox{Im}(f)$ é um somando direto de $N.$ Dê um caontra-exemplo.
+\solucao{}
+
+\exercicio{5} Dadas as sequências exatas de $A$-módulos:
+\begin{center}
+\begin{tikzcd}
+0 \arrow{rd} &                     &   &                      & 0 \arrow{ld} \\
+             & M_1 \arrow{rd}{f} &   & L_2 \arrow[swap]{ld}{k} &              \\
+             &                     & N &                      &              \\
+             & M_2 \arrow{ru}{h} &   & L_1 \arrow[swap]{lu}{g} &              \\
+0 \arrow{ru} &                     &   &                      & 0 \arrow{lu}
+\end{tikzcd}
+\end{center}
+Prove que, se $k \circ f\colon M_1 \to L_2$ é um isomorfismo, então $g \circ h \colon  M2 \to L_1$ também o é.
+\solucao{}
+
+\exercicio{6} Sejam $A$ um anel de integridade, $M$ um $A$-módulo livre, $a \in A$ e $m \in M.$ Prove que, se $am = 0,$
+então $a = 0$ ou $m = 0.$
+\solucao{}
+
+\exercicio{7} Verificar que o $\mathbb{Z}$-módulo $\mathbb{Q}$ não é um $\mathbb{Z}$-módulo livre, apesar de ter a propriedade acima.
+\solucao{}
+
+\exercicio{8} Provar que, se $\{M_i\}_{i\in I}$ é uma família de $A$-módulos livres, então 
+\[\bigoplus\limits_{i \in I} M_i\]
+é livre. O produto
+\[\prod\limits_{i \in I} M_i\]
+é livre?
+\solucao{}
+
+\exercicio{9} Dar um exemplo para mostrar que, se $N$ é um submódulo livre de um $A$-módulo livre $M,$ nem sempre é verdade que $M/N$ é livre.
+\solucao{}
+
+\exercicio{10} Provar que não existem:
+\dividiritens{ 
+\task[\pers{a}] $\mathbb{Z}$-isomorfismos $f \colon {}_\mathbb{Z}\mathbb{Z} \to \mathbb{Q}.$
+\task[\pers{b}]  epimorfismos de $\mathbb{Q}$ sobre $\mathbb{Z}$-módulos livres, não nulos.
+}
+\solucao{}
+\exercicio{11} Sejam $A$ um domínio de integridade e $K$ o seu corpo de frações. Mostrar que $K$ é um $A$-módulo e que um submódulo de $K$ é livre se e somente se é cíclico.
+\solucao{}
+
+\exercicio{12} Seja $A$ um anel de integridade. Mostre que $M$ é um $A$-módulo livre de posto $n$ se e somente se $M \cong A^n.$
+\solucao{}
+
+
+\exercicio{13} Sejam $A$ um anel de integridade e $N$ um submódulo de um $A$-módulo $M.$ Mostre que $T(N) =
+T(M) \cap N.$
+
+\solucao{}
+
+\exercicio{14} Provar que soma direta de módulos de torção é um módulo de torção. Dar um contra-exemplo para mostrar que o enunciado similar não é válido, em geral, para produtos diretos.
+\solucao{}
+
+\exercicio{15} Prove que:
+\dividiritens{
+\task[\pers{a}] Um $A$-módulo $M$ é cíclico se e somente se é isomorfo a um quociente da forma $A/I,$ onde $I$ é um ideal à esquerda de $A;$
+\task[\pers{b}] Se $A$ é um anel de integridade, então $A$ é um corpo se e somente se todo $A$-módulo é sem
+torção.}
+
+\solucao{}
 \end{document} 
+https://math.stackexchange.com/questions/1617301/number-of-homomorphisms-from-mathbbz-m-to-mathbbz-n?noredirect=1&lq=1
+https://math.stackexchange.com/questions/798119/quotient-modules-isomorphic-rightarrow-submodules-isomorphic
+
+
