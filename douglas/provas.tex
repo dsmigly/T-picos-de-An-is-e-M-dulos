@@ -1,0 +1,383 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{estilosexercicios}
+\usepackage{hyperref}
+%https://yutsumura.com
+%https://yutsumura.com/polynomial-ring-with-integer-coefficients-and-the-prime-ideal-ifx-in-zx-mid-f-20/
+%\usepackage[bottom=2cm,top=3cm,left=3cm,right=2cm]{geometry}
+%\usepackage[utf8]{inputenc}
+%Environments para esta lista
+% ---------------------------------------------------
+\definecolor{Floresta}{rgb}{0.13,0.54,0.13}
+\newcommand{\exercicio}[1]{\subsection{Exercício #1} \textcolor{blue}{\bf(#1)}}
+
+\newcommand{\questao}[1]{\subsection{Questão #1} \textcolor{blue}{\bf(#1)}}
+\newcommand{\dividiritens}[1]{\begin{tasks}[counter-format={(tsk[a])},label-width=3.6ex, label-format = {\bfseries}, column-sep = {0pt}](1) #1 \end{tasks}}
+\newcommand{\pers}[1]{\textcolor{Floresta}{$\negrito{(#1)} $}}
+
+\newcommand{\solucao}[1]{
+\textbf{\textcolor{white}{oi}\\ \\ \textcolor{red}{Solução:}} #1}
+\newcommand{\figura}[1]{\input Arquivos_de_figs_Exercicios/#1} %Adicionar figuras do latex
+
+% ---------------------------------------------------
+\title{Tópicos de Anéis e Módulos}
+\author{MAT0501/MAT6680}
+\date{2º semestre de 2019}
+
+\begin{document}
+\definecolor{Floresta}{rgb}{0.13,0.54,0.13}
+\maketitle
+\tableofcontents
+\newpage
+\begin{comment}
+
+\begin{center}
+\large\textbf{\textcolor{Floresta}{Prova 1}}\\
+\end{center}
+
+\end{comment}
+
+\section{\textcolor{Floresta}{Prova 1}}
+
+\questao{1} Seja $A \neq \{ 0 \}$ um anel comutativo finito em que vale a seguinte propriedade: Para todo $a,b \in A,$ se $ab = 0,$ então $a = 0$ ou $b = 0.$ Prove que $A$ é um corpo.
+
+\solucao{
+Para mostrar que $A$ é um corpo, primeiramente precisamos mostrar que $A$ possui elemento unidade. Após isso, vamos verificar que todo elemento não nulo de $A$ possui inverso, o que conclui a prova.
+
+Como $A \neq \{ 0 \},$ existe um elemento não nulo $a \in A.$ Considere
+\[
+\fullfunction{\varphi_a}{A}{A}{x}{\varphi_a(x) = ax}
+\]
+Esta função está bem definida, uma vez que o produto de quaisquer dois elementos de $A$ será um elemento de $A,$ já que $A$ é um anel. Vejamos que $\varphi_a$ é um isomorfismo.
+\begin{itemize}
+    \item $\varphi_a$ é injetora: Sejam $x, y \in A$ tais que $\varphi(x) = \varphi(y).$ Mostraremos que $x = y.$ Para tal, temos que
+    \[
+    \textcolor{Laranja}{\varphi(x)} = \textcolor{Brown}{\varphi(y)}  \Rightarrow     \textcolor{Laranja}{ax} = \textcolor{Brown}{ay} \Rightarrow ax - ay = 0 \Rightarrow a(x-y) = 0
+    \]
+    
+    Como em $A,$ $\forall \ \alpha, \beta \in A,$ se $\alpha \beta = 0,$ então $\alpha = 0$ ou $\beta = 0,$ e sabemos que $a \neq 0,$ então $x - y = 0,$ o que implica $x=y.$ Logo, $\varphi_a$ é injetora.
+
+    \item $\varphi_a$ é sobrejetora: Como $\varphi_a$ é injetora e $A$ é finito, então $\varphi_a$ é sobrejetora.
+\end{itemize}
+Assim, existe $e \in A$ tal que $a = \varphi_a(e) = a \cdot e.$ Pelo fato de $\varphi_a$ ser sobrejetora, para todo $b \in A,$ existe $x_b \in A$ tal que $b = \varphi_a(x_b) = a \cdot x_b.$ Multiplicando a equação $a = \varphi_a(e) = a \cdot e.$ por $x_b,$ temos que
+\[
+a = a \cdot e \Rightarrow a \cdot \textcolor{Green}{x_b} = a \cdot e \cdot \textcolor{Green}{x_b} = e \cdot a \cdot x_b \Rightarrow \underbrace{\textcolor{Purple}{a \cdot x_b}}_{=b} = e \cdot \underbrace{\textcolor{Purple}{a \cdot x_b}}_{=b} \Rightarrow \textcolor{Purple}{b} = e \cdot \textcolor{Purple}{b}
+\]
+Portanto, como para todo $a \in A,$ temos que $a = ae = ea,$ temos que $e$ é uma identidade de $A.$ Denotemo-la por $1.$
+
+Seja $A = \{0, a_1, \ldots, a_n \}$ um anel de integridade finito. Para cada $i \in \{ 1 , 2 , \ldots , n\},$ consideremos os produtos $a_ia_1, a_ia_2, \ldots , a_ia_n.$ Estes são distintos dois a dois, pois 
+\[a_ia_j = a_ia_k \Leftrightarrow a_i(a_j - a_k) = 0;\] como $a_i \neq 0$ e $A$ não tem divisores de zero, necessariamente $a_j - a_k = 0,$ isto é, $a_j = a_k.$
+
+Assim, os produtos $a_ia_1, a_ia_2, \ldots , a_ia_n$ percorrem todos os elementos não nulos de $A;$ em particular, existe $j$ tal que $a_ia_j = 1,$ o que significa que $a_i$ é invertível.
+
+Portanto, todo o elemento não nulo de $A$ é invertível. 
+
+Logo $A$ é um corpo.
+
+}
+
+\questao{2} Seja $A$ um anel com elemento unidade. Dizemos que $A$ é um \emph{Anel de Boole} se $x^2 = x$ para todo $x \in A.$ Prove que:
+\dividiritens{
+\task[\pers{a}] $\mbox{car } A = 2,$ isto é, $2x = 0,$ para todo $x \in A;$
+\task[\pers{b}] $A$ é comutativo;
+\task[\pers{c}] Se $P$ é um ideal primo de $A,$ com $P \neq A,$ então $P$ é maximal e $\frac{A}{P}$ é um corpo com exatamente dois elementos, onde $P$ é um ideal primo, se para todo $a,b \in A$ tal que $ab \in P,$ então $a \in P$ ou $b \in P.$
+}
+
+\solucao{\dividiritens{
+\task[\pers{a}] 
+Seja $A$ um anel tal que $\forall x\in A:x^2=x$. Temos que: 
+\[
+\begin{array}{rcl}
+x+x&=&(x+x)^2\\&=&x(x+x)+x(x+x)\\&=&\textcolor{red}{x^2}+\textcolor{Laranja}{x^2}+\textcolor{Blue}{x^2}+\textcolor{Green}{x^2}\\&=&\textcolor{red}{x}+\textcolor{Laranja}{x}+\textcolor{Blue}{x}+\textcolor{Green}{x},
+\end{array}
+\]
+Logo,
+\[
+x + x = x + x +x + x \Rightarrow 0=x+x \Rightarrow x = -x \Rightarrow \boxed{2x = 0}
+\]
+Portanto, temos que $\mbox{car}(A) = 2.$
+
+\task[\pers{b}] No item (a), já mostramos que todo elemento é igual a seu inverso. Note agora que
+\[
+\begin{array}{rcl}
+x+y&=&(x+y)^2\\&=&x(x+y)+y(x+y)\\&=&\textcolor{CadetBlue}{x^2}+xy+yx+\textcolor{Mahogany}{y^2}\\&=&\textcolor{CadetBlue}{x}+xy+yx+\textcolor{Mahogany}{y},
+\end{array}
+\]
+Daí:
+\[
+x + y = x + y + xy + yx \Rightarrow 0=xy+yx \Rightarrow -xy = yx
+\]
+Como todo elemento é igual a seu inverso pelo item (a), temos também que $xy = -xy.$ Logo:
+\[
+xy = -xy = yx \Rightarrow \boxed{xy = yx}
+\]
+Portanto, o anel $A$ é comutativo.
+\task[\pers{c}] Considere $P$ um ideal primo de $A$. Mostraremos que $P$ é um ideal maximal de $A.$ Para isso, considere $I$ um ideal de $A$ tal que $P \subseteq I \subseteq A.$ Vamos verificar que $I = P$ ou $I = A.$ Suponha que $I \nsubseteq P.$ Então, por definição, temos que $I \subseteq A.$ Seja $a \in A.$ Como $I \nsubseteq P,$ então existe um certo $i \in I \setminus P.$ Observe que
+\[
+(a - ai) i = a i - a \textcolor{Magenta}{i^2} = ai -  a \textcolor{Magenta}{i} = 0 \in P.
+\]
+Concluímos que $(a - ai) i \in P.$ Sendo $P$ um ideal primo, temos que $a - ai \in P$ ou $i \in P.$ Mas tomamos $i$ de modo que $i \notin P.$ Portanto, obrigatoriamente $a - ai \in P.$ Mas como $P \subseteq I,$ temos que $a - ai \in I.$ Como $a \in A$ e $i \in I,$ segue automaticamente da definição de ideal que $ai \in I.$ Consequentemente, concluímos que $a \in I.$ Assim, $I = A.$
+
+Além disso, $L = A/P$ é um anel de Boole sem divisores de zero. Mostremos que $L$ não pode ter mais do que $2$ elementos. Sejam $x, y \in L,$ com $x, y \neq 0,$ e considere $z = xy.$ Temos então que
+\[
+z = xy \Rightarrow \textcolor{RawSienna}{x}z = \textcolor{RawSienna}{x} xy \Rightarrow xz = \textcolor{PineGreen}{x^2}y \Rightarrow  xz = \textcolor{PineGreen}{x}y \Rightarrow xy - xz = 0 \Rightarrow x(y-z) = 0.
+\]
+Como $L$ não possui divisores de zero, e $x \neq 0,$ então $y - z = 0,$ o que implica $y = z.$ Analogamente, concluímos que $x = z$ e portanto $x = y.$ Portanto $L$ não possui mais de um elemento além do $0.$ Nesse caso, $A/P$ tem exatamente dois elementos, pois $A \neq P.$ $A/P$ é isomorfo a $\frac{\mathbb{Z}}{2 \mathbb{Z}} = \mathbb{Z}_2,$ e portanto é um corpo. %Então, $P$ só pode ser um ideal maximal.
+Concluímos então que num anel de Boole, todo ideal primo é maximal, e além disso $A/P$ é um corpo com exatamente 2 elementos.
+}
+}
+
+\questao{3} Sejam $M, N$ e $P$ $A$-módulos e $f \colon M \to N$ um homomorfismo. Seja $\overline{f} \colon \mbox{Hom } (N,P) \to \Hom(M,P)$ definida por $\overline{f}(\varphi) = \varphi \circ f,$  onde $\varphi \in \Hom(N,P).$ Prove que:
+\dividiritens{
+\task[\pers{a}] $\overline{f}$ é um homomorfismo de módulos.
+
+\task[\pers{b}] Se a sequência }
+\begin{center}
+\begin{tikzcd}
+M \arrow{r}{f} & N \arrow{r}{g} & Q \arrow{r} & 0
+\end{tikzcd}
+\end{center}
+é exata, então a sequência
+\begin{center}
+\begin{tikzcd}
+0 \arrow{r} & \Hom (Q,P) \arrow{r}{\overline{g}} & \Hom (N,P) \arrow{r}{\overline{f}}  & \Hom (M,P)
+\end{tikzcd}
+\end{center}
+é exata.
+\solucao{
+\dividiritens{
+\task[\pers{a}] Para mostrar que $\overline{f}$ é um homomorfismo de $A$-módulos, precisamos verificar que $\overline{f}(\varphi + \psi) = \overline{f}(\varphi) + \overline{f}(\psi)$ e $\overline{f}(\alpha \varphi) = \alpha \overline{f}(\varphi).$ Com efeito:
+\begin{itemize}
+    \item[$\clubsuit$] Sejam $\varphi, \psi \in \Hom(N,P).$ Então:
+    \[
+    \overline{f}(\varphi + \psi) = (\varphi + \psi) \circ f = \textcolor{Mahogany}{\varphi \circ f} + \textcolor{BurntOrange}{\psi \circ f} = \textcolor{Mahogany}{\overline{f}(\varphi)} + \textcolor{BurntOrange}{\overline{f}(\psi)} \Rightarrow \overline{f}(\varphi + \psi) = \boxed{\overline{f}(\varphi) + \overline{f}(\psi)}
+    \]
+    \item[$\textcolor{Red}{\varheart}$]  Sejam $\varphi \in \Hom(N,P)$ e $\alpha \in A.$ Então:
+    \[
+    \overline{f}(\alpha \varphi) = (\alpha \varphi) \circ f = \alpha \textcolor{Emerald}{(\varphi \circ f)} = \alpha \textcolor{Emerald}{\overline{f}(\varphi)} \Rightarrow \boxed{\overline{f}(\alpha \varphi) = \alpha \overline{f}(\varphi)}
+    \]
+\end{itemize}
+
+\task[\pers{b}] Como a sequência}} \begin{center}
+\begin{tikzcd}
+M \arrow{r}{f} & N \arrow{r}{g} & Q \arrow{r} & 0
+\end{tikzcd}
+\end{center} é exata, temos por hipótese que $\mbox{Im } f = \Ker g$ e que $g$ é epimorfismo, ou seja, que $\mbox{Im } g = Q.$ Dada a sequência
+\begin{center}
+\begin{tikzcd}
+0 \arrow{r} & \Hom (Q,P) \arrow{r}{\overline{g}} & \Hom (N,P) \arrow{r}{\overline{f}}  & \Hom (M,P),
+\end{tikzcd}\end{center} para mostrar que esta é exata, precisamos verificar que $\overline{g}$ é injetora, isto é, que $\Ker \overline{g} = \{ 0 \}$ e que $\mbox{Im } \overline{g} = \Ker \overline{f}.$ De fato:
+\begin{itemize}
+    \item[$\spadesuit$] $\Ker \overline{g} = \{ 0 \}:$ Seja $\varphi \in \Hom (Q,P),$ tal que $\varphi \in \Ker \overline{g}.$ Temos portanto que $\overline{g}(\varphi) = 0.$ Daí,
+    \[
+    \overline{g}(\varphi) = 0 \Rightarrow \varphi \circ g = 0 \Rightarrow \varphi(g(n)) = 0 \ \forall n \in N.
+    \]
+    
+    Da última igualdade, concluímos que $\varphi(g(N)) = 0.$ Mas $g(N) = \mbox{Im } g,$ e da sequência exata apresentada, temos que $g$ é um epimorfismo, e portanto $\mbox{Im } g = Q.$ Logo,
+    \[
+    \varphi(\textcolor{Green}{g(N)}) = 0 \Rightarrow \varphi(\textcolor{Green}{Q}) = 0 \Rightarrow \varphi(q) = 0 \ \forall q \in Q \Rightarrow \boxed{\varphi \equiv 0}
+    \]
+    
+    Consequentemente, se $\varphi \in \Ker \overline{g},$ então $\varphi$ é o homomorfismo nulo, ou seja, $\Ker \overline{g} = \{ 0 \},$ como queríamos. Logo, $\overline{g}$ é injetora.
+    
+    \item[$\textcolor{Red}{\vardiamond}$] $\mbox{Im } \overline{g} = \Ker \overline{f}:$ Para mostrar isso, verifiquemos as duas inclusões:
+    \begin{itemize}
+        \item $\mbox{Im } \overline{g} \subseteq \Ker \overline{f}:$ para mostrar isso, basta verificar que $\overline{f} \circ \overline{g} = 0,$ ou seja, que todo elemento da imagem de $\overline{g}$ é anulado quando se aplica $\ovelrine{f}.$  De fato, dada $\varphi \in \Hom(N,P),$ lembrando que  $g \circ f = 0,$ (ou seja, que $\mbox{Im } f = \Ker g)$ temos que
+        \[
+        (\textcolor{Blue}{\overline{f} \circ \overline{g}})(\varphi) =  \varphi \circ (\textcolor{Blue}{g \circ f}) = \varphi \circ (\textcolor{Blue}{0}) = 0 \Rightarrow \boxed{\overline{f} \circ \overline{g} = 0.}
+        \]
+        \item $ \Ker \overline{f} \subseteq \mbox{Im } \overline{g}:$ Seja $\varphi \in \Hom(N,P)$ tal que $\varphi \in \Ker \overline{f},$ ou seja, $\overline{f}(\varphi) = 0.$ Então, 
+        \[
+        \overline{f}(\varphi) = 0 \Rightarrow \varphi \circ f = 0
+        \]
+        
+        Como $g$ é um homomorfismo, temos pelo Primeiro Teorema do Isomorfismo que
+        \[
+        \frac{N}{\Ker(g)} \cong \mbox{Im}(g).
+        \]
+        
+        Dado que $\Ker(g) = \mbox{Im}(f)$ e que $g$ é um epimorfismo, podemos ver que
+            \[
+        \frac{N}{\textcolor{Mulberry}{\Ker(g)}} \cong \textcolor{CornflowerBlue}{\mbox{Im}(g)} \Rightarrow  \frac{N}{\textcolor{Mulberry}{\mbox{Im}(f)}} \cong \textcolor{CornflowerBlue}{Q} \Rightarrow \Coker(f) \cong Q.
+        \]
+        Logo, dado
+        \[
+        \fullfunction{g}{N}{\Coker(f) \cong Q}{n}{\overline{n} = n + \mbox{Im}(f)},
+        \]
+Veja que $g \circ f = 0,$ pois $\mbox{Im}(f) = \Ker(g)$. Além disso, $\varphi \colon N \to P$ é um $A$-homomorfismo tal que $\varphi \circ f = 0,$ como visto antes. Então, pela Propriedade Universal do Cokernel descrita no item (b) da questão $5,$ temos que existe um único $A$-homomorfismo $\psi \colon \Coker(f) \cong Q \to P$ tal que $\psi \colon g = \varphi,$ ou seja, que torna o diagrama
+\begin{center}
+    \begin{tikzcd}
+N \arrow[swap]{dd}{\varphi} \arrow{rr}{g} &  & Q \arrow[dashed]{lldd}{\exists ! \ \psi}  \\
+                                         &  &                                            \\
+P                                        &  &                                           
+\end{tikzcd}
+\end{center}
+
+
+
+comutativo. Daí,
+\[
+\psi \circ g = \varphi \Rightarrow \boxed{\overline{G}(\psi) = \varphi}
+\]
+Portanto, $\varphi \in \mbox{Im}(g).$
+
+
+        %Observe que $g$ é o cokernel de $f.$ Então, pela propriedade Universal do Cokernel, apresentada no item (b) do exercício 5, temos que existe um único $\psi$ tal que $\psi \circ f = \varphi.$ Portanto, $\varphi \in \mbox{Im } f.$
+        %https://math.stackexchange.com/questions/2768728/exact-sequence-of-hom-m
+    \end{itemize}
+    
+    Concluímos assim que a sequência é exata.
+\end{itemize}
+
+
+\questao{4} Seja o diagrama comutativo:
+\begin{center}
+\begin{tikzcd}
+            & M^{\prime} \arrow{r}{f^{\prime}} \arrow{d}{\varphi^{\prime}} & M \arrow{r}{f} \arrow{d}{\varphi} & M^{\prime \prime} \arrow{r} \arrow{d}{\varphi^{\prime \prime}} & 0 \\
+0 \arrow{r} & N^{\prime} \arrow{r}{g^{\prime}}                               & N \arrow{r}{g}                      & N^{\prime \prime}                                                 &  
+\end{tikzcd}
+\end{center}
+
+Suponhamos que as filas são sequências exatas, prove que
+\dividiritens{
+\task[\pers{a}] Se $\varphi^\prime$ e $\varphi^{\prime \prime}$ são epimorfismos, então $\varphi$ é epimorfismo.
+\task[\pers{b}] Se $\varphi^\prime$ e $\varphi^{\prime \prime}$ são isomorfismos, então $\varphi$ é isomorfismo.
+}
+\solucao{
+Antes de iniciar a resolução, vamos detalhar quais são as informações descritas no enunciado. Sendo as filas sequências exatas, temos que:
+\begin{itemize}
+    \item[$\clubsuit$] A primeira fila é exata, ou seja, $\mbox{Im}(f^{\prime}) = \Ker(f),$ e $f$ é um epimorfismo (i.e. $\mbox{Im}(f) = M^{\prime \prime});$
+    \item[$\textcolor{Red}{\varheart}$] A segunda fila é exata, ou seja, $g^{\prime}$ é um monomorfismo (i.e. $\mbox{Ker}(g) = \{ 0 \}$) e $\mbox{Im}(g^{\prime}) = \Ker(g).$
+    
+Além disso, endo os diagramas comutativos, temos que
+    \item[$\spadesuit$] $\varphi \circ f^{\prime}= g^{\prime} \circ \varphi^{\prime};$
+    \item[$\textcolor{Red}{\vardiamond}$] $g \circ \varphi = \varphi^{\prime \prime} \circ f.$
+\end{itemize}
+
+Com essas informações, estamos aptos a solucionar a questão:
+\dividiritens{
+\task[\pers{a}] Vamos mostrar que $\mbox{Im}(\varphi) = N.$ Para isso, temos por hipótese que $\mbox{Im}(\varphi^{\prime}) = N^{\prime}$ e $\mbox{Im}(\varphi^{\prime \prime}) = N^{\prime \prime}.$
+Vamos nos atentar primeiramente à parte destacada em \textcolor{ForestGreen}{verde} no diagrama:
+}
+}
+\begin{center}
+\begin{tikzcd}
+            & M^{\prime} \arrow{r}{f^{\prime}} \arrow{d}{\varphi^{\prime}} & \textcolor{ForestGreen}{M} \arrow[ForestGreen]{r}{f} \arrow[ForestGreen]{d}{\varphi} & \textcolor{ForestGreen}{M^{\prime \prime}} \arrow{r} \arrow[ForestGreen]{d}{\varphi^{\prime \prime}} & 0 \\
+0 \arrow{r} & N^{\prime} \arrow{r}{g^{\prime}}                               & \textcolor{ForestGreen}{N} \arrow[ForestGreen]{r}{g}                      & \textcolor{ForestGreen}{N^{\prime \prime}}                                                 &  
+\end{tikzcd}
+\end{center}
+Note que, para $n \in N,$ então $g(n) \in N^{\prime \prime}.$ Sendo $\varphi^{\prime \prime}$ um epimorfismo, existe $m^{\prime \prime} \in M^{\prime \prime}$ tal que $\varphi^{\prime \prime} (m^{\prime \prime}) = g(n).$ Como $f$ é sobrejetora, existe um $m \in M$ tal que $f(m) = m^{\prime \prime}.$ Da comutatividade desse diagrama, vem que
+\[
+(g \circ \varphi)(m) = (\varphi^{\prime \prime} \circ f)(m) \Rightarrow g(\varphi(m)) = \varphi^{\prime \prime}(\textcolor{Red}{f(m)}) \Rightarrow g(\varphi(m)) = \varphi^{\prime \prime}(\textcolor{Red}{m^{\prime \prime}})  \Rightarrow \]\[g(\varphi(m)) = \varphi^{\prime \prime}(m^{\prime \prime}) = g(n) \Rightarrow g(\varphi(m)) - g(n) = 0 \Rightarrow g(n - \varphi(m)) = 0.
+\]
+Logo, concluímos que $n - \varphi(m) \in \Ker(g).$
+
+Como $\Ker(g) = \mbox{Im}(g^{\prime}),$ vamos nos voltar agora para a parte destacada em \textcolor{Blue}{azul} no diagrama:
+
+\begin{center}
+\begin{tikzcd}
+            & \textcolor{Blue}{M^{\prime}} \arrow[Blue]{r}{f^{\prime}} \arrow[Blue]{d}{\varphi^{\prime}} & \textcolor{Blue}{M} \arrow{r}{f} \arrow[Blue]{d}{\varphi} & M^{\prime \prime} \arrow{r} \arrow{d}{\varphi^{\prime \prime}} & 0 \\
+0 \arrow{r} & \textcolor{Blue}{N^{\prime}} \arrow[Blue]{r}{g^{\prime}}                               & \textcolor{Blue}{N} \arrow{r}{g}                      & N^{\prime \prime}                                                 &  
+\end{tikzcd}
+\end{center}
+
+Estando $n - \varphi(m)$ em $\mbox{Im}(g^{\prime}),$ temos que existe um $n^{\prime} \in N^{\prime}$ tal que $g^{\prime}(n^{\prime}) = n - \varphi(m).$ Como $\varphi^{\prime}$ é um epimorfismo, temos que existe um $m^{\prime} \in M^{\prime}$ tal que $\varphi^{\prime}9m^{\prime} = n^{\prime}.$ Da comutatividade do diagrama, temos
+\[
+(\varphi \circ f^{\prime})(m^{\prime}) = (g^{\prime} \circ \varphi^{\prime})(m^{\prime}) \Rightarrow \varphi(f^{\prime}(m^{\prime})) = g^{\prime} (\textcolor{Red}{\varphi^{\prime}(m^{\prime}}) \Rightarrow \varphi(f^{\prime}(m^{\prime})) = g^{\prime} (\textcolor{Red}{n^{\prime}}) \Rightarrow \]\[
+\varphi(f^{\prime}(m^{\prime})) = g^{\prime} (n^{\prime}) = n - \varphi(m) \Rightarrow \varphi(f^{\prime}(m^{\prime})) + \varphi(m) = n \Rightarrow \varphi(f^{\prime}(m^{\prime}) + m) = n
+\]
+Como $f^{\prime}(m^{\prime}) + m \in M$ e acabamos de concluir que $\varphi(f^{\prime}(m^{\prime} + m) = n,$ segue que $n \in \mbox{Im}(\varphi).$
+
+Portanto, $\varphi$ é epimorfismo.
+
+\dividiritens{
+\task[\pers{b}] Se $\varphi^{\prime}$ e $\varphi^{\prime \prime}$ são isomorfismos, então são epimorfismos e monomorfismos. Do item (a), já sabemos que se $\varphi^{\prime}$ e $\varphi^{\prime \prime}$ são epimorfismos, então $\varphi$ também é epimorfismo. Mostremos que, se $\varphi^{\prime}$ e $\varphi^{\prime \prime}$ são monomorfismos, então $\varphi$ também é monomorfismo.
+Por hipótese, temos que $\Ker(\varphi^{\prime}) = \Ker(\varphi^{\prime \prime}) = \{ 0\}.$ 
+
+Seja $m \in M.$ Se $m \in \Ker(\varphi),$ então $\varphi^{\prime}(m) = 0.$ Como o diagrama é comutativo e $g^{\prime}, \varphi^{\prime \prime}$ são injetoras, vem
+\[
+(\varphi^{\prime \prime} \circ f)(m) = (g \circ \varphi)(m) \Rightarrow \varphi^{\prime \prime}(f(m)) = g(\textcolor{Red}{\varphi(m)}) \Rightarrow\]\[ \varphi^{\prime \prime}(f(m)) = g(\textcolor{Red}{0})  \Rightarrow \varphi^{\prime \prime}(f(m)) = 0 \Rightarrow f(m) = 0.
+\]
+Daí, concluímos que $m \in \mathrm{Ker}(f).$ Mas como a fila é exata, temos que $\mathrm{Ker}(f)=\mathrm{Im}(f')$, culminando em $m \in \mbox{Im}(f^{\prime}).$ 
+
+Como $m \in \mbox{Im}(f^{\prime}),$ existe um certo $m^{\prime} \in M^{\prime}$ tal que $f^{\prime}(m^{\prime}) = m.$ Utilizando novamente a comutativadade do diagrama e o fato de que $g^{\prime}$ e $\varphi^{\prime}$ são injetoras, vemos que
+\[
+(g^{\prime} \circ \varphi^{\prime})(m^{\prime}) = (\varphi \circ f^{\prime})(m^{\prime}) =  \Rightarrow g^{\prime} (\varphi^{\prime}(m^{\prime})  = \varphi(\textcolor{Red}{f^{\prime}(m^{\prime})}) \Rightarrow \]\[ g^{\prime} (\varphi^{\prime}(m^{\prime}))  = \underbrace{\varphi(\textcolor{Red}{m}) }_{=0} \Rightarrow g^{\prime} (\varphi^{\prime}(m^{\prime}))  = 0 \Rightarrow \varphi^{\prime}(m^{\prime}) = 0 \Rightarrow m^{\prime} = 0
+\]
+Finalmente, temos que 
+\[m = f^{\prime}(\textcolor{Brown}{m^{\prime}}) \Rightarrow m = f^{\prime}(\textcolor{Brown}{0}) \Rightarrow m = 0
+\]
+Portanto, $\varphi$ é um monomorfismo.
+
+JUntando com o que foi feito no item (a), concluímos que $\varphi$ é um isomorfismo.
+}
+
+\questao{5} Seja $f \colon M \to N$ um $A$-homomorfismo. Os conjuntos $\Coker(f) = N/\mbox{Im }(f)$ e $\Coim(f) = M/\Ker(F),$ chamam-se \emph{conúcleo} e \emph{coimagem} de $f,$ respectivamente.
+\dividiritens{
+\task[\pers{a}] Determinar $\Coker(f)$ e $\Coim(f),$ se $f$ é a inclusão de $M$ em $N.$
+\task[\pers{b}] Seja $j \colon N \to \Coker(f)$ a projeção canônica. Provar que $j \circ f = 0.$ Demonstrar que, se $g \colon N \to N^{\prime}$ é um $A$-homomorfismo tal que $g \circ f = 0,$ então existe um único $A$-homomorfismo $g^{\prime} \Coker(f) \to N^{\prime}$ tal que $g^{\prime} = g.$
+}
+
+\solucao{
+\dividiritens{
+\task[\pers{a}]  Se $f$ é a inclusão, então
+\[
+\fullfunction{f}{M}{N}{m}{f(m) = m}
+\]
+Temos que $\Ker (f) = \{ 0 \} $ e $\mbox{Im } f = M.$ Daí, temos que:
+\begin{itemize}
+    \item $\Coker(f) = \frac{N}{\textcolor{NavyBlue}{\mbox{Im }(f)}} \Rightarrow \Coker(f) = \frac{N}{ \frac{N}{\textcolor{NavyBlue}{M}}} \Rightarrow \boxed{\Coker(f) = \frac{N}{M}}$
+
+    \item $\Coim(f) = \frac{M}{\textcolor{Plum}{\Ker (f)}} \Rightarrow \Coim(f) = \frac{M}{\textcolor{Plum}{\{ 0 \}}} \Rightarrow \boxed{\Coim(f) = M}$
+\end{itemize}
+\task[\pers{b}] Sendo $j$ a projeção canônica, temos que:
+\[
+\fullfunction{j}{N}{\Coker(f)}{n}{j(n) = \overline{n} = n + \mbox{Im }(f)}
+\]
+Vamos mostrar que $j \circ f = 0.$ Seja $m \in M.$ Obviamente $f(m) \in \mbox{Im}(f).$ Temos então que
+\[
+(j \circ f)(m) = j(f(m)) = \overline{f(m)} = f(m) + \mbox{Im}(f) = 0 + \mbox{Im}(f) = \overline{0} \Rightarrow \boxed{j \circ f = 0}
+\]
+Vamos agora demonstrar a Propriedade Universal do Cokernel. Pelas informações do enunciado, podemos montar o seguinte diagrama:  }}
+\begin{center}
+    \begin{tikzcd}
+N \arrow[swap]{dd}{g} \arrow{rr}{j} &  & \Coker(f) \arrow[dashed]{lldd}{\exists ! \ g^{\prime}} \\
+                                   &  &                                                         \\
+N^{\prime}                         &  &                                                        
+\end{tikzcd}
+\end{center}
+Queremos provar que existe uma única $g^{\prime}$ tal que este diagrama comuta, ou seja, tal que $g^{\prime} \circ j = g.$
+
+Considere a aplicação
+\[
+\fullfunction{g^{\prime}}{\Coker(f)}{N^{\prime}}{n + \mbox{Im}(f)}{g(n)}
+\]
+
+Observe que $g^{\prime}$ está bem definida: precisamos ver que $g^{\prime}$ para representantes distintos de uma mesma classe de equivalência. Tomemos $\overline{n_1} = n_1 + \mbox{Im}(f)$ e $\overline{n_2} = n_2 + \mbox{Im}(f)$ tal que $\overline{n_1} = \overline{n_2},$ o que implica $n_1 - n_2 \in \mbox{Im}(f),$ ou seja, existe um certo $m \in M$ tal que $f(m) = n_1 - n_2.$ Assim:
+\[
+g^{\prime}(\overline{n_1}) - g^{\prime}(\overline{n_2}) = \textcolor{Rhodamine}{g^{\prime}(n_1 + \mbox{Im}(f))} - \textcolor{Cerulean}{g^{\prime}(n_2 + \mbox{Im}(f))} = \textcolor{Rhodamine}{g(n_1)} - \textcolor{Cerulean}{g(n_2)} = \]\[ g(\textcolor{Periwinkle}{n_1 - n_2}) = g(\textcolor{Periwinkle}{f(m)}) = (g \circ f)(m) = 0
+\]
+Logo, $g^{\prime}$ está bem-definida.
+
+Vejamos também que $g^{\prime}$ é um $A$-homomorfismo:
+\begin{itemize}
+    \item[$\clubsuit$] Para $\overline{n_1} = n_1 + \mbox{Im}(f), \overline{n_2} = n_2 + \mbox{Im}(f) \in \Coker(f),$ temos que
+    \[
+    g^{\prime}(\overline{n_1} + \overline{n_2}) = g(n_1 + n_2) = \textcolor{RoyalBlue}{g(n_1)} + \textcolor{Laranja}{g(n_2)} = \textcolor{RoyalBlue}{g^{\prime}(\overline{n_1})} + \textcolor{Laranja}{g^{\prime}(\overline{n_2})} \Rightarrow \boxed{g^{\prime}(\overline{n_1} + \overline{n_2}) = g^{\prime}(\overline{n_1}) + g^{\prime}(\overline{n_2})}
+    \]
+    \item[$\textcolor{Red}{\varheart}$] Para $\overline{n} = n + \mbox{Im}(f) \in \Coker(f)$ e $\alpha \in A,$ temos que
+    \[
+    g^{\prime}(\alpha \overline{n}) = g^{\prime}(\alpha (n + \mbox{Im}(f)) = g^{\prime}(\alpha n + \mbox{Im}(f)) = g(\alpha n) = \alpha \textcolor{JungleGreen}{g(n)} = \alpha \textcolor{JungleGreen}{g^{\prime}(\overline{n})} \Rightarrow \boxed{g^{\prime}(\alpha \overline{n}) = \alpha g^{\prime}( \overline{n})}
+    \]
+\end{itemize}
+
+Além disso, percebe-se também que, para $n \in N,$
+\[
+(g^{\prime} \circ j)(m) = g^{\prime}(\textcolor{ForestGreen}{j(n)}) =  g^{\prime}(\textcolor{ForestGreen}{\overline{n}}) = g^{\prime}(n + \mbox{Im}(f)) = g(n) \Rightarrow \boxed{g^{\prime} \circ j = g}
+\]
+Mostremos que $g^{\prime}$ é a única função que satisfaz as condições descritas na questão. Seja $h^{\prime} \colon \Coker(f) \to N^{\prime}$ tal que $h^{\prime} \circ j = g.$ Para $\overline{n} \in \Coker(f),$ temos que $j(n) = \overline{n}.$ Dessa forma,
+\[
+h^{\prime}(\textcolor{BrickRed}{\overline{n}}) - g^{\prime}(\textcolor{BrickRed}{\overline{n}}) = h^{\prime}(\textcolor{BrickRed}{j(n)}) - g^{\prime}(\textcolor{BrickRed}{j(n)}) =\]\[ \textcolor{NavyBlue}{(h^{\prime} \circ j)}(n) - \textcolor{OliveGreen}{(g^{\prime} \circ j)}(n) =   \textcolor{NavyBlue}{g}(n) - \textcolor{OliveGreen}{g}(n) = 0 \Rightarrow \]\[ \boxed{h^{\prime}(\overline{n}) = g^{\prime}(\overline{n}) \ \forall \ \overline{n} \in \Coker(f)}
+\]
+
+Portanto, segue que $g^{\prime} = h^{\prime}.$ Daí, $g^{\prime}$ é única.
+\end{document}
