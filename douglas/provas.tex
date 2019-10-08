@@ -201,9 +201,9 @@ M \arrow{r}{f} & N \arrow{r}{g} & Q \arrow{r} & 0
         \]
         Logo, dado
         \[
-        \fullfunction{g}{N}{\Coker(f) \cong Q}{n}{\overline{n} = n + \mbox{Im}(f)},
+        g \colon N \to \Coker(f) \cong Q,
         \]
-Veja que $g \circ f = 0,$ pois $\mbox{Im}(f) = \Ker(g)$. Além disso, $\varphi \colon N \to P$ é um $A$-homomorfismo tal que $\varphi \circ f = 0,$ como visto antes. Então, pela Propriedade Universal do Cokernel descrita no item (b) da questão $5,$ temos que existe um único $A$-homomorfismo $\psi \colon \Coker(f) \cong Q \to P$ tal que $\psi \colon g = \varphi,$ ou seja, que torna o diagrama
+Veja que $g \circ f = 0,$ pois $\mbox{Im}(f) = \Ker(g)$. Além disso, $\varphi \colon N \to P$ é um $A$-homomorfismo tal que $\varphi \circ f = 0,$ como visto antes, e $\Ker(g) = \mbox{Im }(f) \subseteq \Ker(\varphi).$ Então, pela Propriedade Universal do Cokernel descrita no item (b) da questão $5,$ temos que existe um único $A$-homomorfismo $\psi \colon \Coker(f) \cong Q \to P$ tal que $\psi \circ g = \varphi,$ ou seja, que torna o diagrama
 \begin{center}
     \begin{tikzcd}
 N \arrow[swap]{dd}{\varphi} \arrow{rr}{g} &  & Q \arrow[dashed]{lldd}{\exists ! \ \psi}  \\
@@ -213,10 +213,10 @@ P                                        &  &
 \end{center}
 
 
-
+ 
 comutativo. Daí,
 \[
-\psi \circ g = \varphi \Rightarrow \boxed{\overline{G}(\psi) = \varphi}
+\psi \circ g = \varphi \Rightarrow \boxed{\overline{g}(\psi) = \varphi}
 \]
 Portanto, $\varphi \in \mbox{Im}(g).$
 
@@ -248,7 +248,7 @@ Antes de iniciar a resolução, vamos detalhar quais são as informações descr
     \item[$\clubsuit$] A primeira fila é exata, ou seja, $\mbox{Im}(f^{\prime}) = \Ker(f),$ e $f$ é um epimorfismo (i.e. $\mbox{Im}(f) = M^{\prime \prime});$
     \item[$\textcolor{Red}{\varheart}$] A segunda fila é exata, ou seja, $g^{\prime}$ é um monomorfismo (i.e. $\mbox{Ker}(g) = \{ 0 \}$) e $\mbox{Im}(g^{\prime}) = \Ker(g).$
     
-Além disso, endo os diagramas comutativos, temos que
+Além disso, sendo os diagramas comutativos, temos que
     \item[$\spadesuit$] $\varphi \circ f^{\prime}= g^{\prime} \circ \varphi^{\prime};$
     \item[$\textcolor{Red}{\vardiamond}$] $g \circ \varphi = \varphi^{\prime \prime} \circ f.$
 \end{itemize}

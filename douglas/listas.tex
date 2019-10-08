@@ -8,7 +8,15 @@
 %Environments para esta lista
 % ---------------------------------------------------
 \definecolor{Floresta}{rgb}{0.13,0.54,0.13}
-\newcommand{\exercicio}[1]{\subsection{Exercício #1} \textcolor{blue}{\bf(#1)}}
+%\newcommand{\exercicio}[1]{\subsection{Exercício #1} \textcolor{blue}{\bf(#1)}}
+
+\newcounter{exercicio}[section]
+\newenvironment{exercicio}[1][]{\refstepcounter{exercicio}\par\medskip
+   \subsection{Exercício~\theexercicio. #1} \rmfamily \textcolor{blue}{\bf(\theexercicio)} \rmfamily}{\medskip }
+   
+
+ %  \subsection{Exercício #1} \textcolor{blue}{\bf(#1)}
+   
 \newcommand{\dividiritens}[1]{\begin{tasks}[counter-format={(tsk[a])},label-width=3.6ex, label-format = {\bfseries}, column-sep = {0pt}](1) #1 \end{tasks}}
 \newcommand{\pers}[1]{\textcolor{Floresta}{$\negrito{(#1)} $}}
 
@@ -510,7 +518,7 @@ p(X,Y) = \textcolor{red}{a}X +  \textcolor{red}{b}Y + c \Rightarrow p(X,Y) = \te
 o que significa que $\deg(p) \neq 1,$ contradição.
 Logo, $\langle X, Y \rangle$ não é um ideal principal, e portanto $F[X,Y]$ não é um anel principal.
 }
-\exercicio{15} Seja $A = \mathcal{C}([0, 1])$ o anel das funções contínuas de $[0, 1]$ em $\mathbb{R}.$ Se $M$ é um ideal maximal de $A$, prove que existe $c \in [0, 1]$ tal que \[M = \{f \in A | f(c) = 0\}.\]
+\exercicio{15} Seja $A = \mathcal{C}([0, 1])$ o anel das funções contínuas de $[0, 1]$ em $\mathbb{R}.$ Se $M$ é um ideal maximal de $A$, prove que existe $c \in [0, 1]$ tal que \[M = \{f \in A \mid f(c) = 0\}.\]
 \solucao{%http://www.math.cmu.edu/~mubayi/mathstudies/hw2sol.pdf
 Para cada $c \in [0,1],$ vamos supor, por contradição, que existe $f \in M$ que não se anula em $c$ (caso contrário $M \subseteq \{f \in A \mid f(c) = 0\}$, aí, pela maximalidade de $M$, teremos $M = \{f \in A \mid f(c) = 0\}$). Como $f$ é contínua, existe uma vizinhança $N$ de $c$ tal que para todo $x\in N$ tenhamos $f(x) \neq 0.$ Assim, considerando a coleção $\mathcal{N}$ dos conjuntos abertos $N$ em $[0,1]$ tais que exista $f\in M$ tal que $\forall x\in N:f(x)\neq 0$, então os elementos de $\mathcal{N}$ cobrem $[0,1],$ e como este é compacto, segue que existem finitos elementos $N_1, \ldots, N_n$ de $\mathcal{N}$ que cobrem $[0,1],$ aí existem funções $f_1,\dots,f_n\in M$ tais que para todo $i$ tenhamos $\forall x\in N_i:f_i(x)\neq 0$. Definamos agora
 \[
@@ -882,7 +890,72 @@ Logo $S\cong\mathbb{Q}(\sqrt{-3})$.
 \section{\textcolor{Floresta}{Lista 2}}
 
 \exercicio{1} Sejam $\{ M_i\}_{i \in I}$ e $\{ N_i\}_{i \in I}$ duas famílias de $A$-módulos. Se $N_i$ é submódulo de $M_i$ para todo $i \in I,$ prove que $\bigoplus\limits_{i \in I} N_i$ pode ser identificado naturalmente como um submódulo de $\bigoplus\limits_{i \in I} M_i$ e   \[\frac{\bigoplus\limits_{i \in I} M_i}{\bigoplus\limits_{i \in I} N_i } \cong \bigoplus\limits_{i \in I} \frac{M_i}{N_i}.\] 
-\solucao{}
+\solucao{
+Mostremos que $M = \bigoplus\limits_{i \in I} M_i$ é submódulo de $N = \bigoplus\limits_{i \in I} N_i.$
+Sejam $n = (n_i)_{i \in I}$ e $m = (m_i)_{i \in I}$ elementos de $N.$ Como cada $N_i$ é submódulo de $M_i,$ então $n_i + m_i \in N_i \ \forall i \in I.$ Logo,
+\[
+n + m = (n_i)_{i \in I} + (m_i)_{i \in I} = (n_i + m_i)_{i \in I}
+\]
+Para $\alpha \in A$ e $n = (n_i)_{i \in I} \in N,$ como cada $N_i$ é submódulo de $M_i,$ $\alpha n_i \in N_i.$ Logo, $(\alpha n_i)_{i \in I} \in N.$ Logo, concluímos que $N$ é submódulo de $M.$
+
+Sabemos que, se $M$ é soma direta de $ M_1 \oplus \ldots \oplus M_n,$ então todo $m \in M$ pode ser escrito como soma de elementos de $M_i$ \textbf{de maneira única}. Podemos escrever então
+\[m = \sum\limits_{i \in I} m_i\]
+
+O mesmo se aplica a $N.$ Dito isso, considere a aplicação
+\[
+\fullfunction{\varphi}{M = \bigoplus\limits_{i\in I} M_i}{\bigoplus\limits_{i \in I}  \frac{M_i}{N_i}}{v = \sum\limits_{i\in I} m_i}{\varphi(m) = \sum\limits_{i \in I}^n (m_i + N_i)}
+\]
+Verifiquemos que $\varphi$ é um $A$-homomorfismo de módulos:
+\begin{itemize}
+    \item Para todo $u, v \in M,$ podemos escrever de maneira única $u = \sum\limits_{i \in I} u_i$ e $v = \sum\limits_{i \in I} v_i$. Portanto, temos
+    \[\varphi(u) + \varphi(v) = \varphi\left(\sum\limits_{i\in I} u_i \right) + \varphi\left(\sum\limits_{i\in I} v_i \right) = \sum\limits_{i\in I} (u_i + N_i) +  \sum\limits_{i \in I} (v_i + N_i) =  \]\[\sum\limits_{i \in I} ((u_i + N_i) + (v_i + N_i)) = \varphi(u + v) \Rightarrow \varphi(u) + \varphi(v) = \varphi(u+v).\]
+    \item Para todo $m \in M,$ podemos escrever de maneira única $m = \sum\limits_{i \in I} m_i;$ assim, para $\alpha \in A:$
+    \[
+    \varphi(\alpha m) = \varphi\left(\alpha \sum\limits_{i\in I} m_i \right) =   \varphi\left( \sum\limits_{i \in I} \alpha m_i \right) = \varphi\left( \sum\limits_{i \in I} \alpha m_i \right) = \sum\limits_{i \in I} (\alpha m_i + N_i) = \]\[ \sum\limits_{i \in I} \alpha (m_i + N_i)  = \alpha \sum\limits_{i \in I} (m_i + N_i) = \alpha \varphi(m) \Rightarrow \varphi(\alpha m) = \alpha \varphi(m) 
+    \]
+\end{itemize}
+Logo, $\varphi$ é um  $A$-homomorfismo de módulos. Vamos utilizar o Primeiro Teorema do Homomorfismo em $\varphi.$ Para isso, calculemos o núcleo e a imagem de $\varphi:$
+\begin{itemize}
+    \item $\mbox{Im} (\varphi):$ Dado $m \in \bigoplus\limits_{i\in I}  \frac{M_i}{N_i},$ temos que esse elemento pode ser escrito de maneira única como 
+    \[
+    m = \sum\limits_{i \in I} (m_i + N_i),
+    \]
+    onde $m_i \in M_i.$ Então temos que
+        \[
+     m = \sum\limits_{i \in I} (m_i + N_i) = \varphi\left(  \sum\limits_{i \in I} m_i \right).
+    \]
+    Logo, $\varphi$ é sobrejetora, e 
+    \[
+    \mbox{Im}(\varphi) = \bigoplus\limits_{i \in I}  \frac{M_i}{N_i}
+    \]
+    \item $\mbox{Ker} (\varphi):$ Considere $m \in \mbox{Ker}(\varphi).$ Então, tomando $m = \sum\limits_{i \in I} m_i,$ temos que
+    \[
+ m \in \mbox{Ker}(\varphi) \Rightarrow \varphi(m) = 0 \Rightarrow \varphi\left(\sum\limits_{i \in I} m_i \right) = 0 \Rightarrow \sum\limits_{i \in I} (m_i + N_i) = 0 \Rightarrow \]\[m_i + N_i = 0, \ \forall i \in  I \Rightarrow m_i \in N_i , \ \forall i \in  I \Rightarrow m \in N
+    \]
+    Assim, $\mbox{Ker}(\varphi) \subseteq N.$
+    Agora, tome $n \in N.$ Então, como $N = \bigoplus\limits_{i \in I} N_i,$ então podemos escrever $n$ de maneira única como
+    \[
+    n = \sum\limits_{i \in I} n_i,
+    \]
+    onde $n_i \in N_i,$ para $i \in I.$
+    Desse modo,
+    \[
+    \varphi(n) = \varphi\left(  \sum\limits_{i \in I} n_i \right) = \sum\limits_{i \in I} (n_i + N_i) = \underbrace{\sum\limits_{i \in I}^n (0 + N_i)}_{\mbox{pois } n_i \in N_i \ \forall i} = 0.
+    \]
+    Assim, $N \subseteq \mbox{Ker}(\varphi).$
+    Concluímos que $\mbox{Ker}(\varphi) = N.$
+\end{itemize}
+
+Pelo Primeiro Teorema do Homomorfismo, temos que
+\[
+    \frac{M}{\textcolor{Blue}{\mbox{Ker}(\varphi)}} \cong \textcolor{Verde}{\mbox{Im}(\varphi)} \Rightarrow  \frac{M}{\textcolor{Blue}{N}} \cong \textcolor{Verde}{ \bigoplus\limits_{i\in I}  \frac{M_i}{N_i}} 
+\]
+Então:
+\[
+\frac{M}{N} \cong \bigoplus\limits_{i \in I} \frac{M_i}{N_i},
+\]
+como queríamos.
+}
 
 \exercicio{2} Sejam $M$ um $A$-módulo, $N_1$ e $N_2$ submódulos de $M$ tais que $M = N_1 \oplus N_2.$ Seja $N^\prime_1$ um submódulo de $M$ isomorfo a $N_1.$ Em geral, não é verdade que
 \[
@@ -901,7 +974,23 @@ são submódulos de ${}_AA;$
 \task[\pers{b}] Os submódulos $S_k$, para $1 \le k \le n,$ são simples, isto é, os únicos submódulos dele são $\{0\}$ e ele próprio;
 \task[\pers{c}] A = $S_1 \oplus S_2 \oplus \ldots \oplus S_n.$
 }
-\solucao{}
+\solucao{
+\dividiritens{
+\task[\pers{a}] Observe que 
+\[
+S_k = \{ (a_{ij}) \in A | a_{ij} = 0 \ \mbox{se} \ i \neq k \} = \left\{ 
+\begin{bmatrix} 
+0 & \cdots & 0 & a_{k1} & 0 & \ldots & 0 \\
+0 & \cdots & 0 & a_{k2} & 0 & \ldots & 0 \\
+0 & \cdots & 0 & a_{k3} & 0 & \ldots & 0 \\
+\vdots & \ddots & \vdots &  \vdots &  \vdots & \ddots &  \vdots \\
+%\vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots  \\
+0 & \cdots & 0 & a_{kn} & 0 & \ldots & 0
+\end{bmatrix} : a_{kj} \in F \right\}
+\]
+
+}
+}
 
 \exercicio{4} Dada uma sequência exata
 \begin{center}
@@ -1050,6 +1139,7 @@ e $\abs{G_i} = p^i,$ ($i = 0, \ldots, n).$
 \solucao{}
 \exercicio{28} Seja $G$ um grupo abeliano. Prove que se $G$ tem elementos de ordens $m$ e $n$ respectivamente, então contém algum elemento de ordem $\mmc(m, n).$
 \solucao{}
+%https://notesonmathematics.wordpress.com/2012/08/28/the-mathematics-of-brainvita/
 \end{document} 
 https://math.stackexchange.com/questions/1617301/number-of-homomorphisms-from-mathbbz-m-to-mathbbz-n?noredirect=1&lq=1
 https://math.stackexchange.com/questions/798119/quotient-modules-isomorphic-rightarrow-submodules-isomorphic
